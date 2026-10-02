@@ -1,0 +1,10 @@
+{
+  "name": "JLPT N2 文法マスター",
+  "short_name": "JLPT N2",
+  "description": "Ứng dụng ôn tập ngữ pháp tiếng Nhật JLPT N2 với 30 Chapters, 480 câu hỏi phân loại theo 3 dạng đề thi: 文の文法1, 文の文法2 (★), và 文章の文法.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f8fc",
+  "theme_color": "#f6f8fc"
+}

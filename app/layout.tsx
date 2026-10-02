@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
 
 import "./globals.css";
@@ -17,6 +17,18 @@ export const metadata: Metadata = {
   title: "JLPT N2 文法マスター - Ôn Tập Ngữ Pháp N2",
   description:
     "Ứng dụng ôn tập ngữ pháp tiếng Nhật JLPT N2 với 30 Chapters, 480 câu hỏi phân loại theo 3 dạng đề thi: 文の文法1, 文の文法2 (★), và 文章の文法.",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "JLPT N2 文法マスター",
+  },
+  manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
