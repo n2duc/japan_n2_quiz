@@ -1,6 +1,12 @@
 import { notFound } from "next/navigation";
-import { getChapterById } from "@/lib/chapters-data";
+import { getChapterById, getAllChapters } from "@/lib/chapters-data";
 import { ChapterClientPage } from "./chapter-client";
+
+export function generateStaticParams() {
+  return getAllChapters().map((ch) => ({
+    id: String(ch.chapter_id),
+  }));
+}
 
 interface ChapterPageProps {
   params: Promise<{ id: string }>;
