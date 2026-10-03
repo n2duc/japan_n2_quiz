@@ -70,7 +70,7 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
 
   if (activeQuizQuestions && activeQuizQuestions.length > 0) {
     return (
-      <main className="min-h-screen bg-black text-white p-3 flex flex-col justify-center items-center">
+      <main className="min-h-dvh bg-black text-white p-3 flex flex-col justify-center items-center">
         <QuizPlayer
           questions={activeQuizQuestions}
           title={quizTitle}
@@ -91,6 +91,7 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
         onBack={() => router.push("/")}
         onSelectSection={handleSelectSection}
         onSelectChapterAll={handleSelectChapterAll}
+        onSwitchChapter={(newId) => router.push(`/chapter/${newId}`)}
       />
     </main>
   );

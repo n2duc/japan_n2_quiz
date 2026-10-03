@@ -1,34 +1,41 @@
 "use client";
 
-import React from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { TranslateIcon } from "@hugeicons/core-free-icons";
 import { useLanguage } from "@/lib/i18n";
 
 export function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex items-center bg-white border border-slate-200/90 rounded-full p-0.5">
+    <div
+      role="group"
+      aria-label="Language selection"
+      className="relative h-10 w-22 p-1 bg-white border border-slate-200 rounded-full grid grid-cols-2 select-none"
+    >
+      {/* Sliding active indicator pill */}
+      <div
+        className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full bg-[#5368a4] transition-transform duration-200 ease-out will-change-transform pointer-events-none ${language === "ja" ? "translate-x-full" : "translate-x-0"
+          }`}
+      />
+
       <button
+        type="button"
         onClick={() => setLanguage("vi")}
         title="Tiếng Việt"
-        className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
-          language === "vi"
-            ? "bg-[#5368a4] text-white"
-            : "text-slate-500 hover:text-slate-800"
-        }`}
+        className={`relative z-10 h-full w-full rounded-full text-xs font-bold transition-colors duration-200 cursor-pointer flex items-center justify-center ${language === "vi"
+          ? "text-white"
+          : "text-slate-500 hover:text-slate-800"
+          }`}
       >
         VI
       </button>
       <button
+        type="button"
         onClick={() => setLanguage("ja")}
         title="日本語 (Japanese)"
-        className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
-          language === "ja"
-            ? "bg-[#5368a4] text-white"
-            : "text-slate-500 hover:text-slate-800"
-        }`}
+        className={`relative z-10 h-full w-full rounded-full text-xs font-bold transition-colors duration-200 cursor-pointer flex items-center justify-center ${language === "ja"
+          ? "text-white"
+          : "text-slate-500 hover:text-slate-800"
+          }`}
       >
         JA
       </button>

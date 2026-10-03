@@ -289,7 +289,7 @@ export function QuizPlayer({
   const displaySubtitle = `${currentIndex + 1} / ${totalQuestions}`;
 
   return (
-    <div className="w-full max-w-md mx-auto min-h-screen flex flex-col justify-between pb-8 select-none">
+    <div className="w-full max-w-md mx-auto flex-1 flex flex-col justify-between pb-4 select-none">
       {/* Top Header matching the screenshot */}
       <header className="pt-3 pb-2 px-2">
         <div className="flex items-center justify-between">
@@ -387,7 +387,7 @@ export function QuizPlayer({
         )}
 
         {/* Central Question Card matching screenshot aesthetics */}
-        <div className="bg-[#181920] border border-white/5 rounded-3xl p-6 sm:p-8 min-h-[220px] flex flex-col justify-between text-center relative">
+        <div className="bg-[#181920] border border-white/5 rounded-3xl p-6 sm:p-8 min-h-55 flex flex-col justify-between text-center relative">
           {/* Audio & Bookmark Actions */}
           <div className="absolute top-4 right-4 flex items-center gap-2">
             <button

@@ -203,7 +203,7 @@ export default function HomePage() {
   // 1. If currently in Quiz Mode: Render QuizPlayer
   if (activeQuizQuestions && activeQuizQuestions.length > 0) {
     return (
-      <main className="min-h-screen bg-black text-white p-3 flex flex-col justify-center items-center">
+      <main className="min-h-dvh bg-black text-white p-3 flex flex-col justify-center items-center">
         <QuizPlayer
           questions={activeQuizQuestions}
           title={quizTitle}
@@ -229,6 +229,12 @@ export default function HomePage() {
           }}
           onSelectSection={handleStartSection}
           onSelectChapterAll={handleStartChapterAll}
+          onSwitchChapter={(newId) => {
+            const nextCh = allChapters.find((c) => c.chapter_id === newId);
+            if (nextCh) {
+              setSelectedChapterForSections(nextCh);
+            }
+          }}
         />
       </main>
     );
@@ -305,21 +311,21 @@ export default function HomePage() {
         {/* 3 Stats Cards in a Row matching the image */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
           <div className="bg-white rounded-2xl p-4 border border-slate-200/80 text-center">
-            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none mb-1.5">
+            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none">
               {allQuestions.length}
             </span>
             <span className="text-xs font-medium text-slate-400">{t.totalQuestions}</span>
           </div>
 
           <div className="bg-white rounded-2xl p-4 border border-slate-200/80 text-center">
-            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none mb-1.5">
+            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none">
               {allChapters.length}
             </span>
             <span className="text-xs font-medium text-slate-400">{t.totalChapters}</span>
           </div>
 
           <div className="bg-white rounded-2xl p-4 border border-slate-200/80 text-center">
-            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none mb-1.5">
+            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none">
               {progress.answeredCount > 0 ? progress.answeredCount : "10"}
             </span>
             <span className="text-xs font-medium text-slate-400">

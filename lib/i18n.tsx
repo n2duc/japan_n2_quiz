@@ -19,6 +19,8 @@ export interface Translations {
   reviewMistakes: string;
   practiceEntireChapter: string;
   changeChapter: string;
+  selectChapterDesc: string;
+  currentChapterBadge: string;
   sectionsInChapter: string;
   sectionsUnit: string;
   questionsUnit: string;
@@ -94,6 +96,8 @@ const translations: Record<Language, Translations> = {
     reviewMistakes: "Ôn lại {count} câu sai",
     practiceEntireChapter: "Luyện toàn bộ {chapter} ({count} câu hỏi)",
     changeChapter: "Đổi Chapter",
+    selectChapterDesc: "Chọn một chapter khác để tiếp tục ôn tập ngữ pháp",
+    currentChapterBadge: "Đang học",
     sectionsInChapter: "Các phần trong {chapter}",
     sectionsUnit: "phần",
     questionsUnit: "câu",
@@ -167,6 +171,8 @@ const translations: Record<Language, Translations> = {
     reviewMistakes: "間違えた{count}問を復習",
     practiceEntireChapter: "{chapter} 全体を練習 ({count}問)",
     changeChapter: "章を変更",
+    selectChapterDesc: "学習を続ける章を選択してください",
+    currentChapterBadge: "選択中",
     sectionsInChapter: "{chapter} の問題セクション",
     sectionsUnit: "セクション",
     questionsUnit: "問",
