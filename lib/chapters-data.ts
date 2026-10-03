@@ -93,6 +93,7 @@ export function getSectionQuestions(
         ? `（ ${q.question_number} ）に入る最もよいものを選びなさい。`
         : `第${q.question_number}問`),
     options: q.options,
+    optionsVi: q.options_vi,
     answer: q.answer,
     orderedSequence: q.ordered_sequence,
   }));

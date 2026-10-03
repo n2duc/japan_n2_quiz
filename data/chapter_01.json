@@ -15,6 +15,12 @@
             "3": "ばかりいると",
             "4": "ばかりでなく"
           },
+          "options_vi": {
+            "1": "Chỉ vì (dẫn đến kết quả xấu)",
+            "2": "Riêng... (thì tuyệt đối không)",
+            "3": "Nếu cứ suốt ngày / cứ toàn...",
+            "4": "Không chỉ / không những..."
+          },
           "answer": 3
         },
         {
@@ -25,6 +31,12 @@
             "2": "かというと",
             "3": "といったら",
             "4": "というなら"
+          },
+          "options_vi": {
+            "1": "Hễ nói đến / nghĩa là...",
+            "2": "Nói là... (nhưng chưa hẳn)",
+            "3": "Hễ nhắc đến (cảm thán)",
+            "4": "Nếu nói là..."
           },
           "answer": 2
         },
@@ -37,6 +49,12 @@
             "3": "ものには",
             "4": "もので"
           },
+          "options_vi": {
+            "1": "Nếu không... thì không thể...",
+            "2": "Trong khi / nhân lúc...",
+            "3": "Những thứ / ai mà...",
+            "4": "Bởi vì (biện minh)..."
+          },
           "answer": 1
         },
         {
@@ -47,6 +65,12 @@
             "2": "そうだ",
             "3": "ものだ",
             "4": "ようだ"
+          },
+          "options_vi": {
+            "1": "Nên / cần phải (khuyên nhủ)",
+            "2": "Nghe nói là...",
+            "3": "Bản chất là / vốn dĩ là...",
+            "4": "Có vẻ như / dường như..."
           },
           "answer": 3
         },
@@ -59,6 +83,12 @@
             "3": "られる",
             "4": "やすい"
           },
+          "options_vi": {
+            "1": "Khó mà / khó lòng (tin tưởng, tha thứ)",
+            "2": "Khó làm (về thể chất, thao tác)",
+            "3": "Có thể / được...",
+            "4": "Dễ làm / dễ xảy ra..."
+          },
           "answer": 1
         },
         {
@@ -69,6 +99,12 @@
             "2": "ところで",
             "3": "ばかりに",
             "4": "からには"
+          },
+          "options_vi": {
+            "1": "Sau một hồi lâu... rốt cuộc thì (kết quả xấu)",
+            "2": "Dù có... thì cũng vô ích",
+            "3": "Chỉ vì (kết quả xấu)",
+            "4": "Một khi đã... thì phải..."
           },
           "answer": 1
         },
@@ -81,6 +117,12 @@
             "3": "そうにない",
             "4": "てはいけない"
           },
+          "options_vi": {
+            "1": "Hay có xu hướng / thường hay...",
+            "2": "Có khả năng / e là sẽ (kết quả tiêu cực)",
+            "3": "Khó có vẻ là sẽ...",
+            "4": "Không được phép..."
+          },
           "answer": 2
         },
         {
@@ -91,6 +133,12 @@
             "2": "先立って",
             "3": "ともなって",
             "4": "つながって"
+          },
+          "options_vi": {
+            "1": "Nối tiếp sau...",
+            "2": "Trước khi / chuẩn bị trước...",
+            "3": "Cùng với / đi kèm với...",
+            "4": "Liên quan / kết nối tới..."
           },
           "answer": 3
         },
@@ -103,6 +151,12 @@
             "3": "のみか",
             "4": "まいか"
           },
+          "options_vi": {
+            "1": "Không cần thiết đến mức phải...",
+            "2": "Chỉ còn cách là...",
+            "3": "Không chỉ... mà còn...",
+            "4": "Chắc là không / định không..."
+          },
           "answer": 1
         },
         {
@@ -113,6 +167,12 @@
             "2": "だけに",
             "3": "からこそ",
             "4": "ことから"
+          },
+          "options_vi": {
+            "1": "Mặc dù... thế nhưng...",
+            "2": "Chính vì... nên càng...",
+            "3": "Chính vì... nên mới...",
+            "4": "Từ việc / do căn cứ là..."
           },
           "answer": 1
         }
@@ -131,6 +191,12 @@
             "3": "泣いている",
             "4": "あんなに"
           },
+          "options_vi": {
+            "1": "Hễ nhìn / nhìn vào...",
+            "2": "Vào lúc / cảnh tượng...",
+            "3": "Đang khóc",
+            "4": "Đến mức như thế kia"
+          },
           "ordered_sequence": [4, 3, 2, 1],
           "answer": 2
         },
@@ -142,6 +208,12 @@
             "2": "されるか",
             "3": "ともかく",
             "4": "どうかは"
+          },
+          "options_vi": {
+            "1": "Buổi phỏng vấn",
+            "2": "Có được tuyển hay không",
+            "3": "Khoan hãy bàn đến / tạm gác lại...",
+            "4": "Liệu có... hay không"
           },
           "ordered_sequence": [2, 4, 3, 1],
           "answer": 3
@@ -155,6 +227,12 @@
             "3": "いただけて",
             "4": "として"
           },
+          "options_vi": {
+            "1": "Sản phẩm",
+            "2": "Thì mới lần đầu...",
+            "3": "Nhận được (sự hài lòng)",
+            "4": "Với tư cách là..."
+          },
           "ordered_sequence": [3, 2, 1, 4],
           "answer": 1
         },
@@ -166,6 +244,12 @@
             "2": "ことは",
             "3": "やった",
             "4": "やれる"
+          },
+          "options_vi": {
+            "1": "Tất cả những gì trong khả năng",
+            "2": "Những điều / việc...",
+            "3": "Đã làm",
+            "4": "Có thể làm được"
           },
           "ordered_sequence": [4, 1, 2, 3],
           "answer": 2
@@ -184,6 +268,12 @@
             "3": "ないので",
             "4": "ないなら"
           },
+          "options_vi": {
+            "1": "Dù không phải là...",
+            "2": "Mặc dù không phải là...",
+            "3": "Vì không phải là (để cho người khác xem)",
+            "4": "Nếu không phải là..."
+          },
           "answer": 3
         },
         {
@@ -194,6 +284,12 @@
             "3": "にとって",
             "4": "に際して"
           },
+          "options_vi": {
+            "1": "Trong (công việc và đời sống)",
+            "2": "Từ... trải đến...",
+            "3": "Đối với...",
+            "4": "Nhân dịp / khi..."
+          },
           "answer": 1
         },
         {
@@ -203,6 +299,12 @@
             "2": "しかし",
             "3": "そのため",
             "4": "ですから"
+          },
+          "options_vi": {
+            "1": "Ngoài ra / hơn nữa",
+            "2": "Tuy nhiên",
+            "3": "Vì lý do đó",
+            "4": "Chính vì vậy / do đó"
           },
           "answer": 4
         }

@@ -15,7 +15,13 @@
             "3": "ほどに",
             "4": "ばかりに"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Có vẻ… / trông có vẻ…",
+            "2": "Có xu hướng…",
+            "3": "Đến mức…",
+            "4": "Chỉ vì… nên dẫn đến kết quả xấu"
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "持たないものでしょうか",
             "4": "持たないではいられませんか"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Bạn có muốn có… không?",
+            "2": "Chúng ta hãy cùng có…!",
+            "3": "Liệu có thể không có… không?",
+            "4": "Không thể không có… sao?"
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "かまわず",
             "4": "のみならず"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Bất kể…",
+            "2": "Bất kể… / mặc dù…",
+            "3": "Không bận tâm đến…",
+            "4": "Không chỉ… mà còn…"
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "にあたり",
             "4": "の際は"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Một khi đã… thì…",
+            "2": "Ngay sau khi… / tùy thuộc vào…",
+            "3": "Nhân dịp…",
+            "4": "Khi… / trong trường hợp…"
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "にかけて",
             "4": "にわたって"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Trong phạm vi… / chừng nào còn…",
+            "2": "Đến mức… / khoảng…",
+            "3": "Từ… đến…",
+            "4": "Suốt… / trải dài trong…"
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "など",
             "4": "まで"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghe nói… / chẳng hạn như…",
+            "2": "Tại… (cách nói trang trọng)",
+            "3": "Vân vân / những thứ như…",
+            "4": "Đến cả… / cho đến…"
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "ならでは",
             "4": "とはいうものの"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Xét với tư cách…",
+            "2": "Xét trên phương diện…",
+            "3": "Chỉ có ở…",
+            "4": "Tuy nói là… nhưng…"
+          }
         },
         {
           "question_number": 8,
@@ -92,7 +134,13 @@
             "3": "ざるを得ない",
             "4": "てたまらない"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Khó mà…",
+            "2": "Không đáng công…",
+            "3": "Buộc phải…",
+            "4": "… vô cùng / không thể chịu nổi"
+          }
         },
         {
           "question_number": 9,
@@ -103,7 +151,13 @@
             "3": "ほどだ",
             "4": "ものか"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Biết bao…! (cảm thán)",
+            "2": "Nên… (lời khuyên)",
+            "3": "Đến mức…",
+            "4": "Đời nào… / quyết không…"
+          }
         },
         {
           "question_number": 10,
@@ -114,7 +168,13 @@
             "3": "からこそ",
             "4": "ものなら"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Vì quá… nên…",
+            "2": "Chính vì… nên…",
+            "3": "Chính vì… nên…",
+            "4": "Nếu có thể…"
+          }
         }
       ]
     },
@@ -137,7 +197,13 @@
             2,
             4
           ],
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Sự phát triển",
+            "2": "Không khí và nước",
+            "3": "Không chỉ dừng ở…",
+            "4": "Lấy… làm đại diện / bao gồm…"
+          }
         },
         {
           "question_number": 2,
@@ -154,7 +220,13 @@
             3,
             2
           ],
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Đã đăng ký",
+            "2": "Dù phải… cũng…",
+            "3": "Thật là… / không ngờ…",
+            "4": "Một khi đã… thì…"
+          }
         },
         {
           "question_number": 3,
@@ -171,7 +243,13 @@
             4,
             3
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Việc… / điều…",
+            "2": "Của anh ấy",
+            "3": "Nếu nhờ…",
+            "4": "Vì vậy"
+          }
         },
         {
           "question_number": 4,
@@ -188,7 +266,13 @@
             1,
             4
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Trở về",
+            "2": "Hay là / liệu… hay không",
+            "3": "Định trở về",
+            "4": "Hay là không… / liệu có nên…"
+          }
         }
       ]
     },
@@ -204,7 +288,13 @@
             "3": "だけだ",
             "4": "ものだ"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Hơn nữa / thêm vào đó",
+            "2": "Nên… (lời khuyên)",
+            "3": "Chỉ là…",
+            "4": "Thường… / lẽ thường là…"
+          }
         },
         {
           "question_number": 2,
@@ -214,7 +304,13 @@
             "3": "けれども",
             "4": "そこで"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Hoặc là",
+            "2": "Hay là…",
+            "3": "Tuy… nhưng…",
+            "4": "Vì vậy / tại đó"
+          }
         },
         {
           "question_number": 3,
@@ -224,7 +320,13 @@
             "3": "どおり",
             "4": "ばかり"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Chỉ…",
+            "2": "Ngay sau khi… / tùy thuộc vào…",
+            "3": "Đúng như…",
+            "4": "Chỉ… / toàn…"
+          }
         }
       ]
     }

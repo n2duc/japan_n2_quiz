@@ -15,7 +15,13 @@
             "3": "ばかりしている",
             "4": "ばかりいる"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Không chỉ...",
+            "2": "Chỉ làm...",
+            "3": "Cứ mải làm...",
+            "4": "Cứ suốt ngày..."
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "ことから",
             "4": "ものだから"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Ngay từ...",
+            "2": "Một khi đã... thì",
+            "3": "Do việc...",
+            "4": "Bởi vì..."
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "とっての",
             "4": "ともなった"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Đi cùng với...",
+            "2": "Phù hợp với...",
+            "3": "Đối với...",
+            "4": "Kèm theo..."
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "あげくのはてに",
             "4": "あまりに"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Hơn nữa",
+            "2": "Hơn thế nữa",
+            "3": "Cuối cùng / rốt cuộc",
+            "4": "Quá..."
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "限りに",
             "4": "ことには"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Chừng nào còn...",
+            "2": "Trong lúc...",
+            "3": "Đến giới hạn...",
+            "4": "Nếu không... thì..."
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "につけ",
             "4": "せいで"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Dù là...",
+            "2": "Vì / do... (trong thông báo)",
+            "3": "Mỗi khi...",
+            "4": "Vì... nên..."
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "だらけ",
             "4": "みたい"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Có xu hướng...",
+            "2": "Có vẻ hơi...",
+            "3": "Đầy những...",
+            "4": "Giống như..."
+          }
         },
         {
           "question_number": 8,
@@ -92,7 +134,13 @@
             "3": "もかまわず",
             "4": "をかねて"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Trước khi...",
+            "2": "Theo / dọc theo...",
+            "3": "Bất chấp...",
+            "4": "Kiêm / đồng thời..."
+          }
         },
         {
           "question_number": 9,
@@ -103,7 +151,13 @@
             "3": "するわけにはいかない",
             "4": "せずにはいられない"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Có thể không...",
+            "2": "Không khỏi...",
+            "3": "Không thể... (về đạo lý)",
+            "4": "Không thể không..."
+          }
         },
         {
           "question_number": 10,
@@ -114,7 +168,13 @@
             "3": "にあたり",
             "4": "最中に"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Nhưng...",
+            "2": "Đúng lúc...",
+            "3": "Nhân dịp...",
+            "4": "Ngay giữa lúc..."
+          }
         }
       ]
     },
@@ -137,7 +197,13 @@
             4,
             3
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Xét có hay không...",
+            "2": "Về kinh nghiệm...",
+            "3": "Bất kỳ ai",
+            "4": "Không phân biệt..."
+          }
         },
         {
           "question_number": 2,
@@ -154,7 +220,13 @@
             3,
             1
           ],
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Thành...",
+            "2": "Càng... càng...",
+            "3": "Không thể chịu đựng...",
+            "4": "Trôi qua..."
+          }
         },
         {
           "question_number": 3,
@@ -171,7 +243,13 @@
             3,
             4
           ],
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Không có",
+            "2": "Chỉ...",
+            "3": "Chỉ... (nhấn mạnh giới hạn)",
+            "4": "Đáng buồn"
+          }
         },
         {
           "question_number": 4,
@@ -188,7 +266,13 @@
             1,
             2
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Của...",
+            "2": "Các điều cần chú ý",
+            "3": "Sử dụng",
+            "4": "Nhân dịp / khi..."
+          }
         }
       ]
     },
@@ -204,7 +288,13 @@
             "3": "あるやら",
             "4": "あるわりに"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Nếu có...",
+            "2": "Khi có...",
+            "3": "Nào là...",
+            "4": "Mặc dù... nhưng..."
+          }
         },
         {
           "question_number": 2,
@@ -214,7 +304,13 @@
             "3": "からこそ",
             "4": "ことから"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Trên phương diện...",
+            "2": "Mỗi khi...",
+            "3": "Chính vì...",
+            "4": "Do / từ việc..."
+          }
         },
         {
           "question_number": 3,
@@ -224,7 +320,13 @@
             "3": "思うとしても",
             "4": "思うも同然で"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Vừa nghĩ... thì...",
+            "2": "Vì quá nghĩ...",
+            "3": "Dù nghĩ rằng...",
+            "4": "Gần như nghĩ rằng..."
+          }
         }
       ]
     }

@@ -70,7 +70,7 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
 
   if (activeQuizQuestions && activeQuizQuestions.length > 0) {
     return (
-      <main className="min-h-dvh bg-black text-white p-3 flex flex-col justify-center items-center">
+      <main className="min-h-dvh bg-[#f6f8fc] dark:bg-[#0d0e14] text-slate-800 dark:text-slate-100 p-3 flex flex-col justify-center items-center transition-colors duration-150">
         <QuizPlayer
           questions={activeQuizQuestions}
           title={quizTitle}
@@ -84,7 +84,7 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#f6f8fc] pb-12">
+    <main className="min-h-screen bg-[#f6f8fc] dark:bg-[#0f111a] text-slate-800 dark:text-slate-100 pb-12 transition-colors duration-150">
       <ChapterSectionsView
         chapter={chapter}
         progress={progress}

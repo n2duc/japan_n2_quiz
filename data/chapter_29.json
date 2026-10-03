@@ -15,7 +15,13 @@
             "3": "思うばかりに",
             "4": "思ったきり"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Trong khi nghĩ... / dù nghĩ...",
+            "2": "Chỉ khi nghĩ... mới...",
+            "3": "Chỉ vì quá nghĩ... mà...",
+            "4": "Kể từ khi nghĩ/nói... rồi không..."
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "ことなく",
             "4": "にしては"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Không chỉ...",
+            "2": "Mặc dù... nhưng...",
+            "3": "Không... mà không...",
+            "4": "Mặc dù xét theo... nhưng..."
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "にかかわらず",
             "4": "を抜きにして"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Không phụ thuộc vào...",
+            "2": "Không phân biệt...",
+            "3": "Bất kể... / không phân biệt...",
+            "4": "Không tính / không có..."
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "きり",
             "4": "ばかり"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Đến mức...",
+            "2": "Giữ nguyên / cứ để...",
+            "3": "Kể từ khi... / chỉ...",
+            "4": "Chỉ / cứ..."
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "のわりには",
             "4": "のことだから"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Mặc dù... nhưng...",
+            "2": "Riêng... thì / đúng lúc...",
+            "3": "Mặc dù xét theo... nhưng...",
+            "4": "Vì là... nên..."
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "にしては",
             "4": "ばかりか"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Quá...",
+            "2": "Xét với tư cách...",
+            "3": "Mặc dù xét theo... nhưng...",
+            "4": "Không những... mà còn..."
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "といって",
             "4": "ということは"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Chính vì... nên...",
+            "2": "Không phải cứ...",
+            "3": "Dù nói là...",
+            "4": "Điều đó có nghĩa là..."
+          }
         }
       ]
     },
@@ -104,7 +146,13 @@
             1,
             4
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Không nhìn thấy sao?",
+            "2": "Có nhìn thấy không?",
+            "3": "Bóng dáng người chủ",
+            "4": "Trong khi... / trước khi..."
+          }
         },
         {
           "question_number": 2,
@@ -121,7 +169,13 @@
             2,
             4
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Nếu là... thì còn được",
+            "2": "Nếu...",
+            "3": "Tốt / được",
+            "4": "Trong tình trạng suy thoái này"
+          }
         },
         {
           "question_number": 3,
@@ -138,7 +192,13 @@
             3,
             1
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Kể từ / trong phạm vi...",
+            "2": "Khó mà...",
+            "3": "Tháng này",
+            "4": "Thật là... / đáng tiếc là..."
+          }
         }
       ]
     },
@@ -155,7 +215,13 @@
             "3": "からには",
             "4": "折には"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Trên phương diện / xét về...",
+            "2": "Theo những gì... / trong phạm vi...",
+            "3": "Một khi đã... thì...",
+            "4": "Khi / vào dịp..."
+          }
         },
         {
           "question_number": 2,
@@ -165,7 +231,13 @@
             "3": "言うなれば",
             "4": "そうなってみれば"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Theo tôi nhìn nhận...",
+            "2": "Nếu cho phép tôi nói...",
+            "3": "Nói cách khác / có thể nói là...",
+            "4": "Nếu trở thành như vậy / khi đã như vậy..."
+          }
         },
         {
           "question_number": 3,
@@ -175,7 +247,13 @@
             "3": "aどこも／bものではない",
             "4": "aどこも／bものなのだ"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "a: chỗ nào / b: đời nào...",
+            "2": "a: chỗ nào / b: vốn là...",
+            "3": "a: chỗ nào cũng / b: không phải là...",
+            "4": "a: chỗ nào cũng / b: đúng là..."
+          }
         },
         {
           "question_number": 4,
@@ -185,7 +263,13 @@
             "3": "かな",
             "4": "もん"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "... nhỉ? / có phải... không nhỉ?",
+            "2": "Có vẻ / dễ...",
+            "3": "Không biết... / liệu...",
+            "4": "Vì... / bởi vì..."
+          }
         },
         {
           "question_number": 5,
@@ -195,7 +279,13 @@
             "3": "疑いつつ",
             "4": "疑った以上"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Chỉ khi nghi ngờ... mới...",
+            "2": "Cứ nghi ngờ như vậy",
+            "3": "Trong khi nghi ngờ",
+            "4": "Một khi đã nghi ngờ..."
+          }
         }
       ]
     }

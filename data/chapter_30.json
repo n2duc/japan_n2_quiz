@@ -15,7 +15,13 @@
             "3": "ものだ",
             "4": "くらいだ"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Nên... (lời khuyên)",
+            "2": "Đến mức...",
+            "3": "Thật là... (mong muốn, cảm thán)",
+            "4": "Đến mức... / cỡ như..."
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "ばかり",
             "4": "までも"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Ngay cả...",
+            "2": "Ai cũng... / Dù là ai cũng...",
+            "3": "Chỉ toàn...",
+            "4": "Đến cả..."
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "としまいと",
             "4": "ともしまいとも"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Làm hay không làm (phân vân)",
+            "2": "Dù có... hay không",
+            "3": "Dù... hay không (không phải mẫu đúng)",
+            "4": "Dù... hay không (không phải mẫu đúng)"
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "まま",
             "4": "ほど"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Chừng nào còn... / Hết mức...",
+            "2": "Đành phải... thôi (nếu vậy thì...)",
+            "3": "Cứ để nguyên trạng...",
+            "4": "Đến mức..."
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "にほかならない",
             "4": "わけにはいかない"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Không chỉ riêng...",
+            "2": "Chắc chắn là...",
+            "3": "Chính là... (không gì khác ngoài)",
+            "4": "Không thể... (vì lý do hoàn cảnh/đạo lý)"
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "たくてはならなかった",
             "4": "たいとは限らなかった"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Muốn... không chịu nổi",
+            "2": "Chắc chắn là muốn... (sai ngữ pháp)",
+            "3": "Phải muốn... (sai ngữ pháp)",
+            "4": "Không hẳn là muốn..."
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "言いたげ",
             "4": "言いっぱなし"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Hay có xu hướng nói",
+            "2": "Đang nói dở",
+            "3": "Có vẻ muốn nói (điều gì đó)",
+            "4": "Nói xong rồi để mặc"
+          }
         }
       ]
     },
@@ -104,7 +146,13 @@
             2,
             1
           ],
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Thất bại",
+            "2": "Lần nữa",
+            "3": "Chừng nào không... / Nếu không...",
+            "4": "Ý thức"
+          }
         },
         {
           "question_number": 2,
@@ -121,7 +169,13 @@
             2,
             4
           ],
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Biết bao nhiêu",
+            "2": "Đã vui",
+            "3": "Việc / điều (どれほど...ことか: biết bao...)",
+            "4": "Chắc là..."
+          }
         },
         {
           "question_number": 3,
@@ -138,7 +192,13 @@
             4,
             2
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Nếu không... thì",
+            "2": "Không chỉ... mà (phủ định)",
+            "3": "Sau khi...",
+            "4": "Chỉ cứng"
+          }
         }
       ]
     },
@@ -154,7 +214,13 @@
             "3": "a なら／b ないでしょう",
             "4": "a なら／b ないでしょうか"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "(a) Nói đến... / (b) Không phải là... đâu (khẳng định nhẹ)",
+            "2": "(a) Nói đến... / (b) Chẳng phải là... sao? (câu hỏi tu từ)",
+            "3": "(a) Nếu là... / (b) Không phải là... đâu",
+            "4": "(a) Nếu là... / (b) Chẳng phải là... sao?"
+          }
         },
         {
           "question_number": 2,
@@ -164,7 +230,13 @@
             "3": "としての",
             "4": "といっては"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Dành cho / đối với...",
+            "2": "Về việc... / liên quan đến...",
+            "3": "Với tư cách là...",
+            "4": "Nói đến... thì (chẳng có gì)"
+          }
         },
         {
           "question_number": 3,
@@ -174,7 +246,13 @@
             "3": "たとえ",
             "4": "けっして"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Chỉ là...",
+            "2": "Nếu...",
+            "3": "Dù cho...",
+            "4": "Tuyệt đối không..."
+          }
         },
         {
           "question_number": 4,
@@ -184,7 +262,13 @@
             "3": "といっても",
             "4": "というより"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Bởi vì... / Lý do là...",
+            "2": "Điều đó có nghĩa là...",
+            "3": "Dù nói vậy...",
+            "4": "Hơn là nói... / thà nói là..."
+          }
         },
         {
           "question_number": 5,
@@ -194,7 +278,13 @@
             "3": "これでこそ",
             "4": "だからこそ"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Không có gì đặc biệt",
+            "2": "Dù vậy cũng không có nghĩa là...",
+            "3": "Có thế mới...",
+            "4": "Chính vì thế nên..."
+          }
         }
       ]
     }

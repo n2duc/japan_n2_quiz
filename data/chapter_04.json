@@ -15,7 +15,13 @@
             "3": "したまま",
             "4": "したばかり"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Kể từ khi...",
+            "2": "Một khi đã...",
+            "3": "Cứ để nguyên...",
+            "4": "Vừa mới..."
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "っぽい",
             "4": "らしい"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Có vẻ... (trạng thái)",
+            "2": "Có hơi...",
+            "3": "Có vẻ / mang tính...",
+            "4": "Đúng kiểu..."
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "こたえては",
             "4": "わたっては"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Tùy theo...",
+            "2": "Khi tiến hành...",
+            "3": "Đáp lại...",
+            "4": "Trải dài..."
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "しないものだ",
             "4": "しようじゃないか"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Đời nào lại...",
+            "2": "Không biết có nên...",
+            "3": "Không nên...",
+            "4": "Hay là cùng..."
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "ことから",
             "4": "からいえば"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Xét từ...",
+            "2": "Một khi đã...",
+            "3": "Do việc...",
+            "4": "Xét về..."
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "ほど",
             "4": "まま"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Chừng nào còn...",
+            "2": "Chỉ / duy nhất",
+            "3": "Đến mức...",
+            "4": "Cứ để nguyên..."
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "なるかいがある",
             "4": "ならざるをえない"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Đang dần trở nên...",
+            "2": "Sẽ làm cho bằng được",
+            "3": "Đáng công để...",
+            "4": "Buộc phải..."
+          }
         },
         {
           "question_number": 8,
@@ -92,7 +134,13 @@
             "3": "における",
             "4": "にかけて"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Do...",
+            "2": "Tương ứng với...",
+            "3": "Trong / vào thời điểm...",
+            "4": "Từ... đến..."
+          }
         },
         {
           "question_number": 9,
@@ -103,7 +151,13 @@
             "3": "わりに",
             "4": "ばかりに"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Mặt khác / trong khi...",
+            "2": "Mỗi khi...",
+            "3": "So với... thì...",
+            "4": "Chỉ vì..."
+          }
         },
         {
           "question_number": 10,
@@ -114,7 +168,13 @@
             "3": "てたまらない",
             "4": "ずにはいられない"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Có nguy cơ...",
+            "2": "Có vẻ không...",
+            "3": "Không chịu nổi...",
+            "4": "Không thể không..."
+          }
         }
       ]
     },
@@ -137,7 +197,13 @@
             1,
             4
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Thà... còn hơn...",
+            "2": "Ngủ gật",
+            "3": "Đang làm...",
+            "4": "Không đến"
+          }
         },
         {
           "question_number": 2,
@@ -154,7 +220,13 @@
             4,
             2
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Bị lo lắng...",
+            "2": "Hoàn toàn / đến cùng",
+            "3": "Mặc dù...",
+            "4": "Chạy"
+          }
         },
         {
           "question_number": 3,
@@ -171,7 +243,13 @@
             1,
             3
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Cuối cùng...",
+            "2": "Ngay cả...",
+            "3": "Đến mức...",
+            "4": "Bị lãng quên..."
+          }
         },
         {
           "question_number": 4,
@@ -188,7 +266,13 @@
             4,
             2
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Đã đặt xuống",
+            "2": "Như thể...",
+            "3": "Vừa định... thì...",
+            "4": "Của vận động viên điền kinh"
+          }
         }
       ]
     },
@@ -204,7 +288,13 @@
             "3": "にあたって",
             "4": "に対して"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Cùng với...",
+            "2": "Càng nhiều càng...",
+            "3": "Càng nặng càng...",
+            "4": "Càng thoải mái càng..."
+          }
         },
         {
           "question_number": 2,
@@ -214,7 +304,13 @@
             "3": "重ければ重いほど",
             "4": "気軽であれば気軽であるほど"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "a: ngày càng / b: vì trở nên ít hơn",
+            "2": "a: ngày càng / b: mặc dù trở nên ít hơn",
+            "3": "a: vốn dĩ / b: vì ít",
+            "4": "a: vốn dĩ / b: mặc dù ít"
+          }
         },
         {
           "question_number": 3,
@@ -224,7 +320,13 @@
             "3": "a もともと / b 少ないので",
             "4": "a もともと / b 少ないのに"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "a: ngày càng / b: vì trở nên ít hơn",
+            "2": "a: ngày càng / b: mặc dù trở nên ít hơn",
+            "3": "a: vốn dĩ / b: vì ít",
+            "4": "a: vốn dĩ / b: mặc dù ít"
+          }
         }
       ]
     }

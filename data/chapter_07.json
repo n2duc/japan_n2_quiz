@@ -15,7 +15,13 @@
             "3": "ぐらい",
             "4": "ばかり"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Đến mức… / khoảng…",
+            "2": "Đến cả… / cho đến…",
+            "3": "Đến mức… / khoảng…",
+            "4": "Chỉ… / toàn…"
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "かねない",
             "4": "っこない"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Khó mà…",
+            "2": "Khó…",
+            "3": "Có thể dẫn đến… (thường kết quả xấu)",
+            "4": "Chắc chắn không thể…"
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "てならない",
             "4": "て仕方がない"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Không thể tránh khỏi / không thể…",
+            "2": "… là đương nhiên",
+            "3": "Cứ… không thôi",
+            "4": "… vô cùng / không thể làm gì khác"
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "込んだ",
             "4": "抜いた"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Đã hoàn thành",
+            "2": "Đang làm dở…",
+            "3": "Làm kỹ / đi sâu vào",
+            "4": "Làm đến cùng / vượt qua"
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "かと思ったら",
             "4": "としてみたら"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Nếu nghĩ rằng… / vừa mới…",
+            "2": "Nếu giả sử…",
+            "3": "Vừa… thì đã…",
+            "4": "Nếu nhìn từ góc độ…"
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "からといって",
             "4": "とはいうものの"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Nếu là… thì còn được, chứ…",
+            "2": "Nếu đã để…",
+            "3": "Không phải cứ… thì…",
+            "4": "Tuy nói là… nhưng…"
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "にすぎない",
             "4": "に相違ない"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Cho rằng… / giả định…",
+            "2": "Vừa mới… / khoảng…",
+            "3": "Chỉ là… mà thôi",
+            "4": "Chắc chắn là…"
+          }
         },
         {
           "question_number": 8,
@@ -92,7 +134,13 @@
             "3": "ばかり",
             "4": "というもの"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Đến mức… / khoảng…",
+            "2": "Đến mức / chuyện…",
+            "3": "Chỉ… / toàn…",
+            "4": "Cái gọi là…"
+          }
         },
         {
           "question_number": 9,
@@ -103,7 +151,13 @@
             "3": "かねて",
             "4": "すぎて"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Vừa… vừa… / mặc dù…",
+            "2": "Từ… đến… / về mặt…",
+            "3": "Từ trước / đã lâu",
+            "4": "Quá… nên…"
+          }
         },
         {
           "question_number": 10,
@@ -114,7 +168,13 @@
             "3": "乗りかねる",
             "4": "乗り得ない"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Không đi / không lên… (dạng phủ định trang trọng)",
+            "2": "Quyết không đi/lên…",
+            "3": "Khó có thể đi/lên…",
+            "4": "Không thể đi/lên…"
+          }
         }
       ]
     },
@@ -137,7 +197,13 @@
             1,
             4
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Chỉ…",
+            "2": "Là…",
+            "3": "Vận động viên",
+            "4": "Không chỉ…"
+          }
         },
         {
           "question_number": 2,
@@ -154,7 +220,13 @@
             3,
             2
           ],
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Đang khóc",
+            "2": "Có thể ở / có thể tiếp tục…",
+            "3": "Chỉ… cũng…",
+            "4": "Dù nói là… / nói rằng…"
+          }
         },
         {
           "question_number": 3,
@@ -171,7 +243,13 @@
             2,
             4
           ],
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Tốt",
+            "2": "Gọi là… / rằng…",
+            "3": "Nếu rộng…",
+            "4": "Điều / thứ…"
+          }
         },
         {
           "question_number": 4,
@@ -188,7 +266,13 @@
             3,
             2
           ],
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Giúp đỡ",
+            "2": "Không phải là…",
+            "3": "Hãy cùng…",
+            "4": "Kết hợp / phối hợp"
+          }
         }
       ]
     },
@@ -204,7 +288,13 @@
             "3": "とすれば",
             "4": "となると"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Nói đến…",
+            "2": "Ngay cả nếu…",
+            "3": "Nếu vậy thì…",
+            "4": "Nếu thành… / khi nói đến…"
+          }
         },
         {
           "question_number": 2,
@@ -214,7 +304,13 @@
             "3": "忙しいものでも",
             "4": "忙しいことか"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Dù bận…",
+            "2": "Dù có làm cho bận rộn…",
+            "3": "Dù có bận…",
+            "4": "Biết bao bận rộn…"
+          }
         },
         {
           "question_number": 3,
@@ -224,7 +320,13 @@
             "3": "も同然で",
             "4": "かと思うと"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Vì quá… nên…",
+            "2": "Ngay cả nếu…",
+            "3": "Gần như là…",
+            "4": "Vừa mới… thì…"
+          }
         }
       ]
     }

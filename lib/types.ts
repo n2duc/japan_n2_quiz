@@ -2,6 +2,7 @@ export interface RawQuestion {
   question_number: number;
   question_text?: string;
   options: Record<string, string>;
+  options_vi?: Record<string, string>;
   answer: number;
   ordered_sequence?: number[];
 }
@@ -30,6 +31,7 @@ export interface QuizQuestionItem {
   questionNumber: number;
   questionText: string;
   options: Record<string, string>;
+  optionsVi?: Record<string, string>;
   answer: number;
   orderedSequence?: number[];
 }

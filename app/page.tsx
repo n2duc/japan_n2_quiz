@@ -29,6 +29,7 @@ import {
 import { sounds } from "@/lib/sound";
 import { useLanguage } from "@/lib/i18n";
 import { LanguageToggle } from "@/components/language-toggle";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { QuizPlayer } from "@/components/quiz-player";
 import { ChapterSectionsView } from "@/components/chapter-sections-view";
 import {
@@ -203,7 +204,7 @@ export default function HomePage() {
   // 1. If currently in Quiz Mode: Render QuizPlayer
   if (activeQuizQuestions && activeQuizQuestions.length > 0) {
     return (
-      <main className="min-h-dvh bg-black text-white p-3 flex flex-col justify-center items-center">
+      <main className="min-h-dvh bg-[#f6f8fc] dark:bg-[#0d0e14] text-slate-800 dark:text-slate-100 p-3 flex flex-col justify-center items-center transition-colors duration-150">
         <QuizPlayer
           questions={activeQuizQuestions}
           title={quizTitle}
@@ -219,7 +220,7 @@ export default function HomePage() {
   // 2. If a Chapter is selected: Render the dedicated Sections List page
   if (selectedChapterForSections) {
     return (
-      <main className="min-h-screen bg-[#f6f8fc] pb-12">
+      <main className="min-h-screen bg-[#f6f8fc] dark:bg-[#0f111a] text-slate-800 dark:text-slate-100 pb-12 transition-colors duration-150">
         <ChapterSectionsView
           chapter={selectedChapterForSections}
           progress={progress}
@@ -244,7 +245,7 @@ export default function HomePage() {
   const mistakesCount = progress.wrongQuestionIds.length;
 
   return (
-    <main className="min-h-screen bg-[#f6f8fc] text-slate-800 pb-16">
+    <main className="min-h-screen bg-[#f6f8fc] dark:bg-[#0f111a] text-slate-800 dark:text-slate-100 pb-16 transition-colors duration-150">
       <div className="w-full max-w-2xl mx-auto px-4 py-6">
         {/* Top Header Bar matching the image */}
         <div className="flex items-start justify-between mb-6">
@@ -258,13 +259,16 @@ export default function HomePage() {
             {/* Language Switcher */}
             <LanguageToggle />
 
+            {/* Theme Switcher */}
+            <ThemeToggle />
+
             <button
               onClick={() => {
                 const s = sounds.toggle();
                 setSoundEnabled(s);
               }}
               title={soundEnabled ? t.soundTooltipOn : t.soundTooltipOff}
-              className="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white dark:bg-[#1a1c26] border border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white flex items-center justify-center transition active:scale-95 cursor-pointer"
             >
               <HugeiconsIcon
                 icon={soundEnabled ? VolumeHighIcon : VolumeMute01Icon}
@@ -278,7 +282,7 @@ export default function HomePage() {
                   <button
                     type="button"
                     title={t.resetTooltip}
-                    className="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-400 hover:text-rose-500 flex items-center justify-center transition active:scale-95 cursor-pointer"
+                    className="w-10 h-10 rounded-full bg-white dark:bg-[#1a1c26] border border-slate-200 dark:border-white/10 text-slate-400 dark:text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 flex items-center justify-center transition active:scale-95 cursor-pointer"
                   >
                     <HugeiconsIcon icon={RotateRight01Icon} size={16} />
                   </button>
@@ -302,33 +306,33 @@ export default function HomePage() {
 
         {/* Subtitle & Main Headline */}
         <div className="mb-6">
-          <p className="text-xs font-medium text-slate-400">{t.heroNotice}</p>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-600 tracking-tight mt-1">
+          <p className="text-xs font-medium text-slate-400 dark:text-slate-400">{t.heroNotice}</p>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-600 dark:text-slate-200 tracking-tight mt-1">
             {t.heroHeading}
           </h2>
         </div>
 
         {/* 3 Stats Cards in a Row matching the image */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
-          <div className="bg-white rounded-2xl p-4 border border-slate-200/80 text-center">
-            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none">
+          <div className="bg-white dark:bg-[#181926] rounded-2xl p-4 border border-slate-200/80 dark:border-white/10 text-center">
+            <span className="text-xl sm:text-2xl font-bold text-[#38529a] dark:text-[#8ea2db] block leading-none">
               {allQuestions.length}
             </span>
-            <span className="text-xs font-medium text-slate-400">{t.totalQuestions}</span>
+            <span className="text-xs font-medium text-slate-400 dark:text-slate-400">{t.totalQuestions}</span>
           </div>
 
-          <div className="bg-white rounded-2xl p-4 border border-slate-200/80 text-center">
-            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none">
+          <div className="bg-white dark:bg-[#181926] rounded-2xl p-4 border border-slate-200/80 dark:border-white/10 text-center">
+            <span className="text-xl sm:text-2xl font-bold text-[#38529a] dark:text-[#8ea2db] block leading-none">
               {allChapters.length}
             </span>
-            <span className="text-xs font-medium text-slate-400">{t.totalChapters}</span>
+            <span className="text-xs font-medium text-slate-400 dark:text-slate-400">{t.totalChapters}</span>
           </div>
 
-          <div className="bg-white rounded-2xl p-4 border border-slate-200/80 text-center">
-            <span className="text-xl sm:text-2xl font-bold text-[#38529a] block leading-none">
+          <div className="bg-white dark:bg-[#181926] rounded-2xl p-4 border border-slate-200/80 dark:border-white/10 text-center">
+            <span className="text-xl sm:text-2xl font-bold text-[#38529a] dark:text-[#8ea2db] block leading-none">
               {progress.answeredCount > 0 ? progress.answeredCount : "10"}
             </span>
-            <span className="text-xs font-medium text-slate-400">
+            <span className="text-xs font-medium text-slate-400 dark:text-slate-400">
               {progress.answeredCount > 0 ? t.questionsPracticed : t.questionsPerSession}
             </span>
           </div>
@@ -346,7 +350,7 @@ export default function HomePage() {
 
           <button
             onClick={handlePlayRandom}
-            className="py-3 px-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs sm:text-sm border border-slate-200/80 transition flex items-center justify-center gap-1.5 active:scale-[0.99] cursor-pointer"
+            className="py-3 px-4 rounded-2xl bg-white dark:bg-[#181926] hover:bg-slate-50 dark:hover:bg-[#202234] text-slate-700 dark:text-slate-200 font-semibold text-xs sm:text-sm border border-slate-200/80 dark:border-white/10 transition flex items-center justify-center gap-1.5 active:scale-[0.99] cursor-pointer"
           >
             <HugeiconsIcon icon={SparklesIcon} size={16} className="text-[#5368a4]" />
             {t.practiceRandom}
@@ -355,7 +359,7 @@ export default function HomePage() {
           {mistakesCount > 0 && (
             <button
               onClick={handlePlayMistakes}
-              className="py-3 px-4 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-xs sm:text-sm border border-rose-200 transition flex items-center justify-center gap-1.5 active:scale-[0.99] cursor-pointer"
+              className="py-3 px-4 rounded-2xl bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-900/40 text-rose-700 dark:text-rose-300 font-semibold text-xs sm:text-sm border border-rose-200 dark:border-rose-900/50 transition flex items-center justify-center gap-1.5 active:scale-[0.99] cursor-pointer"
             >
               <HugeiconsIcon icon={RotateRight01Icon} size={15} />
               {formatString(t.reviewMistakes, { count: mistakesCount })}
@@ -369,19 +373,19 @@ export default function HomePage() {
             <HugeiconsIcon
               icon={Search01Icon}
               size={18}
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500"
             />
             <input
               type="text"
               placeholder={t.searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white border border-slate-200/90 rounded-2xl py-2.5 pl-10 pr-4 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#5368a4] transition"
+              className="w-full bg-white dark:bg-[#181926] border border-slate-200/90 dark:border-white/10 rounded-2xl py-2.5 pl-10 pr-4 text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#5368a4] dark:focus:border-[#7189d1] transition"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
               >
                 {t.clear}
               </button>
@@ -403,7 +407,7 @@ export default function HomePage() {
                 onClick={() => setChapterFilter(tab.id)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer border ${chapterFilter === tab.id
                   ? "bg-[#5368a4] text-white border-[#5368a4]"
-                  : "bg-white text-slate-600 hover:bg-slate-100 border-slate-200/80"
+                  : "bg-white dark:bg-[#181926] text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#202234] border-slate-200/80 dark:border-white/10"
                   }`}
               >
                 {tab.label}
@@ -414,7 +418,7 @@ export default function HomePage() {
 
         {/* Section List / Chapter Grid: 2 Columns as in the image */}
         <div className="flex items-center justify-between mb-3.5">
-          <h3 className="text-sm font-bold text-slate-700 tracking-tight">
+          <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 tracking-tight">
             {t.chapterListTitle} ({filteredChapters.length})
           </h3>
         </div>
@@ -438,10 +442,10 @@ export default function HomePage() {
               <button
                 key={ch.chapter_id}
                 onClick={() => handleSelectChapter(ch)}
-                className="bg-white hover:bg-[#5368a4] hover:text-white group border border-slate-200/90 rounded-xl p-4 sm:p-4 text-left transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-23 active:scale-[0.98]"
+                className="bg-white dark:bg-[#181926] hover:bg-[#5368a4] dark:hover:bg-[#5368a4] hover:text-white group border border-slate-200/90 dark:border-white/10 rounded-xl p-4 sm:p-4 text-left transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-23 active:scale-[0.98]"
               >
                 <div className="flex items-center justify-between w-full">
-                  <h4 className="text-base sm:text-lg font-bold text-slate-500 group-hover:text-white transition">
+                  <h4 className="text-base sm:text-lg font-bold text-slate-500 dark:text-slate-200 group-hover:text-white transition">
                     {ch.chapter_name}
                   </h4>
                   {allSecCompleted && (
@@ -450,7 +454,7 @@ export default function HomePage() {
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-slate-400 group-hover:text-white/80 transition mt-1">
+                <p className="text-xs text-slate-400 dark:text-slate-400 group-hover:text-white/80 transition mt-1">
                   {qCount} {t.questionsUnit}
                 </p>
               </button>
@@ -459,8 +463,8 @@ export default function HomePage() {
         </div>
 
         {/* Bottom Note */}
-        <div className="flex items-center justify-center gap-1.5 text-xs text-slate-400 text-center py-4">
-          <HugeiconsIcon icon={HelpCircleIcon} size={14} className="shrink-0 text-slate-400" />
+        <div className="flex items-center justify-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 text-center py-4">
+          <HugeiconsIcon icon={HelpCircleIcon} size={14} className="shrink-0 text-slate-400 dark:text-slate-500" />
           <span>{t.footerNote}</span>
         </div>
       </div>

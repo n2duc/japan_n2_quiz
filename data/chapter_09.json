@@ -15,7 +15,13 @@
             "3": "ようだ",
             "4": "ふりだ"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Nên… (lời khuyên)",
+            "2": "Thảo nào… / có nghĩa là…",
+            "3": "Có vẻ như… / giống như…",
+            "4": "Giả vờ…"
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "ともかく",
             "4": "なおさら"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Đừng nói đến…",
+            "2": "Bất kể…",
+            "3": "Tạm gác… sang một bên",
+            "4": "Càng… hơn"
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "よりほかない",
             "4": "というものだ"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Không nên…",
+            "2": "Không phải là…",
+            "3": "Không còn cách nào khác ngoài…",
+            "4": "Đúng là… / có thể nói là…"
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "に反して",
             "4": "にもかかわらず"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Không chỉ…",
+            "2": "Ngay cả… cũng…",
+            "3": "Trái với…",
+            "4": "Mặc dù… nhưng…"
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "まで",
             "4": "限り"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Chỉ…",
+            "2": "Chỉ…",
+            "3": "Đến cả… / cho đến…",
+            "4": "Trong phạm vi… / chừng nào còn…"
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "でかなわない",
             "4": "でいられない"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "… vô cùng / không thể không…",
+            "2": "Chỉ là… mà thôi",
+            "3": "Không thể chịu nổi…",
+            "4": "Không thể cứ…"
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "ばかりに",
             "4": "だけあって"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "So với… thì…",
+            "2": "So với… thì…",
+            "3": "Chỉ vì… nên dẫn đến kết quả xấu",
+            "4": "Đúng là… nên quả nhiên…"
+          }
         },
         {
           "question_number": 8,
@@ -92,7 +134,13 @@
             "3": "ことか",
             "4": "ものか"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Ngày càng… (xu hướng tiếp diễn)",
+            "2": "Tùy thuộc vào…",
+            "3": "Biết bao…! (cảm thán)",
+            "4": "Đời nào… / quyết không…"
+          }
         },
         {
           "question_number": 9,
@@ -103,7 +151,13 @@
             "3": "かなわない",
             "4": "たまらない"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Không còn cách nào khác",
+            "2": "Không thể cứ… / không thể chịu được",
+            "3": "Không chịu nổi…",
+            "4": "Không thể chịu nổi… / vô cùng…"
+          }
         },
         {
           "question_number": 10,
@@ -114,7 +168,13 @@
             "3": "どころか",
             "4": "もんなら"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Biết bao…! (cảm thán)",
+            "2": "Một khi đã… thì…",
+            "3": "Đâu chỉ… mà ngược lại còn…",
+            "4": "Nếu có thể…"
+          }
         }
       ]
     },
@@ -137,7 +197,13 @@
             4,
             3
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Chính… mới…",
+            "2": "Vì… / từ…",
+            "3": "Thử…",
+            "4": "Làm…"
+          }
         },
         {
           "question_number": 2,
@@ -154,7 +220,13 @@
             1,
             3
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Không đi",
+            "2": "Đã hứa",
+            "3": "Lý do / nghĩa là…",
+            "4": "Một khi đã… / hơn…"
+          }
         },
         {
           "question_number": 3,
@@ -171,7 +243,13 @@
             2,
             3
           ],
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Dù nói là… / nói rằng…",
+            "2": "Ở nhà",
+            "3": "Chỉ… / toàn…",
+            "4": "Vì… / từ…"
+          }
         },
         {
           "question_number": 4,
@@ -188,7 +266,13 @@
             4,
             3
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Chuông…",
+            "2": "Rung / reo",
+            "3": "Ngay sau khi… / tùy thuộc vào…",
+            "4": "Kết thúc"
+          }
         }
       ]
     },
@@ -204,7 +288,13 @@
             "3": "どころか",
             "4": "わりには"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Chính vì… nên…",
+            "2": "Chính vì… nên…",
+            "3": "Đâu chỉ… mà ngược lại còn…",
+            "4": "So với… thì…"
+          }
         },
         {
           "question_number": 2,
@@ -214,7 +304,13 @@
             "3": "限らない",
             "4": "ほかならない"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Chỉ là… mà thôi",
+            "2": "Không phụ thuộc vào…",
+            "3": "Không nhất thiết…",
+            "4": "Chính là…"
+          }
         },
         {
           "question_number": 3,
@@ -224,7 +320,13 @@
             "3": "にとって",
             "4": "によって"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Vừa mới… / ở mức…",
+            "2": "Về…",
+            "3": "Đối với…",
+            "4": "Bởi / tùy theo / thông qua…"
+          }
         }
       ]
     }

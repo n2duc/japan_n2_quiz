@@ -58,6 +58,8 @@ export interface Translations {
   resetTooltip: string;
   soundTooltipOn: string;
   soundTooltipOff: string;
+  themeTooltipDark: string;
+  themeTooltipLight: string;
   section1DefaultDesc: string;
   section2DefaultDesc: string;
   section3DefaultDesc: string;
@@ -135,6 +137,8 @@ const translations: Record<Language, Translations> = {
     resetTooltip: "Đặt lại tiến độ",
     soundTooltipOn: "Tắt âm thanh",
     soundTooltipOff: "Bật âm thanh",
+    themeTooltipDark: "Chuyển sang giao diện tối",
+    themeTooltipLight: "Chuyển sang giao diện sáng",
     section1DefaultDesc: "次の文の（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
     section2DefaultDesc: "次の文の★に入る最もよいものを、1・2・3・4から一つ選びなさい。",
     section3DefaultDesc: "Đọc đoạn văn và chọn đáp án đúng",
@@ -210,6 +214,8 @@ const translations: Record<Language, Translations> = {
     resetTooltip: "進捗をリセット",
     soundTooltipOn: "サウンドをオフ",
     soundTooltipOff: "サウンドをオン",
+    themeTooltipDark: "ダークモードに切り替え",
+    themeTooltipLight: "ライトモードに切り替え",
     section1DefaultDesc: "次の文の（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
     section2DefaultDesc: "次の文の★に入る最もよいものを、1・2・3・4から一つ選びなさい。",
     section3DefaultDesc: "文章を読んで、正しい選択肢を選びなさい。",

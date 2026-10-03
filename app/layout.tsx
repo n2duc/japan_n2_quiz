@@ -42,9 +42,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
     >
-      <body className="bg-[#f6f8fc] text-slate-800 min-h-screen selection:bg-[#5368a4] selection:text-white">
+      <body className="bg-[#f6f8fc] dark:bg-[#0f111a] text-slate-800 dark:text-slate-100 min-h-screen selection:bg-[#5368a4] selection:text-white transition-colors duration-150">
         <LanguageProvider>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
           </ThemeProvider>
         </LanguageProvider>

@@ -15,7 +15,13 @@
             "3": "ようがなかった",
             "4": "ざるを得なかった"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Đã không phải... / may mà không...",
+            "2": "Suýt nữa thì... / có nguy cơ...",
+            "3": "Không có cách nào...",
+            "4": "Buộc phải..."
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "帰るはずがない",
             "4": "帰れないこともない"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Có vẻ không thể về...",
+            "2": "Không chịu về...",
+            "3": "Không thể nào về...",
+            "4": "Không phải hoàn toàn không thể về..."
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "わけだ",
             "4": "べきだ"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Chỉ còn cách...",
+            "2": "Vốn là / thường...",
+            "3": "Có nghĩa là... / đúng là...",
+            "4": "Nên... / phải..."
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "最中",
             "4": "ばかり"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Một khi...",
+            "2": "Chừng nào còn... / trong phạm vi...",
+            "3": "Đang giữa lúc...",
+            "4": "Chỉ / cứ..."
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "上に",
             "4": "上は"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Về mặt...",
+            "2": "Sau khi... / trên cơ sở...",
+            "3": "Hơn nữa / thêm vào đó",
+            "4": "Một khi đã... thì..."
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "からといって",
             "4": "にかかわらず"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Chừng nào còn... thì...",
+            "2": "Không những... mà còn...",
+            "3": "Không phải cứ...",
+            "4": "Bất kể... / không phân biệt..."
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "みるからには",
             "4": "みたうえで"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Chỉ khi thử... mới...",
+            "2": "Nếu không thử... thì...",
+            "3": "Một khi đã thử... thì...",
+            "4": "Sau khi đã thử... rồi..."
+          }
         }
       ]
     },
@@ -104,7 +146,13 @@
             1,
             3
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Lấy ... làm cơ hội",
+            "2": "Đã tăng / tăng lên",
+            "3": "Với tư cách là... / coi như...",
+            "4": "Của..."
+          }
         },
         {
           "question_number": 2,
@@ -121,7 +169,13 @@
             3,
             2
           ],
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Như vậy / có vẻ...",
+            "2": "Không định... / chắc sẽ không...",
+            "3": "Tiếp tục",
+            "4": "Không lâu..."
+          }
         },
         {
           "question_number": 3,
@@ -138,7 +192,13 @@
             1,
             4
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Nên / phải",
+            "2": "Lúc / chỗ / điểm",
+            "3": "Ngạc nhiên",
+            "4": "Sự thật"
+          }
         }
       ]
     },
@@ -154,7 +214,13 @@
             "3": "わけで",
             "4": "からに"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Vì... nên (kết quả xấu)",
+            "2": "Lúc / chỗ / điểm",
+            "3": "Vì vậy / nghĩa là...",
+            "4": "Vì... / do..."
+          }
         },
         {
           "question_number": 2,
@@ -164,7 +230,13 @@
             "3": "できますように",
             "4": "できるものなら"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "Có thể sẽ... / có nguy cơ...",
+            "2": "Không thể nào làm được...",
+            "3": "Mong sao có thể...",
+            "4": "Nếu có thể..."
+          }
         },
         {
           "question_number": 3,
@@ -174,7 +246,13 @@
             "3": "もらってほしい",
             "4": "もらってあげたい"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Có thể... giúp tôi không?",
+            "2": "Hãy làm giúp...",
+            "3": "Muốn bạn làm giúp...",
+            "4": "Muốn giúp..."
+          }
         },
         {
           "question_number": 4,
@@ -184,7 +262,13 @@
             "3": "a なんとか / b そうな",
             "4": "a なんとか / b そうにない"
           },
-          "answer": 2
+          "answer": 2,
+          "options_vi": {
+            "1": "a: rất... ; b: có vẻ...",
+            "2": "a: rất... ; b: có vẻ không...",
+            "3": "a: bằng cách nào đó... ; b: có vẻ...",
+            "4": "a: bằng cách nào đó... ; b: có vẻ không..."
+          }
         },
         {
           "question_number": 5,
@@ -194,7 +278,13 @@
             "3": "a なしの / b さえ",
             "4": "a なしの / b など"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "a: chỉ... ; b: chỉ... (đi với phủ định)",
+            "2": "a: chỉ... ; b: đến mức...",
+            "3": "a: không có... ; b: ngay cả...",
+            "4": "a: không có... ; b: những thứ như..."
+          }
         }
       ]
     }

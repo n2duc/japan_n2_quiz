@@ -15,7 +15,13 @@
             "3": "たまらない",
             "4": "ほかならない"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Vô hạn / không cùng",
+            "2": "Chắc chắn là...",
+            "3": "Không thể chịu nổi / vô cùng...",
+            "4": "Không gì khác ngoài..."
+          }
         },
         {
           "question_number": 2,
@@ -26,7 +32,13 @@
             "3": "と思ったら",
             "4": "やいなや"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Mặc dù...",
+            "2": "Ngay từ...",
+            "3": "Vừa mới... thì...",
+            "4": "Vừa... thì ngay lập tức..."
+          }
         },
         {
           "question_number": 3,
@@ -37,7 +49,13 @@
             "3": "ようじゃないか",
             "4": "まいじゃないか"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Chẳng phải nên... sao?",
+            "2": "Có vẻ cũng không... sao?",
+            "3": "Hãy cùng... / chẳng phải nên... sao?",
+            "4": "Hay là không...?"
+          }
         },
         {
           "question_number": 4,
@@ -48,7 +66,13 @@
             "3": "買えるはずがない",
             "4": "買えないに違いない"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Không phải là không thể mua",
+            "2": "Không thể nào mua được",
+            "3": "Chắc chắn không thể mua",
+            "4": "Chắc chắn là không mua được"
+          }
         },
         {
           "question_number": 5,
@@ -59,7 +83,13 @@
             "3": "してまで",
             "4": "からして"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Tùy vào...",
+            "2": "Chỉ khi... mới...",
+            "3": "Đến mức phải... / thậm chí làm...",
+            "4": "Ngay từ..."
+          }
         },
         {
           "question_number": 6,
@@ -70,7 +100,13 @@
             "3": "ってもんじゃない",
             "4": "わけにはいかない"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Chắc chắn...",
+            "2": "Cực kỳ... / không gì bằng...",
+            "3": "Không phải cứ... là được",
+            "4": "Không thể / không được phép..."
+          }
         },
         {
           "question_number": 7,
@@ -81,7 +117,13 @@
             "3": "わけではない",
             "4": "でははいられない"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Chỉ còn cách...",
+            "2": "Không khỏi... / vô cùng...",
+            "3": "Không phải là...",
+            "4": "Không thể cứ... được"
+          }
         }
       ]
     },
@@ -104,7 +146,13 @@
             1,
             3
           ],
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Không thể không... / buộc phải...",
+            "2": "Ai cũng / mọi người đều",
+            "3": "Không thể...",
+            "4": "Sự đồng tình / hiểu và chấp nhận"
+          }
         },
         {
           "question_number": 2,
@@ -121,7 +169,13 @@
             4,
             1
           ],
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Bất chấp... / không quan tâm...",
+            "2": "Bản thân mình",
+            "3": "Việc... cũng...",
+            "4": "Bị ướt"
+          }
         },
         {
           "question_number": 3,
@@ -138,7 +192,13 @@
             3,
             4
           ],
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Quá... / vì quá...",
+            "2": "Mặc dù...",
+            "3": "Đối với / đến / ở...",
+            "4": "Một cách nhiệt tình / chăm chỉ"
+          }
         }
       ]
     },
@@ -154,7 +214,13 @@
             "3": "させてくださいます",
             "4": "されてくださいます"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Xin phép được...",
+            "2": "Xin được... (cách dùng không tự nhiên)",
+            "3": "Cho phép...",
+            "4": "Làm ơn cho phép..."
+          }
         },
         {
           "question_number": 2,
@@ -164,7 +230,13 @@
             "3": "であれば",
             "4": "ですれば"
           },
-          "answer": 3
+          "answer": 3,
+          "options_vi": {
+            "1": "Nếu ở...",
+            "2": "Đối với... / nếu làm...",
+            "3": "Nếu là...",
+            "4": "Nếu làm... (cách nói không tự nhiên)"
+          }
         },
         {
           "question_number": 3,
@@ -174,7 +246,13 @@
             "3": "できるどころではありません",
             "4": "できないものです"
           },
-          "answer": 1
+          "answer": 1,
+          "options_vi": {
+            "1": "Không thể... / khó có thể...",
+            "2": "Vẫn không thể...",
+            "3": "Không ở tình trạng có thể...",
+            "4": "Vốn không thể... / không thể được..."
+          }
         },
         {
           "question_number": 4,
@@ -184,7 +262,13 @@
             "3": "を問わず",
             "4": "をもとに"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Tùy theo...",
+            "2": "Theo... / dọc theo...",
+            "3": "Không phân biệt...",
+            "4": "Dựa trên..."
+          }
         },
         {
           "question_number": 5,
@@ -194,7 +278,13 @@
             "3": "ことがなくても",
             "4": "ことのないよう"
           },
-          "answer": 4
+          "answer": 4,
+          "options_vi": {
+            "1": "Không có việc... / không...",
+            "2": "Vì không...",
+            "3": "Dù không...",
+            "4": "Để không..."
+          }
         }
       ]
     }
