@@ -83,7 +83,7 @@
             "3": "ようではありませんか",
             "4": "ようではありませをか"
           },
-          "answer": 3,
+          "answer": 4,
           "options_vi": {
             "1": "Chẳng phải... sao?",
             "2": "Có vẻ cũng không... sao?",
@@ -142,9 +142,9 @@
           },
           "ordered_sequence": [
             2,
-            1,
             4,
-            3
+            3,
+            1
           ],
           "answer": 3,
           "options_vi": {
@@ -215,7 +215,7 @@
             "3": "しか考えたくない",
             "4": "なら考えたくない"
           },
-          "answer": 1,
+          "answer": 2,
           "options_vi": {
             "1": "Không thể nghĩ đến...",
             "2": "Không thể nghĩ đến những thứ như...",

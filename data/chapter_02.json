@@ -151,7 +151,7 @@
             "3": "するわけにはいかない",
             "4": "せずにはいられない"
           },
-          "answer": 2,
+          "answer": 4,
           "options_vi": {
             "1": "Có thể không...",
             "2": "Không khỏi...",
@@ -238,12 +238,12 @@
             "4": "寂しい"
           },
           "ordered_sequence": [
+            3,
             2,
             1,
-            3,
             4
           ],
-          "answer": 3,
+          "answer": 1,
           "options_vi": {
             "1": "Không có",
             "2": "Chỉ...",

@@ -187,12 +187,12 @@
             "4": "もの"
           },
           "ordered_sequence": [
-            4,
+            3,
             1,
-            2,
-            3
+            4,
+            2
           ],
-          "answer": 2,
+          "answer": 4,
           "options_vi": {
             "1": "Không được / trở thành",
             "2": "Có lẽ...",
@@ -230,7 +230,7 @@
             "3": "やはり",
             "4": "ちなみに"
           },
-          "answer": 3,
+          "answer": 1,
           "options_vi": {
             "1": "Hơn nữa / lại còn",
             "2": "Nhân tiện / tiện thể...",
@@ -278,7 +278,7 @@
             "3": "やるまい",
             "4": "やりかけの"
           },
-          "answer": 4,
+          "answer": 2,
           "options_vi": {
             "1": "Làm đến cùng",
             "2": "Nên làm / phải làm",

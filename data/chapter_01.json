@@ -197,7 +197,12 @@
             "3": "Đang khóc",
             "4": "Đến mức như thế kia"
           },
-          "ordered_sequence": [4, 3, 2, 1],
+          "ordered_sequence": [
+            4,
+            3,
+            2,
+            1
+          ],
           "answer": 2
         },
         {
@@ -215,7 +220,12 @@
             "3": "Khoan hãy bàn đến / tạm gác lại...",
             "4": "Liệu có... hay không"
           },
-          "ordered_sequence": [2, 4, 3, 1],
+          "ordered_sequence": [
+            2,
+            4,
+            3,
+            1
+          ],
           "answer": 3
         },
         {
@@ -233,7 +243,12 @@
             "3": "Nhận được (sự hài lòng)",
             "4": "Với tư cách là..."
           },
-          "ordered_sequence": [3, 2, 1, 4],
+          "ordered_sequence": [
+            3,
+            2,
+            1,
+            4
+          ],
           "answer": 1
         },
         {
@@ -251,7 +266,12 @@
             "3": "Đã làm",
             "4": "Có thể làm được"
           },
-          "ordered_sequence": [4, 1, 2, 3],
+          "ordered_sequence": [
+            4,
+            1,
+            2,
+            3
+          ],
           "answer": 2
         }
       ]

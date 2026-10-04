@@ -214,7 +214,7 @@
             "3": "にともなって",
             "4": "にかかわらず"
           },
-          "answer": 1,
+          "answer": 4,
           "options_vi": {
             "1": "Không những... mà còn...",
             "2": "Cùng với... / đồng thời với...",
@@ -262,7 +262,7 @@
             "3": "はもちろん",
             "4": "よりずっと"
           },
-          "answer": 1,
+          "answer": 3,
           "options_vi": {
             "1": "Bỏ qua / không có...",
             "2": "Không những không... mà còn...",
@@ -278,7 +278,7 @@
             "3": "a によって / b によれば",
             "4": "a によると / b によらず"
           },
-          "answer": 3,
+          "answer": 2,
           "options_vi": {
             "1": "a: Bởi / bằng... ; b: Theo...",
             "2": "a: Theo... ; b: Bởi / bằng...",

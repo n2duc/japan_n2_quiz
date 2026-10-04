@@ -243,7 +243,7 @@
             1,
             3
           ],
-          "answer": 4,
+          "answer": 1,
           "options_vi": {
             "1": "… như thế / thật là…",
             "2": "Khu rừng xanh tươi",
@@ -288,7 +288,7 @@
             "3": "なんにもない",
             "4": "なんともいえない"
           },
-          "answer": 1,
+          "answer": 2,
           "options_vi": {
             "1": "Không có gì",
             "2": "Không có gì đáng kể",
@@ -304,7 +304,7 @@
             "3": "はというと",
             "4": "ということは"
           },
-          "answer": 2,
+          "answer": 3,
           "options_vi": {
             "1": "Nói vậy nhưng…",
             "2": "Cứ hễ… thì…",
@@ -320,7 +320,7 @@
             "3": "だけあって",
             "4": "のことだから"
           },
-          "answer": 4,
+          "answer": 2,
           "options_vi": {
             "1": "Chính… mới…",
             "2": "Xét từ… / theo…",

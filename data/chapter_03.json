@@ -83,7 +83,7 @@
             "3": "がてら",
             "4": "ながらも"
           },
-          "answer": 3,
+          "answer": 1,
           "options_vi": {
             "1": "Vừa... vừa...",
             "2": "Đang định...",
@@ -193,11 +193,11 @@
           },
           "ordered_sequence": [
             2,
+            4,
             3,
-            1,
-            4
+            1
           ],
-          "answer": 1,
+          "answer": 3,
           "options_vi": {
             "1": "Ngoài ra / hơn nữa",
             "2": "Bằng...",
@@ -238,12 +238,12 @@
             "4": "わけ"
           },
           "ordered_sequence": [
-            1,
             3,
             2,
+            1,
             4
           ],
-          "answer": 2,
+          "answer": 1,
           "options_vi": {
             "1": "Ghét...",
             "2": "Nói rằng...",
@@ -288,7 +288,7 @@
             "3": "きっかけに",
             "4": "かいがあって"
           },
-          "answer": 3,
+          "answer": 2,
           "options_vi": {
             "1": "Một khi đã...",
             "2": "Bởi vì...",

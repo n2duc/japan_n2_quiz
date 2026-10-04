@@ -83,7 +83,7 @@
             "3": "出して",
             "4": "抜いて"
           },
-          "answer": 1,
+          "answer": 2,
           "options_vi": {
             "1": "Từ trước / đã lâu",
             "2": "Cắt / kết thúc bằng cách…",
@@ -168,7 +168,7 @@
             "3": "しかねない",
             "4": "しつつある"
           },
-          "answer": 3,
+          "answer": 1,
           "options_vi": {
             "1": "Có thể…",
             "2": "Khó có thể… / không thể đồng ý…",
@@ -288,7 +288,7 @@
             "3": "ですから",
             "4": "このように"
           },
-          "answer": 1,
+          "answer": 2,
           "options_vi": {
             "1": "Nói cách khác",
             "2": "Dù vậy",
@@ -304,7 +304,7 @@
             "3": "にしても",
             "4": "にしては"
           },
-          "answer": 2,
+          "answer": 3,
           "options_vi": {
             "1": "Vừa mới… / ở mức…",
             "2": "Đối với… / nếu là…",
@@ -320,7 +320,7 @@
             "3": "a 昔／b いま／c 昔",
             "4": "a 昔／b 昔／c いま"
           },
-          "answer": 3,
+          "answer": 1,
           "options_vi": {
             "1": "a: hiện tại / b: hiện tại / c: ngày xưa",
             "2": "a: hiện tại / b: ngày xưa / c: hiện tại",

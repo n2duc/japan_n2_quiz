@@ -83,7 +83,7 @@
             "3": "にすぎない",
             "4": "にほかならない"
           },
-          "answer": 4,
+          "answer": 1,
           "options_vi": {
             "1": "Chỉ còn cách...",
             "2": "Không đáng công / không có ích",
@@ -246,7 +246,7 @@
             "3": "a 難しい / b 難しい / c 易しい",
             "4": "a 難しい / b 易しい / c 難しい"
           },
-          "answer": 3,
+          "answer": 4,
           "options_vi": {
             "1": "a: dễ / b: dễ / c: khó",
             "2": "a: dễ / b: khó / c: dễ",
@@ -262,7 +262,7 @@
             "3": "人などいない",
             "4": "人こそすばらしい"
           },
-          "answer": 4,
+          "answer": 3,
           "options_vi": {
             "1": "Toàn là người...",
             "2": "Chỉ có người...",

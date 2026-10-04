@@ -49,7 +49,7 @@
             "3": "ばかりに",
             "4": "ものだから"
           },
-          "answer": 2,
+          "answer": 1,
           "options_vi": {
             "1": "Một khi...",
             "2": "Xét trên phương diện...",
@@ -117,7 +117,7 @@
             "3": "しようとしている",
             "4": "するおそれがある"
           },
-          "answer": 3,
+          "answer": 4,
           "options_vi": {
             "1": "Có xu hướng thường...",
             "2": "Phải...",
@@ -192,7 +192,7 @@
             2,
             1
           ],
-          "answer": 3,
+          "answer": 2,
           "options_vi": {
             "1": "Tiếp tục",
             "2": "Nói rằng...",

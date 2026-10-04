@@ -117,7 +117,7 @@
             "3": "として",
             "4": "にして"
           },
-          "answer": 2,
+          "answer": 1,
           "options_vi": {
             "1": "Kết thúc vào… / chỉ đến…",
             "2": "Chỉ trong… / riêng…",
@@ -217,10 +217,10 @@
           "ordered_sequence": [
             2,
             4,
-            1,
-            3
+            3,
+            1
           ],
-          "answer": 1,
+          "answer": 3,
           "options_vi": {
             "1": "Với tư cách là… / xem như…",
             "2": "Người…",
@@ -238,12 +238,12 @@
             "4": "知らせよう"
           },
           "ordered_sequence": [
+            2,
             4,
             1,
-            3,
-            2
+            3
           ],
-          "answer": 3,
+          "answer": 1,
           "options_vi": {
             "1": "Nhưng / chủ ngữ đánh dấu bằng が",
             "2": "Một khi đã… / hơn…",
@@ -261,12 +261,12 @@
             "4": "によって"
           },
           "ordered_sequence": [
+            3,
             1,
             2,
-            4,
-            3
+            4
           ],
-          "answer": 4,
+          "answer": 2,
           "options_vi": {
             "1": "Chủ đề và…",
             "2": "Bối cảnh thời đại",
@@ -320,7 +320,7 @@
             "3": "かまわず",
             "4": "かかわらず"
           },
-          "answer": 3,
+          "answer": 2,
           "options_vi": {
             "1": "Bất kể…",
             "2": "Không chỉ giới hạn ở…",

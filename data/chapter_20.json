@@ -15,7 +15,7 @@
             "3": "行けっこなかった",
             "4": "行くわけにはいかなかった"
           },
-          "answer": 2,
+          "answer": 1,
           "options_vi": {
             "1": "Đã không phải đi",
             "2": "Đã không đi",
@@ -32,7 +32,7 @@
             "3": "は抜きにして",
             "4": "のことだから"
           },
-          "answer": 4,
+          "answer": 1,
           "options_vi": {
             "1": "Không chỉ...",
             "2": "Tuy nói là... nhưng...",
@@ -66,7 +66,7 @@
             "3": "にしたって",
             "4": "というより"
           },
-          "answer": 2,
+          "answer": 3,
           "options_vi": {
             "1": "Mặc dù xét theo... nhưng...",
             "2": "Xét từ... / theo quan điểm...",
@@ -100,7 +100,7 @@
             "3": "なりません",
             "4": "関わりません"
           },
-          "answer": 3,
+          "answer": 1,
           "options_vi": {
             "1": "Không có sai khác / chắc chắn đúng",
             "2": "Không thể xảy ra",
@@ -164,12 +164,12 @@
             "4": "っぱなし"
           },
           "ordered_sequence": [
+            3,
             2,
             4,
-            3,
             1
           ],
-          "answer": 3,
+          "answer": 4,
           "options_vi": {
             "1": "Như... / đến mức...",
             "2": "Gắn / bật (tùy ngữ cảnh)",

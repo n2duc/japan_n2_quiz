@@ -230,7 +230,7 @@
             "3": "ところが",
             "4": "からといって"
           },
-          "answer": 2,
+          "answer": 4,
           "options_vi": {
             "1": "Nếu vậy / giả sử...",
             "2": "Mặc dù xét theo... nhưng...",
@@ -278,7 +278,7 @@
             "3": "悪いとは言いかねる",
             "4": "いいとは言いかねない"
           },
-          "answer": 2,
+          "answer": 1,
           "options_vi": {
             "1": "Không thể nói là xấu",
             "2": "Không thể nói là tốt",

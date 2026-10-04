@@ -32,7 +32,7 @@
             "3": "限り",
             "4": "ものなら"
           },
-          "answer": 4,
+          "answer": 3,
           "options_vi": {
             "1": "Quá... / vì quá...",
             "2": "Trong khi... / trước khi...",
@@ -117,7 +117,7 @@
             "3": "つきながら",
             "4": "ついてばかり"
           },
-          "answer": 4,
+          "answer": 2,
           "options_vi": {
             "1": "Chỉ vừa mới... (có vẻ lỗi chính tả trong nguồn)",
             "2": "Luôn ở bên / túc trực",
@@ -246,7 +246,7 @@
             "3": "くらい",
             "4": "ばかり"
           },
-          "answer": 3,
+          "answer": 4,
           "options_vi": {
             "1": "Lúc / chỗ / điểm",
             "2": "Thậm chí / đến cả...",

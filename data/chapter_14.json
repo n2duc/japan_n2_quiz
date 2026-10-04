@@ -83,7 +83,7 @@
             "3": "にわたって",
             "4": "にしたがって"
           },
-          "answer": 1,
+          "answer": 3,
           "options_vi": {
             "1": "Từ… đến…",
             "2": "Theo sát… / dọc theo…",
@@ -261,12 +261,12 @@
             "4": "って"
           },
           "ordered_sequence": [
+            3,
             2,
             4,
-            3,
             1
           ],
-          "answer": 3,
+          "answer": 4,
           "options_vi": {
             "1": "Được tìm thấy",
             "2": "Đã tìm kiếm",

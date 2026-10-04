@@ -49,7 +49,7 @@
             "3": "上に",
             "4": "上は"
           },
-          "answer": 2,
+          "answer": 4,
           "options_vi": {
             "1": "Về mặt...",
             "2": "Sau khi... / trên cơ sở...",
@@ -100,7 +100,7 @@
             "3": "わけで",
             "4": "だけあって"
           },
-          "answer": 4,
+          "answer": 1,
           "options_vi": {
             "1": "Thật là... / đáng tiếc là...",
             "2": "Thành / trở thành...",
@@ -117,7 +117,7 @@
             "3": "ざるを得ない",
             "4": "るしかない"
           },
-          "answer": 4,
+          "answer": 3,
           "options_vi": {
             "1": "Không đáng công",
             "2": "Không khỏi...",
@@ -143,10 +143,10 @@
           "ordered_sequence": [
             3,
             4,
-            2,
-            1
+            1,
+            2
           ],
-          "answer": 2,
+          "answer": 1,
           "options_vi": {
             "1": "Đối với tôi / tôi thì",
             "2": "Như thế / như vậy",
@@ -164,12 +164,12 @@
             "4": "より"
           },
           "ordered_sequence": [
+            2,
             1,
             4,
-            3,
-            2
+            3
           ],
-          "answer": 3,
+          "answer": 4,
           "options_vi": {
             "1": "Gọi là... / rằng...",
             "2": "Vì / để / lý do",
@@ -214,7 +214,7 @@
             "3": "はもとより",
             "4": "にもかかわらず"
           },
-          "answer": 3,
+          "answer": 2,
           "options_vi": {
             "1": "Không những... mà còn...",
             "2": "Nếu là... thì còn được, nhưng...",
@@ -246,7 +246,7 @@
             "3": "a 終わる / b 終わらない",
             "4": "a 終わらない / b 終わる"
           },
-          "answer": 4,
+          "answer": 3,
           "options_vi": {
             "1": "a: bắt đầu / b: không bắt đầu",
             "2": "a: không bắt đầu / b: bắt đầu",

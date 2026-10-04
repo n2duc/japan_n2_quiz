@@ -117,7 +117,7 @@
             "3": "みるからには",
             "4": "みたうえで"
           },
-          "answer": 1,
+          "answer": 2,
           "options_vi": {
             "1": "Chỉ khi thử... mới...",
             "2": "Nếu không thử... thì...",
@@ -246,7 +246,7 @@
             "3": "もらってほしい",
             "4": "もらってあげたい"
           },
-          "answer": 1,
+          "answer": 3,
           "options_vi": {
             "1": "Có thể... giúp tôi không?",
             "2": "Hãy làm giúp...",

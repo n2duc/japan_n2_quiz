@@ -32,7 +32,7 @@
             "3": "かねない",
             "4": "っこない"
           },
-          "answer": 2,
+          "answer": 4,
           "options_vi": {
             "1": "Khó mà…",
             "2": "Khó…",
@@ -49,7 +49,7 @@
             "3": "てならない",
             "4": "て仕方がない"
           },
-          "answer": 4,
+          "answer": 2,
           "options_vi": {
             "1": "Không thể tránh khỏi / không thể…",
             "2": "… là đương nhiên",
@@ -83,7 +83,7 @@
             "3": "かと思ったら",
             "4": "としてみたら"
           },
-          "answer": 3,
+          "answer": 2,
           "options_vi": {
             "1": "Nếu nghĩ rằng… / vừa mới…",
             "2": "Nếu giả sử…",
@@ -304,7 +304,7 @@
             "3": "忙しいものでも",
             "4": "忙しいことか"
           },
-          "answer": 2,
+          "answer": 1,
           "options_vi": {
             "1": "Dù bận…",
             "2": "Dù có làm cho bận rộn…",
@@ -320,7 +320,7 @@
             "3": "も同然で",
             "4": "かと思うと"
           },
-          "answer": 1,
+          "answer": 4,
           "options_vi": {
             "1": "Vì quá… nên…",
             "2": "Ngay cả nếu…",
