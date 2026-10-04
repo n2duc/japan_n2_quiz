@@ -206,12 +206,14 @@ export default function HomePage() {
     return (
       <main className="min-h-dvh bg-[#f6f8fc] dark:bg-[#0d0e14] text-slate-800 dark:text-slate-100 p-3 flex flex-col justify-center items-center transition-colors duration-150">
         <QuizPlayer
+          key={`quiz-${activeChapterId ?? "custom"}-${activeSectionIndex ?? "all"}`}
           questions={activeQuizQuestions}
           title={quizTitle}
           subtitle={quizSubtitle}
           onExit={handleExitQuiz}
           chapterId={activeChapterId}
           sectionIndex={activeSectionIndex}
+          onNextSection={(cId, nextIdx) => handleStartSection(cId, nextIdx)}
         />
       </main>
     );

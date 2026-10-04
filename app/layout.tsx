@@ -40,7 +40,7 @@ export default function RootLayout({
     <html
       lang="ja"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
+      className={cn("antialiased", "bg-[#f6f8fc] dark:bg-[#0f111a]", fontMono.variable, "font-sans", inter.variable)}
     >
       <body className="bg-[#f6f8fc] dark:bg-[#0f111a] text-slate-800 dark:text-slate-100 min-h-screen selection:bg-[#5368a4] selection:text-white transition-colors duration-150">
         <LanguageProvider>

@@ -72,12 +72,14 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
     return (
       <main className="min-h-dvh bg-[#f6f8fc] dark:bg-[#0d0e14] text-slate-800 dark:text-slate-100 p-3 flex flex-col justify-center items-center transition-colors duration-150">
         <QuizPlayer
+          key={`quiz-${chapterId}-${activeSectionIndex ?? "all"}`}
           questions={activeQuizQuestions}
           title={quizTitle}
           subtitle={quizSubtitle}
           onExit={handleExitQuiz}
           chapterId={chapterId}
           sectionIndex={activeSectionIndex}
+          onNextSection={(cId, nextIdx) => handleSelectSection(cId, nextIdx)}
         />
       </main>
     );

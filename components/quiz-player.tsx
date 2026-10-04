@@ -19,6 +19,7 @@ import {
 import { QuizQuestionItem } from "@/lib/types";
 import { sounds } from "@/lib/sound";
 import { useLanguage } from "@/lib/i18n";
+import { getChapterById } from "@/lib/chapters-data";
 import {
   getStoredProgress,
   recordQuestionResult,
@@ -33,6 +34,7 @@ interface QuizPlayerProps {
   onExit: () => void;
   chapterId?: number;
   sectionIndex?: number;
+  onNextSection?: (chapterId: number, nextSectionIndex: number) => void;
 }
 
 export function QuizPlayer({
@@ -42,6 +44,7 @@ export function QuizPlayer({
   onExit,
   chapterId,
   sectionIndex,
+  onNextSection,
 }: QuizPlayerProps) {
   const { t, formatString } = useLanguage();
   const activeTitle = title || t.allQuestionsTitle;
@@ -66,6 +69,24 @@ export function QuizPlayer({
     });
     setBookmarked(bookmarkMap);
   }, []);
+
+  // Reset quiz state whenever questions or section change
+  useEffect(() => {
+    setCurrentIndex(0);
+    setSelectedAnswers({});
+    setIsAnswered({});
+    setScore(0);
+    setStreak(0);
+    setIsCompleted(false);
+    setShowPassage(true);
+  }, [questions, sectionIndex]);
+
+  const currentChapter = chapterId !== undefined ? getChapterById(chapterId) : undefined;
+  const nextSectionIndex = sectionIndex !== undefined ? sectionIndex + 1 : undefined;
+  const nextSection =
+    currentChapter && nextSectionIndex !== undefined && nextSectionIndex < currentChapter.sections.length
+      ? currentChapter.sections[nextSectionIndex]
+      : undefined;
 
   const currentQ = questions[currentIndex];
   const totalQuestions = questions.length;
@@ -264,9 +285,24 @@ export function QuizPlayer({
           </div>
 
           <div className="flex flex-col gap-3">
+            {nextSection && onNextSection && chapterId !== undefined && nextSectionIndex !== undefined && (
+              <button
+                onClick={() => onNextSection(chapterId, nextSectionIndex)}
+                className="w-full py-3.5 px-6 rounded-2xl bg-[#5368a4] hover:bg-[#475b94] text-white font-bold transition flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow"
+              >
+                <span>
+                  {t.nextSection}: {nextSection.section_name}
+                </span>
+                <HugeiconsIcon icon={ArrowRight01Icon} size={20} />
+              </button>
+            )}
             <button
               onClick={handleRestart}
-              className="w-full py-3.5 px-6 rounded-2xl bg-[#5368a4] hover:bg-[#475b94] text-white font-bold transition flex items-center justify-center gap-2 cursor-pointer"
+              className={`w-full py-3.5 px-6 rounded-2xl font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
+                nextSection && onNextSection
+                  ? "bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-transparent"
+                  : "bg-[#5368a4] hover:bg-[#475b94] text-white"
+              }`}
             >
               <HugeiconsIcon icon={RotateRight01Icon} size={20} />
               {t.retrySection}

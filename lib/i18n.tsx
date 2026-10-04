@@ -50,6 +50,7 @@ export interface Translations {
   completeSentence: string;
   quizCompletedTitle: string;
   retrySection: string;
+  nextSection: string;
   backHome: string;
   resetTitle: string;
   resetConfirm: string;
@@ -129,6 +130,7 @@ const translations: Record<Language, Translations> = {
     completeSentence: "Câu hoàn chỉnh (Thứ tự: {order}):",
     quizCompletedTitle: "Hoàn thành bài luyện tập!",
     retrySection: "Luyện lại phần này",
+    nextSection: "Học phần tiếp theo",
     backHome: "Về màn hình chính",
     resetTitle: "Đặt lại toàn bộ tiến độ?",
     resetConfirm: "Hành động này sẽ xóa điểm số, lịch sử làm bài và các câu hỏi đã đánh dấu. Bạn có chắc chắn muốn đặt lại không?",
@@ -206,6 +208,7 @@ const translations: Record<Language, Translations> = {
     completeSentence: "完全な文 (順序: {order}):",
     quizCompletedTitle: "練習セッション完了！",
     retrySection: "もう一度挑戦",
+    nextSection: "次のセクションへ",
     backHome: "ホームに戻る",
     resetTitle: "学習進捗をリセットしますか？",
     resetConfirm: "スコア、解答履歴、保存した問題の記録がすべて消去されます。リセットしてもよろしいですか？",
