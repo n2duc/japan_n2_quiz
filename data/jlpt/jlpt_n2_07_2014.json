@@ -1,0 +1,889 @@
+{
+  "chapter_id": "jlpt-2014-07",
+  "chapter_name": "JLPT N2 7/2014",
+  "category": "exam",
+  "subtitle": "Language Knowledge (Vocabulary & Grammar)",
+  "sections": [
+    {
+      "section_name": "問題 1",
+      "instruction": "____言葉の読み方として最もよいものを１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_text": "ガソリンの値段が大幅に上がった。",
+          "options": {
+            "1": "おおはば",
+            "2": "おおふく",
+            "3": "だいはば",
+            "4": "だいふく"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "mức độ lớn, đáng kể (大幅)",
+            "2": "Không phải cách đọc đúng",
+            "3": "Không phải cách đọc đúng",
+            "4": "Không phải cách đọc đúng"
+          }
+        },
+        {
+          "question_number": 2,
+          "question_text": "昨日、とても悔しい出来事があった。",
+          "options": {
+            "1": "かなしい",
+            "2": "くやしい",
+            "3": "はずかしい",
+            "4": "おそろしい"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "buồn",
+            "2": "tiếc nuối / ấm ức (悔しい)",
+            "3": "xấu hổ",
+            "4": "đáng sợ"
+          }
+        },
+        {
+          "question_number": 3,
+          "question_text": "わかりやすく書いたつもりだったが、幼稚な文章になってしまった。",
+          "options": {
+            "1": "ゆうち",
+            "2": "ようし",
+            "3": "ようち",
+            "4": "ゆうし"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Không phải cách đọc đúng",
+            "2": "Không phải cách đọc đúng",
+            "3": "ấu trĩ, non nớt (幼稚)",
+            "4": "Không phải cách đọc đúng"
+          }
+        },
+        {
+          "question_number": 4,
+          "question_text": "今回は田中選手の圧勝だった。",
+          "options": {
+            "1": "あっしょう",
+            "2": "ゆうしょう",
+            "3": "あっしゅう",
+            "4": "ゆうしゅう"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "chiến thắng áp đảo (圧勝)",
+            "2": "vô địch (優勝) - không phải cách đọc của 圧勝",
+            "3": "Không phải cách đọc đúng",
+            "4": "Không phải cách đọc đúng"
+          }
+        },
+        {
+          "question_number": 5,
+          "question_text": "暑い季節は食べ物が傷みやすい。",
+          "options": {
+            "1": "きずみやすい",
+            "2": "きすみやすい",
+            "3": "いだみやすい",
+            "4": "いたみやすい"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Không phải cách đọc đúng",
+            "2": "Không phải cách đọc đúng",
+            "3": "Không phải cách đọc đúng",
+            "4": "dễ hỏng / dễ ôi thiu (傷みやすい)"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 2",
+      "instruction": "____の言葉を漢字を書くとき、最もよいものを１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 6,
+          "question_text": "洗濯物がまだしめっぽい。",
+          "options": {
+            "1": "汚っぽい",
+            "2": "泡っぽい",
+            "3": "汗っぽい",
+            "4": "湿っぽい"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "chữ Hán sai",
+            "2": "chữ Hán sai",
+            "3": "chữ Hán sai",
+            "4": "ẩm ướt (湿っぽい)"
+          }
+        },
+        {
+          "question_number": 7,
+          "question_text": "このパソコンにはプリンターがせつぞくされています。",
+          "options": {
+            "1": "設属",
+            "2": "接属",
+            "3": "設族",
+            "4": "接続"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "chữ Hán sai",
+            "2": "chữ Hán sai",
+            "3": "chữ Hán sai",
+            "4": "kết nối (接続)"
+          }
+        },
+        {
+          "question_number": 8,
+          "question_text": "私は親にさからって大学に進学した。",
+          "options": {
+            "1": "逆らって",
+            "2": "敵らって",
+            "3": "拒って",
+            "4": "争って"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "chống lại, làm trái (逆らう)",
+            "2": "chữ Hán sai",
+            "3": "chữ Hán sai",
+            "4": "tranh giành / tranh cãi (争う) - không phải đáp án"
+          }
+        },
+        {
+          "question_number": 9,
+          "question_text": "田中社長の強引なやり方をひはんする人もいる。",
+          "options": {
+            "1": "非判",
+            "2": "批判",
+            "3": "批反",
+            "4": "非反"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "chữ Hán sai",
+            "2": "phê phán (批判)",
+            "3": "chữ Hán sai",
+            "4": "chữ Hán sai"
+          }
+        },
+        {
+          "question_number": 10,
+          "question_text": "A社の製品のほうが機能の面ではおとっていると思う。",
+          "options": {
+            "1": "悪って",
+            "2": "負って",
+            "3": "劣って",
+            "4": "乏って"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "chữ Hán sai",
+            "2": "gánh, cõng (負う, đọc là おって) - không phải đáp án",
+            "3": "kém hơn (劣る)",
+            "4": "chữ Hán sai"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 3",
+      "instruction": "（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 11,
+          "question_text": "歴史小説家西村氏の代表的な作品を収めた作品（ ）が発行された。",
+          "options": {
+            "1": "集",
+            "2": "族",
+            "3": "部",
+            "4": "団"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "tập, tuyển tập (作品集: tuyển tập tác phẩm)",
+            "2": "tộc, họ",
+            "3": "bộ, phần",
+            "4": "đoàn, nhóm"
+          }
+        },
+        {
+          "question_number": 12,
+          "question_text": "ここから駅まで行くなら、線路（ ）の道を行くのが一番早いですよ。",
+          "options": {
+            "1": "付き",
+            "2": "並び",
+            "3": "沿い",
+            "4": "従い"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "kèm theo",
+            "2": "hàng, dãy",
+            "3": "dọc theo (線路沿い: dọc đường ray)",
+            "4": "theo, tuân theo"
+          }
+        },
+        {
+          "question_number": 13,
+          "question_text": "田中先生は、子どもの英語教育に関する（ ）問題について研究している。",
+          "options": {
+            "1": "総",
+            "2": "複",
+            "3": "数",
+            "4": "諸"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "tổng",
+            "2": "phức, nhiều lớp",
+            "3": "số, vài",
+            "4": "các, nhiều (諸問題: các vấn đề)"
+          }
+        },
+        {
+          "question_number": 14,
+          "question_text": "大きな図書館に行きたいが、遠いのでけっこう電車（ ）がかかる。",
+          "options": {
+            "1": "金",
+            "2": "賃",
+            "3": "料",
+            "4": "財"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "tiền",
+            "2": "tiền cước, tiền vé (電車賃)",
+            "3": "phí",
+            "4": "tài sản"
+          }
+        },
+        {
+          "question_number": 15,
+          "question_text": "町は朝からお祭りムード（ ）だった。",
+          "options": {
+            "1": "一例",
+            "2": "一面",
+            "3": "一種",
+            "4": "一色"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "một ví dụ",
+            "2": "một mặt, toàn bộ bề mặt",
+            "3": "một loại",
+            "4": "toàn một màu, bao trùm một không khí (お祭りムード一色)"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 4",
+      "instruction": "（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 16,
+          "question_text": "子どものいたずらにいちいち（ ）を立てても仕方がない。",
+          "options": {
+            "1": "気",
+            "2": "頭",
+            "3": "腹",
+            "4": "心"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "khí, tâm trạng",
+            "2": "đầu",
+            "3": "bụng (腹を立てる: nổi giận)",
+            "4": "tim, tâm"
+          }
+        },
+        {
+          "question_number": 17,
+          "question_text": "A社が開発した商品管理システムは評価が高く、多くの会社に（ ）されている。",
+          "options": {
+            "1": "導入",
+            "2": "引用",
+            "3": "吸収",
+            "4": "移行"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "đưa vào áp dụng",
+            "2": "trích dẫn",
+            "3": "hấp thụ",
+            "4": "chuyển sang"
+          }
+        },
+        {
+          "question_number": 18,
+          "question_text": "工事の音が（ ）、全然眠れない。",
+          "options": {
+            "1": "しつこくて",
+            "2": "ずうずうしくて",
+            "3": "やかましくて",
+            "4": "けわしくて"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "dai dẳng, lằng nhằng",
+            "2": "trơ tráo",
+            "3": "ồn ào, om sòm",
+            "4": "dốc, hiểm trở / nghiêm nghị"
+          }
+        },
+        {
+          "question_number": 19,
+          "question_text": "自転車のタイヤが（ ）して、空気が抜けていた。",
+          "options": {
+            "1": "ストライキ",
+            "2": "パンク",
+            "3": "ダウン",
+            "4": "ミス"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "đình công",
+            "2": "thủng (lốp)",
+            "3": "xuống, gục",
+            "4": "lỗi, sai sót"
+          }
+        },
+        {
+          "question_number": 20,
+          "question_text": "セミナーの日の朝は準備の時間がないので、資料は（ ）コピーしておいてください。",
+          "options": {
+            "1": "遅くとも",
+            "2": "あらかじめ",
+            "3": "とっくに",
+            "4": "先々"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "chậm nhất là",
+            "2": "trước, làm sẵn từ trước",
+            "3": "từ lâu rồi",
+            "4": "về sau, tương lai xa"
+          }
+        },
+        {
+          "question_number": 21,
+          "question_text": "山口さんは柔道をしているので、がっしりした（ ）をしている。",
+          "options": {
+            "1": "体格",
+            "2": "姿勢",
+            "3": "格好",
+            "4": "容姿"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "vóc dáng, thể hình",
+            "2": "tư thế",
+            "3": "dáng vẻ, kiểu cách",
+            "4": "dung mạo"
+          }
+        },
+        {
+          "question_number": 22,
+          "question_text": "こんなに夜遅くまでおきていると、明日の仕事に（ ）よ。",
+          "options": {
+            "1": "かかわり合う",
+            "2": "割り込む",
+            "3": "引っかかる",
+            "4": "差し支える"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "dính líu với nhau",
+            "2": "chen ngang",
+            "3": "bị mắc vào",
+            "4": "gây trở ngại, ảnh hưởng xấu"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 5",
+      "instruction": "____の言葉に意味が最も近いものを、1・2・3・4から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 23,
+          "question_text": "文字のサイズをそろえてください。",
+          "options": {
+            "1": "大きくして",
+            "2": "同じにして",
+            "3": "調べて",
+            "4": "教えて"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "làm cho lớn",
+            "2": "làm cho giống nhau",
+            "3": "kiểm tra",
+            "4": "chỉ dạy"
+          }
+        },
+        {
+          "question_number": 24,
+          "question_text": "中野氏は、古い工場が取り壊されて空いた土地を買いしめたそうだ。",
+          "options": {
+            "1": "無理に買った",
+            "2": "全部買った",
+            "3": "安く買った",
+            "4": "さっそく買った"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "mua một cách miễn cưỡng",
+            "2": "mua hết, mua vét",
+            "3": "mua giá rẻ",
+            "4": "mua ngay lập tức"
+          }
+        },
+        {
+          "question_number": 25,
+          "question_text": "出発間際に、妹から電話がかかってきた。",
+          "options": {
+            "1": "直前",
+            "2": "直後",
+            "3": "当日",
+            "4": "前日"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "ngay trước đó",
+            "2": "ngay sau đó",
+            "3": "ngày hôm đó",
+            "4": "ngày hôm trước"
+          }
+        },
+        {
+          "question_number": 26,
+          "question_text": "薬を飲んだらたちまち痛みが治まった。",
+          "options": {
+            "1": "すっかり",
+            "2": "やっと",
+            "3": "すぐに",
+            "4": "たしかに"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "hoàn toàn",
+            "2": "mãi mới, cuối cùng",
+            "3": "ngay lập tức",
+            "4": "quả thật, chắc chắn"
+          }
+        },
+        {
+          "question_number": 27,
+          "question_text": "もうお勘定は済ましました。",
+          "options": {
+            "1": "料理は注文しました",
+            "2": "店は予約しました",
+            "3": "店員は呼びました",
+            "4": "お金は払いました"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "đã gọi món",
+            "2": "đã đặt chỗ quán",
+            "3": "đã gọi nhân viên",
+            "4": "đã trả tiền"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 6",
+      "instruction": "次の言葉の使い方として最もよいものを、1・2・3・4から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 28,
+          "word": "頑丈",
+          "options": {
+            "1": "石川さんは頑丈で、なかなか意見を変えない。",
+            "2": "重要な書類は必ず金庫に入れて、頑丈に管理してください。",
+            "3": "このいすはとても頑丈で、少しくらい乱暴に扱っても壊れません。",
+            "4": "A社との間には頑丈な信頼関係があるので安心です。"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Anh/chị Ishikawa rất cứng cáp, mãi không chịu đổi ý kiến. (dùng sai)",
+            "2": "Tài liệu quan trọng nhất định phải cất vào két và quản lý chắc chắn. (dùng sai)",
+            "3": "Chiếc ghế này rất chắc chắn, dù dùng hơi mạnh tay cũng không hỏng.",
+            "4": "Với công ty A có mối quan hệ tin cậy vững chắc nên yên tâm. (dùng sai)"
+          }
+        },
+        {
+          "question_number": 29,
+          "word": "畳む",
+          "options": {
+            "1": "青木さんは、小さな紙を器用に畳んで鶴を作った。",
+            "2": "この上着は小さく畳むことができるので、旅行に持っていくのに便利だ。",
+            "3": "髪が長いと首の周りが暑いので、夏はいつも髪を畳んでいます。",
+            "4": "中川さんは腕を畳んで、何か考えているようだった。"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Aoki khéo léo gấp tờ giấy nhỏ làm con hạc. (dùng sai, gấp hạc phải dùng 折る)",
+            "2": "Chiếc áo khoác này gấp nhỏ lại được nên tiện mang đi du lịch.",
+            "3": "Tóc dài thì quanh cổ nóng nên mùa hè tôi luôn búi tóc lên. (dùng sai)",
+            "4": "Nakagawa khoanh tay lại, có vẻ đang suy nghĩ điều gì. (dùng sai)"
+          }
+        },
+        {
+          "question_number": 30,
+          "word": "合図",
+          "options": {
+            "1": "スタートの合図で、選手たちは一斉に走り出した。",
+            "2": "ガス会社から、器具の点検を来月行うという合図があった。",
+            "3": "山道に何か小さな動物が歩いたような合図があった。",
+            "4": "種をまいたところを忘れないように、合図をつけておいた。"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Khi có hiệu lệnh xuất phát, các vận động viên đồng loạt chạy.",
+            "2": "Công ty gas báo tháng sau sẽ kiểm tra thiết bị. (dùng sai)",
+            "3": "Trên đường núi có dấu hiệu như có con vật nhỏ đi qua. (dùng sai)",
+            "4": "Để khỏi quên chỗ gieo hạt, tôi đã đánh dấu. (dùng sai)"
+          }
+        },
+        {
+          "question_number": 31,
+          "word": "こつこつ",
+          "options": {
+            "1": "何度も説明を聞いていたら、こつこつとわかってきた。",
+            "2": "料理が熱くて、舌をやけどしそうなので、こつこつと食べた。",
+            "3": "朝は涼しかったが、昼になってこつこつと気温が上がり始めた。",
+            "4": "資格をとるために、この一年間、毎日こつこつと勉強をしてきた。"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghe giải thích nhiều lần thì dần dần hiểu ra. (dùng sai)",
+            "2": "Món ăn nóng, sợ bỏng lưỡi nên ăn từng chút một. (dùng sai)",
+            "3": "Buổi sáng mát nhưng đến trưa nhiệt độ bắt đầu tăng dần. (dùng sai)",
+            "4": "Để lấy chứng chỉ, suốt một năm qua tôi chăm chỉ học đều đặn mỗi ngày."
+          }
+        },
+        {
+          "question_number": 32,
+          "word": "縮む",
+          "options": {
+            "1": "箱を積み重ねておいたら、重さで一番下の箱が縮んでいた。",
+            "2": "この鉛筆はもう縮んでいて、ちょっと書きづらい。",
+            "3": "洗濯機でセーターを洗ったら、縮んで着られなくなった。",
+            "4": "建て替えて、家は広くなったが、庭が縮んでしまった。"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Chất chồng các hộp lên nhau thì hộp dưới cùng bị co lại vì sức nặng. (dùng sai)",
+            "2": "Cây bút chì này đã ngắn đi nên hơi khó viết. (dùng sai)",
+            "3": "Giặt áo len bằng máy giặt thì bị co lại, không mặc được nữa.",
+            "4": "Xây lại nhà thì nhà rộng ra nhưng khu vườn bị thu hẹp. (dùng sai)"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 7",
+      "instruction": "次の文の（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 33,
+          "question_text": "料理の本に書いてある（ ）作ってみたのだが、なぜかうまくいかなかった。",
+          "options": {
+            "1": "ようで",
+            "2": "もとで",
+            "3": "ほどに",
+            "4": "とおりに"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "có vẻ là",
+            "2": "dưới sự, vốn liếng",
+            "3": "đến mức, tương ứng với",
+            "4": "đúng như, theo như"
+          }
+        },
+        {
+          "question_number": 34,
+          "question_text": "村田「青木くんって、本当に面白い人だよね。」 西野「うん。彼、人を笑わせることに（ ）天才だからね。」",
+          "options": {
+            "1": "向けては",
+            "2": "かけては",
+            "3": "沿っては",
+            "4": "わたっては"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "hướng tới",
+            "2": "về khoản... (thì giỏi nhất)",
+            "3": "theo, dọc theo",
+            "4": "trải dài suốt"
+          }
+        },
+        {
+          "question_number": 35,
+          "question_text": "山田「私、青木先輩のようにカメラマンの仕事をしたいと思っているんです。ぜひ青木先輩のお話を（ ）いただけないでしょうか。」 青木「ああ、かまわないよ。」",
+          "options": {
+            "1": "聞いて",
+            "2": "聞けて",
+            "3": "聞かせて",
+            "4": "聞かれて"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "nghe",
+            "2": "nghe được",
+            "3": "cho (tôi) nghe (聞かせていただく)",
+            "4": "bị hỏi"
+          }
+        },
+        {
+          "question_number": 36,
+          "question_text": "今回の京都旅行は、天気が悪い日が多かったが、行きたかったお寺には行けたし、（ ）楽しめた。",
+          "options": {
+            "1": "そのうえ",
+            "2": "それなりに",
+            "3": "そのころに",
+            "4": "それどころか"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "hơn nữa",
+            "2": "theo cách của nó, ở mức nhất định",
+            "3": "vào lúc đó",
+            "4": "không những thế, trái lại"
+          }
+        },
+        {
+          "question_number": 37,
+          "question_text": "バス停に着いたとき、出発時刻の1時間前に空港に着くバスがちょうど来たので（ ）が、満員で乗れず、結局、飛行機に間に合わなかった。",
+          "options": {
+            "1": "乗っている途中だった",
+            "2": "乗ったところだ",
+            "3": "乗っているつもりだった",
+            "4": "乗ろうとした"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "đang trên đường đi xe",
+            "2": "vừa mới lên xe",
+            "3": "tưởng là đang ngồi trên xe",
+            "4": "định lên xe"
+          }
+        },
+        {
+          "question_number": 38,
+          "question_text": "友達の中には、仕事が休みの日はすることがなくて、暇（ ）と言う人もいる。",
+          "options": {
+            "1": "でしょうがない",
+            "2": "そうにない",
+            "3": "にすぎない",
+            "4": "すらない"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "rảnh đến mức không chịu nổi",
+            "2": "có vẻ không thể",
+            "3": "chẳng qua chỉ là",
+            "4": "ngay cả... cũng không"
+          }
+        },
+        {
+          "question_number": 39,
+          "question_text": "森田「村山さん、Y社の川西部長が（ ）。会議室でお待ちです。」 村山「わかりました。」",
+          "options": {
+            "1": "参りました",
+            "2": "承りました",
+            "3": "見えました",
+            "4": "伺いました"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "đã đến (khiêm nhường)",
+            "2": "đã nhận/đã hiểu (khiêm nhường)",
+            "3": "đã đến (kính ngữ)",
+            "4": "đã đến thăm/đã hỏi (khiêm nhường)"
+          }
+        },
+        {
+          "question_number": 40,
+          "question_text": "医者「明日になっても熱が下がらない（ ）、この薬を飲んでください。」",
+          "options": {
+            "1": "ようであれば",
+            "2": "からであれば",
+            "3": "というようには",
+            "4": "というからには"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "nếu như có vẻ... (ようであれば)",
+            "2": "nếu vì... (からであれば)",
+            "3": "không đến mức gọi là",
+            "4": "đã nói là... thì (というからには)"
+          }
+        },
+        {
+          "question_number": 41,
+          "question_text": "(歌の練習で) 先生「最初は、緊張して大きな声で歌えないと思います。でも、（ ）だんだん大きな声で歌えるようになりますよ。」",
+          "options": {
+            "1": "練習していくうちに",
+            "2": "練習してでも",
+            "3": "練習するのに対して",
+            "4": "練習するのに比べて"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "trong lúc dần dần luyện tập",
+            "2": "ngay cả phải luyện tập",
+            "3": "trái với việc luyện tập",
+            "4": "so với việc luyện tập"
+          }
+        },
+        {
+          "question_number": 42,
+          "question_text": "監督「みんな、今日は本当によくやった。この調子であしたの決勝戦もがんばろう。おれたちが勝って世間を（ ）じゃないか。」",
+          "options": {
+            "1": "驚いてやろう",
+            "2": "驚いてもらおう",
+            "3": "驚かせてやろう",
+            "4": "驚かせてもらおう"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "làm (cho ai đó) ngạc nhiên (sai thể)",
+            "2": "nhờ ai đó ngạc nhiên",
+            "3": "làm cho thiên hạ phải ngạc nhiên",
+            "4": "xin được làm cho ngạc nhiên"
+          }
+        },
+        {
+          "question_number": 43,
+          "question_text": "会議は9時開始の予定だったが、開始時刻までに来たのは3人だけだった。遅れてきた人に理由を聞いたら、開始時刻が正しく（ ）。",
+          "options": {
+            "1": "伝わらないはずだった",
+            "2": "伝えなかったらしい",
+            "3": "伝えていないはずだった",
+            "4": "伝わっていなかったらしい"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "lẽ ra sẽ không được truyền đạt",
+            "2": "nghe nói là đã không truyền đạt",
+            "3": "lẽ ra là chưa truyền đạt",
+            "4": "hình như chưa được truyền đạt đúng"
+          }
+        },
+        {
+          "question_number": 44,
+          "question_text": "妹「お姉ちゃん、パソコン貸して。」 姉「いいよ。あ、あとで私も使うから、電源は（ ）。」 妹「わかった。」",
+          "options": {
+            "1": "入れてからにして",
+            "2": "入れたままにしておいて",
+            "3": "入れたつもりでいて",
+            "4": "入れなきゃならなくて"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "hãy bật rồi mới làm",
+            "2": "cứ để nguyên trạng đang bật",
+            "3": "cứ coi như đã bật",
+            "4": "vì phải bật"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 8",
+      "instruction": "次の文の ★ に入る最もよいものを、1・2・3・4から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 45,
+          "question_text": "A「じゃあ、そろそろ帰るね。お茶、ごちそうさまでした。」 B「え、もう帰るの？ せっかく ____ ★ ____ ____ いいのに。」",
+          "options": {
+            "1": "もう少し",
+            "2": "いけば",
+            "3": "来たんだから",
+            "4": "ゆっくりして"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "thêm một chút nữa",
+            "2": "(cứ) đi / nếu cứ",
+            "3": "vì đã mất công đến",
+            "4": "thong thả, thư thả"
+          }
+        },
+        {
+          "question_number": 46,
+          "question_text": "レポートを作成 ____ ____ ★ ____ ことは、事実なのか意見なのかを明確にすることだ。",
+          "options": {
+            "1": "注意",
+            "2": "上で",
+            "3": "する",
+            "4": "すべき"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "chú ý",
+            "2": "khi, trong việc",
+            "3": "làm",
+            "4": "nên, cần"
+          }
+        },
+        {
+          "question_number": 47,
+          "question_text": "私は、どんなに ____ ____ ★ ____ 。",
+          "options": {
+            "1": "つらいことがあっても",
+            "2": "いつもにこにこしている",
+            "3": "石川さんを尊敬している",
+            "4": "そんな様子を全く見せず"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "dù có chuyện đau khổ",
+            "2": "lúc nào cũng tươi cười",
+            "3": "tôi kính trọng anh/chị Ishikawa",
+            "4": "hoàn toàn không để lộ vẻ đó"
+          }
+        },
+        {
+          "question_number": 48,
+          "question_text": "A「サラリーマンから農家 ____ ____ ★ ____ があるんだね。」 B「自分の夢をどうしてもあきらめきれなくてね。」",
+          "options": {
+            "1": "勇気",
+            "2": "とは",
+            "3": "ずいぶん",
+            "4": "になる"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "dũng khí",
+            "2": "(chuyện) rằng",
+            "3": "khá là, thật là",
+            "4": "trở thành"
+          }
+        },
+        {
+          "question_number": 49,
+          "question_text": "A「昨日、また仕事で失敗しちゃったんだよね。この仕事、私には向いていないんだろうね。やっぱり転職しようかな。」 B「私は反対しないよ。本当に向いていないと ____ ____ ★ ____ 思うからね。」",
+          "options": {
+            "1": "こともないと",
+            "2": "思う",
+            "3": "んだったら",
+            "4": "続ける"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "(không nhất thiết phải) ... cũng không",
+            "2": "nghĩ",
+            "3": "nếu (là vậy) thì",
+            "4": "tiếp tục"
+          }
+        }
+      ]
+    }
+  ]
+}

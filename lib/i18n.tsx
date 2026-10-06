@@ -1,86 +1,94 @@
-"use client";
+"use client"
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react"
 
-export type Language = "vi" | "ja";
+export type Language = "vi" | "ja"
 
 export interface Translations {
-  appName: string;
-  appSubtitle: string;
-  heroNotice: string;
-  heroHeading: string;
-  totalQuestions: string;
-  totalChapters: string;
-  questionsPerSession: string;
-  questionsPracticed: string;
-  sectionsCount: string;
-  practiceAll: string;
-  practiceRandom: string;
-  reviewMistakes: string;
-  practiceEntireChapter: string;
-  changeChapter: string;
-  selectChapterDesc: string;
-  currentChapterBadge: string;
-  sectionsInChapter: string;
-  sectionsUnit: string;
-  questionsUnit: string;
-  searchPlaceholder: string;
-  clear: string;
-  filterAll: string;
-  filterIncomplete: string;
-  chapterListTitle: string;
-  footerNote: string;
-  score: string;
-  correct: string;
-  wrong: string;
-  accuracy: string;
-  streak: string;
-  prevQuestion: string;
-  nextQuestion: string;
-  viewResult: string;
-  passageTitle: string;
-  collapsePassage: string;
-  expandPassage: string;
-  speakSentence: string;
-  speakQuestion: string;
-  bookmark: string;
-  correctBadge: string;
-  correctFeedback: string;
-  wrongFeedback: string;
-  completeSentence: string;
-  quizCompletedTitle: string;
-  retrySection: string;
-  nextSection: string;
-  backHome: string;
-  resetTitle: string;
-  resetConfirm: string;
-  resetConfirmAction: string;
-  cancel: string;
-  resetTooltip: string;
-  soundTooltipOn: string;
-  soundTooltipOff: string;
-  themeTooltipDark: string;
-  themeTooltipLight: string;
-  section1DefaultDesc: string;
-  section2DefaultDesc: string;
-  section3DefaultDesc: string;
-  section1Instruction: string;
-  section2Instruction: string;
-  section3Instruction: string;
-  questionNotFound: string;
-  back: string;
-  chapterNotFound: string;
-  notCompleted: string;
-  completedBadge: string;
-  all3Sections: string;
-  allQuestionsTitle: string;
-  allQuestionsSubtitle: string;
-  quickQuizTitle: string;
-  quickQuizSubtitle: string;
-  mistakesReviewTitle: string;
-  mistakesReviewSubtitle: string;
-  chapterQuizTitle: string;
-  pointsUnit: string;
+  appName: string
+  appSubtitle: string
+  heroNotice: string
+  heroHeading: string
+  totalQuestions: string
+  totalChapters: string
+  questionsPerSession: string
+  questionsPracticed: string
+  sectionsCount: string
+  practiceAll: string
+  practiceRandom: string
+  reviewMistakes: string
+  practiceEntireChapter: string
+  changeChapter: string
+  selectChapterDesc: string
+  currentChapterBadge: string
+  sectionsInChapter: string
+  sectionsUnit: string
+  questionsUnit: string
+  searchPlaceholder: string
+  clear: string
+  filterAll: string
+  filterIncomplete: string
+  chapterListTitle: string
+  footerNote: string
+  score: string
+  correct: string
+  wrong: string
+  accuracy: string
+  streak: string
+  prevQuestion: string
+  nextQuestion: string
+  viewResult: string
+  passageTitle: string
+  collapsePassage: string
+  expandPassage: string
+  speakSentence: string
+  speakQuestion: string
+  bookmark: string
+  correctBadge: string
+  correctFeedback: string
+  wrongFeedback: string
+  completeSentence: string
+  quizCompletedTitle: string
+  retrySection: string
+  nextSection: string
+  backHome: string
+  resetTitle: string
+  resetConfirm: string
+  resetConfirmAction: string
+  cancel: string
+  resetTooltip: string
+  soundTooltipOn: string
+  soundTooltipOff: string
+  themeTooltipDark: string
+  themeTooltipLight: string
+  section1DefaultDesc: string
+  section2DefaultDesc: string
+  section3DefaultDesc: string
+  section1Instruction: string
+  section2Instruction: string
+  section3Instruction: string
+  questionNotFound: string
+  back: string
+  chapterNotFound: string
+  notCompleted: string
+  completedBadge: string
+  all3Sections: string
+  allQuestionsTitle: string
+  allQuestionsSubtitle: string
+  quickQuizTitle: string
+  quickQuizSubtitle: string
+  mistakesReviewTitle: string
+  mistakesReviewSubtitle: string
+  chapterQuizTitle: string
+  pointsUnit: string
+  filterExams: string
+  examSectionTitle: string
+  examSectionSubtitle: string
+  practiceEntireExam: string
+  viewExamDetails: string
+  grammarSectionTitle: string
+  tabGrammar: string
+  tabJlpt: string
 }
 
 const translations: Record<Language, Translations> = {
@@ -97,14 +105,15 @@ const translations: Record<Language, Translations> = {
     practiceAll: "Luyện tập tất cả câu hỏi",
     practiceRandom: "Luyện nhanh 20 câu",
     reviewMistakes: "Ôn lại {count} câu sai",
-    practiceEntireChapter: "Luyện toàn bộ {chapter} ({count} câu hỏi)",
+    practiceEntireChapter: "Luyện toàn bộ {chapter}",
     changeChapter: "Đổi Chapter",
     selectChapterDesc: "Chọn một chapter khác để tiếp tục ôn tập ngữ pháp",
     currentChapterBadge: "Đang học",
     sectionsInChapter: "Các phần trong {chapter}",
     sectionsUnit: "phần",
     questionsUnit: "câu",
-    searchPlaceholder: "Tìm theo ngữ pháp, câu hỏi, chapter (VD: 第1回, あげく, 毎晩...)",
+    searchPlaceholder:
+      "Tìm theo ngữ pháp, câu hỏi, chapter (VD: 第1回, あげく, 毎晩...)",
     clear: "Xóa",
     filterAll: "Tất cả",
     filterIncomplete: "Chưa hoàn thành",
@@ -133,7 +142,8 @@ const translations: Record<Language, Translations> = {
     nextSection: "Học phần tiếp theo",
     backHome: "Về màn hình chính",
     resetTitle: "Đặt lại toàn bộ tiến độ?",
-    resetConfirm: "Hành động này sẽ xóa điểm số, lịch sử làm bài và các câu hỏi đã đánh dấu. Bạn có chắc chắn muốn đặt lại không?",
+    resetConfirm:
+      "Hành động này sẽ xóa điểm số, lịch sử làm bài và các câu hỏi đã đánh dấu. Bạn có chắc chắn muốn đặt lại không?",
     resetConfirmAction: "Đặt lại tiến độ",
     cancel: "Hủy",
     resetTooltip: "Đặt lại tiến độ",
@@ -141,8 +151,10 @@ const translations: Record<Language, Translations> = {
     soundTooltipOff: "Bật âm thanh",
     themeTooltipDark: "Chuyển sang giao diện tối",
     themeTooltipLight: "Chuyển sang giao diện sáng",
-    section1DefaultDesc: "次の文の（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
-    section2DefaultDesc: "次の文の★に入る最もよいものを、1・2・3・4から一つ選びなさい。",
+    section1DefaultDesc:
+      "次の文の（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+    section2DefaultDesc:
+      "次の文の★に入る最もよいものを、1・2・3・4から一つ選びなさい。",
     section3DefaultDesc: "Đọc đoạn văn và chọn đáp án đúng",
     section1Instruction: "Chọn đáp án đúng nhất điền vào chỗ trống",
     section2Instruction: "Chọn từ điền vào vị trí ngôi sao ★",
@@ -161,6 +173,14 @@ const translations: Record<Language, Translations> = {
     mistakesReviewSubtitle: "{count} câu sai",
     chapterQuizTitle: "Chapter {chapterId} • {chapterName}",
     pointsUnit: "điểm",
+    filterExams: "Đề thi JLPT",
+    examSectionTitle: "Đề thi chính thức JLPT N2",
+    examSectionSubtitle: "Kiến thức ngôn ngữ (Từ vựng · Chữ Hán · Ngữ pháp)",
+    practiceEntireExam: "Luyện cả đề ({count} câu)",
+    viewExamDetails: "Xem chi tiết",
+    grammarSectionTitle: "Luyện ngữ pháp theo Chapter",
+    tabGrammar: "Ngữ pháp",
+    tabJlpt: "Đề thi JLPT",
   },
   ja: {
     appName: "文法復習",
@@ -175,7 +195,7 @@ const translations: Record<Language, Translations> = {
     practiceAll: "全問題を練習する",
     practiceRandom: "20問スピード練習",
     reviewMistakes: "間違えた{count}問を復習",
-    practiceEntireChapter: "{chapter} 全体を練習 ({count}問)",
+    practiceEntireChapter: "{chapter} 全体を練習",
     changeChapter: "章を変更",
     selectChapterDesc: "学習を続ける章を選択してください",
     currentChapterBadge: "選択中",
@@ -211,7 +231,8 @@ const translations: Record<Language, Translations> = {
     nextSection: "次のセクションへ",
     backHome: "ホームに戻る",
     resetTitle: "学習進捗をリセットしますか？",
-    resetConfirm: "スコア、解答履歴、保存した問題の記録がすべて消去されます。リセットしてもよろしいですか？",
+    resetConfirm:
+      "スコア、解答履歴、保存した問題の記録がすべて消去されます。リセットしてもよろしいですか？",
     resetConfirmAction: "リセットする",
     cancel: "キャンセル",
     resetTooltip: "進捗をリセット",
@@ -219,8 +240,10 @@ const translations: Record<Language, Translations> = {
     soundTooltipOff: "サウンドをオン",
     themeTooltipDark: "ダークモードに切り替え",
     themeTooltipLight: "ライトモードに切り替え",
-    section1DefaultDesc: "次の文の（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
-    section2DefaultDesc: "次の文の★に入る最もよいものを、1・2・3・4から一つ選びなさい。",
+    section1DefaultDesc:
+      "次の文の（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+    section2DefaultDesc:
+      "次の文の★に入る最もよいものを、1・2・3・4から一つ選びなさい。",
     section3DefaultDesc: "文章を読んで、正しい選択肢を選びなさい。",
     section1Instruction: "空欄に入る最もよいものを一つ選びなさい。",
     section2Instruction: "★に入る最もよいものを一つ選びなさい。",
@@ -239,43 +262,54 @@ const translations: Record<Language, Translations> = {
     mistakesReviewSubtitle: "{count}問",
     chapterQuizTitle: "Chapter {chapterId} • {chapterName}",
     pointsUnit: "点",
+    filterExams: "公式過去問",
+    examSectionTitle: "JLPT N2 公式過去問",
+    examSectionSubtitle: "言語知識（文字・語彙・文法）",
+    practiceEntireExam: "試験全体を解く ({count}問)",
+    viewExamDetails: "詳細を見る",
+    grammarSectionTitle: "章別文法演習",
+    tabGrammar: "文法",
+    tabJlpt: "JLPT 過去問",
   },
-};
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: Translations;
-  formatString: (template: string, vars: Record<string, string | number>) => string;
 }
 
-const LanguageContext = createContext<LanguageContextType | null>(null);
+interface LanguageContextType {
+  language: Language
+  setLanguage: (lang: Language) => void
+  t: Translations
+  formatString: (
+    template: string,
+    vars: Record<string, string | number>
+  ) => string
+}
 
-const STORAGE_KEY = "n2_quiz_lang";
+const LanguageContext = createContext<LanguageContextType | null>(null)
+
+const STORAGE_KEY = "n2_quiz_lang"
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("vi");
+  const [language, setLanguageState] = useState<Language>("vi")
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY) as Language;
+    const saved = localStorage.getItem(STORAGE_KEY) as Language
     if (saved === "vi" || saved === "ja") {
-      setLanguageState(saved);
+      setLanguageState(saved)
     }
-  }, []);
+  }, [])
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    localStorage.setItem(STORAGE_KEY, lang);
-  };
+    setLanguageState(lang)
+    localStorage.setItem(STORAGE_KEY, lang)
+  }
 
   const formatString = (
     template: string,
     vars: Record<string, string | number>
   ) => {
     return template.replace(/\{(\w+)\}/g, (_, key) => {
-      return vars[key] !== undefined ? String(vars[key]) : `{${key}}`;
-    });
-  };
+      return vars[key] !== undefined ? String(vars[key]) : `{${key}}`
+    })
+  }
 
   return (
     <LanguageContext.Provider
@@ -288,13 +322,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     >
       {children}
     </LanguageContext.Provider>
-  );
+  )
 }
 
 export function useLanguage() {
-  const context = useContext(LanguageContext);
+  const context = useContext(LanguageContext)
   if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
+    throw new Error("useLanguage must be used within a LanguageProvider")
   }
-  return context;
+  return context
 }

@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import React, { useState, useMemo, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
-import { HugeiconsIcon } from "@hugeicons/react";
+import React, { useState, useMemo, useEffect, useRef } from "react"
+import { useRouter } from "next/navigation"
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
   BookOpen01Icon,
   ArrowLeft01Icon,
@@ -10,13 +10,15 @@ import {
   PlayIcon,
   HelpCircleIcon,
   CheckmarkBadge01Icon,
+  CheckmarkCircle01Icon,
   StarIcon,
   Note01Icon,
-} from "@hugeicons/core-free-icons";
-import { Chapter } from "@/lib/types";
-import { getAllChapters } from "@/lib/chapters-data";
-import { ProgressState } from "@/lib/storage";
-import { useLanguage } from "@/lib/i18n";
+  SparklesIcon,
+} from "@hugeicons/core-free-icons"
+import { Chapter } from "@/lib/types"
+import { getGrammarChapters, getExamChapters } from "@/lib/chapters-data"
+import { ProgressState } from "@/lib/storage"
+import { useLanguage } from "@/lib/i18n"
 import {
   Sheet,
   SheetContent,
@@ -24,15 +26,15 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/components/ui/sheet"
 
 interface ChapterSectionsViewProps {
-  chapter: Chapter;
-  progress: ProgressState;
-  onBack: () => void;
-  onSelectSection: (chapterId: number, sectionIndex: number) => void;
-  onSelectChapterAll: (chapterId: number) => void;
-  onSwitchChapter?: (chapterId: number) => void;
+  chapter: Chapter
+  progress: ProgressState
+  onBack: () => void
+  onSelectSection: (chapterId: number | string, sectionIndex: number) => void
+  onSelectChapterAll: (chapterId: number | string) => void
+  onSwitchChapter?: (chapterId: number | string) => void
 }
 
 export function ChapterSectionsView({
@@ -43,11 +45,20 @@ export function ChapterSectionsView({
   onSelectChapterAll,
   onSwitchChapter,
 }: ChapterSectionsViewProps) {
-  const router = useRouter();
-  const { t, formatString } = useLanguage();
-  const chapterId = chapter.chapter_id;
-  const [sheetOpen, setSheetOpen] = useState(false);
-  const activeChapterRef = useRef<HTMLButtonElement | null>(null);
+  const router = useRouter()
+  const { t, formatString, language } = useLanguage()
+  const chapterId = chapter.chapter_id
+  const isExam = chapter.category === "exam"
+  const [sheetOpen, setSheetOpen] = useState(false)
+  const activeChapterRef = useRef<HTMLButtonElement | null>(null)
+  const [sheetTab, setSheetTab] = useState<"grammar" | "jlpt">(
+    isExam ? "jlpt" : "grammar"
+  )
+
+  // Sync active tab with current chapter category
+  useEffect(() => {
+    setSheetTab(chapter.category === "exam" ? "jlpt" : "grammar")
+  }, [chapter.chapter_id, chapter.category])
 
   useEffect(() => {
     if (sheetOpen) {
@@ -55,51 +66,54 @@ export function ChapterSectionsView({
       const timer = setTimeout(() => {
         if (activeChapterRef.current) {
           activeChapterRef.current.scrollIntoView({
-            block: "start",
+            block: "center",
             behavior: "smooth",
-          });
+          })
         }
-      }, 100);
-      return () => clearTimeout(timer);
+      }, 100)
+      return () => clearTimeout(timer)
     }
-  }, [sheetOpen, chapterId]);
+  }, [sheetOpen, chapterId, sheetTab])
 
-  const allChapters = useMemo(() => getAllChapters(), []);
+  const grammarChapters = useMemo(() => getGrammarChapters(), [])
+  const examChapters = useMemo(() => getExamChapters(), [])
+  const currentSheetChapters =
+    sheetTab === "grammar" ? grammarChapters : examChapters
 
-  const handleSelectChapterFromSheet = (targetChapterId: number) => {
-    setSheetOpen(false);
+  const handleSelectChapterFromSheet = (targetChapterId: number | string) => {
+    setSheetOpen(false)
     if (onSwitchChapter) {
-      onSwitchChapter(targetChapterId);
+      onSwitchChapter(targetChapterId)
     } else {
-      router.push(`/chapter/${targetChapterId}`);
+      router.push(`/chapter/${targetChapterId}`)
     }
-  };
+  }
 
   const totalChapterQuestions = chapter.sections.reduce(
     (acc, sec) => acc + (sec.questions?.length || 0),
     0
-  );
+  )
 
   // Calculate real progress
   const completedSectionsCount = chapter.sections.filter((_, sIdx) => {
-    const key = `ch${chapterId}-s${sIdx}`;
-    return progress.sectionProgress[key]?.completed;
-  }).length;
+    const key = `ch${chapterId}-s${sIdx}`
+    return progress.sectionProgress[key]?.completed
+  }).length
 
   const totalScore = chapter.sections.reduce((acc, _, sIdx) => {
-    const key = `ch${chapterId}-s${sIdx}`;
-    return acc + (progress.sectionProgress[key]?.score || 0);
-  }, 0);
+    const key = `ch${chapterId}-s${sIdx}`
+    return acc + (progress.sectionProgress[key]?.score || 0)
+  }, 0)
 
   const totalPossible = chapter.sections.reduce((acc, _, sIdx) => {
-    const key = `ch${chapterId}-s${sIdx}`;
-    return acc + (progress.sectionProgress[key]?.total || 0);
-  }, 0);
+    const key = `ch${chapterId}-s${sIdx}`
+    return acc + (progress.sectionProgress[key]?.total || 0)
+  }, 0)
 
   const accuracyPercentage =
-    totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : null;
+    totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : null
 
-  const sectionsConfig = [
+  const grammarSectionsConfig = [
     {
       index: 0,
       icon: BookOpen01Icon,
@@ -130,26 +144,131 @@ export function ChapterSectionsView({
       iconColor: "text-[#7c4dca] dark:text-[#b491fa]",
       accentBar: "bg-[#7c4dca] dark:bg-[#9a6fee]",
     },
-  ];
+  ]
+
+  const examSectionsConfig = [
+    {
+      index: 0,
+      icon: BookOpen01Icon,
+      defaultDesc: language === "ja" ? "漢字の読み方" : "Cách đọc Kanji chuẩn",
+      cardBg:
+        "bg-[#e2eaff] dark:bg-[#161d30] hover:bg-[#dbe5fc] dark:hover:bg-[#1b253e] border-[#d4e0fc] dark:border-[#283659]",
+      iconBg: "bg-white dark:bg-[#202a45]",
+      iconColor: "text-[#4162bc] dark:text-[#7d9eff]",
+      accentBar: "bg-[#4162bc] dark:bg-[#5b82e8]",
+    },
+    {
+      index: 1,
+      icon: Note01Icon,
+      defaultDesc: language === "ja" ? "漢字の表記" : "Cách viết chữ Hán đúng",
+      cardBg:
+        "bg-[#e6f4ea] dark:bg-[#13281c] hover:bg-[#d8edd9] dark:hover:bg-[#173223] border-[#ceead6] dark:border-[#1e462f]",
+      iconBg: "bg-white dark:bg-[#1b3b28]",
+      iconColor: "text-[#137333] dark:text-[#81c995]",
+      accentBar: "bg-[#137333] dark:bg-[#81c995]",
+    },
+    {
+      index: 2,
+      icon: SparklesIcon,
+      defaultDesc:
+        language === "ja"
+          ? "派生語・複合語の形成"
+          : "Cấu tạo từ ghép & tiền tố/hậu tố",
+      cardBg:
+        "bg-[#eee9ff] dark:bg-[#221933] hover:bg-[#e7e0fd] dark:hover:bg-[#2c2041] border-[#dfd6fa] dark:border-[#422e66]",
+      iconBg: "bg-white dark:bg-[#31234a]",
+      iconColor: "text-[#7c4dca] dark:text-[#b491fa]",
+      accentBar: "bg-[#7c4dca] dark:bg-[#9a6fee]",
+    },
+    {
+      index: 3,
+      icon: CheckmarkCircle01Icon,
+      defaultDesc:
+        language === "ja"
+          ? "文脈に応じた適切な語彙"
+          : "Chọn từ phù hợp với ngữ cảnh câu",
+      cardBg:
+        "bg-[#e3f2fd] dark:bg-[#122436] hover:bg-[#d2eaf9] dark:hover:bg-[#162e45] border-[#bbdefb] dark:border-[#1e3f5e]",
+      iconBg: "bg-white dark:bg-[#193753]",
+      iconColor: "text-[#0288d1] dark:text-[#4fc3f7]",
+      accentBar: "bg-[#0288d1] dark:bg-[#4fc3f7]",
+    },
+    {
+      index: 4,
+      icon: SparklesIcon,
+      defaultDesc:
+        language === "ja"
+          ? "同義語・言い換え表現"
+          : "Từ đồng nghĩa và cách diễn đạt tương đương",
+      cardBg:
+        "bg-[#fff8e1] dark:bg-[#2e2612] hover:bg-[#ffecb3] dark:hover:bg-[#3d3215] border-[#ffe082] dark:border-[#54441b]",
+      iconBg: "bg-white dark:bg-[#423719]",
+      iconColor: "text-[#b26a00] dark:text-[#fdd835]",
+      accentBar: "bg-[#f57f17] dark:bg-[#fdd835]",
+    },
+    {
+      index: 5,
+      icon: CheckmarkBadge01Icon,
+      defaultDesc:
+        language === "ja"
+          ? "単語の正しい使い方"
+          : "Cách dùng từ chính xác trong câu",
+      cardBg:
+        "bg-[#fbe9e7] dark:bg-[#2d1b18] hover:bg-[#ffccbc] dark:hover:bg-[#3a221e] border-[#ffab91] dark:border-[#522e28]",
+      iconBg: "bg-white dark:bg-[#422622]",
+      iconColor: "text-[#d84315] dark:text-[#ff8a65]",
+      accentBar: "bg-[#d84315] dark:bg-[#ff8a65]",
+    },
+    {
+      index: 6,
+      icon: BookOpen01Icon,
+      defaultDesc:
+        language === "ja" ? "文の文法判断" : "Ngữ pháp câu & mẫu câu N2",
+      cardBg:
+        "bg-[#e0f2f1] dark:bg-[#102725] hover:bg-[#b2dfdb] dark:hover:bg-[#163432] border-[#80cbc4] dark:border-[#1d4744]",
+      iconBg: "bg-white dark:bg-[#183d3a]",
+      iconColor: "text-[#00796b] dark:text-[#4db6ac]",
+      accentBar: "bg-[#00796b] dark:bg-[#4db6ac]",
+    },
+    {
+      index: 7,
+      icon: StarIcon,
+      defaultDesc:
+        language === "ja"
+          ? "並べ替え・★に入るもの"
+          : "Sắp xếp trật tự từ tìm vị trí ngôi sao ★",
+      cardBg:
+        "bg-[#ffebe3] dark:bg-[#291b16] hover:bg-[#fde2d7] dark:hover:bg-[#34221c] border-[#fadbd0] dark:border-[#4d2f24]",
+      iconBg: "bg-white dark:bg-[#3a251e]",
+      iconColor: "text-[#c85a2b] dark:text-[#f89569]",
+      accentBar: "bg-[#c85a2b] dark:bg-[#f27e4e]",
+    },
+  ]
+
+  const sectionsConfig = isExam ? examSectionsConfig : grammarSectionsConfig
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4 py-6 text-slate-800 dark:text-slate-100 animate-in fade-in duration-200">
+    <div className="mx-auto w-full max-w-2xl animate-in px-4 py-6 text-slate-800 duration-200 fade-in dark:text-slate-100">
       {/* Top Header Bar with clear navigation hierarchy & Chapter Switch Sheet */}
-      <header className="flex items-center justify-between mb-6">
+      <header className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button
             onClick={onBack}
             aria-label={t.back}
             title={t.back}
-            className="w-10 h-10 rounded-full bg-white dark:bg-[#1a1c26] border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-[#202234] flex items-center justify-center transition active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5368a4]"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-[#5368a4] focus-visible:outline-none active:scale-95 dark:border-white/10 dark:bg-[#1a1c26] dark:text-slate-300 dark:hover:bg-[#202234] dark:hover:text-white"
           >
             <HugeiconsIcon icon={ArrowLeft01Icon} size={18} />
           </button>
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-400 block">
-              Chapter {chapterId}
+            <span className="block text-[11px] font-bold tracking-wider text-slate-400 uppercase dark:text-slate-400">
+              {isExam
+                ? language === "ja"
+                  ? "公式過去問"
+                  : "Đề thi chính thức JLPT N2"
+                : `Chapter ${chapterId}`}
             </span>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug">
+            <h1 className="text-xl leading-snug font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-white">
               {chapter.chapter_name}
             </h1>
           </div>
@@ -162,84 +281,143 @@ export function ChapterSectionsView({
               render={
                 <button
                   type="button"
-                  className="h-10 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5 px-3 rounded-full bg-white dark:bg-[#1a1c26] border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-[#202234] transition cursor-pointer active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5368a4]"
+                  className="flex h-10 cursor-pointer items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-[#5368a4] focus-visible:outline-none active:scale-95 dark:border-white/10 dark:bg-[#1a1c26] dark:text-slate-300 dark:hover:bg-[#202234] dark:hover:text-white"
                 >
-                  <HugeiconsIcon icon={BookOpen01Icon} size={15} className="text-[#5368a4]" />
+                  <HugeiconsIcon
+                    icon={BookOpen01Icon}
+                    size={15}
+                    className="text-[#5368a4]"
+                  />
                   <span>{t.changeChapter}</span>
                 </button>
               }
             />
-            <SheetContent side="right" className="w-full sm:max-w-md p-0 flex flex-col bg-[#f8fafc] dark:bg-[#12131c] text-slate-800 dark:text-slate-100 border-l border-slate-200 dark:border-white/10 gap-0">
-              <SheetHeader className="p-5 pb-4 bg-white dark:bg-[#181926] border-b border-slate-200/90 dark:border-white/10 text-left">
-                <SheetTitle className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                  <HugeiconsIcon icon={BookOpen01Icon} size={20} className="text-[#5368a4]" />
+            <SheetContent
+              side="right"
+              className="flex w-full flex-col gap-0 border-l border-slate-200 bg-[#f8fafc] p-0 text-slate-800 sm:max-w-md dark:border-white/10 dark:bg-[#12131c] dark:text-slate-100"
+            >
+              <SheetHeader className="border-b border-slate-200/90 bg-white p-5 pb-4 text-left dark:border-white/10 dark:bg-[#181926]">
+                <SheetTitle className="flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-white">
+                  <HugeiconsIcon
+                    icon={BookOpen01Icon}
+                    size={20}
+                    className="text-[#5368a4]"
+                  />
                   <span>{t.changeChapter}</span>
                 </SheetTitle>
-                <SheetDescription className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                <SheetDescription className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
                   {t.selectChapterDesc}
                 </SheetDescription>
               </SheetHeader>
 
+              {/* Data Type Tab Switcher */}
+              <div className="border-b border-slate-200/80 bg-slate-100/50 p-3 dark:border-white/5 dark:bg-[#151622]">
+                <div className="grid grid-cols-2 gap-1 rounded-xl bg-slate-200/70 p-1 dark:bg-[#1e202f]">
+                  <button
+                    type="button"
+                    onClick={() => setSheetTab("grammar")}
+                    className={`flex cursor-pointer items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-bold transition-all ${sheetTab === "grammar"
+                        ? "bg-white text-slate-900 shadow-xs dark:bg-[#5368a4] dark:text-white"
+                        : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+                      }`}
+                  >
+                    <HugeiconsIcon icon={BookOpen01Icon} size={15} />
+                    <span>{t.tabGrammar}</span>
+                    <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-semibold text-slate-600 dark:bg-white/10 dark:text-white">
+                      {grammarChapters.length}
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSheetTab("jlpt")}
+                    className={`flex cursor-pointer items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-bold transition-all ${sheetTab === "jlpt"
+                        ? "bg-white text-slate-900 shadow-xs dark:bg-[#5368a4] dark:text-white"
+                        : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+                      }`}
+                  >
+                    <HugeiconsIcon icon={CheckmarkBadge01Icon} size={15} />
+                    <span>{t.tabJlpt}</span>
+                    <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-semibold text-slate-600 dark:bg-white/10 dark:text-white">
+                      {examChapters.length}
+                    </span>
+                  </button>
+                </div>
+              </div>
+
               {/* Scrollable Chapter List */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-2 scroll-pt-4 scroll-smooth">
-                {allChapters.map((ch) => {
-                  const isCurrent = ch.chapter_id === chapterId;
+              <div className="flex-1 scroll-pt-4 space-y-2 overflow-y-auto scroll-smooth p-4">
+                {currentSheetChapters.map((ch) => {
+                  const isCurrent = ch.chapter_id === chapterId
                   const qCount = ch.sections.reduce(
                     (acc, sec) => acc + (sec.questions?.length || 0),
                     0
-                  );
+                  )
                   const isChapterDone =
                     ch.sections.length > 0 &&
                     ch.sections.every((_, sIdx) => {
-                      const key = `ch${ch.chapter_id}-s${sIdx}`;
-                      return progress.sectionProgress[key]?.completed;
-                    });
+                      const key = `ch${ch.chapter_id}-s${sIdx}`
+                      return progress.sectionProgress[key]?.completed
+                    })
 
                   return (
                     <button
                       key={ch.chapter_id}
                       ref={isCurrent ? activeChapterRef : null}
-                      onClick={() => handleSelectChapterFromSheet(ch.chapter_id)}
-                      className={`w-full p-3.5 rounded-xl border text-left transition-all duration-150 cursor-pointer flex items-center justify-between gap-3 active:scale-[0.99] ${isCurrent
-                        ? "bg-[#5368a4]/15 border-[#5368a4] text-[#5368a4] dark:text-[#9bb0ea]"
-                        : "bg-white dark:bg-[#181926] hover:bg-slate-50 dark:hover:bg-[#202234] border-slate-100 dark:border-white/5 text-slate-700 dark:text-slate-200 hover:border-slate-200/40 dark:hover:border-white/15"
+                      onClick={() =>
+                        handleSelectChapterFromSheet(ch.chapter_id)
+                      }
+                      className={`flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border p-3.5 text-left transition-all duration-150 active:scale-[0.99] ${isCurrent
+                          ? "border-[#5368a4] bg-[#5368a4]/15 text-[#5368a4] dark:text-[#9bb0ea]"
+                          : "border-slate-100 bg-white text-slate-700 hover:border-slate-200/40 hover:bg-slate-50 dark:border-white/5 dark:bg-[#181926] dark:text-slate-200 dark:hover:border-white/15 dark:hover:bg-[#202234]"
                         }`}
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="flex min-w-0 items-center gap-3">
                         <div
-                          className={`w-9 h-9 rounded-lg flex items-center justify-center font-bold text-xs ${isCurrent
-                            ? "bg-[#5368a4] text-white"
-                            : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300"
+                          className={`flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-lg text-xs font-bold ${isCurrent
+                              ? "bg-[#5368a4] text-white"
+                              : ch.category === "exam"
+                                ? "bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400"
+                                : "bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-slate-300"
                             }`}
                         >
-                          {ch.chapter_id}
+                          {ch.category === "exam" ? (
+                            <HugeiconsIcon
+                              icon={CheckmarkBadge01Icon}
+                              size={18}
+                            />
+                          ) : (
+                            ch.chapter_id
+                          )}
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-sm sm:text-base text-slate-800 dark:text-slate-100">
+                            <span className="truncate text-sm font-bold text-slate-800 sm:text-base dark:text-slate-100">
                               {ch.chapter_name}
                             </span>
-                            {isCurrent && (
-                              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#5368a4] text-white uppercase tracking-wider">
-                                {t.currentChapterBadge}
-                              </span>
-                            )}
                           </div>
-                          <span className="text-xs text-slate-400 dark:text-slate-400 mt-0.5 block">
-                            {qCount} {t.questionsUnit}
+                          <span className="mt-0.5 block truncate text-xs text-slate-400 dark:text-slate-400">
+                            {qCount} {t.questionsUnit} • {ch.sections.length}{" "}
+                            {ch.category === "exam"
+                              ? language === "ja"
+                                ? "大問"
+                                : "phần thi"
+                              : t.sectionsUnit}
                           </span>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 shrink-0">
+                      <div className="flex shrink-0 items-center gap-1.5">
                         {isChapterDone && (
                           <span className="text-emerald-500">
-                            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={18} />
+                            <HugeiconsIcon
+                              icon={CheckmarkBadge01Icon}
+                              size={18}
+                            />
                           </span>
                         )}
                       </div>
                     </button>
-                  );
+                  )
                 })}
               </div>
             </SheetContent>
@@ -249,35 +427,43 @@ export function ChapterSectionsView({
 
       {/* Subtitle & Headline */}
       <div className="mb-6">
-        <p className="text-xs font-medium text-slate-400 dark:text-slate-400">{t.heroNotice}</p>
-        <div className="flex items-center justify-between mt-1">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-700 dark:text-slate-200 tracking-tight">
+        <p className="text-xs font-medium text-slate-400 dark:text-slate-400">
+          {t.heroNotice}
+        </p>
+        <div className="mt-1 flex items-center justify-between">
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-700 sm:text-3xl dark:text-slate-200">
             {t.heroHeading}
           </h2>
         </div>
       </div>
 
       {/* Stat Pills with accurate progress reflection */}
-      <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
-        <div className="bg-white dark:bg-[#181926] rounded-2xl p-4 border border-slate-200/80 dark:border-white/10 text-center transition">
-          <span className="text-xl sm:text-2xl font-bold text-[#38529a] dark:text-[#8ea2db] block leading-none">
+      <div className="mb-3 grid grid-cols-3 gap-2 sm:gap-3">
+        <div className="rounded-2xl bg-white p-4 text-center transition dark:bg-[#181926]">
+          <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
             {totalChapterQuestions}
           </span>
-          <span className="text-xs font-medium text-slate-400 dark:text-slate-400">{t.totalQuestions}</span>
-        </div>
-
-        <div className="bg-white dark:bg-[#181926] rounded-2xl p-4 border border-slate-200/80 dark:border-white/10 text-center transition">
-          <span className="text-xl sm:text-2xl font-bold text-[#38529a] dark:text-[#8ea2db] block leading-none">
-            {completedSectionsCount}/3
+          <span className="text-xs font-medium text-slate-400 dark:text-slate-400">
+            {t.totalQuestions}
           </span>
-          <span className="text-xs font-medium text-slate-400 dark:text-slate-400">{t.completedBadge}</span>
         </div>
 
-        <div className="bg-white dark:bg-[#181926] rounded-2xl p-4 border border-slate-200/80 dark:border-white/10 text-center transition">
-          <span className="text-xl sm:text-2xl font-bold text-[#38529a] dark:text-[#8ea2db] block leading-none">
+        <div className="rounded-2xl bg-white p-4 text-center transition dark:bg-[#181926]">
+          <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
+            {completedSectionsCount}/{chapter.sections.length}
+          </span>
+          <span className="text-xs font-medium text-slate-400 dark:text-slate-400">
+            {t.completedBadge}
+          </span>
+        </div>
+
+        <div className="rounded-2xl bg-white p-4 text-center transition dark:bg-[#181926]">
+          <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
             {accuracyPercentage !== null ? `${accuracyPercentage}%` : "—"}
           </span>
-          <span className="text-xs font-medium text-slate-400 dark:text-slate-400">{t.accuracy}</span>
+          <span className="text-xs font-medium text-slate-400 dark:text-slate-400">
+            {t.accuracy}
+          </span>
         </div>
       </div>
 
@@ -285,21 +471,20 @@ export function ChapterSectionsView({
       <div className="mb-8">
         <button
           onClick={() => onSelectChapterAll(chapterId)}
-          className="w-full py-4 px-6 rounded-2xl bg-[#5368a4] hover:bg-[#475a92] text-white font-bold text-sm sm:text-base transition flex items-center justify-center gap-2.5 active:scale-[0.99] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5368a4] focus-visible:ring-offset-2"
+          className="flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-2xl bg-[#5368a4] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#475a92] focus-visible:ring-2 focus-visible:ring-[#5368a4] focus-visible:ring-offset-2 focus-visible:outline-none active:scale-[0.99] sm:text-base"
         >
           <HugeiconsIcon icon={PlayIcon} size={20} />
           <span>
             {formatString(t.practiceEntireChapter, {
               chapter: chapter.chapter_name,
-              count: totalChapterQuestions,
             })}
           </span>
         </button>
       </div>
 
       {/* Section List Header */}
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 tracking-tight">
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-lg font-bold tracking-tight text-slate-800 dark:text-slate-100">
           {formatString(t.sectionsInChapter, { chapter: chapter.chapter_name })}
         </h3>
         <span className="text-xs font-semibold text-slate-400 dark:text-slate-400">
@@ -308,24 +493,26 @@ export function ChapterSectionsView({
       </div>
 
       {/* 3 Section Cards with distinctive icons and progress feedback */}
-      <div className="space-y-3.5 mb-8">
+      <div className="mb-8 space-y-3.5">
         {chapter.sections.map((sec, sIdx) => {
-          const cfg = (sectionsConfig as any)[sIdx] || {
+          const cfg = sectionsConfig[sIdx] || {
             index: sIdx,
             icon: BookOpen01Icon,
             defaultDesc: "Chọn đáp án đúng nhất",
-            cardBg: "bg-white dark:bg-[#181926] border-slate-200 dark:border-white/10",
+            cardBg:
+              "bg-white dark:bg-[#181926] border-slate-200 dark:border-white/10",
             iconBg: "bg-white dark:bg-white/10",
             iconColor: "text-slate-600 dark:text-slate-300",
             accentBar: "bg-slate-400",
-          };
+          }
 
-          const key = `ch${chapterId}-s${sIdx}`;
-          const sp = progress.sectionProgress[key];
-          const isDone = Boolean(sp?.completed);
-          const qCount = sec.questions?.length || 0;
-          const desc = sec.instruction || cfg.defaultDesc;
-          const progressPercent = isDone && sp ? Math.round((sp.score / sp.total) * 100) : 0;
+          const key = `ch${chapterId}-s${sIdx}`
+          const sp = progress.sectionProgress[key]
+          const isDone = Boolean(sp?.completed)
+          const qCount = sec.questions?.length || 0
+          const desc = sec.instruction || cfg.defaultDesc
+          const progressPercent =
+            isDone && sp ? Math.round((sp.score / sp.total) * 100) : 0
 
           return (
             <div
@@ -335,34 +522,38 @@ export function ChapterSectionsView({
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  onSelectSection(chapterId, sIdx);
+                  e.preventDefault()
+                  onSelectSection(chapterId, sIdx)
                 }
               }}
-              className={`rounded-2xl p-4 sm:p-5 border transition-all duration-200 cursor-pointer active:scale-[0.99] flex items-center justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5368a4] ${cfg.cardBg}`}
+              className={`flex cursor-pointer items-center justify-between gap-4 rounded-2xl p-4 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#5368a4] focus-visible:outline-none active:scale-[0.99] sm:p-5 ${cfg.cardBg}`}
             >
-              <div className="flex items-center gap-3.5 sm:gap-4 flex-1 min-w-0">
+              <div className="flex min-w-0 flex-1 items-center gap-3.5 sm:gap-4">
                 {/* Rounded square with distinct icon */}
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-black/5 dark:border-white/10 ${cfg.iconBg || "bg-white dark:bg-white/10"
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-black/5 dark:border-white/10 ${cfg.iconBg || "bg-white dark:bg-white/10"
                     }`}
                 >
-                  <HugeiconsIcon icon={cfg.icon} size={22} className={cfg.iconColor} />
+                  <HugeiconsIcon
+                    icon={cfg.icon}
+                    size={22}
+                    className={cfg.iconColor}
+                  />
                 </div>
 
                 {/* Section title, description and accent bar */}
-                <div className="flex-1 min-w-0">
+                <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <h4 className="text-base sm:text-lg font-semibold text-slate-800 dark:text-slate-100 leading-snug">
+                    <h4 className="text-base leading-snug font-semibold text-slate-800 sm:text-lg dark:text-slate-100">
                       {sec.section_name}
                     </h4>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5 font-normal">
+                  <p className="mt-0.5 line-clamp-1 text-xs font-normal text-slate-500 sm:text-sm dark:text-slate-400">
                     {qCount} {t.questionsUnit} · {desc}
                   </p>
 
                   {/* Real progress track */}
-                  <div className="mt-2.5 w-full max-w-36 bg-black/5 dark:bg-white/10 h-1.5 rounded-full overflow-hidden">
+                  <div className="mt-2.5 h-1.5 w-full max-w-36 overflow-hidden rounded-full bg-black/5 dark:bg-white/10">
                     <div
                       className={`h-full ${cfg.accentBar} rounded-full transition-all duration-300`}
                       style={{
@@ -374,29 +565,42 @@ export function ChapterSectionsView({
               </div>
 
               {/* Right side: count, completion badge & arrow */}
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="flex shrink-0 items-center gap-2">
                 {isDone && sp ? (
-                  <span className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300">
-                    {sp.score}/{sp.total} <span className="text-slate-400 dark:text-slate-400 font-normal">{t.questionsUnit}</span>
+                  <span className="text-xs font-semibold text-slate-600 sm:text-sm dark:text-slate-300">
+                    {sp.score}/{sp.total}{" "}
+                    <span className="font-normal text-slate-400 dark:text-slate-400">
+                      {t.questionsUnit}
+                    </span>
                   </span>
                 ) : (
-                  <span className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300">
-                    {qCount} <span className="text-slate-400 dark:text-slate-400 font-normal">{t.questionsUnit}</span>
+                  <span className="text-xs font-semibold text-slate-600 sm:text-sm dark:text-slate-300">
+                    {qCount}{" "}
+                    <span className="font-normal text-slate-400 dark:text-slate-400">
+                      {t.questionsUnit}
+                    </span>
                   </span>
                 )}
-                <HugeiconsIcon icon={ArrowRight01Icon} size={16} className="text-slate-400 dark:text-slate-400" />
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={16}
+                  className="text-slate-400 dark:text-slate-400"
+                />
               </div>
             </div>
-          );
+          )
         })}
       </div>
 
       {/* Footer Info Note matching bottom */}
-      <footer className="flex items-center justify-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 text-center py-4">
-        <HugeiconsIcon icon={HelpCircleIcon} size={14} className="shrink-0 text-slate-400 dark:text-slate-500" />
+      <footer className="flex items-center justify-center gap-1.5 py-4 text-center text-xs text-slate-400 dark:text-slate-500">
+        <HugeiconsIcon
+          icon={HelpCircleIcon}
+          size={14}
+          className="shrink-0 text-slate-400 dark:text-slate-500"
+        />
         <span>{t.footerNote}</span>
       </footer>
     </div>
-  );
+  )
 }
-

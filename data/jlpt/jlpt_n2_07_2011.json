@@ -1,0 +1,894 @@
+{
+  "chapter_id": "jlpt-2011-07",
+  "chapter_name": "JLPT N2 07/2011",
+  "category": "exam",
+  "subtitle": "Language Knowledge (Vocabulary & Grammar)",
+  "sections": [
+    {
+      "section_name": "問題 1",
+      "instruction": "____の読み方として最もよいものを１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_text": "ずっと好調だったのに、最後の試合で敗れてしまった。",
+          "options": {
+            "1": "たおれて",
+            "2": "やぶれて",
+            "3": "みだれて",
+            "4": "つぶれて"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        },
+        {
+          "question_number": 2,
+          "question_text": "この仕事には高い語学力が要求される。",
+          "options": {
+            "1": "ようきゅ",
+            "2": "よっきゅう",
+            "3": "ようきゅう",
+            "4": "よっきゅ"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        },
+        {
+          "question_number": 3,
+          "question_text": "友達の合格をみんなで祝った。",
+          "options": {
+            "1": "いわった",
+            "2": "いのった",
+            "3": "うらなった",
+            "4": "ねがった"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        },
+        {
+          "question_number": 4,
+          "question_text": "寒かったら、エアコンの温度を調節してください。",
+          "options": {
+            "1": "ちょうさい",
+            "2": "ちょうせい",
+            "3": "ちょうさつ",
+            "4": "ちょうせu"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        },
+        {
+          "question_number": 5,
+          "question_text": "この書類を至急コピーしてきてください。",
+          "options": {
+            "1": "しっきゅう",
+            "2": "ちっきゅう",
+            "3": "しきゅう",
+            "4": "ちきゅう"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 2",
+      "instruction": "____の言葉で漢字を書くとき、最もよいものを１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 6,
+          "question_text": "ハトは平和のしょうちょうだと言われている。",
+          "options": {
+            "1": "像徴",
+            "2": "象微",
+            "3": "象徴",
+            "4": "像微"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        },
+        {
+          "question_number": 7,
+          "question_text": "退院しても、しばらくの間、はげしい運動はしないでください。",
+          "options": {
+            "1": "険しい",
+            "2": "激しい",
+            "3": "暴しい",
+            "4": "極しい"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        },
+        {
+          "question_number": 8,
+          "question_text": "携帯電話に友達の電話番号をとうろくした。",
+          "options": {
+            "1": "登録",
+            "2": "登緑",
+            "3": "答録",
+            "4": "答緑"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        },
+        {
+          "question_number": 9,
+          "question_text": "岡田さんを話題の映画にさそった。",
+          "options": {
+            "1": "招った",
+            "2": "勧った",
+            "3": "請った",
+            "4": "誘った"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        },
+        {
+          "question_number": 10,
+          "question_text": "待ち合わせの時間を 6 時にへんこうしてもらった。",
+          "options": {
+            "1": "変改",
+            "2": "変更",
+            "3": "変換",
+            "4": "変替"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Phương án gây nhiễu / không phải đáp án đúng",
+            "2": "Phương án gây nhiễu / không phải đáp án đúng",
+            "3": "Phương án gây nhiễu / không phải đáp án đúng",
+            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 3",
+      "instruction": "（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 11,
+          "question_text": "彼は医学（ ）ではかなり知られた存在だ。",
+          "options": {
+            "1": "界",
+            "2": "帯",
+            "3": "域",
+            "4": "区"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 界",
+            "2": "Nghĩa theo ngữ cảnh: 帯",
+            "3": "Nghĩa theo ngữ cảnh: 域",
+            "4": "Nghĩa theo ngữ cảnh: 区"
+          }
+        },
+        {
+          "question_number": 12,
+          "question_text": "決勝戦で負けて、（ ）優勝に終わった。",
+          "options": {
+            "1": "後",
+            "2": "準",
+            "3": "次",
+            "4": "副"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 後",
+            "2": "Nghĩa theo ngữ cảnh: 準",
+            "3": "Nghĩa theo ngữ cảnh: 次",
+            "4": "Nghĩa theo ngữ cảnh: 副"
+          }
+        },
+        {
+          "question_number": 13,
+          "question_text": "（ ）段階では詳細は決まっていないらしい。",
+          "options": {
+            "1": "現",
+            "2": "直",
+            "3": "近",
+            "4": "当"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 現",
+            "2": "Nghĩa theo ngữ cảnh: 直",
+            "3": "Nghĩa theo ngữ cảnh: 近",
+            "4": "Nghĩa theo ngữ cảnh: 当"
+          }
+        },
+        {
+          "question_number": 14,
+          "question_text": "今回の大臣の訪問は（ ）公式に行われた。",
+          "options": {
+            "1": "不",
+            "2": "未",
+            "3": "無",
+            "4": "非"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 不",
+            "2": "Nghĩa theo ngữ cảnh: 未",
+            "3": "Nghĩa theo ngữ cảnh: 無",
+            "4": "Nghĩa theo ngữ cảnh: 非"
+          }
+        },
+        {
+          "question_number": 15,
+          "question_text": "わが社の今年の（ ）売上は、昨年を上回った。",
+          "options": {
+            "1": "集",
+            "2": "総",
+            "3": "合",
+            "4": "満"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 集",
+            "2": "Nghĩa theo ngữ cảnh: 総",
+            "3": "Nghĩa theo ngữ cảnh: 合",
+            "4": "Nghĩa theo ngữ cảnh: 満"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 4",
+      "instruction": "（ ）に入れるのに最もよいものを、１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 16,
+          "question_text": "さまざまなデータを（ ）した結果、事故の原因が明らかになった。",
+          "options": {
+            "1": "視察",
+            "2": "検査",
+            "3": "発明",
+            "4": "分析"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 視察",
+            "2": "Nghĩa theo ngữ cảnh: 検査",
+            "3": "Nghĩa theo ngữ cảnh: 発明",
+            "4": "Nghĩa theo ngữ cảnh: 分析"
+          }
+        },
+        {
+          "question_number": 17,
+          "question_text": "街を（ ）していたら、山本さんに会った。",
+          "options": {
+            "1": "ぐらぐら",
+            "2": "がらがら",
+            "3": "ばらばら",
+            "4": "ぶらぶら"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: ぐらぐら",
+            "2": "Nghĩa theo ngữ cảnh: がらがら",
+            "3": "Nghĩa theo ngữ cảnh: ばらばら",
+            "4": "Nghĩa theo ngữ cảnh: ぶらぶら"
+          }
+        },
+        {
+          "question_number": 18,
+          "question_text": "祭りの日は町が（ ）にあふれている。",
+          "options": {
+            "1": "活気",
+            "2": "活発",
+            "3": "活躍",
+            "4": "活動"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 活気",
+            "2": "Nghĩa theo ngữ cảnh: 活発",
+            "3": "Nghĩa theo ngữ cảnh: 活躍",
+            "4": "Nghĩa theo ngữ cảnh: 活動"
+          }
+        },
+        {
+          "question_number": 19,
+          "question_text": "コピー機に紙が（ ）、出てこない。",
+          "options": {
+            "1": "もぐって",
+            "2": "つまって",
+            "3": "しずんで",
+            "4": "うまって"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: もぐって",
+            "2": "Nghĩa theo ngữ cảnh: つまって",
+            "3": "Nghĩa theo ngữ cảnh: しずんで",
+            "4": "Nghĩa theo ngữ cảnh: うまって"
+          }
+        },
+        {
+          "question_number": 20,
+          "question_text": "この小説は今の時代を（ ）した作品だ。",
+          "options": {
+            "1": "反映",
+            "2": "放映",
+            "3": "引用",
+            "4": "採用"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 反映",
+            "2": "Nghĩa theo ngữ cảnh: 放映",
+            "3": "Nghĩa theo ngữ cảnh: 引用",
+            "4": "Nghĩa theo ngữ cảnh: 採用"
+          }
+        },
+        {
+          "question_number": 21,
+          "question_text": "田中さんは長い間（ ）窓の外を見ていた。",
+          "options": {
+            "1": "ぼんやり",
+            "2": "ふんわり",
+            "3": "うっすら",
+            "4": "しっとり"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: ぼんやり",
+            "2": "Nghĩa theo ngữ cảnh: ふんわり",
+            "3": "Nghĩa theo ngữ cảnh: うっすら",
+            "4": "Nghĩa theo ngữ cảnh: しっとり"
+          }
+        },
+        {
+          "question_number": 22,
+          "question_text": "経済だけでなく、法律にも詳しいのが彼の（ ）だ。",
+          "options": {
+            "1": "深み",
+            "2": "強み",
+            "3": "高み",
+            "4": "重み"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 深み",
+            "2": "Nghĩa theo ngữ cảnh: 強み",
+            "3": "Nghĩa theo ngữ cảnh: 高み",
+            "4": "Nghĩa theo ngữ cảnh: 重み"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 5",
+      "instruction": "____の言葉に意味が最も近いものを、１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 23,
+          "question_text": "このブームは長くは続かないだろう。",
+          "options": {
+            "1": "効果",
+            "2": "状態",
+            "3": "流行",
+            "4": "緊張"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 効果",
+            "2": "Nghĩa theo ngữ cảnh: 状態",
+            "3": "Nghĩa theo ngữ cảnh: 流行",
+            "4": "Nghĩa theo ngữ cảnh: 緊張"
+          }
+        },
+        {
+          "question_number": 24,
+          "question_text": "この作業は慎重にやってください。",
+          "options": {
+            "1": "急いで",
+            "2": "絶対忘れずに",
+            "3": "静かに",
+            "4": "十分注意して"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 急いで",
+            "2": "Nghĩa theo ngữ cảnh: 絶対忘れずに",
+            "3": "Nghĩa theo ngữ cảnh: 静かに",
+            "4": "Nghĩa theo ngữ cảnh: 十分注意して"
+          }
+        },
+        {
+          "question_number": 25,
+          "question_text": "シャツがちぢんでしまった。",
+          "options": {
+            "1": "小さくなって",
+            "2": "古くなって",
+            "3": "汚れて",
+            "4": "破れて"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 小さくなって",
+            "2": "Nghĩa theo ngữ cảnh: 古くなって",
+            "3": "Nghĩa theo ngữ cảnh: 汚れて",
+            "4": "Nghĩa theo ngữ cảnh: 破れて"
+          }
+        },
+        {
+          "question_number": 26,
+          "question_text": "宿題のレポートはほぼ終わった。",
+          "options": {
+            "1": "すべて",
+            "2": "すぐに",
+            "3": "だいたい",
+            "4": "やっと"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: すべて",
+            "2": "Nghĩa theo ngữ cảnh: すぐに",
+            "3": "muốn...",
+            "4": "Nghĩa theo ngữ cảnh: やっと"
+          }
+        },
+        {
+          "question_number": 27,
+          "question_text": "来週は天気が回復するそうだ。",
+          "options": {
+            "1": "あまり変わらない",
+            "2": "変わりやすい",
+            "3": "よくなる",
+            "4": "悪くなる"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "không...",
+            "2": "Nghĩa theo ngữ cảnh: 変わりやすい",
+            "3": "Nghĩa theo ngữ cảnh: よくなる",
+            "4": "Nghĩa theo ngữ cảnh: 悪くなる"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 6",
+      "instruction": "次の言葉の使い方として最もよいものを、１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 28,
+          "word": "方針",
+          "options": {
+            "1": "台風の方針がそれた...",
+            "2": "今年の私の方針は漢字を...",
+            "3": "この料理を作る方針を...",
+            "4": "教育に関する政府の方針が..."
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 台風の方針がそれた...",
+            "2": "Nghĩa theo ngữ cảnh: 今年の私の方針は漢字を...",
+            "3": "Nghĩa theo ngữ cảnh: この料理を作る方針を...",
+            "4": "Nghĩa theo ngữ cảnh: 教育に関する政府の方針が..."
+          }
+        },
+        {
+          "question_number": 29,
+          "word": "範囲",
+          "options": {
+            "1": "この町は川によって二つの...",
+            "2": "この会社は新しい範囲に...",
+            "3": "明日は広い範囲で強い雨が...",
+            "4": "家から駅までの範囲は 2キロ..."
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: この町は川によって二つの...",
+            "2": "Nghĩa theo ngữ cảnh: この会社は新しい範囲に...",
+            "3": "Nghĩa theo ngữ cảnh: 明日は広い範囲で強い雨が...",
+            "4": "Nghĩa theo ngữ cảnh: 家から駅までの範囲は 2キロ..."
+          }
+        },
+        {
+          "question_number": 30,
+          "word": "せめて",
+          "options": {
+            "1": "その店のセーターはせめて...",
+            "2": "今からタクシーに乗ってもせめて...",
+            "3": "京都に行くならせめて 1泊は...",
+            "4": "自信がなかったがせめて 50点は..."
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: その店のセーターはせめて...",
+            "2": "Nghĩa theo ngữ cảnh: 今からタクシーに乗ってもせめて...",
+            "3": "Nghĩa theo ngữ cảnh: 京都に行くならせめて 1泊は...",
+            "4": "Nghĩa theo ngữ cảnh: 自信がなかったがせめて 50点は..."
+          }
+        },
+        {
+          "question_number": 31,
+          "word": "利益",
+          "options": {
+            "1": "ジョギングは健康の利益に...",
+            "2": "この値段で売ったら利益は...",
+            "3": "かぜ薬を飲んだが利益が...",
+            "4": "バスの利益は新幹線よりも..."
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: ジョギングは健康の利益に...",
+            "2": "Nghĩa theo ngữ cảnh: この値段で売ったら利益は...",
+            "3": "Nghĩa theo ngữ cảnh: かぜ薬を飲んだが利益が...",
+            "4": "Nghĩa theo ngữ cảnh: バスの利益は新幹線よりも..."
+          }
+        },
+        {
+          "question_number": 32,
+          "word": "かなう",
+          "options": {
+            "1": "苦労がかない、彼は俳優として...",
+            "2": "天気予報がかない、今日は...",
+            "3": "準備を重ねてきたイベントが無事...",
+            "4": "自分の店を持つという夢が..."
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 苦労がかない、彼は俳優として...",
+            "2": "Nghĩa theo ngữ cảnh: 天気予報がかない、今日は...",
+            "3": "Nghĩa theo ngữ cảnh: 準備を重ねてきたイベントが無事...",
+            "4": "Nghĩa theo ngữ cảnh: 自分の店を持つという夢が..."
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 7",
+      "instruction": "次の文の（ ）に入れるのに最もよいものを、１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 33,
+          "question_text": "A「もう無理だよ」B「なんでそうやってすぐ、もうだめ（ ）言うの。」",
+          "options": {
+            "1": "を",
+            "2": "は",
+            "3": "とか",
+            "4": "とは"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: を",
+            "2": "Nghĩa theo ngữ cảnh: は",
+            "3": "Nghĩa theo ngữ cảnh: とか",
+            "4": "Nói rằng / cái gọi là"
+          }
+        },
+        {
+          "question_number": 34,
+          "question_text": "あれこれ悩んだ（ ）、ABC 大学を志望校に決めた。",
+          "options": {
+            "1": "さきに",
+            "2": "すえに",
+            "3": "ところに",
+            "4": "とおりに"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: さきに",
+            "2": "Nghĩa theo ngữ cảnh: すえに",
+            "3": "Nghĩa theo ngữ cảnh: ところに",
+            "4": "Nghĩa theo ngữ cảnh: とおりに"
+          }
+        },
+        {
+          "question_number": 35,
+          "question_text": "あれこれ質問に答え（ ）あげく、対応できないと言われた。",
+          "options": {
+            "1": "させた",
+            "2": "させられる",
+            "3": "させる",
+            "4": "させられた"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: させた",
+            "2": "Nghĩa theo ngữ cảnh: させられる",
+            "3": "Nghĩa theo ngữ cảnh: させる",
+            "4": "Nghĩa theo ngữ cảnh: させられた"
+          }
+        },
+        {
+          "question_number": 36,
+          "question_text": "面倒だが、やはりこの仕事は断れない。引き受ける（ ）。",
+          "options": {
+            "1": "までもあるまい",
+            "2": "することもない",
+            "3": "はずもない",
+            "4": "しかあるまい"
+          },
+          "answer": 4,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: までもあるまい",
+            "2": "không...",
+            "3": "không...",
+            "4": "Nghĩa theo ngữ cảnh: しかあるまい"
+          }
+        },
+        {
+          "question_number": 37,
+          "question_text": "「私、山田は、50 年ぶりにふるさとに戻って（ ）。」",
+          "options": {
+            "1": "まいりました",
+            "2": "いらっしゃいました",
+            "3": "うかがいました",
+            "4": "おいでになりました"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: まいりました",
+            "2": "Nghĩa theo ngữ cảnh: いらっしゃいました",
+            "3": "Nghĩa theo ngữ cảnh: うかがいました",
+            "4": "Nghĩa theo ngữ cảnh: おいでになりました"
+          }
+        },
+        {
+          "question_number": 38,
+          "question_text": "彼女の絵は、国内より（ ）海外での評価が高い。",
+          "options": {
+            "1": "まさか",
+            "2": "たとえ",
+            "3": "むしろ",
+            "4": "かりに"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: まさか",
+            "2": "Nghĩa theo ngữ cảnh: たとえ",
+            "3": "Đúng hơn là / trái lại",
+            "4": "Nghĩa theo ngữ cảnh: かりに"
+          }
+        },
+        {
+          "question_number": 39,
+          "question_text": "次に会うときには、彼らも立派な大人に（ ）。",
+          "options": {
+            "1": "なるだろう",
+            "2": "なっただろう",
+            "3": "なっているだろう",
+            "4": "なっていただろう"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: なるだろう",
+            "2": "Nghĩa theo ngữ cảnh: なっただろう",
+            "3": "Nghĩa theo ngữ cảnh: なっているだろう",
+            "4": "Nghĩa theo ngữ cảnh: なっていただろう"
+          }
+        },
+        {
+          "question_number": 40,
+          "question_text": "毎日（ ）どちらでもいいことばかりを日記に書いている。",
+          "options": {
+            "1": "書くとも書かないとも",
+            "2": "書いたか書かなかったか",
+            "3": "書いても書かなくても",
+            "4": "書くとか書かないとか"
+          },
+          "answer": 3,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 書くとも書かないとも",
+            "2": "Nghĩa theo ngữ cảnh: 書いたか書かなかったか",
+            "3": "Nghĩa theo ngữ cảnh: 書いても書かなくても",
+            "4": "Nghĩa theo ngữ cảnh: 書くとか書かないとか"
+          }
+        },
+        {
+          "question_number": 41,
+          "question_text": "顔を洗うときには、せっけんを（ ）、さっと洗うのがよい。",
+          "options": {
+            "1": "使いすぎずに",
+            "2": "使うにすぎず",
+            "3": "使うにすぎなく",
+            "4": "使いすぎもなくて"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 使いすぎずに",
+            "2": "Nghĩa theo ngữ cảnh: 使うにすぎず",
+            "3": "Nghĩa theo ngữ cảnh: 使うにすぎなく",
+            "4": "Nghĩa theo ngữ cảnh: 使いすぎもなくて"
+          }
+        },
+        {
+          "question_number": 42,
+          "question_text": "実はそれが世界のほんの小さな一部分（ ）気付いていなかった。",
+          "options": {
+            "1": "でないことにしか",
+            "2": "でしかないことに",
+            "3": "にないことでしか",
+            "4": "にしかないことで"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: でないことにしか",
+            "2": "Nghĩa theo ngữ cảnh: でしかないことに",
+            "3": "Nghĩa theo ngữ cảnh: にないことでしか",
+            "4": "Nghĩa theo ngữ cảnh: にしかないことで"
+          }
+        },
+        {
+          "question_number": 43,
+          "question_text": "「山田さんは出張中だよ。今ここに（ ）。」",
+          "options": {
+            "1": "いないわけじゃないよ",
+            "2": "いるわけないじゃない",
+            "3": "いたわけじゃないよ",
+            "4": "いなかったわけじゃない"
+          },
+          "answer": 2,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: いないわけじゃないよ",
+            "2": "không...",
+            "3": "Nghĩa theo ngữ cảnh: いたわけじゃないよ",
+            "4": "không..."
+          }
+        },
+        {
+          "question_number": 44,
+          "question_text": "「ほんと。この人を見ない日はない（ ）よね。」",
+          "options": {
+            "1": "と言ってもいいぐらいだ",
+            "2": "と言ったらいいだけだ",
+            "3": "と言ってもいいからだ",
+            "4": "と言ったらいいことだ"
+          },
+          "answer": 1,
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: と言ってもいいぐらいだ",
+            "2": "Nghĩa theo ngữ cảnh: と言ったらいいだけだ",
+            "3": "Nghĩa theo ngữ cảnh: と言ってもいいからだ",
+            "4": "Nghĩa theo ngữ cảnh: と言ったらいいことだ"
+          }
+        }
+      ]
+    },
+    {
+      "section_name": "問題 8",
+      "instruction": "次の文の ★ に入る最もよいものを、１・２・３・４から一つ選びなさい。",
+      "questions": [
+        {
+          "question_number": 45,
+          "question_text": "不調だった山中選手がついにゴールを決めた。彼に ____ ____ ★ ____ 相当あったはずだ。",
+          "options": {
+            "1": "したら",
+            "2": "という",
+            "3": "プレッシャーは",
+            "4": "「もし、またミスをしたら」"
+          },
+          "answer": 2,
+          "full_sentence": "彼に [したら(1)] [「もし、またミスをしたら」(4)] [★という(2)] [プレッシャーは(3)] 相当...",
+          "options_vi": {
+            "1": "nếu / khi...",
+            "2": "Gọi là... / rằng...",
+            "3": "Nghĩa theo ngữ cảnh: プレッシャーは",
+            "4": "Nghĩa theo ngữ cảnh: 「もし、またミスをしたら」"
+          }
+        },
+        {
+          "question_number": 46,
+          "question_text": "「ただ、 ____ ____ ★ ____ 増えていることだね。」",
+          "options": {
+            "1": "なんていう",
+            "2": "残念なのは",
+            "3": "若者が最近",
+            "4": "すっぱいのが苦手だ"
+          },
+          "answer": 1,
+          "full_sentence": "[残念なのは(2)] [すっぱいのが苦手だ(4)] [★なんていう(1)] [若者が最近(3)] 増えている...",
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: なんていう",
+            "2": "Nghĩa theo ngữ cảnh: 残念なのは",
+            "3": "Nghĩa theo ngữ cảnh: 若者が最近",
+            "4": "Nghĩa theo ngữ cảnh: すっぱいのが苦手だ"
+          }
+        },
+        {
+          "question_number": 47,
+          "question_text": "苦しい生活の中、 ____ ____ ★ ____ 涙が出ます。",
+          "options": {
+            "1": "それだけで",
+            "2": "どんな思いで",
+            "3": "買ってくれたのかと",
+            "4": "思うと"
+          },
+          "answer": 4,
+          "full_sentence": "[どんな思いで(2)] [買ってくれたのかと(3)] [★思うと(4)] [それだけで(1)] 涙が出ます。",
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: それだけで",
+            "2": "Nghĩa theo ngữ cảnh: どんな思いで",
+            "3": "Nghĩa theo ngữ cảnh: 買ってくれたのかと",
+            "4": "Nghĩa theo ngữ cảnh: 思うと"
+          }
+        },
+        {
+          "question_number": 48,
+          "question_text": "わたしは、子どもが ____ ____ ★ ____ と思っている。",
+          "options": {
+            "1": "したい",
+            "2": "やりたい",
+            "3": "やらせて",
+            "4": "と思うことは"
+          },
+          "answer": 3,
+          "full_sentence": "子どもが [やりたい(2)] [★と思うことは(4)] [なんでも(OCR欠)] [やらせて(3)] [あげたい(OCR欠)]",
+          "options_vi": {
+            "1": "muốn...",
+            "2": "muốn...",
+            "3": "Nghĩa theo ngữ cảnh: やらせて",
+            "4": "Nghĩa theo ngữ cảnh: と思うことは"
+          }
+        },
+        {
+          "question_number": 49,
+          "question_text": "国民の、政治 ____ ____ ★ ____ 政治家は指導力を発揮できるのだ。",
+          "options": {
+            "1": "初めて",
+            "2": "に対する",
+            "3": "があって",
+            "4": "信頼"
+          },
+          "answer": 3,
+          "full_sentence": "政治 [に対する(2)] [信頼(4)] [★があって(3)] [初めて(1)] 政治家は...",
+          "options_vi": {
+            "1": "Nghĩa theo ngữ cảnh: 初めて",
+            "2": "Đối với / dành cho",
+            "3": "Nghĩa theo ngữ cảnh: があって",
+            "4": "Nghĩa theo ngữ cảnh: 信頼"
+          }
+        }
+      ]
+    }
+  ]
+}

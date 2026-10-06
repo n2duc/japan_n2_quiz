@@ -1,27 +1,34 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { getSectionQuestions, getChapterAllQuestions } from "@/lib/chapters-data";
-import { Chapter, QuizQuestionItem } from "@/lib/types";
-import { getStoredProgress, ProgressState } from "@/lib/storage";
-import { ChapterSectionsView } from "@/components/chapter-sections-view";
-import { QuizPlayer } from "@/components/quiz-player";
-import { useLanguage } from "@/lib/i18n";
+import React, { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
+import {
+  getSectionQuestions,
+  getChapterAllQuestions,
+} from "@/lib/chapters-data"
+import { Chapter, QuizQuestionItem } from "@/lib/types"
+import { getStoredProgress, ProgressState } from "@/lib/storage"
+import { ChapterSectionsView } from "@/components/chapter-sections-view"
+import { QuizPlayer } from "@/components/quiz-player"
+import { useLanguage } from "@/lib/i18n"
 
 interface ChapterClientPageProps {
-  chapter: Chapter;
+  chapter: Chapter
 }
 
 export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
-  const router = useRouter();
-  const { t, formatString } = useLanguage();
-  const chapterId = chapter.chapter_id;
+  const router = useRouter()
+  const { t, formatString } = useLanguage()
+  const chapterId = chapter.chapter_id
 
-  const [activeQuizQuestions, setActiveQuizQuestions] = useState<QuizQuestionItem[] | null>(null);
-  const [quizTitle, setQuizTitle] = useState("");
-  const [quizSubtitle, setQuizSubtitle] = useState<string | undefined>();
-  const [activeSectionIndex, setActiveSectionIndex] = useState<number | undefined>();
+  const [activeQuizQuestions, setActiveQuizQuestions] = useState<
+    QuizQuestionItem[] | null
+  >(null)
+  const [quizTitle, setQuizTitle] = useState("")
+  const [quizSubtitle, setQuizSubtitle] = useState<string | undefined>()
+  const [activeSectionIndex, setActiveSectionIndex] = useState<
+    number | undefined
+  >()
   const [progress, setProgress] = useState<ProgressState>({
     answeredCount: 0,
     correctCount: 0,
@@ -31,46 +38,59 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
     wrongQuestionIds: [],
     bookmarkedQuestionIds: [],
     sectionProgress: {},
-  });
+  })
 
   const refreshProgress = () => {
-    setProgress(getStoredProgress());
-  };
+    setProgress(getStoredProgress())
+  }
 
   useEffect(() => {
-    refreshProgress();
-  }, []);
+    refreshProgress()
+  }, [])
 
-  const handleSelectSection = (cId: number, sIdx: number) => {
-    const list = getSectionQuestions(cId, sIdx);
-    const sec = chapter.sections[sIdx];
-    setQuizTitle(`${chapter.chapter_name} • ${sec?.section_name || `Section ${sIdx + 1}`}`);
-    setQuizSubtitle(`Chapter ${cId}`);
-    setActiveSectionIndex(sIdx);
-    setActiveQuizQuestions(list);
-  };
-
-  const handleSelectChapterAll = (cId: number) => {
-    const list = getChapterAllQuestions(cId);
+  const handleSelectSection = (cId: number | string, sIdx: number) => {
+    const list = getSectionQuestions(cId, sIdx)
+    const sec = chapter.sections[sIdx]
     setQuizTitle(
-      formatString(t.chapterQuizTitle, {
-        chapterId: cId,
-        chapterName: chapter.chapter_name,
-      })
-    );
-    setQuizSubtitle(t.all3Sections);
-    setActiveSectionIndex(undefined);
-    setActiveQuizQuestions(list);
-  };
+      `${chapter.chapter_name} • ${sec?.section_name || `Section ${sIdx + 1}`}`
+    )
+    setQuizSubtitle(
+      chapter.category === "exam"
+        ? chapter.subtitle || "JLPT N2"
+        : `Chapter ${cId}`
+    )
+    setActiveSectionIndex(sIdx)
+    setActiveQuizQuestions(list)
+  }
+
+  const handleSelectChapterAll = (cId: number | string) => {
+    const list = getChapterAllQuestions(cId)
+    if (chapter.category === "exam") {
+      setQuizTitle(`${chapter.chapter_name} • ${chapter.subtitle || ""}`)
+      setQuizSubtitle(
+        `${chapter.sections.length} phần thi • ${list.length} câu hỏi`
+      )
+    } else {
+      setQuizTitle(
+        formatString(t.chapterQuizTitle, {
+          chapterId: cId,
+          chapterName: chapter.chapter_name,
+        })
+      )
+      setQuizSubtitle(t.all3Sections)
+    }
+    setActiveSectionIndex(undefined)
+    setActiveQuizQuestions(list)
+  }
 
   const handleExitQuiz = () => {
-    setActiveQuizQuestions(null);
-    refreshProgress();
-  };
+    setActiveQuizQuestions(null)
+    refreshProgress()
+  }
 
   if (activeQuizQuestions && activeQuizQuestions.length > 0) {
     return (
-      <main className="min-h-dvh bg-[#f6f8fc] dark:bg-[#0d0e14] text-slate-800 dark:text-slate-100 p-3 flex flex-col justify-center items-center transition-colors duration-150">
+      <main className="flex min-h-dvh flex-col items-center justify-center bg-[#f6f8fc] p-3 text-slate-800 transition-colors duration-150 dark:bg-[#0d0e14] dark:text-slate-100">
         <QuizPlayer
           key={`quiz-${chapterId}-${activeSectionIndex ?? "all"}`}
           questions={activeQuizQuestions}
@@ -82,11 +102,11 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
           onNextSection={(cId, nextIdx) => handleSelectSection(cId, nextIdx)}
         />
       </main>
-    );
+    )
   }
 
   return (
-    <main className="min-h-screen bg-[#f6f8fc] dark:bg-[#0f111a] text-slate-800 dark:text-slate-100 pb-12 transition-colors duration-150">
+    <main className="min-h-screen bg-[#f6f8fc] pb-12 text-slate-800 transition-colors duration-150 dark:bg-[#0f111a] dark:text-slate-100">
       <ChapterSectionsView
         chapter={chapter}
         progress={progress}
@@ -96,5 +116,5 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
         onSwitchChapter={(newId) => router.push(`/chapter/${newId}`)}
       />
     </main>
-  );
+  )
 }

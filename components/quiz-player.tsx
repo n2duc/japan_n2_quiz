@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
+import React, { useState, useEffect, useMemo, useCallback } from "react"
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Home01Icon,
   ArrowLeft01Icon,
@@ -15,26 +15,26 @@ import {
   CheckmarkBadge01Icon,
   BookOpen01Icon,
   FireIcon,
-} from "@hugeicons/core-free-icons";
-import { QuizQuestionItem } from "@/lib/types";
-import { sounds } from "@/lib/sound";
-import { useLanguage } from "@/lib/i18n";
-import { getChapterById } from "@/lib/chapters-data";
+} from "@hugeicons/core-free-icons"
+import { QuizQuestionItem } from "@/lib/types"
+import { sounds } from "@/lib/sound"
+import { useLanguage } from "@/lib/i18n"
+import { getChapterById } from "@/lib/chapters-data"
 import {
   getStoredProgress,
   recordQuestionResult,
   recordSectionCompleted,
   toggleBookmarkQuestion,
-} from "@/lib/storage";
+} from "@/lib/storage"
 
 interface QuizPlayerProps {
-  questions: QuizQuestionItem[];
-  title?: string;
-  subtitle?: string;
-  onExit: () => void;
-  chapterId?: number;
-  sectionIndex?: number;
-  onNextSection?: (chapterId: number, nextSectionIndex: number) => void;
+  questions: QuizQuestionItem[]
+  title?: string
+  subtitle?: string
+  onExit: () => void
+  chapterId?: number | string
+  sectionIndex?: number
+  onNextSection?: (chapterId: number | string, nextSectionIndex: number) => void
 }
 
 export function QuizPlayer({
@@ -46,87 +46,93 @@ export function QuizPlayer({
   sectionIndex,
   onNextSection,
 }: QuizPlayerProps) {
-  const { t, formatString } = useLanguage();
-  const activeTitle = title || t.allQuestionsTitle;
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
-  const [isAnswered, setIsAnswered] = useState<Record<number, boolean>>({});
-  const [score, setScore] = useState(0);
-  const [streak, setStreak] = useState(0);
-  const [soundActive, setSoundActive] = useState(true);
-  const [autoAdvance, setAutoAdvance] = useState(false);
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({});
-  const [showPassage, setShowPassage] = useState(true);
+  const { t, formatString } = useLanguage()
+  const activeTitle = title || t.allQuestionsTitle
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [selectedAnswers, setSelectedAnswers] = useState<
+    Record<number, number>
+  >({})
+  const [isAnswered, setIsAnswered] = useState<Record<number, boolean>>({})
+  const [score, setScore] = useState(0)
+  const [streak, setStreak] = useState(0)
+  const [soundActive, setSoundActive] = useState(true)
+  const [autoAdvance, setAutoAdvance] = useState(false)
+  const [isCompleted, setIsCompleted] = useState(false)
+  const [bookmarked, setBookmarked] = useState<Record<string, boolean>>({})
+  const [showPassage, setShowPassage] = useState(true)
 
   // Initialize sound & bookmarks
   useEffect(() => {
-    setSoundActive(sounds.isEnabled());
-    const progress = getStoredProgress();
-    const bookmarkMap: Record<string, boolean> = {};
+    setSoundActive(sounds.isEnabled())
+    const progress = getStoredProgress()
+    const bookmarkMap: Record<string, boolean> = {}
     progress.bookmarkedQuestionIds.forEach((id) => {
-      bookmarkMap[id] = true;
-    });
-    setBookmarked(bookmarkMap);
-  }, []);
+      bookmarkMap[id] = true
+    })
+    setBookmarked(bookmarkMap)
+  }, [])
 
   // Reset quiz state whenever questions or section change
   useEffect(() => {
-    setCurrentIndex(0);
-    setSelectedAnswers({});
-    setIsAnswered({});
-    setScore(0);
-    setStreak(0);
-    setIsCompleted(false);
-    setShowPassage(true);
-  }, [questions, sectionIndex]);
+    setCurrentIndex(0)
+    setSelectedAnswers({})
+    setIsAnswered({})
+    setScore(0)
+    setStreak(0)
+    setIsCompleted(false)
+    setShowPassage(true)
+  }, [questions, sectionIndex])
 
-  const currentChapter = chapterId !== undefined ? getChapterById(chapterId) : undefined;
-  const nextSectionIndex = sectionIndex !== undefined ? sectionIndex + 1 : undefined;
+  const currentChapter =
+    chapterId !== undefined ? getChapterById(chapterId) : undefined
+  const nextSectionIndex =
+    sectionIndex !== undefined ? sectionIndex + 1 : undefined
   const nextSection =
-    currentChapter && nextSectionIndex !== undefined && nextSectionIndex < currentChapter.sections.length
+    currentChapter &&
+    nextSectionIndex !== undefined &&
+    nextSectionIndex < currentChapter.sections.length
       ? currentChapter.sections[nextSectionIndex]
-      : undefined;
+      : undefined
 
-  const currentQ = questions[currentIndex];
-  const totalQuestions = questions.length;
+  const currentQ = questions[currentIndex]
+  const totalQuestions = questions.length
 
-  const currentSelected = selectedAnswers[currentIndex];
-  const currentAnswered = isAnswered[currentIndex] || false;
+  const currentSelected = selectedAnswers[currentIndex]
+  const currentAnswered = isAnswered[currentIndex] || false
 
   const handleToggleSound = () => {
-    const newState = sounds.toggle();
-    setSoundActive(newState);
-  };
+    const newState = sounds.toggle()
+    setSoundActive(newState)
+  }
 
   const handleToggleBookmark = () => {
-    if (!currentQ) return;
-    const isNowBookmarked = toggleBookmarkQuestion(currentQ.id);
+    if (!currentQ) return
+    const isNowBookmarked = toggleBookmarkQuestion(currentQ.id)
     setBookmarked((prev) => ({
       ...prev,
       [currentQ.id]: isNowBookmarked,
-    }));
-  };
+    }))
+  }
 
   const handleSpeak = (text: string) => {
-    sounds.speakJapanese(text);
-  };
+    sounds.speakJapanese(text)
+  }
 
   const handleSelectOption = (optKey: number) => {
-    if (currentAnswered || !currentQ) return;
+    if (currentAnswered || !currentQ) return
 
-    const isCorrect = optKey === currentQ.answer;
+    const isCorrect = optKey === currentQ.answer
 
-    setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: optKey }));
-    setIsAnswered((prev) => ({ ...prev, [currentIndex]: true }));
+    setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: optKey }))
+    setIsAnswered((prev) => ({ ...prev, [currentIndex]: true }))
 
     if (isCorrect) {
-      sounds.playCorrect();
-      setScore((s) => s + 10);
-      setStreak((st) => st + 1);
+      sounds.playCorrect()
+      setScore((s) => s + 10)
+      setStreak((st) => st + 1)
     } else {
-      sounds.playIncorrect();
-      setStreak(0);
+      sounds.playIncorrect()
+      setStreak(0)
     }
 
     // Persist result
@@ -135,102 +141,115 @@ export function QuizPlayer({
       isCorrect,
       currentQ.chapterId,
       currentQ.sectionIndex
-    );
+    )
 
     // Auto-advance if enabled
     if (autoAdvance) {
       setTimeout(() => {
-        handleNext();
-      }, 1400);
+        handleNext()
+      }, 1400)
     }
-  };
+  }
 
   const handleNext = useCallback(() => {
     if (currentIndex < totalQuestions - 1) {
-      setCurrentIndex((i) => i + 1);
+      setCurrentIndex((i) => i + 1)
     } else {
       // Completed quiz
-      setIsCompleted(true);
+      setIsCompleted(true)
       if (chapterId !== undefined && sectionIndex !== undefined) {
         // Calculate total correct
-        let correctCount = 0;
+        let correctCount = 0
         questions.forEach((q, idx) => {
-          if (selectedAnswers[idx] === q.answer) correctCount += 1;
-        });
-        recordSectionCompleted(chapterId, sectionIndex, correctCount, totalQuestions);
+          if (selectedAnswers[idx] === q.answer) correctCount += 1
+        })
+        recordSectionCompleted(
+          chapterId,
+          sectionIndex,
+          correctCount,
+          totalQuestions
+        )
       }
     }
-  }, [currentIndex, totalQuestions, chapterId, sectionIndex, questions, selectedAnswers]);
+  }, [
+    currentIndex,
+    totalQuestions,
+    chapterId,
+    sectionIndex,
+    questions,
+    selectedAnswers,
+  ])
 
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex((i) => i - 1);
+      setCurrentIndex((i) => i - 1)
     }
-  };
+  }
 
   const handleRestart = () => {
-    setCurrentIndex(0);
-    setSelectedAnswers({});
-    setIsAnswered({});
-    setScore(0);
-    setStreak(0);
-    setIsCompleted(false);
-  };
+    setCurrentIndex(0)
+    setSelectedAnswers({})
+    setIsAnswered({})
+    setScore(0)
+    setStreak(0)
+    setIsCompleted(false)
+  }
 
   // Reconstructed sentence for Section 2 (ordered sequence)
   const starSentence = useMemo(() => {
-    if (!currentQ || !currentQ.orderedSequence || !currentQ.questionText) return null;
-    const seq = currentQ.orderedSequence;
+    if (!currentQ || !currentQ.orderedSequence || !currentQ.questionText)
+      return null
+    const seq = currentQ.orderedSequence
     const parts = seq.map((optNum) => {
-      const text = currentQ.options[String(optNum)] || "";
-      const isStar = optNum === currentQ.answer;
-      return { text, isStar, num: optNum };
-    });
+      const text = currentQ.options[String(optNum)] || ""
+      const isStar = optNum === currentQ.answer
+      return { text, isStar, num: optNum }
+    })
 
-    const regex = /___\s*___\s*★\s*___/;
-    const rawTemplate = currentQ.questionText;
+    const regex = /___\s*___\s*★\s*___/
+    const rawTemplate = currentQ.questionText
 
     if (regex.test(rawTemplate)) {
-      const [before, after] = rawTemplate.split(regex);
-      return { before, parts, after };
+      const [before, after] = rawTemplate.split(regex)
+      return { before, parts, after }
     }
-    return { before: "", parts, after: "" };
-  }, [currentQ]);
+    return { before: "", parts, after: "" }
+  }, [currentQ])
 
   // Section 3: Highlight active blank in passage
   const formattedPassage = useMemo(() => {
-    if (!currentQ || !currentQ.context) return null;
-    const blankNum = currentQ.questionNumber;
-    const lines = currentQ.context.split("\n");
-    return lines;
-  }, [currentQ]);
+    if (!currentQ || !currentQ.context) return null
+    const blankNum = currentQ.questionNumber
+    const lines = currentQ.context.split("\n")
+    return lines
+  }, [currentQ])
 
   if (!currentQ && !isCompleted) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-6 text-slate-600 dark:text-zinc-300">
+      <div className="flex min-h-[60vh] flex-col items-center justify-center p-6 text-center text-slate-600 dark:text-zinc-300">
         <p className="text-lg">{t.questionNotFound}</p>
         <button
           onClick={onExit}
-          className="mt-4 px-6 py-2.5 rounded-full bg-slate-200 dark:bg-zinc-800 hover:bg-slate-300 dark:hover:bg-zinc-700 text-slate-800 dark:text-white font-medium transition cursor-pointer"
+          className="mt-4 cursor-pointer rounded-full bg-slate-200 px-6 py-2.5 font-medium text-slate-800 transition hover:bg-slate-300 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700"
         >
           {t.back}
         </button>
       </div>
-    );
+    )
   }
 
   // Completion Screen
   if (isCompleted) {
-    let correctCount = 0;
+    let correctCount = 0
     questions.forEach((q, idx) => {
-      if (selectedAnswers[idx] === q.answer) correctCount += 1;
-    });
-    const percentage = Math.round((correctCount / totalQuestions) * 100);
+      if (selectedAnswers[idx] === q.answer) correctCount += 1
+    })
+    const percentage = Math.round((correctCount / totalQuestions) * 100)
 
     return (
-      <div className="w-full max-w-md mx-auto px-4 py-8 animate-in fade-in zoom-in-95 duration-300">
-        <div className="bg-white dark:bg-[#181920] border border-slate-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 text-center">
-          <div className="w-20 h-20 mx-auto rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
+      <div className="mx-auto w-full max-w-md animate-in px-4 py-8 duration-300 zoom-in-95 fade-in">
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 text-center sm:p-8 dark:border-zinc-800 dark:bg-[#181920]">
+          <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10">
             <HugeiconsIcon
               icon={CheckmarkBadge01Icon}
               size={44}
@@ -238,22 +257,27 @@ export function QuizPlayer({
             />
           </div>
 
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{t.quizCompletedTitle}</h2>
-          <p className="text-slate-500 dark:text-zinc-400 text-sm mb-6">
+          <h2 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+            {t.quizCompletedTitle}
+          </h2>
+          <p className="mb-6 text-sm text-slate-500 dark:text-zinc-400">
             {activeTitle} {subtitle ? `• ${subtitle}` : ""}
           </p>
 
-          <div className="grid grid-cols-2 gap-3 mb-6">
-            <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-2xl p-4 border border-slate-200 dark:border-zinc-800">
-              <span className="text-xs text-slate-400 dark:text-zinc-400 uppercase tracking-wider block mb-1">
+          <div className="mb-6 grid grid-cols-2 gap-3">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/80">
+              <span className="mb-1 block text-xs tracking-wider text-slate-400 uppercase dark:text-zinc-400">
                 {t.score}
               </span>
               <span className="text-2xl font-black text-amber-500 dark:text-amber-400">
-                {score} <span className="text-xs text-slate-400 dark:text-zinc-400">{t.pointsUnit}</span>
+                {score}{" "}
+                <span className="text-xs text-slate-400 dark:text-zinc-400">
+                  {t.pointsUnit}
+                </span>
               </span>
             </div>
-            <div className="bg-slate-50 dark:bg-zinc-900/80 rounded-2xl p-4 border border-slate-200 dark:border-zinc-800">
-              <span className="text-xs text-slate-400 dark:text-zinc-400 uppercase tracking-wider block mb-1">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/80">
+              <span className="mb-1 block text-xs tracking-wider text-slate-400 uppercase dark:text-zinc-400">
                 {t.accuracy}
               </span>
               <span className="text-2xl font-black text-emerald-500 dark:text-emerald-400">
@@ -262,46 +286,59 @@ export function QuizPlayer({
             </div>
           </div>
 
-          <div className="bg-slate-50/70 dark:bg-zinc-900/50 rounded-2xl p-4 border border-slate-200 dark:border-zinc-800/80 mb-6 text-left text-sm text-slate-700 dark:text-zinc-300">
-            <div className="flex justify-between py-1 border-b border-slate-200 dark:border-zinc-800">
-              <span className="text-slate-500 dark:text-zinc-400">{t.correct}</span>
+          <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-left text-sm text-slate-700 dark:border-zinc-800/80 dark:bg-zinc-900/50 dark:text-zinc-300">
+            <div className="flex justify-between border-b border-slate-200 py-1 dark:border-zinc-800">
+              <span className="text-slate-500 dark:text-zinc-400">
+                {t.correct}
+              </span>
               <span className="font-bold text-emerald-600 dark:text-emerald-400">
                 {correctCount} / {totalQuestions}
               </span>
             </div>
-            <div className="flex justify-between py-1 border-b border-slate-200 dark:border-zinc-800">
-              <span className="text-slate-500 dark:text-zinc-400">{t.wrong}</span>
+            <div className="flex justify-between border-b border-slate-200 py-1 dark:border-zinc-800">
+              <span className="text-slate-500 dark:text-zinc-400">
+                {t.wrong}
+              </span>
               <span className="font-bold text-rose-500 dark:text-rose-400">
                 {totalQuestions - correctCount} {t.questionsUnit}
               </span>
             </div>
             <div className="flex justify-between py-1">
-              <span className="text-slate-500 dark:text-zinc-400">{t.streak}</span>
-              <span className="font-bold text-amber-500 dark:text-amber-300 flex items-center gap-1">
+              <span className="text-slate-500 dark:text-zinc-400">
+                {t.streak}
+              </span>
+              <span className="flex items-center gap-1 font-bold text-amber-500 dark:text-amber-300">
                 {streak}
-                <HugeiconsIcon icon={FireIcon} size={15} className="text-amber-500 dark:text-amber-400" />
+                <HugeiconsIcon
+                  icon={FireIcon}
+                  size={15}
+                  className="text-amber-500 dark:text-amber-400"
+                />
               </span>
             </div>
           </div>
 
           <div className="flex flex-col gap-3">
-            {nextSection && onNextSection && chapterId !== undefined && nextSectionIndex !== undefined && (
-              <button
-                onClick={() => onNextSection(chapterId, nextSectionIndex)}
-                className="w-full py-3.5 px-6 rounded-2xl bg-[#5368a4] hover:bg-[#475b94] text-white font-bold transition flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow"
-              >
-                <span>
-                  {t.nextSection}: {nextSection.section_name}
-                </span>
-                <HugeiconsIcon icon={ArrowRight01Icon} size={20} />
-              </button>
-            )}
+            {nextSection &&
+              onNextSection &&
+              chapterId !== undefined &&
+              nextSectionIndex !== undefined && (
+                <button
+                  onClick={() => onNextSection(chapterId, nextSectionIndex)}
+                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-6 py-3.5 font-bold text-white shadow-sm transition hover:bg-[#475b94] hover:shadow"
+                >
+                  <span>
+                    {t.nextSection}: {nextSection.section_name}
+                  </span>
+                  <HugeiconsIcon icon={ArrowRight01Icon} size={20} />
+                </button>
+              )}
             <button
               onClick={handleRestart}
-              className={`w-full py-3.5 px-6 rounded-2xl font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
+              className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl px-6 py-3.5 font-bold transition ${
                 nextSection && onNextSection
-                  ? "bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-transparent"
-                  : "bg-[#5368a4] hover:bg-[#475b94] text-white"
+                  ? "border border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                  : "bg-[#5368a4] text-white hover:bg-[#475b94]"
               }`}
             >
               <HugeiconsIcon icon={RotateRight01Icon} size={20} />
@@ -309,7 +346,7 @@ export function QuizPlayer({
             </button>
             <button
               onClick={onExit}
-              className="w-full py-3.5 px-6 rounded-2xl bg-slate-100 dark:bg-zinc-800 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-200 border border-slate-200 dark:border-transparent font-bold transition flex items-center justify-center gap-2 cursor-pointer"
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-100 px-6 py-3.5 font-bold text-slate-700 transition hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
             >
               <HugeiconsIcon icon={Home01Icon} size={20} />
               {t.backHome}
@@ -317,44 +354,52 @@ export function QuizPlayer({
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   // Header Title Text
-  const displayTitle = activeTitle || currentQ.chapterName;
-  const displaySubtitle = `${currentIndex + 1} / ${totalQuestions}`;
+  const displayTitle = activeTitle || currentQ.chapterName
+  const displaySubtitle = `${currentIndex + 1} / ${totalQuestions}`
 
   return (
-    <div className="w-full max-w-md mx-auto flex-1 flex flex-col justify-between pb-4 select-none">
+    <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-between pb-4 select-none">
       {/* Top Header matching the screenshot */}
-      <header className="pt-3 pb-2 px-2">
+      <header className="px-2 pt-3 pb-2">
         <div className="flex items-center justify-between">
           {/* Home Button */}
           <button
             onClick={onExit}
             aria-label={t.backHome}
-            className="w-10 h-10 rounded-full bg-white dark:bg-[#1e2026] hover:bg-slate-50 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-200 flex items-center justify-center transition active:scale-95 border border-slate-200 dark:border-white/5 cursor-pointer"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 active:scale-95 dark:border-white/5 dark:bg-[#1e2026] dark:text-zinc-200 dark:hover:bg-zinc-700"
           >
             <HugeiconsIcon icon={Home01Icon} size={20} />
           </button>
 
           {/* Center Title and Progress */}
-          <div className="text-center flex-1 mx-3">
-            <h1 className="text-slate-900 dark:text-white font-bold text-base sm:text-lg leading-tight line-clamp-1">
+          <div className="mx-3 flex-1 text-center">
+            <h1 className="line-clamp-1 text-base leading-tight font-bold text-slate-900 sm:text-lg dark:text-white">
               {displayTitle}
             </h1>
-            <p className="text-slate-500 dark:text-zinc-400 text-xs sm:text-sm font-medium mt-0.5">
+            <p className="mt-0.5 text-xs font-medium text-slate-500 sm:text-sm dark:text-zinc-400">
               {displaySubtitle}
             </p>
           </div>
 
           {/* Score Counter */}
-          <div className="flex items-center gap-1.5 bg-white dark:bg-[#1e2026] border border-slate-200 dark:border-white/5 px-3 py-1.5 rounded-full">
-            <span className="text-xs text-slate-400 dark:text-zinc-400 font-medium">{t.score}</span>
-            <span className="text-sm font-bold text-slate-800 dark:text-white">{score}</span>
+          <div className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 dark:border-white/5 dark:bg-[#1e2026]">
+            <span className="text-xs font-medium text-slate-400 dark:text-zinc-400">
+              {t.score}
+            </span>
+            <span className="text-sm font-bold text-slate-800 dark:text-white">
+              {score}
+            </span>
             {streak >= 2 && (
-              <span className="text-xs text-amber-500 dark:text-amber-400 font-bold ml-1 flex items-center gap-0.5">
-                <HugeiconsIcon icon={FireIcon} size={14} className="text-amber-500 dark:text-amber-400" />
+              <span className="ml-1 flex items-center gap-0.5 text-xs font-bold text-amber-500 dark:text-amber-400">
+                <HugeiconsIcon
+                  icon={FireIcon}
+                  size={14}
+                  className="text-amber-500 dark:text-amber-400"
+                />
                 {streak}
               </span>
             )}
@@ -362,7 +407,7 @@ export function QuizPlayer({
         </div>
 
         {/* Thin progress bar */}
-        <div className="w-full bg-slate-200 dark:bg-zinc-800/80 h-1.5 rounded-full overflow-hidden mt-3">
+        <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-zinc-800/80">
           <div
             className="h-full bg-primary transition-all duration-300"
             style={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
@@ -371,51 +416,52 @@ export function QuizPlayer({
       </header>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col justify-center my-3 space-y-4">
+      <div className="my-3 flex flex-1 flex-col justify-center space-y-4">
         {/* Section 3 Context Passage (Reading Passage) */}
         {currentQ.context && (
-          <div className="bg-white dark:bg-[#14151a] border border-slate-200 dark:border-zinc-800/90 rounded-2xl p-4 text-slate-800 dark:text-zinc-200 transition-all">
-            <div className="flex items-center justify-between mb-2 pb-2 border-b border-slate-200 dark:border-zinc-800">
-              <span className="text-xs font-semibold text-[#4162bc] dark:text-indigo-400 flex items-center gap-1.5">
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 text-slate-800 transition-all dark:border-zinc-800/90 dark:bg-[#14151a] dark:text-zinc-200">
+            <div className="mb-2 flex items-center justify-between border-b border-slate-200 pb-2 dark:border-zinc-800">
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-[#4162bc] dark:text-indigo-400">
                 <HugeiconsIcon icon={BookOpen01Icon} size={15} />
                 {t.passageTitle}
               </span>
               <button
                 onClick={() => setShowPassage(!showPassage)}
-                className="text-xs text-slate-500 dark:text-zinc-400 hover:text-slate-800 dark:hover:text-white px-2 py-0.5 rounded bg-slate-100 dark:bg-zinc-800 border border-slate-200 dark:border-transparent cursor-pointer"
+                className="cursor-pointer rounded border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs text-slate-500 hover:text-slate-800 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-400 dark:hover:text-white"
               >
                 {showPassage ? t.collapsePassage : t.expandPassage}
               </button>
             </div>
 
             {showPassage && (
-              <div className="text-sm sm:text-base leading-relaxed space-y-2 pr-1">
+              <div className="space-y-2 pr-1 text-sm leading-relaxed sm:text-base">
                 {formattedPassage?.map((paragraph, pIdx) => {
                   // Render paragraph and highlight blanks like " 1 ", " 2 ", " 3 "
-                  const parts = paragraph.split(/(\s[1-9]\s)/g);
+                  const parts = paragraph.split(/(\s[1-9]\s)/g)
                   return (
                     <p key={pIdx}>
                       {parts.map((part, partIdx) => {
-                        const match = part.match(/^\s([1-9])\s$/);
+                        const match = part.match(/^\s([1-9])\s$/)
                         if (match) {
-                          const num = parseInt(match[1]);
-                          const isCurrent = num === currentQ.questionNumber;
+                          const num = parseInt(match[1])
+                          const isCurrent = num === currentQ.questionNumber
                           return (
                             <span
                               key={partIdx}
-                              className={`inline-block font-bold px-2 py-0.5 mx-1 rounded text-xs transition ${isCurrent
-                                ? "bg-amber-400 text-black ring-2 ring-amber-300 font-extrabold animate-pulse"
-                                : "bg-slate-100 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700"
-                                }`}
+                              className={`mx-1 inline-block rounded px-2 py-0.5 text-xs font-bold transition ${
+                                isCurrent
+                                  ? "animate-pulse bg-amber-400 font-extrabold text-black ring-2 ring-amber-300"
+                                  : "border border-slate-200 bg-slate-100 text-slate-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                              }`}
                             >
                               （ {num} ）
                             </span>
-                          );
+                          )
                         }
-                        return <span key={partIdx}>{part}</span>;
+                        return <span key={partIdx}>{part}</span>
                       })}
                     </p>
-                  );
+                  )
                 })}
               </div>
             )}
@@ -423,23 +469,24 @@ export function QuizPlayer({
         )}
 
         {/* Central Question Card matching screenshot aesthetics */}
-        <div className="bg-white dark:bg-[#181920] border border-slate-200/90 dark:border-white/5 rounded-3xl p-6 sm:p-8 min-h-55 flex flex-col justify-between text-center relative">
+        <div className="relative flex min-h-55 flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 text-center sm:p-8 dark:border-white/5 dark:bg-[#181920]">
           {/* Audio & Bookmark Actions */}
           <div className="absolute top-4 right-4 flex items-center gap-2">
             <button
               onClick={() => handleSpeak(currentQ.questionText || "")}
               title={t.speakQuestion}
-              className="w-8 h-8 rounded-full bg-slate-100 dark:bg-zinc-800/80 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-600 dark:text-zinc-300 flex items-center justify-center transition active:scale-95 cursor-pointer"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200 active:scale-95 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
             >
               <HugeiconsIcon icon={VolumeHighIcon} size={16} />
             </button>
             <button
               onClick={handleToggleBookmark}
               title={t.bookmark}
-              className={`w-8 h-8 rounded-full flex items-center justify-center transition active:scale-95 cursor-pointer ${bookmarked[currentQ.id]
-                ? "bg-amber-500/20 text-amber-500 dark:text-amber-400 border border-amber-400/40"
-                : "bg-slate-100 dark:bg-zinc-800/80 hover:bg-slate-200 dark:hover:bg-zinc-700 text-slate-400 dark:text-zinc-400"
-                }`}
+              className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition active:scale-95 ${
+                bookmarked[currentQ.id]
+                  ? "border border-amber-400/40 bg-amber-500/20 text-amber-500 dark:text-amber-400"
+                  : "bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
+              }`}
             >
               <HugeiconsIcon icon={StarIcon} size={16} />
             </button>
@@ -447,25 +494,27 @@ export function QuizPlayer({
 
           {/* Card Top Instruction */}
           <div className="mb-4 pr-16">
-            <p className="text-slate-400 dark:text-zinc-400 text-xs sm:text-sm font-medium tracking-wide">
+            <p className="text-xs font-medium tracking-wide text-slate-400 sm:text-sm dark:text-zinc-400">
               {currentQ.sectionInstruction ||
                 (currentQ.sectionIndex === 1
                   ? t.section2Instruction
                   : currentQ.sectionIndex === 2
-                    ? formatString(t.section3Instruction, { num: currentQ.questionNumber })
+                    ? formatString(t.section3Instruction, {
+                        num: currentQ.questionNumber,
+                      })
                     : t.section1Instruction)}
             </p>
           </div>
 
           {/* Central Prominent Japanese Question Text */}
           <div className="my-auto py-2">
-            {currentQ.sectionIndex === 1 && currentQ.questionText?.includes("★") ? (
-              <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-wide leading-relaxed">
+            {currentQ.questionText?.includes("★") ? (
+              <div className="text-2xl leading-relaxed font-bold tracking-wide text-slate-900 sm:text-3xl dark:text-white">
                 {currentQ.questionText.split("★").map((chunk, cIdx, arr) => (
                   <React.Fragment key={cIdx}>
                     <span>{chunk}</span>
                     {cIdx < arr.length - 1 && (
-                      <span className="inline-flex items-center justify-center mx-1.5 px-2 py-0.5 rounded-lg bg-amber-400/20 border border-amber-400/50 text-amber-500 dark:text-amber-300 font-black">
+                      <span className="mx-1.5 inline-flex items-center justify-center rounded-lg border border-amber-400/50 bg-amber-400/20 px-2 py-0.5 font-black text-amber-500 dark:text-amber-300">
                         ★
                       </span>
                     )}
@@ -473,7 +522,7 @@ export function QuizPlayer({
                 ))}
               </div>
             ) : (
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-wide leading-relaxed">
+              <h2 className="text-2xl leading-relaxed font-bold tracking-wide text-slate-900 sm:text-3xl md:text-4xl dark:text-white">
                 {currentQ.questionText}
               </h2>
             )}
@@ -481,7 +530,7 @@ export function QuizPlayer({
 
           {/* Card Bottom Tag */}
           <div className="mt-4 flex items-center justify-center gap-2">
-            <span className="text-[11px] font-semibold tracking-wider uppercase text-slate-500 dark:text-zinc-400 bg-slate-100 dark:bg-zinc-900/80 px-2.5 py-1 rounded-full border border-slate-200 dark:border-zinc-800">
+            <span className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-1 text-[11px] font-semibold tracking-wider text-slate-500 uppercase dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-400">
               {currentQ.sectionName}
             </span>
           </div>
@@ -490,47 +539,47 @@ export function QuizPlayer({
         {/* 4 Options matching the screenshot */}
         <div className="flex flex-col gap-3">
           {Object.entries(currentQ.options).map(([keyStr, valText]) => {
-            const optNum = parseInt(keyStr);
-            const isPicked = currentSelected === optNum;
-            const isCorrectAnswer = optNum === currentQ.answer;
+            const optNum = parseInt(keyStr)
+            const isPicked = currentSelected === optNum
+            const isCorrectAnswer = optNum === currentQ.answer
 
             // Visual State Colors
             let btnClass =
-              "bg-[#5368a4] hover:bg-[#475b94] dark:bg-[#3e5c8a] dark:hover:bg-[#4a6da1] text-white active:scale-[0.99]";
+              "bg-[#5368a4] hover:bg-[#475b94] dark:bg-[#3e5c8a] dark:hover:bg-[#4a6da1] text-white active:scale-[0.99]"
 
             if (currentAnswered) {
               if (isPicked && isCorrectAnswer) {
                 // Picked Correct
-                btnClass =
-                  "bg-emerald-600 text-white scale-[1.01]";
+                btnClass = "bg-emerald-600 text-white scale-[1.01]"
               } else if (isPicked && !isCorrectAnswer) {
                 // Picked Wrong
-                btnClass =
-                  "bg-rose-600 text-white";
+                btnClass = "bg-rose-600 text-white"
               } else if (isCorrectAnswer) {
                 // Reveal Correct
-                btnClass =
-                  "bg-emerald-600/90 text-white";
+                btnClass = "bg-emerald-600/90 text-white"
               } else {
                 // Inactive others
-                btnClass = "bg-slate-200/80 dark:bg-[#253752]/70 text-slate-400 dark:text-zinc-400 opacity-60";
+                btnClass =
+                  "bg-slate-200/80 dark:bg-[#253752]/70 text-slate-400 dark:text-zinc-400 opacity-60"
               }
             }
 
-            const viMeaning = currentQ.optionsVi?.[keyStr];
+            const viMeaning = currentQ.optionsVi?.[keyStr]
 
             return (
               <button
                 key={optNum}
                 onClick={() => handleSelectOption(optNum)}
                 disabled={currentAnswered}
-                className={`w-full py-3.5 sm:py-4 px-6 rounded-2xl font-bold tracking-wide text-center cursor-pointer flex items-center justify-center relative min-h-15 ${btnClass}`}
+                className={`relative flex min-h-15 w-full cursor-pointer items-center justify-center rounded-2xl px-6 py-3.5 text-center font-bold tracking-wide sm:py-4 ${btnClass}`}
               >
                 {/* Option text & Vietnamese translation */}
                 <div className="flex flex-col items-center justify-center px-4">
-                  <span className="font-semibold text-lg sm:text-xl leading-snug">{valText}</span>
+                  <span className="text-lg leading-snug font-semibold sm:text-xl">
+                    {valText}
+                  </span>
                   {currentAnswered && viMeaning && (
-                    <span className="text-xs sm:text-sm font-normal mt-1 opacity-90 leading-tight">
+                    <span className="mt-1 text-xs leading-tight font-normal opacity-90 sm:text-sm">
                       {viMeaning}
                     </span>
                   )}
@@ -548,24 +597,26 @@ export function QuizPlayer({
                   </span>
                 )}
               </button>
-            );
+            )
           })}
         </div>
 
         {/* Explanation & Sentence Reconstruction (Section 2) */}
         {currentAnswered && (
-          <div className="bg-white dark:bg-[#171922] border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-5 text-left animate-in fade-in slide-in-from-bottom-2 duration-200 space-y-3">
+          <div className="animate-in space-y-3 rounded-2xl border border-slate-200 bg-white p-4 text-left duration-200 fade-in slide-in-from-bottom-2 sm:p-5 dark:border-zinc-800 dark:bg-[#171922]">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {currentSelected === currentQ.answer ? (
-                  <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-bold text-sm">
+                  <div className="flex items-center gap-1.5 text-sm font-bold text-emerald-600 dark:text-emerald-400">
                     <HugeiconsIcon icon={CheckmarkCircle01Icon} size={18} />
                     <span>{t.correctFeedback}</span>
                   </div>
                 ) : (
-                  <div className="flex items-center gap-1.5 text-rose-600 dark:text-rose-400 font-bold text-sm">
+                  <div className="flex items-center gap-1.5 text-sm font-bold text-rose-600 dark:text-rose-400">
                     <HugeiconsIcon icon={CancelCircleIcon} size={18} />
-                    <span>{formatString(t.wrongFeedback, { ans: currentQ.answer })}</span>
+                    <span>
+                      {formatString(t.wrongFeedback, { ans: currentQ.answer })}
+                    </span>
                   </div>
                 )}
               </div>
@@ -573,35 +624,49 @@ export function QuizPlayer({
               <button
                 onClick={() =>
                   handleSpeak(
-                    starSentence
-                      ? `${starSentence.before}${starSentence.parts.map((p) => p.text).join("")}${starSentence.after}`
-                      : currentQ.questionText || ""
+                    currentQ.fullSentence
+                      ? currentQ.fullSentence.replace(/\[|\]|\*/g, "")
+                      : starSentence
+                        ? `${starSentence.before}${starSentence.parts.map((p) => p.text).join("")}${starSentence.after}`
+                        : currentQ.questionText || ""
                   )
                 }
-                className="text-xs text-[#5368a4] dark:text-indigo-400 hover:text-[#45578a] dark:hover:text-indigo-300 flex items-center gap-1 bg-[#5368a4]/10 dark:bg-indigo-500/10 px-2 py-1 rounded-lg cursor-pointer"
+                className="flex cursor-pointer items-center gap-1 rounded-lg bg-[#5368a4]/10 px-2 py-1 text-xs text-[#5368a4] hover:text-[#45578a] dark:bg-indigo-500/10 dark:text-indigo-400 dark:hover:text-indigo-300"
               >
                 <HugeiconsIcon icon={VolumeHighIcon} size={14} />
                 {t.speakSentence}
               </button>
             </div>
 
-            {/* If Section 2 (Star Question), display full reconstructed sentence */}
-            {starSentence && starSentence.parts.length > 0 && (
-              <div className="bg-slate-50 dark:bg-zinc-900/90 rounded-xl p-3 border border-slate-200 dark:border-zinc-800">
-                <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400 block mb-1">
+            {/* If fullSentence or Section 2 Star Question, display full reconstructed sentence */}
+            {currentQ.fullSentence ? (
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-zinc-800 dark:bg-zinc-900/90">
+                <span className="mb-1 block text-xs font-semibold text-slate-500 dark:text-zinc-400">
+                  {formatString(t.completeSentence, {
+                    order: `Đáp án ${currentQ.answer}`,
+                  })}
+                </span>
+                <p className="text-sm leading-relaxed font-medium text-slate-800 sm:text-base dark:text-zinc-200">
+                  {currentQ.fullSentence}
+                </p>
+              </div>
+            ) : starSentence && starSentence.parts.length > 0 ? (
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-zinc-800 dark:bg-zinc-900/90">
+                <span className="mb-1 block text-xs font-semibold text-slate-500 dark:text-zinc-400">
                   {formatString(t.completeSentence, {
                     order: currentQ.orderedSequence?.join(" → ") || "",
                   })}
                 </span>
-                <p className="text-sm sm:text-base text-slate-800 dark:text-zinc-200 leading-relaxed">
+                <p className="text-sm leading-relaxed text-slate-800 sm:text-base dark:text-zinc-200">
                   {starSentence.before}
                   {starSentence.parts.map((p, idx) => (
                     <span
                       key={idx}
-                      className={`inline-block font-semibold px-1.5 py-0.5 mx-0.5 rounded ${p.isStar
-                        ? "bg-amber-400 text-black font-bold ring-2 ring-amber-300"
-                        : "bg-slate-200 dark:bg-zinc-800 text-slate-800 dark:text-zinc-300"
-                        }`}
+                      className={`mx-0.5 inline-block rounded px-1.5 py-0.5 font-semibold ${
+                        p.isStar
+                          ? "bg-amber-400 font-bold text-black ring-2 ring-amber-300"
+                          : "bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-300"
+                      }`}
                     >
                       {p.isStar && "★ "}
                       {p.text}
@@ -610,18 +675,18 @@ export function QuizPlayer({
                   {starSentence.after}
                 </p>
               </div>
-            )}
+            ) : null}
           </div>
         )}
       </div>
 
       {/* Bottom Footer Actions */}
-      <footer className="pt-2 px-1">
+      <footer className="px-1 pt-2">
         <div className="flex items-center justify-between gap-3">
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className="flex-1 py-3 px-4 rounded-xl bg-white dark:bg-zinc-800/80 hover:bg-slate-50 dark:hover:bg-zinc-700 disabled:opacity-40 disabled:pointer-events-none text-slate-700 dark:text-zinc-300 font-semibold text-sm transition flex items-center justify-center gap-1.5 border border-slate-200 dark:border-white/5 cursor-pointer"
+            className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:pointer-events-none disabled:opacity-40 dark:border-white/5 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
             <HugeiconsIcon icon={ArrowLeft01Icon} size={18} />
             {t.prevQuestion}
@@ -630,7 +695,7 @@ export function QuizPlayer({
           <button
             onClick={handleToggleSound}
             title={soundActive ? t.soundTooltipOn : t.soundTooltipOff}
-            className="w-11 h-11 rounded-xl bg-white dark:bg-zinc-800/80 hover:bg-slate-50 dark:hover:bg-zinc-700 text-slate-700 dark:text-zinc-300 flex items-center justify-center transition border border-slate-200 dark:border-white/5 cursor-pointer"
+            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 dark:border-white/5 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
             <HugeiconsIcon
               icon={soundActive ? VolumeHighIcon : VolumeMute01Icon}
@@ -640,13 +705,15 @@ export function QuizPlayer({
 
           <button
             onClick={handleNext}
-            className="flex-1 py-3 px-4 rounded-xl bg-[#5368a4] hover:bg-[#475b94] text-white font-semibold text-sm transition flex items-center justify-center gap-1.5 cursor-pointer"
+            className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-xl bg-[#5368a4] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#475b94]"
           >
-            {currentIndex === totalQuestions - 1 ? t.viewResult : t.nextQuestion}
+            {currentIndex === totalQuestions - 1
+              ? t.viewResult
+              : t.nextQuestion}
             <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
           </button>
         </div>
       </footer>
     </div>
-  );
+  )
 }

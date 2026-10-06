@@ -3,6 +3,23 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 
+function ThemeColorMeta() {
+  const { resolvedTheme } = useTheme()
+
+  React.useEffect(() => {
+    const color = resolvedTheme === "dark" ? "#0f111a" : "#f6f8fc"
+    let meta = document.querySelector('meta[name="theme-color"]')
+    if (!meta) {
+      meta = document.createElement("meta")
+      meta.setAttribute("name", "theme-color")
+      document.head.appendChild(meta)
+    }
+    meta.setAttribute("content", color)
+  }, [resolvedTheme])
+
+  return null
+}
+
 function ThemeProvider({
   children,
   ...props
@@ -15,6 +32,7 @@ function ThemeProvider({
       disableTransitionOnChange
       {...props}
     >
+      <ThemeColorMeta />
       <ThemeHotkey />
       {children}
     </NextThemesProvider>
