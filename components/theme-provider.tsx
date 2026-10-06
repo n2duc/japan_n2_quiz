@@ -7,14 +7,21 @@ function ThemeColorMeta() {
   const { resolvedTheme } = useTheme()
 
   React.useEffect(() => {
-    const color = resolvedTheme === "dark" ? "#0f111a" : "#f6f8fc"
-    let meta = document.querySelector('meta[name="theme-color"]')
-    if (!meta) {
-      meta = document.createElement("meta")
-      meta.setAttribute("name", "theme-color")
-      document.head.appendChild(meta)
-    }
+    const isDark = resolvedTheme === "dark"
+    const color = isDark ? "#0f111a" : "#f6f8fc"
+
+    // Remove all existing theme-color meta tags to prevent media-query or duplicate conflicts
+    const existingMetas = document.querySelectorAll('meta[name="theme-color"]')
+    existingMetas.forEach((el) => el.remove())
+
+    // Create a single unconditional meta tag matching current theme
+    const meta = document.createElement("meta")
+    meta.setAttribute("name", "theme-color")
     meta.setAttribute("content", color)
+    document.head.appendChild(meta)
+
+    // Synchronize documentElement colorScheme
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light"
   }, [resolvedTheme])
 
   return null
