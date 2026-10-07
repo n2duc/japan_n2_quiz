@@ -512,7 +512,7 @@ export default function HomePage() {
 
         {/* 3 Stats Cards in a Row reflecting current tab */}
         <div className="mb-4 lg:mb-5 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-3.5">
-          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
+          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926]">
             <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
               {currentTabQuestions.length}
             </span>
@@ -521,7 +521,7 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
+          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926]">
             <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
               {currentTabChapters.length}
             </span>
@@ -534,7 +534,7 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
+          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926]">
             <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
               {currentTabPracticedCount > 0
                 ? currentTabPracticedCount
@@ -603,7 +603,7 @@ export default function HomePage() {
                   placeholder={t.searchPlaceholder}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200/90 bg-white py-2.5 lg:py-3 pr-4 pl-10 text-sm lg:text-base text-slate-800 placeholder-slate-400 transition focus:border-[#5368a4] focus:outline-none dark:border-white/10 dark:bg-[#181926] dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-[#7189d1]"
+                  className="w-full rounded-2xl bg-white py-2.5 lg:py-3 pr-4 pl-10 text-sm lg:text-base text-slate-800 placeholder-slate-400 transition focus:border-[#5368a4] focus:outline-none dark:bg-[#181926] dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-[#7189d1]"
                 />
                 {searchQuery && (
                   <button
@@ -677,7 +677,7 @@ export default function HomePage() {
                   <button
                     key={ch.chapter_id}
                     onClick={() => handleSelectChapter(ch)}
-                    className="group flex min-h-23 lg:min-h-28 cursor-pointer flex-col justify-between rounded-xl lg:rounded-2xl bg-white p-4 lg:p-5 text-left transition-all duration-200 hover:bg-[#5368a4] hover:text-white hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] border border-transparent dark:border-white/5 dark:bg-[#181926] dark:hover:bg-[#5368a4]"
+                    className="group flex min-h-23 lg:min-h-28 cursor-pointer flex-col justify-between rounded-xl lg:rounded-2xl bg-white p-4 lg:p-5 text-left transition-all duration-200 hover:bg-[#5368a4] hover:text-white hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] dark:border-white/5 dark:bg-[#181926] dark:hover:bg-[#5368a4]"
                   >
                     <div className="flex w-full items-start justify-between gap-2">
                       <h4 className="line-clamp-1 text-base font-bold text-slate-700 transition group-hover:text-white sm:text-lg dark:text-slate-200">
@@ -722,7 +722,7 @@ export default function HomePage() {
                   }
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200/90 bg-white py-2.5 lg:py-3 pr-4 pl-10 text-sm lg:text-base text-slate-800 placeholder-slate-400 transition focus:border-[#5368a4] focus:outline-none dark:border-white/10 dark:bg-[#181926] dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-[#7189d1]"
+                  className="w-full rounded-2xl bg-white py-2.5 lg:py-3 pr-4 pl-10 text-sm lg:text-base text-slate-800 placeholder-slate-400 transition focus:border-[#5368a4] focus:outline-none dark:bg-[#181926] dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-[#7189d1]"
                 />
                 {searchQuery && (
                   <button
@@ -760,7 +760,7 @@ export default function HomePage() {
                   <div
                     key={exam.chapter_id}
                     onClick={() => handleSelectChapter(exam)}
-                    className="group flex cursor-pointer flex-col justify-between gap-3.5 rounded-2xl bg-white p-4 sm:p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md border border-transparent dark:border-white/5 dark:bg-[#181926] dark:hover:border-white/20"
+                    className="group flex cursor-pointer flex-col justify-between gap-3.5 rounded-2xl bg-white p-4 sm:p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:bg-[#181926]"
                   >
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center justify-between gap-2">

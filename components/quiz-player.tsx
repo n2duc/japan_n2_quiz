@@ -89,8 +89,8 @@ export function QuizPlayer({
     sectionIndex !== undefined ? sectionIndex + 1 : undefined
   const nextSection =
     currentChapter &&
-    nextSectionIndex !== undefined &&
-    nextSectionIndex < currentChapter.sections.length
+      nextSectionIndex !== undefined &&
+      nextSectionIndex < currentChapter.sections.length
       ? currentChapter.sections[nextSectionIndex]
       : undefined
 
@@ -387,11 +387,10 @@ export function QuizPlayer({
               )}
             <button
               onClick={handleRestart}
-              className={`flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold transition ${
-                nextSection && onNextSection
-                  ? "border border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
-                  : "bg-[#5368a4] text-white hover:bg-[#475b94]"
-              }`}
+              className={`flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold transition ${nextSection && onNextSection
+                ? "border border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                : "bg-[#5368a4] text-white hover:bg-[#475b94]"
+                }`}
             >
               <HugeiconsIcon icon={RotateRight01Icon} size={18} />
               {t.retrySection}
@@ -416,7 +415,7 @@ export function QuizPlayer({
 
   // Reusable Question Card Component
   const renderQuestionCard = () => (
-    <div className="relative flex min-h-40 sm:min-h-44 flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-5 text-center sm:p-6 lg:p-6 dark:border-white/5 dark:bg-[#181920]">
+    <div className="relative flex min-h-40 sm:min-h-44 flex-col justify-between rounded-3xl bg-white p-5 text-center sm:p-6 lg:p-6 dark:bg-[#181920]">
       {/* Audio & Bookmark Actions */}
       <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5">
         <button
@@ -429,11 +428,10 @@ export function QuizPlayer({
         <button
           onClick={handleToggleBookmark}
           title={t.bookmark}
-          className={`flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full transition active:scale-95 ${
-            bookmarked[currentQ.id]
-              ? "border border-amber-400/40 bg-amber-500/20 text-amber-500 dark:text-amber-400"
-              : "bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
-          }`}
+          className={`flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full transition active:scale-95 ${bookmarked[currentQ.id]
+            ? "border border-amber-400/40 bg-amber-500/20 text-amber-500 dark:text-amber-400"
+            : "bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
+            }`}
         >
           <HugeiconsIcon icon={StarIcon} size={15} />
         </button>
@@ -447,8 +445,8 @@ export function QuizPlayer({
               ? t.section2Instruction
               : currentQ.sectionIndex === 2
                 ? formatString(t.section3Instruction, {
-                    num: currentQ.questionNumber,
-                  })
+                  num: currentQ.questionNumber,
+                })
                 : t.section1Instruction)}
         </p>
       </div>
@@ -570,7 +568,7 @@ export function QuizPlayer({
     if (!currentAnswered) return null
 
     return (
-      <div className="animate-in space-y-2.5 rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4 text-left duration-200 fade-in slide-in-from-bottom-2 dark:border-zinc-800 dark:bg-[#171922]">
+      <div className="animate-in space-y-2.5 rounded-2xl bg-white p-3.5 sm:p-4 text-left duration-200 fade-in slide-in-from-bottom-2 dark:bg-[#171922]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             {currentSelected === currentQ.answer ? (
@@ -629,11 +627,10 @@ export function QuizPlayer({
               {starSentence.parts.map((p, idx) => (
                 <span
                   key={idx}
-                  className={`mx-0.5 inline-block rounded px-1.5 py-0.5 font-semibold ${
-                    p.isStar
-                      ? "bg-amber-400 font-bold text-black ring-2 ring-amber-300"
-                      : "bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-300"
-                  }`}
+                  className={`mx-0.5 inline-block rounded px-1.5 py-0.5 font-semibold ${p.isStar
+                    ? "bg-amber-400 font-bold text-black ring-2 ring-amber-300"
+                    : "bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-300"
+                    }`}
                 >
                   {p.isStar && "★ "}
                   {p.text}
@@ -649,11 +646,10 @@ export function QuizPlayer({
 
   return (
     <div
-      className={`mx-auto flex w-full flex-1 flex-col justify-between pb-4 select-none ${
-        hasPassage
-          ? "max-w-md lg:max-w-4xl xl:max-w-5xl"
-          : "max-w-md lg:max-w-2xl xl:max-w-3xl"
-      }`}
+      className={`mx-auto flex w-full flex-1 flex-col justify-between pb-4 select-none ${hasPassage
+        ? "max-w-md lg:max-w-4xl xl:max-w-5xl"
+        : "max-w-md lg:max-w-2xl xl:max-w-3xl"
+        }`}
     >
       {/* Top Header */}
       <header className="px-2 lg:px-3 pt-3 pb-2">
@@ -728,9 +724,8 @@ export function QuizPlayer({
               </div>
 
               <div
-                className={`space-y-2.5 pr-1 text-xs sm:text-sm leading-relaxed ${
-                  showPassage ? "block" : "hidden lg:block"
-                }`}
+                className={`space-y-2.5 pr-1 text-xs sm:text-sm leading-relaxed ${showPassage ? "block" : "hidden lg:block"
+                  }`}
               >
                 {formattedPassage?.map((paragraph, pIdx) => {
                   const parts = paragraph.split(/(\s[1-9]\s)/g)
@@ -744,11 +739,10 @@ export function QuizPlayer({
                           return (
                             <span
                               key={partIdx}
-                              className={`mx-1 inline-block rounded px-1.5 py-0.5 text-xs font-bold transition ${
-                                isCurrent
-                                  ? "animate-pulse bg-amber-400 font-extrabold text-black ring-2 ring-amber-300"
-                                  : "border border-slate-200 bg-slate-100 text-slate-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-                              }`}
+                              className={`mx-1 inline-block rounded px-1.5 py-0.5 text-xs font-bold transition ${isCurrent
+                                ? "animate-pulse bg-amber-400 font-extrabold text-black ring-2 ring-amber-300"
+                                : "border border-slate-200 bg-slate-100 text-slate-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                                }`}
                             >
                               （ {num} ）
                             </span>

@@ -443,7 +443,7 @@ export function ChapterSectionsView({
 
           {/* Stat Pills reflecting accurate chapter progress */}
           <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
-            <div className="rounded-2xl bg-white p-3 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
+            <div className="rounded-2xl bg-white p-3 text-center transition dark:bg-[#181926]">
               <span className="block text-lg leading-none font-bold text-[#38529a] sm:text-xl dark:text-[#8ea2db]">
                 {totalChapterQuestions}
               </span>
@@ -452,7 +452,7 @@ export function ChapterSectionsView({
               </span>
             </div>
 
-            <div className="rounded-2xl bg-white p-3 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
+            <div className="rounded-2xl bg-white p-3 text-center transition dark:bg-[#181926]">
               <span className="block text-lg leading-none font-bold text-[#38529a] sm:text-xl dark:text-[#8ea2db]">
                 {completedSectionsCount}/{chapter.sections.length}
               </span>
@@ -461,7 +461,7 @@ export function ChapterSectionsView({
               </span>
             </div>
 
-            <div className="rounded-2xl bg-white p-3 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
+            <div className="rounded-2xl bg-white p-3 text-center transition dark:bg-[#181926]">
               <span className="block text-lg leading-none font-bold text-[#38529a] sm:text-xl dark:text-[#8ea2db]">
                 {accuracyPercentage !== null ? `${accuracyPercentage}%` : "—"}
               </span>
