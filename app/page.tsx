@@ -385,12 +385,20 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-[#f6f8fc] pb-16 text-slate-800 transition-colors duration-150 dark:bg-[#0f111a] dark:text-slate-100">
-      <div className="mx-auto w-full max-w-2xl px-4 py-6">
+      <div className="mx-auto w-full max-w-2xl px-4 py-6 lg:max-w-6xl xl:max-w-7xl lg:px-8 lg:py-10">
         {/* Top Header Bar */}
-        <div className="mb-6 flex items-start justify-between">
+        <div className="mb-6 lg:mb-8 flex items-center justify-between">
           <div className="flex items-center gap-3.5">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#5368a4] text-white">
+            <div className="flex h-12 w-12 lg:h-14 lg:w-14 shrink-0 items-center justify-center rounded-2xl bg-[#5368a4] text-white shadow-sm">
               <HugeiconsIcon icon={BookOpen01Icon} size={24} />
+            </div>
+            <div className="hidden sm:block">
+              <h1 className="text-base lg:text-lg font-bold tracking-tight text-slate-800 dark:text-white">
+                JLPT N2 文法マスター
+              </h1>
+              <p className="text-xs text-slate-400 dark:text-slate-500">
+                Luyện thi Ngữ pháp & Đề thi N2
+              </p>
             </div>
           </div>
 
@@ -446,31 +454,31 @@ export default function HomePage() {
         </div>
 
         {/* Subtitle & Main Headline */}
-        <div className="mb-6">
-          <p className="text-xs font-medium text-slate-400 dark:text-slate-400">
+        <div className="mb-5 lg:mb-6">
+          <p className="text-xs font-semibold tracking-wider uppercase text-[#5368a4] dark:text-[#8ea2db]">
             {t.heroNotice}
           </p>
-          <h2 className="mt-1 text-2xl font-semibold tracking-tight text-slate-600 sm:text-3xl dark:text-slate-200">
+          <h2 className="mt-0.5 text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-slate-800 dark:text-slate-100">
             {t.heroHeading}
           </h2>
         </div>
 
         {/* Main 2 Tabs Switcher: Grammar vs JLPT */}
-        <div className="mb-3 grid grid-cols-2 rounded-2xl bg-slate-200/60 p-1.5 dark:bg-[#181926]">
+        <div className="mb-4 lg:mb-5 grid grid-cols-2 rounded-2xl bg-slate-200/60 p-1 lg:max-w-md dark:bg-[#181926]">
           <button
             onClick={() => {
               setMainTab("grammar")
               setSearchQuery("")
             }}
-            className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3 py-3 text-sm font-bold transition-all duration-200 sm:px-4 sm:text-base ${mainTab === "grammar"
-              ? "bg-white text-slate-900 shadow-sm dark:bg-[#5368a4] dark:text-white"
+            className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-xs sm:text-sm font-bold transition-all duration-200 ${mainTab === "grammar"
+              ? "bg-white text-slate-900 dark:bg-[#5368a4] dark:text-white"
               : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
               }`}
           >
-            <HugeiconsIcon icon={BookOpen01Icon} size={18} />
+            <HugeiconsIcon icon={BookOpen01Icon} size={16} />
             <span>{t.tabGrammar}</span>
             <span
-              className={`rounded-full px-2 py-0.5 text-xs font-semibold transition ${mainTab === "grammar"
+              className={`rounded-full px-2 py-0.5 text-[11px] font-semibold transition ${mainTab === "grammar"
                 ? "bg-slate-100 text-[#5368a4] dark:bg-white/20 dark:text-white"
                 : "bg-slate-300/60 text-slate-600 dark:bg-white/10 dark:text-slate-400"
                 }`}
@@ -484,15 +492,15 @@ export default function HomePage() {
               setMainTab("jlpt")
               setSearchQuery("")
             }}
-            className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3 py-3 text-sm font-bold transition-all duration-200 sm:px-4 sm:text-base ${mainTab === "jlpt"
-              ? "bg-white text-slate-900 shadow-sm dark:bg-[#5368a4] dark:text-white"
+            className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-xs sm:text-sm font-bold transition-all duration-200 ${mainTab === "jlpt"
+              ? "bg-white text-slate-900 dark:bg-[#5368a4] dark:text-white"
               : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
               }`}
           >
-            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={18} />
+            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={16} />
             <span>{t.tabJlpt}</span>
             <span
-              className={`rounded-full px-2 py-0.5 text-xs font-semibold transition ${mainTab === "jlpt"
+              className={`rounded-full px-2 py-0.5 text-[11px] font-semibold transition ${mainTab === "jlpt"
                 ? "bg-indigo-100 text-indigo-600 dark:bg-white/20 dark:text-white"
                 : "bg-slate-300/60 text-slate-600 dark:bg-white/10 dark:text-slate-400"
                 }`}
@@ -503,21 +511,21 @@ export default function HomePage() {
         </div>
 
         {/* 3 Stats Cards in a Row reflecting current tab */}
-        <div className="mb-3 grid grid-cols-3 gap-2 sm:gap-3">
-          <div className="rounded-2xl bg-white p-4 text-center transition dark:bg-[#181926]">
+        <div className="mb-4 lg:mb-5 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-3.5">
+          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
             <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
               {currentTabQuestions.length}
             </span>
-            <span className="text-xs font-medium text-slate-400 dark:text-slate-400">
+            <span className="mt-1 block text-xs font-medium text-slate-400 dark:text-slate-400">
               {t.totalQuestions}
             </span>
           </div>
 
-          <div className="rounded-2xl bg-white p-4 text-center transition dark:bg-[#181926]">
+          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
             <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
               {currentTabChapters.length}
             </span>
-            <span className="text-xs font-medium text-slate-400 dark:text-slate-400">
+            <span className="mt-1 block text-xs font-medium text-slate-400 dark:text-slate-400">
               {mainTab === "grammar"
                 ? t.totalChapters
                 : language === "ja"
@@ -526,7 +534,7 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="rounded-2xl bg-white p-4 text-center transition dark:bg-[#181926]">
+          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926] border border-transparent dark:border-white/5">
             <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
               {currentTabPracticedCount > 0
                 ? currentTabPracticedCount
@@ -534,7 +542,7 @@ export default function HomePage() {
                   ? "10"
                   : examQuestions.length}
             </span>
-            <span className="text-xs font-medium text-slate-400 dark:text-slate-400">
+            <span className="mt-1 block text-xs font-medium text-slate-400 dark:text-slate-400">
               {currentTabPracticedCount > 0
                 ? t.questionsPracticed
                 : t.questionsPerSession}
@@ -543,12 +551,12 @@ export default function HomePage() {
         </div>
 
         {/* Quick Launch Action reflecting current tab */}
-        <div className="mb-5 flex flex-col gap-3">
+        <div className="mb-5 lg:mb-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
           <button
             onClick={handlePlayAll}
-            className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-5 py-3.5 text-sm font-bold text-white transition hover:bg-[#475b94] active:scale-[0.99] sm:text-base"
+            className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-5 py-3 text-xs sm:text-sm font-bold text-white transition hover:bg-[#475b94] hover:-translate-y-0.5 hover:shadow-md active:scale-[0.99]"
           >
-            <HugeiconsIcon icon={PlayIcon} size={18} />
+            <HugeiconsIcon icon={PlayIcon} size={17} />
             {mainTab === "grammar"
               ? `${t.practiceAll} (${currentTabQuestions.length} ${t.questionsUnit})`
               : formatString(t.practiceEntireExam, {
@@ -558,11 +566,11 @@ export default function HomePage() {
 
           <button
             onClick={handlePlayRandom}
-            className="flex cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 active:scale-[0.99] sm:text-sm dark:border-white/10 dark:bg-[#181926] dark:text-slate-200 dark:hover:bg-[#202234]"
+            className="flex sm:w-auto cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 hover:-translate-y-0.5 hover:shadow-xs active:scale-[0.99] dark:border-white/10 dark:bg-[#181926] dark:text-slate-200 dark:hover:bg-[#202234]"
           >
             <HugeiconsIcon
               icon={SparklesIcon}
-              size={16}
+              size={15}
               className="text-[#5368a4]"
             />
             {t.practiceRandom}
@@ -571,7 +579,7 @@ export default function HomePage() {
           {mistakesCount > 0 && (
             <button
               onClick={handlePlayMistakes}
-              className="flex cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold text-rose-700 transition hover:bg-rose-100 active:scale-[0.99] sm:text-sm dark:border-rose-900/50 dark:bg-rose-950/30 dark:text-rose-300 dark:hover:bg-rose-900/40"
+              className="flex sm:w-auto cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold text-rose-700 transition hover:bg-rose-100 hover:-translate-y-0.5 hover:shadow-xs active:scale-[0.99] dark:border-rose-900/50 dark:bg-rose-950/30 dark:text-rose-300 dark:hover:bg-rose-900/40"
             >
               <HugeiconsIcon icon={RotateRight01Icon} size={15} />
               {formatString(t.reviewMistakes, { count: mistakesCount })}
@@ -583,7 +591,7 @@ export default function HomePage() {
         {mainTab === "grammar" && (
           <div className="animate-in duration-200 fade-in">
             {/* Search & Range Filters */}
-            <div className="mb-5 space-y-3">
+            <div className="mb-5 lg:mb-6 space-y-3">
               <div className="relative">
                 <HugeiconsIcon
                   icon={Search01Icon}
@@ -595,7 +603,7 @@ export default function HomePage() {
                   placeholder={t.searchPlaceholder}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200/90 bg-white py-2.5 pr-4 pl-10 text-sm text-slate-800 placeholder-slate-400 transition focus:border-[#5368a4] focus:outline-none dark:border-white/10 dark:bg-[#181926] dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-[#7189d1]"
+                  className="w-full rounded-2xl border border-slate-200/90 bg-white py-2.5 lg:py-3 pr-4 pl-10 text-sm lg:text-base text-slate-800 placeholder-slate-400 transition focus:border-[#5368a4] focus:outline-none dark:border-white/10 dark:bg-[#181926] dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-[#7189d1]"
                 />
                 {searchQuery && (
                   <button
@@ -632,7 +640,7 @@ export default function HomePage() {
                   <button
                     key={tab.id}
                     onClick={() => setGrammarFilter(tab.id)}
-                    className={`cursor-pointer rounded-xl border px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition ${grammarFilter === tab.id
+                    className={`cursor-pointer rounded-xl border px-3 py-1.5 lg:px-4 lg:py-2 text-xs lg:text-sm font-semibold whitespace-nowrap transition ${grammarFilter === tab.id
                       ? "border-[#5368a4] bg-[#5368a4] text-white"
                       : "border-slate-200/80 bg-white text-slate-600 hover:bg-slate-100 dark:border-white/10 dark:bg-[#181926] dark:text-slate-300 dark:hover:bg-[#202234]"
                       }`}
@@ -643,14 +651,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Section List / Chapter Grid: 2 Columns */}
+            {/* Section List / Chapter Grid: Responsive multi-column on laptop */}
             <div className="mb-3.5 flex items-center justify-between">
-              <h3 className="text-sm font-bold tracking-tight text-slate-700 dark:text-slate-300">
+              <h3 className="text-sm lg:text-base font-bold tracking-tight text-slate-700 dark:text-slate-300">
                 {`${t.chapterListTitle} (${filteredGrammarChapters.length})`}
               </h3>
             </div>
 
-            <div className="mb-8 grid grid-cols-2 gap-2">
+            <div className="mb-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 sm:gap-3 lg:gap-4">
               {filteredGrammarChapters.map((ch) => {
                 const qCount = ch.sections.reduce(
                   (acc, sec) => acc + (sec.questions?.length || 0),
@@ -669,22 +677,22 @@ export default function HomePage() {
                   <button
                     key={ch.chapter_id}
                     onClick={() => handleSelectChapter(ch)}
-                    className="group flex min-h-23 cursor-pointer flex-col justify-between rounded-xl bg-white p-4 text-left transition-all duration-200 hover:bg-[#5368a4] hover:text-white active:scale-[0.98] sm:p-4 dark:bg-[#181926] dark:hover:bg-[#5368a4]"
+                    className="group flex min-h-23 lg:min-h-28 cursor-pointer flex-col justify-between rounded-xl lg:rounded-2xl bg-white p-4 lg:p-5 text-left transition-all duration-200 hover:bg-[#5368a4] hover:text-white hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] border border-transparent dark:border-white/5 dark:bg-[#181926] dark:hover:bg-[#5368a4]"
                   >
-                    <div className="flex w-full items-center justify-between">
-                      <h4 className="line-clamp-1 text-base font-bold text-slate-600 transition group-hover:text-white sm:text-lg dark:text-slate-200">
+                    <div className="flex w-full items-start justify-between gap-2">
+                      <h4 className="line-clamp-1 text-base font-bold text-slate-700 transition group-hover:text-white sm:text-lg dark:text-slate-200">
                         {ch.chapter_name}
                       </h4>
                       {allSecCompleted && (
-                        <span className="text-emerald-500 transition group-hover:text-white">
+                        <span className="shrink-0 text-emerald-500 transition group-hover:text-white">
                           <HugeiconsIcon
                             icon={CheckmarkBadge01Icon}
-                            size={16}
+                            size={18}
                           />
                         </span>
                       )}
                     </div>
-                    <p className="mt-1 text-xs text-slate-400 transition group-hover:text-white/80 dark:text-slate-400">
+                    <p className="mt-2 text-xs lg:text-sm text-slate-400 transition group-hover:text-white/80 dark:text-slate-400">
                       {qCount} {t.questionsUnit}
                     </p>
                   </button>
@@ -698,7 +706,7 @@ export default function HomePage() {
         {mainTab === "jlpt" && (
           <div className="animate-in duration-200 fade-in">
             {/* Search Bar for JLPT */}
-            <div className="mb-5">
+            <div className="mb-5 lg:mb-6">
               <div className="relative">
                 <HugeiconsIcon
                   icon={Search01Icon}
@@ -714,7 +722,7 @@ export default function HomePage() {
                   }
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full rounded-2xl border border-slate-200/90 bg-white py-2.5 pr-4 pl-10 text-sm text-slate-800 placeholder-slate-400 transition focus:border-[#5368a4] focus:outline-none dark:border-white/10 dark:bg-[#181926] dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-[#7189d1]"
+                  className="w-full rounded-2xl border border-slate-200/90 bg-white py-2.5 lg:py-3 pr-4 pl-10 text-sm lg:text-base text-slate-800 placeholder-slate-400 transition focus:border-[#5368a4] focus:outline-none dark:border-white/10 dark:bg-[#181926] dark:text-slate-100 dark:placeholder-slate-500 dark:focus:border-[#7189d1]"
                 />
                 {searchQuery && (
                   <button
@@ -729,12 +737,12 @@ export default function HomePage() {
 
             {/* List of JLPT Exams */}
             <div className="mb-3.5 flex items-center justify-between">
-              <h3 className="text-sm font-bold tracking-tight text-slate-700 dark:text-slate-300">
+              <h3 className="text-sm lg:text-base font-bold tracking-tight text-slate-700 dark:text-slate-300">
                 {t.filterExams} ({filteredExamChapters.length})
               </h3>
             </div>
 
-            <div className="mb-8 grid grid-cols-2 gap-2">
+            <div className="mb-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-4">
               {filteredExamChapters.map((exam) => {
                 const examQCount = exam.sections.reduce(
                   (acc, s) => acc + (s.questions?.length || 0),
@@ -751,14 +759,12 @@ export default function HomePage() {
                 return (
                   <div
                     key={exam.chapter_id}
-                    className="flex flex-col justify-between gap-3.5 rounded-2xl bg-white px-4 py-3.5 transition-all duration-200 sm:flex-row sm:items-center sm:p-5 dark:bg-[#181926] dark:hover:border-white/20"
+                    onClick={() => handleSelectChapter(exam)}
+                    className="group flex cursor-pointer flex-col justify-between gap-3.5 rounded-2xl bg-white p-4 sm:p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md border border-transparent dark:border-white/5 dark:bg-[#181926] dark:hover:border-white/20"
                   >
-                    <div
-                      onClick={() => handleSelectChapter(exam)}
-                      className="group min-w-0 flex-1 cursor-pointer"
-                    >
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h4 className="text-base font-bold text-slate-600 transition group-hover:text-[#5368a4] sm:text-lg dark:text-white dark:group-hover:text-[#8ea2db]">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h4 className="text-base font-bold text-slate-700 transition group-hover:text-[#5368a4] sm:text-lg dark:text-white dark:group-hover:text-[#8ea2db]">
                           {exam.chapter_name}
                         </h4>
                         {isExamCompleted && (
@@ -771,7 +777,7 @@ export default function HomePage() {
                           </span>
                         )}
                       </div>
-                      <p className="mt-1.5 flex flex-wrap items-center gap-2 text-xs text-slate-400 dark:text-slate-400">
+                      <p className="mt-2 flex flex-wrap items-center gap-2 text-xs lg:text-sm text-slate-400 dark:text-slate-400">
                         <span className="font-medium text-slate-600 dark:text-slate-300">
                           {examQCount} {t.questionsUnit}
                         </span>

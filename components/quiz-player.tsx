@@ -118,38 +118,11 @@ export function QuizPlayer({
     sounds.speakJapanese(text)
   }
 
-  const handleSelectOption = (optKey: number) => {
-    if (currentAnswered || !currentQ) return
-
-    const isCorrect = optKey === currentQ.answer
-
-    setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: optKey }))
-    setIsAnswered((prev) => ({ ...prev, [currentIndex]: true }))
-
-    if (isCorrect) {
-      sounds.playCorrect()
-      setScore((s) => s + 10)
-      setStreak((st) => st + 1)
-    } else {
-      sounds.playIncorrect()
-      setStreak(0)
+  const handlePrev = useCallback(() => {
+    if (currentIndex > 0) {
+      setCurrentIndex((i) => i - 1)
     }
-
-    // Persist result
-    recordQuestionResult(
-      currentQ.id,
-      isCorrect,
-      currentQ.chapterId,
-      currentQ.sectionIndex
-    )
-
-    // Auto-advance if enabled
-    if (autoAdvance) {
-      setTimeout(() => {
-        handleNext()
-      }, 1400)
-    }
-  }
+  }, [currentIndex])
 
   const handleNext = useCallback(() => {
     if (currentIndex < totalQuestions - 1) {
@@ -180,11 +153,86 @@ export function QuizPlayer({
     selectedAnswers,
   ])
 
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((i) => i - 1)
+  const handleSelectOption = useCallback(
+    (optKey: number) => {
+      if (isAnswered[currentIndex] || !currentQ) return
+
+      const isCorrect = optKey === currentQ.answer
+
+      setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: optKey }))
+      setIsAnswered((prev) => ({ ...prev, [currentIndex]: true }))
+
+      if (isCorrect) {
+        sounds.playCorrect()
+        setScore((s) => s + 10)
+        setStreak((st) => st + 1)
+      } else {
+        sounds.playIncorrect()
+        setStreak(0)
+      }
+
+      // Persist result
+      recordQuestionResult(
+        currentQ.id,
+        isCorrect,
+        currentQ.chapterId,
+        currentQ.sectionIndex
+      )
+
+      // Auto-advance if enabled
+      if (autoAdvance) {
+        setTimeout(() => {
+          handleNext()
+        }, 1400)
+      }
+    },
+    [isAnswered, currentIndex, currentQ, autoAdvance, handleNext]
+  )
+
+  // Keyboard navigation support for desktop/laptop
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable)
+      ) {
+        return
+      }
+
+      if (isCompleted || !currentQ) return
+
+      if (["1", "2", "3", "4"].includes(e.key)) {
+        e.preventDefault()
+        const optNum = parseInt(e.key)
+        if (!currentAnswered) {
+          handleSelectOption(optNum)
+        }
+      } else if (
+        e.key === "ArrowRight" ||
+        (e.key === "Enter" && currentAnswered) ||
+        (e.key === " " && currentAnswered)
+      ) {
+        e.preventDefault()
+        handleNext()
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault()
+        handlePrev()
+      }
     }
-  }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [
+    currentAnswered,
+    isCompleted,
+    currentQ,
+    handleSelectOption,
+    handleNext,
+    handlePrev,
+  ])
 
   const handleRestart = () => {
     setCurrentIndex(0)
@@ -247,47 +295,64 @@ export function QuizPlayer({
     const percentage = Math.round((correctCount / totalQuestions) * 100)
 
     return (
-      <div className="mx-auto w-full max-w-md animate-in px-4 py-8 duration-300 zoom-in-95 fade-in">
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 text-center sm:p-8 dark:border-zinc-800 dark:bg-[#181920]">
-          <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10">
+      <div className="mx-auto w-full max-w-md sm:max-w-lg lg:max-w-xl animate-in px-4 py-8 duration-300 zoom-in-95 fade-in">
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 text-center sm:p-7 dark:border-zinc-800 dark:bg-[#181920]">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10">
             <HugeiconsIcon
               icon={CheckmarkBadge01Icon}
-              size={44}
+              size={36}
               className="text-emerald-500 dark:text-emerald-400"
             />
           </div>
 
-          <h2 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+          <h2 className="mb-1.5 text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
             {t.quizCompletedTitle}
           </h2>
-          <p className="mb-6 text-sm text-slate-500 dark:text-zinc-400">
+          <p className="mb-5 text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
             {activeTitle} {subtitle ? `• ${subtitle}` : ""}
           </p>
 
-          <div className="mb-6 grid grid-cols-2 gap-3">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/80">
-              <span className="mb-1 block text-xs tracking-wider text-slate-400 uppercase dark:text-zinc-400">
+          <div className="mb-5 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5 dark:border-zinc-800 dark:bg-zinc-900/80">
+              <span className="mb-1 block text-[11px] tracking-wider text-slate-400 uppercase dark:text-zinc-400">
                 {t.score}
               </span>
-              <span className="text-2xl font-black text-amber-500 dark:text-amber-400">
+              <span className="text-xl sm:text-2xl font-black text-amber-500 dark:text-amber-400">
                 {score}{" "}
-                <span className="text-xs text-slate-400 dark:text-zinc-400">
+                <span className="text-[10px] text-slate-400 dark:text-zinc-400">
                   {t.pointsUnit}
                 </span>
               </span>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/80">
-              <span className="mb-1 block text-xs tracking-wider text-slate-400 uppercase dark:text-zinc-400">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5 dark:border-zinc-800 dark:bg-zinc-900/80">
+              <span className="mb-1 block text-[11px] tracking-wider text-slate-400 uppercase dark:text-zinc-400">
                 {t.accuracy}
               </span>
-              <span className="text-2xl font-black text-emerald-500 dark:text-emerald-400">
+              <span className="text-xl sm:text-2xl font-black text-emerald-500 dark:text-emerald-400">
                 {percentage}%
+              </span>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5 dark:border-zinc-800 dark:bg-zinc-900/80">
+              <span className="mb-1 block text-[11px] tracking-wider text-slate-400 uppercase dark:text-zinc-400">
+                {t.correct}
+              </span>
+              <span className="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">
+                {correctCount}/{totalQuestions}
+              </span>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5 dark:border-zinc-800 dark:bg-zinc-900/80">
+              <span className="mb-1 block text-[11px] tracking-wider text-slate-400 uppercase dark:text-zinc-400">
+                {t.streak}
+              </span>
+              <span className="flex items-center justify-center gap-1 text-xl sm:text-2xl font-black text-amber-500 dark:text-amber-400">
+                {streak}
+                <HugeiconsIcon icon={FireIcon} size={16} />
               </span>
             </div>
           </div>
 
-          <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50/70 p-4 text-left text-sm text-slate-700 dark:border-zinc-800/80 dark:bg-zinc-900/50 dark:text-zinc-300">
-            <div className="flex justify-between border-b border-slate-200 py-1 dark:border-zinc-800">
+          <div className="mb-5 rounded-2xl border border-slate-200 bg-slate-50/70 p-3.5 text-left text-xs sm:text-sm text-slate-700 dark:border-zinc-800/80 dark:bg-zinc-900/50 dark:text-zinc-300">
+            <div className="flex justify-between border-b border-slate-200 py-1.5 dark:border-zinc-800">
               <span className="text-slate-500 dark:text-zinc-400">
                 {t.correct}
               </span>
@@ -295,7 +360,7 @@ export function QuizPlayer({
                 {correctCount} / {totalQuestions}
               </span>
             </div>
-            <div className="flex justify-between border-b border-slate-200 py-1 dark:border-zinc-800">
+            <div className="flex justify-between py-1.5">
               <span className="text-slate-500 dark:text-zinc-400">
                 {t.wrong}
               </span>
@@ -303,52 +368,39 @@ export function QuizPlayer({
                 {totalQuestions - correctCount} {t.questionsUnit}
               </span>
             </div>
-            <div className="flex justify-between py-1">
-              <span className="text-slate-500 dark:text-zinc-400">
-                {t.streak}
-              </span>
-              <span className="flex items-center gap-1 font-bold text-amber-500 dark:text-amber-300">
-                {streak}
-                <HugeiconsIcon
-                  icon={FireIcon}
-                  size={15}
-                  className="text-amber-500 dark:text-amber-400"
-                />
-              </span>
-            </div>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row gap-2.5">
             {nextSection &&
               onNextSection &&
               chapterId !== undefined &&
               nextSectionIndex !== undefined && (
                 <button
                   onClick={() => onNextSection(chapterId, nextSectionIndex)}
-                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-6 py-3.5 font-bold text-white shadow-sm transition hover:bg-[#475b94] hover:shadow"
+                  className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-sm transition hover:bg-[#475b94] hover:shadow"
                 >
                   <span>
                     {t.nextSection}: {nextSection.section_name}
                   </span>
-                  <HugeiconsIcon icon={ArrowRight01Icon} size={20} />
+                  <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
                 </button>
               )}
             <button
               onClick={handleRestart}
-              className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl px-6 py-3.5 font-bold transition ${
+              className={`flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold transition ${
                 nextSection && onNextSection
                   ? "border border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
                   : "bg-[#5368a4] text-white hover:bg-[#475b94]"
               }`}
             >
-              <HugeiconsIcon icon={RotateRight01Icon} size={20} />
+              <HugeiconsIcon icon={RotateRight01Icon} size={18} />
               {t.retrySection}
             </button>
             <button
               onClick={onExit}
-              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-100 px-6 py-3.5 font-bold text-slate-700 transition hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+              className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-100 px-5 py-3 text-xs sm:text-sm font-bold text-slate-700 transition hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
             >
-              <HugeiconsIcon icon={Home01Icon} size={20} />
+              <HugeiconsIcon icon={Home01Icon} size={18} />
               {t.backHome}
             </button>
           </div>
@@ -360,44 +412,284 @@ export function QuizPlayer({
   // Header Title Text
   const displayTitle = activeTitle || currentQ.chapterName
   const displaySubtitle = `${currentIndex + 1} / ${totalQuestions}`
+  const hasPassage = Boolean(currentQ.context)
+
+  // Reusable Question Card Component
+  const renderQuestionCard = () => (
+    <div className="relative flex min-h-40 sm:min-h-44 flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-5 text-center sm:p-6 lg:p-6 dark:border-white/5 dark:bg-[#181920]">
+      {/* Audio & Bookmark Actions */}
+      <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5">
+        <button
+          onClick={() => handleSpeak(currentQ.questionText || "")}
+          title={t.speakQuestion}
+          className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200 active:scale-95 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
+        >
+          <HugeiconsIcon icon={VolumeHighIcon} size={15} />
+        </button>
+        <button
+          onClick={handleToggleBookmark}
+          title={t.bookmark}
+          className={`flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full transition active:scale-95 ${
+            bookmarked[currentQ.id]
+              ? "border border-amber-400/40 bg-amber-500/20 text-amber-500 dark:text-amber-400"
+              : "bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
+          }`}
+        >
+          <HugeiconsIcon icon={StarIcon} size={15} />
+        </button>
+      </div>
+
+      {/* Card Top Instruction */}
+      <div className="mb-3 pr-16 text-left sm:text-center">
+        <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-zinc-400">
+          {currentQ.sectionInstruction ||
+            (currentQ.sectionIndex === 1
+              ? t.section2Instruction
+              : currentQ.sectionIndex === 2
+                ? formatString(t.section3Instruction, {
+                    num: currentQ.questionNumber,
+                  })
+                : t.section1Instruction)}
+        </p>
+      </div>
+
+      {/* Central Prominent Japanese Question Text */}
+      <div className="my-auto py-1.5">
+        {currentQ.questionText?.includes("★") ? (
+          <div className="text-lg leading-relaxed font-bold tracking-wide text-slate-900 sm:text-xl lg:text-2xl dark:text-white">
+            {currentQ.questionText.split("★").map((chunk, cIdx, arr) => (
+              <React.Fragment key={cIdx}>
+                <span>{chunk}</span>
+                {cIdx < arr.length - 1 && (
+                  <span className="mx-1 inline-flex items-center justify-center rounded-md border border-amber-400/50 bg-amber-400/20 px-1.5 py-0.5 text-xs font-black text-amber-500 dark:text-amber-300">
+                    ★
+                  </span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        ) : (
+          <h2 className="text-lg leading-relaxed font-bold tracking-wide text-slate-900 sm:text-xl lg:text-2xl dark:text-white">
+            {currentQ.questionText}
+          </h2>
+        )}
+      </div>
+
+      {/* Card Bottom Tag */}
+      <div className="mt-3 flex items-center justify-center gap-2">
+        <span className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-400">
+          {currentQ.sectionName}
+        </span>
+      </div>
+    </div>
+  )
+
+  // Reusable Options Component (supports 1 column or 2 columns)
+  const renderOptions = (isTwoColumn: boolean) => (
+    <div
+      className={
+        isTwoColumn
+          ? "grid grid-cols-1 sm:grid-cols-2 gap-2.5 lg:gap-3"
+          : "grid grid-cols-1 gap-2.5"
+      }
+    >
+      {Object.entries(currentQ.options).map(([keyStr, valText]) => {
+        const optNum = parseInt(keyStr)
+        const isPicked = currentSelected === optNum
+        const isCorrectAnswer = optNum === currentQ.answer
+
+        // Visual State Colors
+        let btnClass =
+          "bg-[#5368a4] hover:bg-[#475b94] dark:bg-[#3e5c8a] dark:hover:bg-[#4a6da1] text-white active:scale-[0.99] hover:shadow-xs"
+
+        if (currentAnswered) {
+          if (isPicked && isCorrectAnswer) {
+            btnClass = "bg-emerald-600 text-white scale-[1.005] shadow-xs"
+          } else if (isPicked && !isCorrectAnswer) {
+            btnClass = "bg-rose-600 text-white"
+          } else if (isCorrectAnswer) {
+            btnClass = "bg-emerald-600/90 text-white"
+          } else {
+            btnClass =
+              "bg-slate-200/80 dark:bg-[#253752]/70 text-slate-400 dark:text-zinc-400 opacity-60"
+          }
+        }
+
+        const viMeaning = currentQ.optionsVi?.[keyStr]
+
+        return (
+          <button
+            key={optNum}
+            onClick={() => handleSelectOption(optNum)}
+            disabled={currentAnswered}
+            className={`relative flex min-h-13 sm:min-h-14 w-full cursor-pointer items-center justify-between rounded-2xl px-4 py-2.5 sm:py-3 text-center font-semibold tracking-wide transition-all ${btnClass}`}
+          >
+            {/* Left Number Badge */}
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-white/20 text-[11px] font-black backdrop-blur-xs">
+              {optNum}
+            </span>
+
+            {/* Center text & Vietnamese translation */}
+            <div className="flex flex-1 flex-col items-center justify-center px-2">
+              <span className="text-sm sm:text-base leading-snug font-semibold">
+                {valText}
+              </span>
+              {currentAnswered && viMeaning && (
+                <span className="mt-0.5 text-xs leading-tight font-normal opacity-85">
+                  {viMeaning}
+                </span>
+              )}
+            </div>
+
+            {/* Right Status Icon or Keyboard Shortcut on desktop */}
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center">
+              {currentAnswered && isPicked && isCorrectAnswer && (
+                <span className="text-emerald-200">
+                  <HugeiconsIcon icon={CheckmarkCircle01Icon} size={20} />
+                </span>
+              )}
+              {currentAnswered && isPicked && !isCorrectAnswer && (
+                <span className="text-rose-200">
+                  <HugeiconsIcon icon={CancelCircleIcon} size={20} />
+                </span>
+              )}
+              {!currentAnswered && (
+                <span className="hidden items-center justify-center rounded border border-white/25 px-1.5 py-0.5 text-[10px] font-mono text-white/70 lg:inline-flex">
+                  {optNum}
+                </span>
+              )}
+            </div>
+          </button>
+        )
+      })}
+    </div>
+  )
+
+  // Reusable Feedback & Sentence Component
+  const renderFeedback = () => {
+    if (!currentAnswered) return null
+
+    return (
+      <div className="animate-in space-y-2.5 rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4 text-left duration-200 fade-in slide-in-from-bottom-2 dark:border-zinc-800 dark:bg-[#171922]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            {currentSelected === currentQ.answer ? (
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                <HugeiconsIcon icon={CheckmarkCircle01Icon} size={16} />
+                <span>{t.correctFeedback}</span>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">
+                <HugeiconsIcon icon={CancelCircleIcon} size={16} />
+                <span>
+                  {formatString(t.wrongFeedback, { ans: currentQ.answer })}
+                </span>
+              </div>
+            )}
+          </div>
+
+          <button
+            onClick={() =>
+              handleSpeak(
+                currentQ.fullSentence
+                  ? currentQ.fullSentence.replace(/\[|\]|\*/g, "")
+                  : starSentence
+                    ? `${starSentence.before}${starSentence.parts.map((p) => p.text).join("")}${starSentence.after}`
+                    : currentQ.questionText || ""
+              )
+            }
+            className="flex cursor-pointer items-center gap-1 rounded-lg bg-[#5368a4]/10 px-2 py-1 text-xs font-medium text-[#5368a4] hover:bg-[#5368a4]/15 hover:text-[#45578a] dark:bg-indigo-500/10 dark:text-indigo-400 dark:hover:bg-indigo-500/20"
+          >
+            <HugeiconsIcon icon={VolumeHighIcon} size={13} />
+            {t.speakSentence}
+          </button>
+        </div>
+
+        {/* If fullSentence or Section 2 Star Question, display full reconstructed sentence */}
+        {currentQ.fullSentence ? (
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5 sm:p-3 dark:border-zinc-800 dark:bg-zinc-900/90">
+            <span className="mb-0.5 block text-[11px] font-semibold text-slate-500 dark:text-zinc-400">
+              {formatString(t.completeSentence, {
+                order: `Đáp án ${currentQ.answer}`,
+              })}
+            </span>
+            <p className="text-xs sm:text-sm leading-relaxed font-medium text-slate-800 dark:text-zinc-200">
+              {currentQ.fullSentence}
+            </p>
+          </div>
+        ) : starSentence && starSentence.parts.length > 0 ? (
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5 sm:p-3 dark:border-zinc-800 dark:bg-zinc-900/90">
+            <span className="mb-0.5 block text-[11px] font-semibold text-slate-500 dark:text-zinc-400">
+              {formatString(t.completeSentence, {
+                order: currentQ.orderedSequence?.join(" → ") || "",
+              })}
+            </span>
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-zinc-200">
+              {starSentence.before}
+              {starSentence.parts.map((p, idx) => (
+                <span
+                  key={idx}
+                  className={`mx-0.5 inline-block rounded px-1.5 py-0.5 font-semibold ${
+                    p.isStar
+                      ? "bg-amber-400 font-bold text-black ring-2 ring-amber-300"
+                      : "bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-300"
+                  }`}
+                >
+                  {p.isStar && "★ "}
+                  {p.text}
+                </span>
+              ))}
+              {starSentence.after}
+            </p>
+          </div>
+        ) : null}
+      </div>
+    )
+  }
 
   return (
-    <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-between pb-4 select-none">
-      {/* Top Header matching the screenshot */}
-      <header className="px-2 pt-3 pb-2">
+    <div
+      className={`mx-auto flex w-full flex-1 flex-col justify-between pb-4 select-none ${
+        hasPassage
+          ? "max-w-md lg:max-w-4xl xl:max-w-5xl"
+          : "max-w-md lg:max-w-2xl xl:max-w-3xl"
+      }`}
+    >
+      {/* Top Header */}
+      <header className="px-2 lg:px-3 pt-3 pb-2">
         <div className="flex items-center justify-between">
           {/* Home Button */}
           <button
             onClick={onExit}
             aria-label={t.backHome}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 active:scale-95 dark:border-white/5 dark:bg-[#1e2026] dark:text-zinc-200 dark:hover:bg-zinc-700"
+            className="flex h-9 w-9 sm:h-10 sm:w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 active:scale-95 dark:border-white/5 dark:bg-[#1e2026] dark:text-zinc-200 dark:hover:bg-zinc-700"
           >
-            <HugeiconsIcon icon={Home01Icon} size={20} />
+            <HugeiconsIcon icon={Home01Icon} size={18} />
           </button>
 
           {/* Center Title and Progress */}
           <div className="mx-3 flex-1 text-center">
-            <h1 className="line-clamp-1 text-base leading-tight font-bold text-slate-900 sm:text-lg dark:text-white">
+            <h1 className="line-clamp-1 text-sm sm:text-base font-bold text-slate-900 dark:text-white">
               {displayTitle}
             </h1>
-            <p className="mt-0.5 text-xs font-medium text-slate-500 sm:text-sm dark:text-zinc-400">
+            <p className="mt-0.5 text-xs font-medium text-slate-500 dark:text-zinc-400">
               {displaySubtitle}
             </p>
           </div>
 
           {/* Score Counter */}
-          <div className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 dark:border-white/5 dark:bg-[#1e2026]">
-            <span className="text-xs font-medium text-slate-400 dark:text-zinc-400">
+          <div className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-white/5 dark:bg-[#1e2026]">
+            <span className="text-[11px] font-medium text-slate-400 dark:text-zinc-400">
               {t.score}
             </span>
-            <span className="text-sm font-bold text-slate-800 dark:text-white">
+            <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-white">
               {score}
             </span>
             {streak >= 2 && (
-              <span className="ml-1 flex items-center gap-0.5 text-xs font-bold text-amber-500 dark:text-amber-400">
+              <span className="ml-1 flex items-center gap-0.5 text-[11px] font-bold text-amber-500 dark:text-amber-400">
                 <HugeiconsIcon
                   icon={FireIcon}
-                  size={14}
+                  size={13}
                   className="text-amber-500 dark:text-amber-400"
                 />
                 {streak}
@@ -407,7 +699,7 @@ export function QuizPlayer({
         </div>
 
         {/* Thin progress bar */}
-        <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-zinc-800/80">
+        <div className="mt-2.5 h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-zinc-800/80">
           <div
             className="h-full bg-primary transition-all duration-300"
             style={{ width: `${((currentIndex + 1) / totalQuestions) * 100}%` }}
@@ -416,27 +708,31 @@ export function QuizPlayer({
       </header>
 
       {/* Main Content Area */}
-      <div className="my-3 flex flex-1 flex-col justify-center space-y-4">
-        {/* Section 3 Context Passage (Reading Passage) */}
-        {currentQ.context && (
-          <div className="rounded-2xl border border-slate-200 bg-white p-4 text-slate-800 transition-all dark:border-zinc-800/90 dark:bg-[#14151a] dark:text-zinc-200">
-            <div className="mb-2 flex items-center justify-between border-b border-slate-200 pb-2 dark:border-zinc-800">
-              <span className="flex items-center gap-1.5 text-xs font-semibold text-[#4162bc] dark:text-indigo-400">
-                <HugeiconsIcon icon={BookOpen01Icon} size={15} />
-                {t.passageTitle}
-              </span>
-              <button
-                onClick={() => setShowPassage(!showPassage)}
-                className="cursor-pointer rounded border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs text-slate-500 hover:text-slate-800 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-400 dark:hover:text-white"
-              >
-                {showPassage ? t.collapsePassage : t.expandPassage}
-              </button>
-            </div>
+      <div className="my-2.5 flex flex-1 flex-col justify-center">
+        {hasPassage ? (
+          /* Split Layout for Reading Passage on Laptop Screens */
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-5 lg:items-start">
+            {/* Left Column: Sticky Reading Passage Reader */}
+            <div className="lg:col-span-6 xl:col-span-6 mb-3 lg:mb-0 lg:sticky lg:top-4 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-5 text-slate-800 transition-all dark:border-white/5 dark:bg-[#181920] dark:text-zinc-200 shadow-xs">
+              <div className="mb-2.5 flex items-center justify-between border-b border-slate-200 pb-2 dark:border-zinc-800">
+                <span className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#4162bc] dark:text-indigo-400">
+                  <HugeiconsIcon icon={BookOpen01Icon} size={15} />
+                  {t.passageTitle}
+                </span>
+                <button
+                  onClick={() => setShowPassage(!showPassage)}
+                  className="lg:hidden cursor-pointer rounded-lg border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs text-slate-600 hover:text-slate-900 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-400 dark:hover:text-white"
+                >
+                  {showPassage ? t.collapsePassage : t.expandPassage}
+                </button>
+              </div>
 
-            {showPassage && (
-              <div className="space-y-2 pr-1 text-sm leading-relaxed sm:text-base">
+              <div
+                className={`space-y-2.5 pr-1 text-xs sm:text-sm leading-relaxed ${
+                  showPassage ? "block" : "hidden lg:block"
+                }`}
+              >
                 {formattedPassage?.map((paragraph, pIdx) => {
-                  // Render paragraph and highlight blanks like " 1 ", " 2 ", " 3 "
                   const parts = paragraph.split(/(\s[1-9]\s)/g)
                   return (
                     <p key={pIdx}>
@@ -448,7 +744,7 @@ export function QuizPlayer({
                           return (
                             <span
                               key={partIdx}
-                              className={`mx-1 inline-block rounded px-2 py-0.5 text-xs font-bold transition ${
+                              className={`mx-1 inline-block rounded px-1.5 py-0.5 text-xs font-bold transition ${
                                 isCurrent
                                   ? "animate-pulse bg-amber-400 font-extrabold text-black ring-2 ring-amber-300"
                                   : "border border-slate-200 bg-slate-100 text-slate-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
@@ -464,224 +760,27 @@ export function QuizPlayer({
                   )
                 })}
               </div>
-            )}
-          </div>
-        )}
-
-        {/* Central Question Card matching screenshot aesthetics */}
-        <div className="relative flex min-h-55 flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 text-center sm:p-8 dark:border-white/5 dark:bg-[#181920]">
-          {/* Audio & Bookmark Actions */}
-          <div className="absolute top-4 right-4 flex items-center gap-2">
-            <button
-              onClick={() => handleSpeak(currentQ.questionText || "")}
-              title={t.speakQuestion}
-              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200 active:scale-95 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
-            >
-              <HugeiconsIcon icon={VolumeHighIcon} size={16} />
-            </button>
-            <button
-              onClick={handleToggleBookmark}
-              title={t.bookmark}
-              className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition active:scale-95 ${
-                bookmarked[currentQ.id]
-                  ? "border border-amber-400/40 bg-amber-500/20 text-amber-500 dark:text-amber-400"
-                  : "bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
-              }`}
-            >
-              <HugeiconsIcon icon={StarIcon} size={16} />
-            </button>
-          </div>
-
-          {/* Card Top Instruction */}
-          <div className="mb-4 pr-16">
-            <p className="text-xs font-medium tracking-wide text-slate-400 sm:text-sm dark:text-zinc-400">
-              {currentQ.sectionInstruction ||
-                (currentQ.sectionIndex === 1
-                  ? t.section2Instruction
-                  : currentQ.sectionIndex === 2
-                    ? formatString(t.section3Instruction, {
-                        num: currentQ.questionNumber,
-                      })
-                    : t.section1Instruction)}
-            </p>
-          </div>
-
-          {/* Central Prominent Japanese Question Text */}
-          <div className="my-auto py-2">
-            {currentQ.questionText?.includes("★") ? (
-              <div className="text-2xl leading-relaxed font-bold tracking-wide text-slate-900 sm:text-3xl dark:text-white">
-                {currentQ.questionText.split("★").map((chunk, cIdx, arr) => (
-                  <React.Fragment key={cIdx}>
-                    <span>{chunk}</span>
-                    {cIdx < arr.length - 1 && (
-                      <span className="mx-1.5 inline-flex items-center justify-center rounded-lg border border-amber-400/50 bg-amber-400/20 px-2 py-0.5 font-black text-amber-500 dark:text-amber-300">
-                        ★
-                      </span>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            ) : (
-              <h2 className="text-2xl leading-relaxed font-bold tracking-wide text-slate-900 sm:text-3xl md:text-4xl dark:text-white">
-                {currentQ.questionText}
-              </h2>
-            )}
-          </div>
-
-          {/* Card Bottom Tag */}
-          <div className="mt-4 flex items-center justify-center gap-2">
-            <span className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-1 text-[11px] font-semibold tracking-wider text-slate-500 uppercase dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-400">
-              {currentQ.sectionName}
-            </span>
-          </div>
-        </div>
-
-        {/* 4 Options matching the screenshot */}
-        <div className="flex flex-col gap-3">
-          {Object.entries(currentQ.options).map(([keyStr, valText]) => {
-            const optNum = parseInt(keyStr)
-            const isPicked = currentSelected === optNum
-            const isCorrectAnswer = optNum === currentQ.answer
-
-            // Visual State Colors
-            let btnClass =
-              "bg-[#5368a4] hover:bg-[#475b94] dark:bg-[#3e5c8a] dark:hover:bg-[#4a6da1] text-white active:scale-[0.99]"
-
-            if (currentAnswered) {
-              if (isPicked && isCorrectAnswer) {
-                // Picked Correct
-                btnClass = "bg-emerald-600 text-white scale-[1.01]"
-              } else if (isPicked && !isCorrectAnswer) {
-                // Picked Wrong
-                btnClass = "bg-rose-600 text-white"
-              } else if (isCorrectAnswer) {
-                // Reveal Correct
-                btnClass = "bg-emerald-600/90 text-white"
-              } else {
-                // Inactive others
-                btnClass =
-                  "bg-slate-200/80 dark:bg-[#253752]/70 text-slate-400 dark:text-zinc-400 opacity-60"
-              }
-            }
-
-            const viMeaning = currentQ.optionsVi?.[keyStr]
-
-            return (
-              <button
-                key={optNum}
-                onClick={() => handleSelectOption(optNum)}
-                disabled={currentAnswered}
-                className={`relative flex min-h-15 w-full cursor-pointer items-center justify-center rounded-2xl px-6 py-3.5 text-center font-bold tracking-wide sm:py-4 ${btnClass}`}
-              >
-                {/* Option text & Vietnamese translation */}
-                <div className="flex flex-col items-center justify-center px-4">
-                  <span className="text-lg leading-snug font-semibold sm:text-xl">
-                    {valText}
-                  </span>
-                  {currentAnswered && viMeaning && (
-                    <span className="mt-1 text-xs leading-tight font-normal opacity-90 sm:text-sm">
-                      {viMeaning}
-                    </span>
-                  )}
-                </div>
-
-                {/* Status icon badge */}
-                {currentAnswered && isPicked && isCorrectAnswer && (
-                  <span className="absolute right-4 text-emerald-200">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} size={22} />
-                  </span>
-                )}
-                {currentAnswered && isPicked && !isCorrectAnswer && (
-                  <span className="absolute right-4 text-rose-200">
-                    <HugeiconsIcon icon={CancelCircleIcon} size={22} />
-                  </span>
-                )}
-              </button>
-            )
-          })}
-        </div>
-
-        {/* Explanation & Sentence Reconstruction (Section 2) */}
-        {currentAnswered && (
-          <div className="animate-in space-y-3 rounded-2xl border border-slate-200 bg-white p-4 text-left duration-200 fade-in slide-in-from-bottom-2 sm:p-5 dark:border-zinc-800 dark:bg-[#171922]">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                {currentSelected === currentQ.answer ? (
-                  <div className="flex items-center gap-1.5 text-sm font-bold text-emerald-600 dark:text-emerald-400">
-                    <HugeiconsIcon icon={CheckmarkCircle01Icon} size={18} />
-                    <span>{t.correctFeedback}</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-1.5 text-sm font-bold text-rose-600 dark:text-rose-400">
-                    <HugeiconsIcon icon={CancelCircleIcon} size={18} />
-                    <span>
-                      {formatString(t.wrongFeedback, { ans: currentQ.answer })}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <button
-                onClick={() =>
-                  handleSpeak(
-                    currentQ.fullSentence
-                      ? currentQ.fullSentence.replace(/\[|\]|\*/g, "")
-                      : starSentence
-                        ? `${starSentence.before}${starSentence.parts.map((p) => p.text).join("")}${starSentence.after}`
-                        : currentQ.questionText || ""
-                  )
-                }
-                className="flex cursor-pointer items-center gap-1 rounded-lg bg-[#5368a4]/10 px-2 py-1 text-xs text-[#5368a4] hover:text-[#45578a] dark:bg-indigo-500/10 dark:text-indigo-400 dark:hover:text-indigo-300"
-              >
-                <HugeiconsIcon icon={VolumeHighIcon} size={14} />
-                {t.speakSentence}
-              </button>
             </div>
 
-            {/* If fullSentence or Section 2 Star Question, display full reconstructed sentence */}
-            {currentQ.fullSentence ? (
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-zinc-800 dark:bg-zinc-900/90">
-                <span className="mb-1 block text-xs font-semibold text-slate-500 dark:text-zinc-400">
-                  {formatString(t.completeSentence, {
-                    order: `Đáp án ${currentQ.answer}`,
-                  })}
-                </span>
-                <p className="text-sm leading-relaxed font-medium text-slate-800 sm:text-base dark:text-zinc-200">
-                  {currentQ.fullSentence}
-                </p>
-              </div>
-            ) : starSentence && starSentence.parts.length > 0 ? (
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-zinc-800 dark:bg-zinc-900/90">
-                <span className="mb-1 block text-xs font-semibold text-slate-500 dark:text-zinc-400">
-                  {formatString(t.completeSentence, {
-                    order: currentQ.orderedSequence?.join(" → ") || "",
-                  })}
-                </span>
-                <p className="text-sm leading-relaxed text-slate-800 sm:text-base dark:text-zinc-200">
-                  {starSentence.before}
-                  {starSentence.parts.map((p, idx) => (
-                    <span
-                      key={idx}
-                      className={`mx-0.5 inline-block rounded px-1.5 py-0.5 font-semibold ${
-                        p.isStar
-                          ? "bg-amber-400 font-bold text-black ring-2 ring-amber-300"
-                          : "bg-slate-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-300"
-                      }`}
-                    >
-                      {p.isStar && "★ "}
-                      {p.text}
-                    </span>
-                  ))}
-                  {starSentence.after}
-                </p>
-              </div>
-            ) : null}
+            {/* Right Column: Question + Options + Explanation */}
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col space-y-3">
+              {renderQuestionCard()}
+              {renderOptions(false)}
+              {renderFeedback()}
+            </div>
+          </div>
+        ) : (
+          /* Standard Quiz Layout: Refined Question Card + 2-Column Options Grid */
+          <div className="flex flex-col space-y-3 sm:space-y-3.5">
+            {renderQuestionCard()}
+            {renderOptions(true)}
+            {renderFeedback()}
           </div>
         )}
       </div>
 
       {/* Bottom Footer Actions */}
-      <footer className="px-1 pt-2">
+      <footer className="px-1 lg:px-2 pt-2">
         <div className="flex items-center justify-between gap-3">
           <button
             onClick={handlePrev}
@@ -689,8 +788,12 @@ export function QuizPlayer({
             className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:pointer-events-none disabled:opacity-40 dark:border-white/5 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
             <HugeiconsIcon icon={ArrowLeft01Icon} size={18} />
-            {t.prevQuestion}
+            <span>{t.prevQuestion}</span>
+            <kbd className="hidden lg:inline ml-1 font-mono text-[10px] text-slate-400 dark:text-zinc-500">
+              ←
+            </kbd>
           </button>
+
           {/* Sound Toggle */}
           <button
             onClick={handleToggleSound}
@@ -707,9 +810,14 @@ export function QuizPlayer({
             onClick={handleNext}
             className="flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-xl bg-[#5368a4] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#475b94]"
           >
-            {currentIndex === totalQuestions - 1
-              ? t.viewResult
-              : t.nextQuestion}
+            <span>
+              {currentIndex === totalQuestions - 1
+                ? t.viewResult
+                : t.nextQuestion}
+            </span>
+            <kbd className="hidden lg:inline ml-1 font-mono text-[10px] text-white/70">
+              Enter ↵
+            </kbd>
             <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
           </button>
         </div>
