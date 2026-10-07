@@ -42,8 +42,8 @@ import jlpt2014_07 from "@/data/jlpt/jlpt_n2_07_2014.json"
 import jlpt2014_12 from "@/data/jlpt/jlpt_n2_12_2014.json"
 import jlpt2015_07 from "@/data/jlpt/jlpt_n2_07_2015.json"
 import jlpt2015_12 from "@/data/jlpt/jlpt_n2_12_2015.json"
-// import jlpt2016_07 from "@/data/jlpt/jlpt_n2_07_2016.json"
-// import jlpt2016_12 from "@/data/jlpt/jlpt_n2_12_2016.json"
+import jlpt2016_07 from "@/data/jlpt/jlpt_n2_07_2016.json"
+import jlpt2016_12 from "@/data/jlpt/jlpt_n2_12_2016.json"
 // import jlpt2017_07 from "@/data/jlpt/jlpt_n2_07_2017.json"
 // import jlpt2017_12 from "@/data/jlpt/jlpt_n2_12_2017.json"
 // import jlpt2018_07 from "@/data/jlpt/jlpt_n2_07_2018.json"
@@ -109,8 +109,8 @@ export const examChapters: Chapter[] = [
   jlpt2014_12 as Chapter,
   jlpt2015_07 as Chapter,
   jlpt2015_12 as Chapter,
-  // jlpt2016_07 as Chapter,
-  // jlpt2016_12 as Chapter,
+  jlpt2016_07 as Chapter,
+  jlpt2016_12 as Chapter,
   // jlpt2017_07 as Chapter,
   // jlpt2017_12 as Chapter,
   // jlpt2018_07 as Chapter,
