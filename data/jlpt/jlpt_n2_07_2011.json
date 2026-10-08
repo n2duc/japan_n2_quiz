@@ -1,12 +1,12 @@
 {
   "chapter_id": "jlpt-2011-07",
-  "chapter_name": "JLPT N2 07/2011",
+  "chapter_name": "JLPT N2 7/2011",
   "category": "exam",
   "subtitle": "Language Knowledge (Vocabulary & Grammar)",
   "sections": [
     {
       "section_name": "問題 1",
-      "instruction": "____の読み方として最もよいものを１・２・３・４から一つ選びなさい。",
+      "instruction": "の読み方として最もよいものを１・２・３・４から一つ選びなさい。",
       "questions": [
         {
           "question_number": 1,
@@ -19,10 +19,10 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "ngã, đổ",
+            "2": "thất bại, thua (敗れる - やぶれる)",
+            "3": "lộn xộn",
+            "4": "bẹp, phá sản"
           }
         },
         {
@@ -36,10 +36,10 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "thiếu âm",
+            "2": "dục cầu",
+            "3": "yêu cầu (要求 - ようきゅう)",
+            "4": "thiếu âm"
           }
         },
         {
@@ -53,10 +53,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "chúc mừng (祝う)",
+            "2": "cầu nguyện",
+            "3": "bói toán",
+            "4": "ước nguyện"
           }
         },
         {
@@ -66,14 +66,14 @@
             "1": "ちょうさい",
             "2": "ちょうせい",
             "3": "ちょうさつ",
-            "4": "ちょうせu"
+            "4": "ちょうせつ"
           },
-          "answer": 2,
+          "answer": 4,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "điều tế",
+            "2": "điều chỉnh (chung)",
+            "3": "điều sát",
+            "4": "điều tiết (nhiệt độ, vòi nước) (調節 - ちょうせつ)"
           }
         },
         {
@@ -85,19 +85,19 @@
             "3": "しきゅう",
             "4": "ちきゅう"
           },
-          "answer": 1,
+          "answer": 3,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "thất cấp",
+            "2": "trì cấp",
+            "3": "gấp gáp, khẩn cấp (至急 - しきゅう)",
+            "4": "địa cầu"
           }
         }
       ]
     },
     {
       "section_name": "問題 2",
-      "instruction": "____の言葉で漢字を書くとき、最もよいものを１・２・３・４から一つ選びなさい。",
+      "instruction": "の言葉を漢字で書くとき、最もよいものを１・２・３・４から一つ選びなさい。",
       "questions": [
         {
           "question_number": 6,
@@ -110,10 +110,10 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "chữ Hán sai",
+            "2": "chữ Hán sai",
+            "3": "biểu tượng (象徴)",
+            "4": "chữ Hán sai"
           }
         },
         {
@@ -127,10 +127,10 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "hiểm trở",
+            "2": "dữ dội, mạnh mẽ (激しい)",
+            "3": "chữ Hán sai",
+            "4": "chữ Hán sai"
           }
         },
         {
@@ -144,10 +144,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "đăng ký (登録)",
+            "2": "chữ Hán sai",
+            "3": "chữ Hán sai",
+            "4": "chữ Hán sai"
           }
         },
         {
@@ -161,10 +161,10 @@
           },
           "answer": 4,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "mời (chiêu đãi)",
+            "2": "khuyên bảo",
+            "3": "thỉnh cầu",
+            "4": "rủ rê, mời gọi (誘う)"
           }
         },
         {
@@ -178,10 +178,10 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Phương án gây nhiễu / không phải đáp án đúng",
-            "2": "Phương án gây nhiễu / không phải đáp án đúng",
-            "3": "Phương án gây nhiễu / không phải đáp án đúng",
-            "4": "Phương án gây nhiễu / không phải đáp án đúng"
+            "1": "biến cải",
+            "2": "thay đổi (変更)",
+            "3": "chuyển đổi (dữ liệu/định dạng)",
+            "4": "biến thay"
           }
         }
       ]
@@ -201,10 +201,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 界",
-            "2": "Nghĩa theo ngữ cảnh: 帯",
-            "3": "Nghĩa theo ngữ cảnh: 域",
-            "4": "Nghĩa theo ngữ cảnh: 区"
+            "1": "giới (医学界: giới y học)",
+            "2": "đới",
+            "3": "vực",
+            "4": "khu"
           }
         },
         {
@@ -218,10 +218,10 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 後",
-            "2": "Nghĩa theo ngữ cảnh: 準",
-            "3": "Nghĩa theo ngữ cảnh: 次",
-            "4": "Nghĩa theo ngữ cảnh: 副"
+            "1": "hậu",
+            "2": "á quân, suýt vô địch (準優勝)",
+            "3": "thứ",
+            "4": "phó"
           }
         },
         {
@@ -235,10 +235,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 現",
-            "2": "Nghĩa theo ngữ cảnh: 直",
-            "3": "Nghĩa theo ngữ cảnh: 近",
-            "4": "Nghĩa theo ngữ cảnh: 当"
+            "1": "hiện (現段階: giai đoạn hiện tại)",
+            "2": "trực",
+            "3": "cận",
+            "4": "đương"
           }
         },
         {
@@ -252,10 +252,10 @@
           },
           "answer": 4,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 不",
-            "2": "Nghĩa theo ngữ cảnh: 未",
-            "3": "Nghĩa theo ngữ cảnh: 無",
-            "4": "Nghĩa theo ngữ cảnh: 非"
+            "1": "bất",
+            "2": "vị",
+            "3": "vô",
+            "4": "phi, không chính thức (非公式)"
           }
         },
         {
@@ -269,17 +269,17 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 集",
-            "2": "Nghĩa theo ngữ cảnh: 総",
-            "3": "Nghĩa theo ngữ cảnh: 合",
-            "4": "Nghĩa theo ngữ cảnh: 満"
+            "1": "tập",
+            "2": "tổng (総売上: tổng doanh thu/tổng doanh số)",
+            "3": "hợp",
+            "4": "mãn"
           }
         }
       ]
     },
     {
       "section_name": "問題 4",
-      "instruction": "（ ）に入れるのに最もよいものを、１・２・３・４から一つ選びなさい。",
+      "instruction": "（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
       "questions": [
         {
           "question_number": 16,
@@ -292,10 +292,10 @@
           },
           "answer": 4,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 視察",
-            "2": "Nghĩa theo ngữ cảnh: 検査",
-            "3": "Nghĩa theo ngữ cảnh: 発明",
-            "4": "Nghĩa theo ngữ cảnh: 分析"
+            "1": "thị sát",
+            "2": "kiểm tra",
+            "3": "phát minh",
+            "4": "phân tích dữ liệu (データを分析する)"
           }
         },
         {
@@ -309,10 +309,10 @@
           },
           "answer": 4,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: ぐらぐら",
-            "2": "Nghĩa theo ngữ cảnh: がらがら",
-            "3": "Nghĩa theo ngữ cảnh: ばらばら",
-            "4": "Nghĩa theo ngữ cảnh: ぶらぶら"
+            "1": "lắc lư",
+            "2": "trống trải / lỏng lẻo",
+            "3": "rời rạc",
+            "4": "lang thang, đi dạo không mục đích (街をぶらぶらする)"
           }
         },
         {
@@ -326,10 +326,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 活気",
-            "2": "Nghĩa theo ngữ cảnh: 活発",
-            "3": "Nghĩa theo ngữ cảnh: 活躍",
-            "4": "Nghĩa theo ngữ cảnh: 活動"
+            "1": "sự sôi động, náo nhiệt, sinh khí (活気にあふれている)",
+            "2": "hoạt bát",
+            "3": "hoạt động tích cực",
+            "4": "hoạt động"
           }
         },
         {
@@ -343,10 +343,10 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: もぐって",
-            "2": "Nghĩa theo ngữ cảnh: つまって",
-            "3": "Nghĩa theo ngữ cảnh: しずんで",
-            "4": "Nghĩa theo ngữ cảnh: うまって"
+            "1": "chui vào",
+            "2": "bị tắc, kẹt giấy (紙が詰まる)",
+            "3": "chìm",
+            "4": "chôn lấp"
           }
         },
         {
@@ -360,10 +360,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 反映",
-            "2": "Nghĩa theo ngữ cảnh: 放映",
-            "3": "Nghĩa theo ngữ cảnh: 引用",
-            "4": "Nghĩa theo ngữ cảnh: 採用"
+            "1": "phản ánh (時代を反映する)",
+            "2": "phát sóng",
+            "3": "trích dẫn",
+            "4": "áp dụng, tuyển dụng"
           }
         },
         {
@@ -377,10 +377,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: ぼんやり",
-            "2": "Nghĩa theo ngữ cảnh: ふんわり",
-            "3": "Nghĩa theo ngữ cảnh: うっすら",
-            "4": "Nghĩa theo ngữ cảnh: しっとり"
+            "1": "mơ hồ, lờ mờ, thẫn thờ",
+            "2": "mềm mại, nhẹ nhàng, bồng bềnh",
+            "3": "mờ nhạt, nhợt nhạt",
+            "4": "ẩm mềm, mượt mà, dịu dàng"
           }
         },
         {
@@ -394,17 +394,17 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 深み",
-            "2": "Nghĩa theo ngữ cảnh: 強み",
-            "3": "Nghĩa theo ngữ cảnh: 高み",
-            "4": "Nghĩa theo ngữ cảnh: 重み"
+            "1": "chiều sâu, độ sâu, sự sâu sắc",
+            "2": "điểm mạnh, thế mạnh",
+            "3": "vị trí/cấp độ cao, đỉnh cao",
+            "4": "sức nặng, trọng lượng; sự quan trọng"
           }
         }
       ]
     },
     {
       "section_name": "問題 5",
-      "instruction": "____の言葉に意味が最も近いものを、１・２・３・４から一つ選びなさい。",
+      "instruction": "の言葉に意味が最も近いものを、１・２・３・４から一つ選びなさい。",
       "questions": [
         {
           "question_number": 23,
@@ -417,10 +417,10 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 効果",
-            "2": "Nghĩa theo ngữ cảnh: 状態",
-            "3": "Nghĩa theo ngữ cảnh: 流行",
-            "4": "Nghĩa theo ngữ cảnh: 緊張"
+            "1": "hiệu quả",
+            "2": "trạng thái",
+            "3": "trào lưu, mốt, sự thịnh hành (ブーム = 流行)",
+            "4": "căng thẳng"
           }
         },
         {
@@ -434,10 +434,10 @@
           },
           "answer": 4,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 急いで",
-            "2": "Nghĩa theo ngữ cảnh: 絶対忘れずに",
-            "3": "Nghĩa theo ngữ cảnh: 静かに",
-            "4": "Nghĩa theo ngữ cảnh: 十分注意して"
+            "1": "nhanh lên",
+            "2": "tuyệt đối không quên",
+            "3": "yên lặng",
+            "4": "hết sức chú ý, cẩn thận (慎重に = 十分注意して)"
           }
         },
         {
@@ -451,10 +451,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 小さくなって",
-            "2": "Nghĩa theo ngữ cảnh: 古くなって",
-            "3": "Nghĩa theo ngữ cảnh: 汚れて",
-            "4": "Nghĩa theo ngữ cảnh: 破れて"
+            "1": "trở nên nhỏ lại / bị co rút (ちぢむ = 小さくなる)",
+            "2": "trở nên cũ",
+            "3": "bị bẩn",
+            "4": "bị rách"
           }
         },
         {
@@ -468,10 +468,10 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: すべて",
-            "2": "Nghĩa theo ngữ cảnh: すぐに",
-            "3": "muốn...",
-            "4": "Nghĩa theo ngữ cảnh: やっと"
+            "1": "tất cả",
+            "2": "ngay lập tức",
+            "3": "đại khái, hầu như, gần như (ほぼ = だいたい)",
+            "4": "cuối cùng"
           }
         },
         {
@@ -485,10 +485,10 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "không...",
-            "2": "Nghĩa theo ngữ cảnh: 変わりやすい",
-            "3": "Nghĩa theo ngữ cảnh: よくなる",
-            "4": "Nghĩa theo ngữ cảnh: 悪くなる"
+            "1": "không đổi mấy",
+            "2": "dễ thay đổi",
+            "3": "trở nên tốt hơn / quang tạnh trở lại (回復する = よくなる)",
+            "4": "xấu đi"
           }
         }
       ]
@@ -501,85 +501,85 @@
           "question_number": 28,
           "word": "方針",
           "options": {
-            "1": "台風の方針がそれた...",
-            "2": "今年の私の方針は漢字を...",
-            "3": "この料理を作る方針を...",
-            "4": "教育に関する政府の方針が..."
+            "1": "台風の方針がそれたので、特に被害は出なかった。",
+            "2": "私の今年の方針は漢字を 600 字覚えることだ。",
+            "3": "この料理を作る方針を教えてください。",
+            "4": "教育に関する政府の方針が大きく変わった。"
           },
           "answer": 4,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 台風の方針がそれた...",
-            "2": "Nghĩa theo ngữ cảnh: 今年の私の方針は漢字を...",
-            "3": "Nghĩa theo ngữ cảnh: この料理を作る方針を...",
-            "4": "Nghĩa theo ngữ cảnh: 教育に関する政府の方針が..."
+            "1": "dùng sai (hướng đi bão -> 進路)",
+            "2": "dùng sai (mục tiêu cá nhân -> 目標)",
+            "3": "dùng sai (phương pháp nấu -> 作り方)",
+            "4": "Phương châm, định hướng của chính phủ về giáo dục đã thay đổi lớn (政府の方針)."
           }
         },
         {
           "question_number": 29,
           "word": "範囲",
           "options": {
-            "1": "この町は川によって二つの...",
-            "2": "この会社は新しい範囲に...",
-            "3": "明日は広い範囲で強い雨が...",
-            "4": "家から駅までの範囲は 2キロ..."
+            "1": "この町は川によって二つの範囲に分かれている。",
+            "2": "この会社は新しい範囲に進出した。",
+            "3": "明日は広い範囲で強い雨が降るでしょう。",
+            "4": "家から駅までの範囲は 2 キロぐらいだ。"
           },
           "answer": 3,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: この町は川によって二つの...",
-            "2": "Nghĩa theo ngữ cảnh: この会社は新しい範囲に...",
-            "3": "Nghĩa theo ngữ cảnh: 明日は広い範囲で強い雨が...",
-            "4": "Nghĩa theo ngữ cảnh: 家から駅までの範囲は 2キロ..."
+            "1": "dùng sai",
+            "2": "dùng sai",
+            "3": "Ngày mai trời sẽ có mưa lớn trên diện rộng, phạm vi rộng (広い範囲で).",
+            "4": "dùng sai (khoảng cách -> 距離)"
           }
         },
         {
           "question_number": 30,
           "word": "せめて",
           "options": {
-            "1": "その店のセーターはせめて...",
-            "2": "今からタクシーに乗ってもせめて...",
-            "3": "京都に行くならせめて 1泊は...",
-            "4": "自信がなかったがせめて 50点は..."
+            "1": "その店のセーターはせめて 1 万円はするだろう。",
+            "2": "今からタクシーに乗っても、せめて 10 時には着けない。",
+            "3": "京都に行くなら、せめて 1 泊はしたい。",
+            "4": "先週のテストは自信がなかったが、せめて 50 点は取れた。"
           },
           "answer": 3,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: その店のセーターはせめて...",
-            "2": "Nghĩa theo ngữ cảnh: 今からタクシーに乗ってもせめて...",
-            "3": "Nghĩa theo ngữ cảnh: 京都に行くならせめて 1泊は...",
-            "4": "Nghĩa theo ngữ cảnh: 自信がなかったがせめて 50点は..."
+            "1": "dùng sai",
+            "2": "dùng sai",
+            "3": "Nếu đi Kyoto, tối thiểu/ít nhất tôi cũng muốn ở lại 1 đêm (せめて1泊はしたい).",
+            "4": "dùng sai"
           }
         },
         {
           "question_number": 31,
           "word": "利益",
           "options": {
-            "1": "ジョギングは健康の利益に...",
-            "2": "この値段で売ったら利益は...",
-            "3": "かぜ薬を飲んだが利益が...",
-            "4": "バスの利益は新幹線よりも..."
+            "1": "ジョギングは健康の利益になる。",
+            "2": "この値段で売ったら、店の利益はほとんどない。",
+            "3": "かぜ薬を飲んだが、利益が感じられない。",
+            "4": "バスの利益は、新幹線よりも料金が安いことだ。"
           },
           "answer": 2,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: ジョギングは健康の利益に...",
-            "2": "Nghĩa theo ngữ cảnh: この値段で売ったら利益は...",
-            "3": "Nghĩa theo ngữ cảnh: かぜ薬を飲んだが利益が...",
-            "4": "Nghĩa theo ngữ cảnh: バスの利益は新幹線よりも..."
+            "1": "dùng sai (lợi ích sức khỏe -> 利益 không dùng cho sức khỏe, dùng 益/効果)",
+            "2": "Nếu bán với giá này thì cửa hàng hầu như không có lợi nhuận (利益) gì cả.",
+            "3": "dùng sai (hiệu quả thuốc -> 効果)",
+            "4": "dùng sai (lợi thế -> 利点)"
           }
         },
         {
           "question_number": 32,
           "word": "かなう",
           "options": {
-            "1": "苦労がかない、彼は俳優として...",
-            "2": "天気予報がかない、今日は...",
-            "3": "準備を重ねてきたイベントが無事...",
-            "4": "自分の店を持つという夢が..."
+            "1": "苦労がかない、彼は俳優として成功をおさめた。",
+            "2": "天気予報がかない、今日は一日中快晴だった。",
+            "3": "準備を重ねてきたイベントが無事かなった。",
+            "4": "自分の店を持つという夢が、とうとうかなった。"
           },
           "answer": 4,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 苦労がかない、彼は俳優として...",
-            "2": "Nghĩa theo ngữ cảnh: 天気予報がかない、今日は...",
-            "3": "Nghĩa theo ngữ cảnh: 準備を重ねてきたイベントが無事...",
-            "4": "Nghĩa theo ngữ cảnh: 自分の店を持つという夢が..."
+            "1": "dùng sai",
+            "2": "dùng sai",
+            "3": "dùng sai",
+            "4": "Giấc mơ mở cửa hàng của riêng mình cuối cùng đã thành hiện thực, được thực hiện (夢がかなった)."
           }
         }
       ]
@@ -590,7 +590,7 @@
       "questions": [
         {
           "question_number": 33,
-          "question_text": "A「もう無理だよ」B「なんでそうやってすぐ、もうだめ（ ）言うの。」",
+          "question_text": "A「もう無理だよ、私には 5 キロなんて走れないよ。」\nB「まだ 500 メートルだよ。なんでそうやってすぐ、もうだめ（ ）言うの。」",
           "options": {
             "1": "を",
             "2": "は",
@@ -599,10 +599,10 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: を",
-            "2": "Nghĩa theo ngữ cảnh: は",
-            "3": "Nghĩa theo ngữ cảnh: とか",
-            "4": "Nói rằng / cái gọi là"
+            "1": "đối tượng",
+            "2": "chủ đề",
+            "3": "ví dụ như",
+            "4": "tại sao lại thốt ra câu nói kiểu như 'đã không được rồi' (もうだめとは言うの)"
           }
         },
         {
@@ -616,15 +616,15 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: さきに",
-            "2": "Nghĩa theo ngữ cảnh: すえに",
-            "3": "Nghĩa theo ngữ cảnh: ところに",
-            "4": "Nghĩa theo ngữ cảnh: とおりに"
+            "1": "trước khi",
+            "2": "sau khi đắn đo suy nghĩ nhiều (悩んだすえに)",
+            "3": "đúng lúc",
+            "4": "giống như"
           }
         },
         {
           "question_number": 35,
-          "question_text": "あれこれ質問に答え（ ）あげく、対応できないと言われた。",
+          "question_text": "プリンターの調子が悪くなり、製造会社に電話で問い合わせたら、向こうの担当者に、あれこれ質問に答え（ ）あげく、対応できないと言われた。",
           "options": {
             "1": "させた",
             "2": "させられる",
@@ -633,10 +633,10 @@
           },
           "answer": 4,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: させた",
-            "2": "Nghĩa theo ngữ cảnh: させられる",
-            "3": "Nghĩa theo ngữ cảnh: させる",
-            "4": "Nghĩa theo ngữ cảnh: させられた"
+            "1": "bắt làm",
+            "2": "bị bắt làm (dạng nguyên mẫu cấu trúc)",
+            "3": "khiến làm",
+            "4": "bị bắt trả lời đủ thứ câu hỏi rồi rốt cuộc bị từ chối (bị động sai khiến: 答えさせられたあげく)"
           }
         },
         {
@@ -644,21 +644,21 @@
           "question_text": "面倒だが、やはりこの仕事は断れない。引き受ける（ ）。",
           "options": {
             "1": "までもあるまい",
-            "2": "することもない",
+            "2": "こともない",
             "3": "はずもない",
             "4": "しかあるまい"
           },
           "answer": 4,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: までもあるまい",
-            "2": "không...",
-            "3": "không...",
-            "4": "Nghĩa theo ngữ cảnh: しかあるまい"
+            "1": "không đến mức phải",
+            "2": "không phải là không...",
+            "3": "không có lý nào lại",
+            "4": "chỉ còn cách là nhận lời thôi (đành phải nhận) (引き受けるしかあるまい)"
           }
         },
         {
           "question_number": 37,
-          "question_text": "「私、山田は、50 年ぶりにふるさとに戻って（ ）。」",
+          "question_text": "山田監督の、「私、山田は、50 年ぶりにふるさとに戻って（ ）。」というあいさつに、会場からは大きな拍手が起こった。",
           "options": {
             "1": "まいりました",
             "2": "いらっしゃいました",
@@ -667,10 +667,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: まいりました",
-            "2": "Nghĩa theo ngữ cảnh: いらっしゃいました",
-            "3": "Nghĩa theo ngữ cảnh: うかがいました",
-            "4": "Nghĩa theo ngữ cảnh: おいでになりました"
+            "1": "tôi đã trở về (khiêm nhường ngữ tự xưng khi về quê mình) (戻ってまいりました)",
+            "2": "ngài đã đến",
+            "3": "tôi đã đến thăm",
+            "4": "ngài đã đến"
           }
         },
         {
@@ -684,15 +684,15 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: まさか",
-            "2": "Nghĩa theo ngữ cảnh: たとえ",
-            "3": "Đúng hơn là / trái lại",
-            "4": "Nghĩa theo ngữ cảnh: かりに"
+            "1": "không ngờ",
+            "2": "cho dù",
+            "3": "trái lại, thà rằng / hơn là ở trong nước thì ở nước ngoài được đánh giá cao hơn (国内よりむしろ海外での評価が高い)",
+            "4": "giả sử"
           }
         },
         {
           "question_number": 39,
-          "question_text": "次に会うときには、彼らも立派な大人に（ ）。",
+          "question_text": "今年も卒業生を送り出した。次に会うときには、彼らも立派な大人に（ ）。",
           "options": {
             "1": "なるだろう",
             "2": "なっただろう",
@@ -701,15 +701,15 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: なるだろう",
-            "2": "Nghĩa theo ngữ cảnh: なっただろう",
-            "3": "Nghĩa theo ngữ cảnh: なっているだろう",
-            "4": "Nghĩa theo ngữ cảnh: なっていただろう"
+            "1": "sẽ trở thành",
+            "2": "chắc là đã trở thành (quá khứ phỏng đoán)",
+            "3": "chắc là lúc đó họ đã trở thành người lớn chững chạc rồi (trạng thái hoàn thành trong tương lai) (立派な大人になっているだろう)",
+            "4": "đã từng trở thành"
           }
         },
         {
           "question_number": 40,
-          "question_text": "毎日（ ）どちらでもいいことばかりを日記に書いている。",
+          "question_text": "毎日（ ）どちらでもいいことばかりを日記に書いているのだが、それがストレス解消になっている。",
           "options": {
             "1": "書くとも書かないとも",
             "2": "書いたか書かなかったか",
@@ -718,15 +718,15 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 書くとも書かないとも",
-            "2": "Nghĩa theo ngữ cảnh: 書いたか書かなかったか",
-            "3": "Nghĩa theo ngữ cảnh: 書いても書かなくても",
-            "4": "Nghĩa theo ngữ cảnh: 書くとか書かないとか"
+            "1": "dù viết hay không viết",
+            "2": "đã viết hay chưa",
+            "3": "cho dù viết hay không",
+            "4": "viết hay không viết, chuyện này chuyện nọ (liệt kê mơ hồ) (書くとか書かないとかどちらでもいいこと)"
           }
         },
         {
           "question_number": 41,
-          "question_text": "顔を洗うときには、せっけんを（ ）、さっと洗うのがよい。",
+          "question_text": "顔を洗うときには、せっけんを（ ）、さっと洗うのが肌にはよい。",
           "options": {
             "1": "使いすぎずに",
             "2": "使うにすぎず",
@@ -735,32 +735,32 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 使いすぎずに",
-            "2": "Nghĩa theo ngữ cảnh: 使うにすぎず",
-            "3": "Nghĩa theo ngữ cảnh: 使うにすぎなく",
-            "4": "Nghĩa theo ngữ cảnh: 使いすぎもなくて"
+            "1": "mà không dùng quá nhiều (使いすぎずに)",
+            "2": "chỉ dùng chứ không...",
+            "3": "chỉ dùng",
+            "4": "không dùng quá nhiều"
           }
         },
         {
           "question_number": 42,
-          "question_text": "実はそれが世界のほんの小さな一部分（ ）気付いていなかった。",
+          "question_text": "留学するまで、私は自分が見ている世界がすべてだと思っていた。実はそれが世界のほんの小さな一部分（ ）気付いていなかった。",
           "options": {
             "1": "でないことにしか",
             "2": "でしかないことに",
-            "3": "にないことでしか",
+            "3": "ないことでしか",
             "4": "にしかないことで"
           },
           "answer": 2,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: でないことにしか",
-            "2": "Nghĩa theo ngữ cảnh: でしかないことに",
-            "3": "Nghĩa theo ngữ cảnh: にないことでしか",
-            "4": "Nghĩa theo ngữ cảnh: にしかないことで"
+            "1": "chỉ ở việc không phải",
+            "2": "việc bản thân không nhận ra đó chỉ là một phần vô cùng nhỏ bé (ほんの小さな一部分でしかないことに気付いていなかった)",
+            "3": "chỉ bằng việc không",
+            "4": "chỉ ở việc có trong..."
           }
         },
         {
           "question_number": 43,
-          "question_text": "「山田さんは出張中だよ。今ここに（ ）。」",
+          "question_text": "(会社で）A「あれ？あそこにいるの、山田さんかな。」\nB「山田さんは出張中だよ。今ここに（ ）。」",
           "options": {
             "1": "いないわけじゃないよ",
             "2": "いるわけないじゃない",
@@ -769,15 +769,15 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: いないわけじゃないよ",
-            "2": "không...",
-            "3": "Nghĩa theo ngữ cảnh: いたわけじゃないよ",
-            "4": "không..."
+            "1": "không phải là không có mặt",
+            "2": "làm sao mà có chuyện có mặt ở đây được (vì đang đi công tác) (いるわけないじゃない)",
+            "3": "không phải là đã ở đây",
+            "4": "không phải là đã không có mặt"
           }
         },
         {
           "question_number": 44,
-          "question_text": "「ほんと。この人を見ない日はない（ ）よね。」",
+          "question_text": "A「このタレント、最近よくテレビで見るね。」\nB「ほんと。この人を見ない日はない（ ）よね。」",
           "options": {
             "1": "と言ってもいいぐらいだ",
             "2": "と言ったらいいだけだ",
@@ -786,10 +786,10 @@
           },
           "answer": 1,
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: と言ってもいいぐらいだ",
-            "2": "Nghĩa theo ngữ cảnh: と言ったらいいだけだ",
-            "3": "Nghĩa theo ngữ cảnh: と言ってもいいからだ",
-            "4": "Nghĩa theo ngữ cảnh: と言ったらいいことだ"
+            "1": "có thể nói là... (ngày nào cũng thấy) (見ない日はないと言ってもいいぐらいだ)",
+            "2": "chỉ là nói thế",
+            "3": "bởi vì có thể nói là",
+            "4": "đó là việc nên nói"
           }
         }
       ]
@@ -800,7 +800,7 @@
       "questions": [
         {
           "question_number": 45,
-          "question_text": "不調だった山中選手がついにゴールを決めた。彼に ____ ____ ★ ____ 相当あったはずだ。",
+          "question_text": "不調だった山中選手がついにゴールを決めた。彼に_____ _____ __★__ _____相当あったはずだ。",
           "options": {
             "1": "したら",
             "2": "という",
@@ -808,35 +808,47 @@
             "4": "「もし、またミスをしたら」"
           },
           "answer": 2,
-          "full_sentence": "彼に [したら(1)] [「もし、またミスをしたら」(4)] [★という(2)] [プレッシャーは(3)] 相当...",
           "options_vi": {
-            "1": "nếu / khi...",
-            "2": "Gọi là... / rằng...",
-            "3": "Nghĩa theo ngữ cảnh: プレッシャーは",
-            "4": "Nghĩa theo ngữ cảnh: 「もし、またミスをしたら」"
+            "1": "nếu đối với",
+            "2": "rằng",
+            "3": "áp lực (彼にかかっていたプレッシャーは「もし、またミスをしたら」というプレッシャーは相当あったはずだ)",
+            "4": "'nếu lại mắc lỗi lần nữa'"
+          },
+          "answer_detail": "3",
+          "options_vi_detail": {
+            "1": "nếu với",
+            "2": "rằng",
+            "3": "áp lực (プレッシャーは)",
+            "4": "nếu lại lỗi"
           }
         },
         {
           "question_number": 46,
-          "question_text": "「ただ、 ____ ____ ★ ____ 増えていることだね。」",
+          "question_text": "「これは地元ではよく知られた料理で、このすっぱさがおいしい。ただ、_____ _____ __★__ _____増えていることだね。」と田中さんは語る。",
           "options": {
-            "1": "なんていう",
+            "1": "なんという",
             "2": "残念なのは",
             "3": "若者が最近",
             "4": "すっぱいのが苦手だ"
           },
           "answer": 1,
-          "full_sentence": "[残念なのは(2)] [すっぱいのが苦手だ(4)] [★なんていう(1)] [若者が最近(3)] 増えている...",
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: なんていう",
-            "2": "Nghĩa theo ngữ cảnh: 残念なのは",
-            "3": "Nghĩa theo ngữ cảnh: 若者が最近",
-            "4": "Nghĩa theo ngữ cảnh: すっぱいのが苦手だ"
+            "1": "gọi là",
+            "2": "điều đáng tiếc là (ただ、残念なのは最近若い人がすっぱいのが苦手だ)",
+            "3": "giới trẻ gần đây",
+            "4": "ghét vị chua"
+          },
+          "answer_detail": "2",
+          "options_vi_detail": {
+            "1": "gọi là",
+            "2": "điều đáng tiếc là (残念なのは)",
+            "3": "giới trẻ gần đây",
+            "4": "ghét vị chua"
           }
         },
         {
           "question_number": 47,
-          "question_text": "苦しい生活の中、 ____ ____ ★ ____ 涙が出ます。",
+          "question_text": "忘れられないプレゼントは、小学生のときに両親が買ってくれた自転車です。苦しい生活の中、_____ _____ __★__ _____涙が出ます。",
           "options": {
             "1": "それだけで",
             "2": "どんな思いで",
@@ -844,17 +856,23 @@
             "4": "思うと"
           },
           "answer": 4,
-          "full_sentence": "[どんな思いで(2)] [買ってくれたのかと(3)] [★思うと(4)] [それだけで(1)] 涙が出ます。",
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: それだけで",
-            "2": "Nghĩa theo ngữ cảnh: どんな思いで",
-            "3": "Nghĩa theo ngữ cảnh: 買ってくれたのかと",
-            "4": "Nghĩa theo ngữ cảnh: 思うと"
+            "1": "chỉ thế thôi",
+            "2": "với tâm tư thế nào",
+            "3": "đã mua cho mình",
+            "4": "khi nghĩ đến (どんな思いで買ってくれたのかと思うと涙が出ます)"
+          },
+          "answer_detail": "4",
+          "options_vi_detail": {
+            "1": "chỉ thế",
+            "2": "tâm tư thế nào",
+            "3": "đã mua",
+            "4": "khi nghĩ đến (思うと)"
           }
         },
         {
           "question_number": 48,
-          "question_text": "わたしは、子どもが ____ ____ ★ ____ と思っている。",
+          "question_text": "最近、子どもがピアノを習いたいと言いだした。わたしは、子どもが_____ _____ __★__ _____と思っている。",
           "options": {
             "1": "したい",
             "2": "やりたい",
@@ -862,17 +880,23 @@
             "4": "と思うことは"
           },
           "answer": 3,
-          "full_sentence": "子どもが [やりたい(2)] [★と思うことは(4)] [なんでも(OCR欠)] [やらせて(3)] [あげたい(OCR欠)]",
           "options_vi": {
-            "1": "muốn...",
-            "2": "muốn...",
-            "3": "Nghĩa theo ngữ cảnh: やらせて",
-            "4": "Nghĩa theo ngữ cảnh: と思うことは"
+            "1": "muốn làm",
+            "2": "muốn làm",
+            "3": "cho làm (子供がやりたいと言ったことは、できるだけやらせてやりたい)",
+            "4": "việc nghĩ rằng"
+          },
+          "answer_detail": "3",
+          "options_vi_detail": {
+            "1": "muốn",
+            "2": "muốn",
+            "3": "cho làm (やらせて)",
+            "4": "việc nghĩ"
           }
         },
         {
           "question_number": 49,
-          "question_text": "国民の、政治 ____ ____ ★ ____ 政治家は指導力を発揮できるのだ。",
+          "question_text": "国民の、政治_____ _____ __★__ _____政治家は指導力を発揮できるのだ。",
           "options": {
             "1": "初めて",
             "2": "に対する",
@@ -880,12 +904,18 @@
             "4": "信頼"
           },
           "answer": 3,
-          "full_sentence": "政治 [に対する(2)] [信頼(4)] [★があって(3)] [初めて(1)] 政治家は...",
           "options_vi": {
-            "1": "Nghĩa theo ngữ cảnh: 初めて",
-            "2": "Đối với / dành cho",
-            "3": "Nghĩa theo ngữ cảnh: があって",
-            "4": "Nghĩa theo ngữ cảnh: 信頼"
+            "1": "lần đầu tiên",
+            "2": "đối với",
+            "3": "có (国民の政治に対する信頼があって初めて)",
+            "4": "sự tin tưởng"
+          },
+          "answer_detail": "3",
+          "options_vi_detail": {
+            "1": "lần đầu",
+            "2": "đối với",
+            "3": "có (があって)",
+            "4": "tin tưởng"
           }
         }
       ]

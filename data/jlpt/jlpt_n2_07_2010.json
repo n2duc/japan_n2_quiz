@@ -19,10 +19,10 @@
           },
           "answer": 3,
           "options_vi": {
-            "1": "Không phải cách đọc đúng",
-            "2": "Không phải cách đọc đúng",
-            "3": "tương hỗ, lẫn nhau (相互: そうご)",
-            "4": "Không phải cách đọc đúng"
+            "1": "tương ngộ",
+            "2": "tương hiệu",
+            "3": "tương hỗ, lẫn nhau (相互 - そうご)",
+            "4": "tổng hợp"
           }
         },
         {
@@ -53,10 +53,10 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Không phải cách đọc đúng",
-            "2": "phong cảnh, cảnh sắc (景色: けしき)",
-            "3": "Không phải cách đọc đúng",
-            "4": "Không phải cách đọc đúng"
+            "1": "hình thức",
+            "2": "phong cảnh (景色 - けしき)",
+            "3": "kính sắc",
+            "4": "lộ tuyến"
           }
         },
         {
@@ -87,10 +87,10 @@
           },
           "answer": 2,
           "options_vi": {
-            "1": "Không phải cách đọc đúng",
-            "2": "phòng chống thiên tai (防災: ぼうさい)",
-            "3": "Không phải cách đọc đúng",
-            "4": "Không phải cách đọc đúng"
+            "1": "vọng viễn",
+            "2": "phòng chống thiên tai, phòng tai (防災)",
+            "3": "phương viên",
+            "4": "phương tai"
           }
         }
       ]
