@@ -366,9 +366,9 @@ export function ChapterSectionsView({
                       onClick={() =>
                         handleSelectChapterFromSheet(ch.chapter_id)
                       }
-                      className={`flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border p-3.5 text-left transition-all duration-150 active:scale-[0.99] ${isCurrent
-                        ? "border-[#5368a4] bg-[#5368a4]/15 text-[#5368a4] dark:text-[#9bb0ea]"
-                        : "border-slate-100 bg-white text-slate-700 hover:border-slate-200/40 hover:bg-slate-50 dark:border-white/5 dark:bg-[#181926] dark:text-slate-200 dark:hover:border-white/15 dark:hover:bg-[#202234]"
+                      className={`flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl p-3.5 text-left transition-all duration-150 active:scale-[0.99] ${isCurrent
+                        ? "bg-[#5368a4]/15 text-[#5368a4] dark:text-[#9bb0ea]"
+                        : "bg-white text-slate-700 hover:bg-slate-50 dark:border-white/5 dark:bg-[#181926] dark:text-slate-200 dark:hover:border-white/15 dark:hover:bg-[#202234]"
                         }`}
                     >
                       <div className="flex min-w-0 items-center gap-3">
