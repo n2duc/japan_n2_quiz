@@ -109,39 +109,36 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label={isDark ? t.themeTooltipLight : t.themeTooltipDark}
       className={
         className ||
-        `group relative flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full border transition-all duration-300 active:scale-90 hover:scale-105 ${
-          isDark
-            ? "border-amber-400/20 bg-[#1a1c26] text-amber-400 shadow-[0_0_12px_rgba(251,191,36,0.18)] hover:border-amber-400/40 hover:bg-[#202230]"
-            : "border-slate-200/90 bg-white text-indigo-500 shadow-[0_2px_8px_rgba(99,102,241,0.08)] hover:border-indigo-200 hover:bg-slate-50 hover:text-indigo-600"
+        `group relative flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full border transition-all duration-300 active:scale-90 hover:scale-105 ${isDark
+          ? "border-amber-400/20 bg-[#1a1c26] text-amber-400 shadow-[0_0_12px_rgba(251,191,36,0.18)] hover:border-amber-400/40 hover:bg-[#202230]"
+          : "border-slate-200/90 bg-white text-indigo-500 shadow-[0_2px_8px_rgba(99,102,241,0.08)] hover:border-indigo-200 hover:bg-slate-50 hover:text-indigo-600"
         } ${isAnimating ? "ring-2 ring-amber-400/30 dark:ring-amber-400/40" : ""}`
       }
     >
       {/* Sun icon (visible in dark mode to switch to light) */}
       <span
-        className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
-          isDark
-            ? "rotate-0 scale-100 opacity-100 text-amber-400"
-            : "-rotate-90 scale-0 opacity-0 text-amber-500"
-        }`}
+        className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${isDark
+          ? "rotate-0 scale-100 opacity-100 text-amber-400"
+          : "-rotate-90 scale-0 opacity-0 text-amber-500"
+          }`}
       >
         <HugeiconsIcon
           icon={Sun01Icon}
-          size={19}
+          size={18}
           className="transition-transform duration-300 group-hover:rotate-45"
         />
       </span>
 
       {/* Moon icon (visible in light mode to switch to dark) */}
       <span
-        className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
-          isDark
-            ? "rotate-90 scale-0 opacity-0 text-indigo-400"
-            : "rotate-0 scale-100 opacity-100 text-indigo-600"
-        }`}
+        className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${isDark
+          ? "rotate-90 scale-0 opacity-0 text-indigo-400"
+          : "rotate-0 scale-100 opacity-100 text-indigo-600"
+          }`}
       >
         <HugeiconsIcon
           icon={Moon02Icon}
-          size={19}
+          size={18}
           className="transition-transform duration-300 group-hover:-rotate-12"
         />
       </span>
