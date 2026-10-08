@@ -36,7 +36,7 @@ import ch_28 from "@/data/gramma/chapter_28.json"
 import ch_29 from "@/data/gramma/chapter_29.json"
 import ch_30 from "@/data/gramma/chapter_30.json"
 
-// --- JLPT Exam Chapters (27 files) ---
+// --- JLPT Exam Chapters (31 files) ---
 import jlpt_2010_07 from "@/data/jlpt/jlpt_n2_07_2010.json"
 import jlpt_2010_12 from "@/data/jlpt/jlpt_n2_12_2010.json"
 import jlpt_2011_07 from "@/data/jlpt/jlpt_n2_07_2011.json"
@@ -64,6 +64,10 @@ import jlpt_2022_07 from "@/data/jlpt/jlpt_n2_07_2022.json"
 import jlpt_2022_12 from "@/data/jlpt/jlpt_n2_12_2022.json"
 import jlpt_2023_07 from "@/data/jlpt/jlpt_n2_07_2023.json"
 import jlpt_2023_12 from "@/data/jlpt/jlpt_n2_12_2023.json"
+import jlpt_2024_07 from "@/data/jlpt/jlpt_n2_07_2024.json"
+import jlpt_2024_12 from "@/data/jlpt/jlpt_n2_12_2024.json"
+import jlpt_2025_07 from "@/data/jlpt/jlpt_n2_07_2025.json"
+import jlpt_2025_12 from "@/data/jlpt/jlpt_n2_12_2025.json"
 
 export const grammarChapters: Chapter[] = [
   ch_01 as Chapter,
@@ -126,4 +130,8 @@ export const examChapters: Chapter[] = [
   jlpt_2022_12 as Chapter,
   jlpt_2023_07 as Chapter,
   jlpt_2023_12 as Chapter,
+  jlpt_2024_07 as Chapter,
+  jlpt_2024_12 as Chapter,
+  jlpt_2025_07 as Chapter,
+  jlpt_2025_12 as Chapter,
 ]

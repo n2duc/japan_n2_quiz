@@ -83,13 +83,6 @@ export function QuizPlayer({
     setShowPassage(true)
   }, [questions, sectionIndex])
 
-  // Tự động cuộn về đỉnh trang (top: 0) khi vào làm bài hoặc chuyển câu hỏi trên mobile
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" })
-    }
-  }, [currentIndex, questions])
-
   const currentChapter =
     chapterId !== undefined ? getChapterById(chapterId) : undefined
   const nextSectionIndex =
@@ -656,7 +649,7 @@ export function QuizPlayer({
 
   return (
     <div
-      className={`mx-auto flex w-full flex-1 flex-col justify-between pb-1 sm:pb-3 select-none ${hasPassage
+      className={`mx-auto flex w-full flex-1 flex-col justify-between pb-3 select-none ${hasPassage
         ? "max-w-md lg:max-w-4xl xl:max-w-5xl"
         : "max-w-md lg:max-w-2xl xl:max-w-3xl"
         }`}
