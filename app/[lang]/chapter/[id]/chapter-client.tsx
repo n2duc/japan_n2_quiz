@@ -90,7 +90,7 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
 
   if (activeQuizQuestions && activeQuizQuestions.length > 0) {
     return (
-      <main className="flex min-h-dvh flex-col items-center justify-center bg-[#f6f8fc] p-3 sm:p-4 lg:p-8 text-slate-800 transition-colors duration-150 dark:bg-[#0d0e14] dark:text-slate-100">
+      <main className="flex h-dvh max-h-dvh w-full flex-col items-center justify-between overflow-y-auto bg-[#f6f8fc] p-2.5 sm:p-4 lg:p-8 text-slate-800 transition-colors duration-150 dark:bg-[#0f111a] dark:text-slate-100">
         <QuizPlayer
           key={`quiz-${chapterId}-${activeSectionIndex ?? "all"}`}
           questions={activeQuizQuestions}

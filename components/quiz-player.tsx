@@ -83,6 +83,13 @@ export function QuizPlayer({
     setShowPassage(true)
   }, [questions, sectionIndex])
 
+  // Tự động cuộn về đỉnh trang (top: 0) khi vào làm bài hoặc chuyển câu hỏi trên mobile
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" })
+    }
+  }, [currentIndex, questions])
+
   const currentChapter =
     chapterId !== undefined ? getChapterById(chapterId) : undefined
   const nextSectionIndex =
@@ -418,7 +425,7 @@ export function QuizPlayer({
 
   // Reusable Question Card Component
   const renderQuestionCard = () => (
-    <div className="relative flex min-h-40 sm:min-h-44 flex-col justify-between rounded-3xl bg-white p-5 text-center sm:p-6 lg:p-6 dark:bg-[#181920]">
+    <div className="relative flex min-h-32 sm:min-h-44 flex-col justify-between rounded-3xl bg-white p-4 sm:p-6 text-center lg:p-6 dark:bg-[#181920]">
       {/* Audio & Bookmark Actions */}
       <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5">
         <button
@@ -441,7 +448,7 @@ export function QuizPlayer({
       </div>
 
       {/* Card Top Instruction */}
-      <div className="mb-3 pr-16 text-left sm:text-center">
+      <div className="mb-2 pr-16 text-left sm:text-center">
         <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-zinc-400">
           {currentQ.sectionInstruction ||
             (currentQ.sectionIndex === 1
@@ -477,7 +484,7 @@ export function QuizPlayer({
       </div>
 
       {/* Card Bottom Tag */}
-      <div className="mt-3 flex items-center justify-center gap-2">
+      <div className="mt-2 flex items-center justify-center gap-2">
         <span className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-400">
           {currentQ.sectionName}
         </span>
@@ -523,7 +530,7 @@ export function QuizPlayer({
             key={optNum}
             onClick={() => handleSelectOption(optNum)}
             disabled={currentAnswered}
-            className={`relative flex min-h-13 sm:min-h-14 w-full cursor-pointer items-center justify-between rounded-2xl px-4 py-2.5 sm:py-3 text-center font-semibold tracking-wide transition-all ${btnClass}`}
+            className={`relative flex min-h-12 sm:min-h-14 w-full cursor-pointer items-center justify-between rounded-2xl px-3.5 sm:px-4 py-2 sm:py-3 text-center font-semibold tracking-wide transition-all ${btnClass}`}
           >
             {/* Left Number Badge */}
             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-white/20 text-[11px] font-black backdrop-blur-xs">
@@ -649,7 +656,7 @@ export function QuizPlayer({
 
   return (
     <div
-      className={`mx-auto flex w-full flex-1 flex-col justify-between pb-4 select-none ${hasPassage
+      className={`mx-auto flex w-full flex-1 flex-col justify-between pb-1 sm:pb-3 select-none ${hasPassage
         ? "max-w-md lg:max-w-4xl xl:max-w-5xl"
         : "max-w-md lg:max-w-2xl xl:max-w-3xl"
         }`}

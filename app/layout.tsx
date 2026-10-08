@@ -75,7 +75,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-[#f6f8fc] text-slate-800 transition-colors duration-150 selection:bg-[#5368a4] selection:text-white dark:bg-[#0f111a] dark:text-slate-100">
+      <body className="min-h-dvh bg-[#f6f8fc] text-slate-800 transition-colors duration-150 selection:bg-[#5368a4] selection:text-white dark:bg-[#0f111a] dark:text-slate-100">
         <LanguageProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
