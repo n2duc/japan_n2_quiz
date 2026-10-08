@@ -439,13 +439,7 @@
             "4": "Cẩn thận / Chú ý (Youjin = Ki o tsuketa)"
           },
           "answer": 4
-        }
-      ]
-    },
-    {
-      "section_name": "問題 6",
-      "instruction": "次の言葉の使い方として最もよいものを、１・２・３・４から一つ選びなさい。",
-      "questions": [
+        },
         {
           "question_number": 25,
           "word": "説明",
@@ -462,7 +456,13 @@
             "4": "Dài dòng / Lắm lời / Lèo nhèo (Shitsukokute)"
           },
           "answer": 4
-        },
+        }
+      ]
+    },
+    {
+      "section_name": "問題 6",
+      "instruction": "次の言葉の使い方として最もよいものを、１・２・３・４から一つ選びなさい。",
+      "questions": [
         {
           "question_number": 26,
           "word": "保存",
