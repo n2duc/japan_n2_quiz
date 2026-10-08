@@ -4,8 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/dev-runner.mjs",
+    "prebuild": "node scripts/generate-chapters.mjs",
     "build": "next build",
+    "generate": "node scripts/generate-chapters.mjs",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",

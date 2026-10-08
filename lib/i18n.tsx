@@ -123,7 +123,7 @@ const translations: Record<Language, Translations> = {
     correct: "Số câu đúng",
     wrong: "Số câu sai",
     accuracy: "Độ chính xác",
-    streak: "Chuỗi đúng cao nhất",
+    streak: "Chuỗi",
     prevQuestion: "Câu trước",
     nextQuestion: "Câu tiếp",
     viewResult: "Xem kết quả",

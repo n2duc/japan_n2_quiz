@@ -295,113 +295,116 @@ export function QuizPlayer({
     const percentage = Math.round((correctCount / totalQuestions) * 100)
 
     return (
-      <div className="mx-auto w-full max-w-md sm:max-w-lg lg:max-w-xl animate-in px-4 py-8 duration-300 zoom-in-95 fade-in">
-        <div className="rounded-3xl border border-slate-200 bg-white p-5 text-center sm:p-7 dark:border-zinc-800 dark:bg-[#181920]">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10">
+      <div className="mx-auto w-full max-w-md sm:max-w-xl lg:max-w-2xl animate-in px-4 py-8 duration-300 zoom-in-95 fade-in">
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 text-center shadow-xl shadow-slate-200/40 dark:border-zinc-800 dark:bg-[#181920] dark:shadow-none">
+          {/* Badge Icon */}
+          <div className="mx-auto mb-4 flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border-2 border-emerald-500/20 bg-emerald-500/10 shadow-sm">
             <HugeiconsIcon
               icon={CheckmarkBadge01Icon}
-              size={36}
+              size={38}
               className="text-emerald-500 dark:text-emerald-400"
             />
           </div>
 
-          <h2 className="mb-1.5 text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+          <h2 className="mb-2 text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
             {t.quizCompletedTitle}
           </h2>
-          <p className="mb-5 text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
-            {activeTitle} {subtitle ? `• ${subtitle}` : ""}
+          <p className="mx-auto mb-6 max-w-lg text-xs sm:text-sm font-medium text-slate-500 dark:text-zinc-400">
+            {activeTitle} {subtitle ? ` • ${subtitle}` : ""}
           </p>
 
-          <div className="mb-5 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5 dark:border-zinc-800 dark:bg-zinc-900/80">
-              <span className="mb-1 block text-[11px] tracking-wider text-slate-400 uppercase dark:text-zinc-400">
+          {/* 4 Stats Cards */}
+          <div className="mb-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+            <div className="flex flex-col items-center rounded-2xl bg-slate-50/80 p-3 sm:p-3.5 dark:bg-zinc-900/80">
+              <span className="min-h-7 flex items-center justify-center text-center text-[10px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase dark:text-zinc-400 leading-tight">
                 {t.score}
               </span>
-              <span className="text-xl sm:text-2xl font-black text-amber-500 dark:text-amber-400">
-                {score}{" "}
-                <span className="text-[10px] text-slate-400 dark:text-zinc-400">
+              <span className="text-2xl sm:text-3xl font-black text-amber-500 dark:text-amber-400 tracking-tight">
+                {score}
+                <span className="ml-1 text-[11px] font-semibold text-slate-400 dark:text-zinc-400">
                   {t.pointsUnit}
                 </span>
               </span>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5 dark:border-zinc-800 dark:bg-zinc-900/80">
-              <span className="mb-1 block text-[11px] tracking-wider text-slate-400 uppercase dark:text-zinc-400">
+
+            <div className="flex flex-col items-center rounded-2xl bg-slate-50/80 p-3 sm:p-3.5 dark:bg-zinc-900/80">
+              <span className="min-h-7 flex items-center justify-center text-center text-[10px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase dark:text-zinc-400 leading-tight">
                 {t.accuracy}
               </span>
-              <span className="text-xl sm:text-2xl font-black text-emerald-500 dark:text-emerald-400">
+              <span className="text-2xl sm:text-3xl font-black text-emerald-500 dark:text-emerald-400 tracking-tight">
                 {percentage}%
               </span>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5 dark:border-zinc-800 dark:bg-zinc-900/80">
-              <span className="mb-1 block text-[11px] tracking-wider text-slate-400 uppercase dark:text-zinc-400">
+
+            <div className="flex flex-col items-center rounded-2xl bg-slate-50/80 p-3 sm:p-3.5 dark:bg-zinc-900/80">
+              <span className="min-h-7 flex items-center justify-center text-center text-[10px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase dark:text-zinc-400 leading-tight">
                 {t.correct}
               </span>
-              <span className="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">
-                {correctCount}/{totalQuestions}
-              </span>
+              <div className="flex flex-col items-center">
+                <span className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight">
+                  {correctCount}/{totalQuestions}
+                </span>
+                {totalQuestions - correctCount > 0 && (
+                  <span className="text-[10px] font-semibold text-rose-500 dark:text-rose-400">
+                    {totalQuestions - correctCount} {t.wrong.toLowerCase()}
+                  </span>
+                )}
+              </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 sm:p-3.5 dark:border-zinc-800 dark:bg-zinc-900/80">
-              <span className="mb-1 block text-[11px] tracking-wider text-slate-400 uppercase dark:text-zinc-400">
+
+            <div className="flex flex-col items-center rounded-2xl bg-slate-50/80 p-3 sm:p-3.5 dark:bg-zinc-900/80">
+              <span className="min-h-7 flex items-center justify-center text-center text-[10px] sm:text-[11px] font-bold tracking-wider text-slate-400 uppercase dark:text-zinc-400 leading-tight">
                 {t.streak}
               </span>
-              <span className="flex items-center justify-center gap-1 text-xl sm:text-2xl font-black text-amber-500 dark:text-amber-400">
+              <span className="inline-flex items-center justify-center gap-1 text-2xl sm:text-3xl font-black text-amber-500 dark:text-amber-400 tracking-tight">
                 {streak}
-                <HugeiconsIcon icon={FireIcon} size={16} />
+                <HugeiconsIcon icon={FireIcon} size={18} />
               </span>
             </div>
           </div>
 
-          <div className="mb-5 rounded-2xl border border-slate-200 bg-slate-50/70 p-3.5 text-left text-xs sm:text-sm text-slate-700 dark:border-zinc-800/80 dark:bg-zinc-900/50 dark:text-zinc-300">
-            <div className="flex justify-between border-b border-slate-200 py-1.5 dark:border-zinc-800">
-              <span className="text-slate-500 dark:text-zinc-400">
-                {t.correct}
-              </span>
-              <span className="font-bold text-emerald-600 dark:text-emerald-400">
-                {correctCount} / {totalQuestions}
-              </span>
-            </div>
-            <div className="flex justify-between py-1.5">
-              <span className="text-slate-500 dark:text-zinc-400">
-                {t.wrong}
-              </span>
-              <span className="font-bold text-rose-500 dark:text-rose-400">
-                {totalQuestions - correctCount} {t.questionsUnit}
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-2.5">
+          {/* Action Buttons */}
+          <div className="flex flex-col gap-3">
             {nextSection &&
               onNextSection &&
               chapterId !== undefined &&
               nextSectionIndex !== undefined && (
                 <button
                   onClick={() => onNextSection(chapterId, nextSectionIndex)}
-                  className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-5 py-3 text-xs sm:text-sm font-bold text-white shadow-sm transition hover:bg-[#475b94] hover:shadow"
+                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-5 py-3.5 text-sm sm:text-base font-bold text-white shadow-md shadow-[#5368a4]/20 transition-all hover:bg-[#475b94] hover:shadow-lg hover:shadow-[#5368a4]/30 active:scale-[0.99]"
                 >
-                  <span>
+                  <span className="truncate">
                     {t.nextSection}: {nextSection.section_name}
                   </span>
-                  <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
+                  <HugeiconsIcon
+                    icon={ArrowRight01Icon}
+                    size={20}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
                 </button>
               )}
-            <button
-              onClick={handleRestart}
-              className={`flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold transition ${nextSection && onNextSection
-                ? "border border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
-                : "bg-[#5368a4] text-white hover:bg-[#475b94]"
-                }`}
+
+            <div
+              className="grid gap-2.5 sm:gap-3 grid-cols-1 sm:grid-cols-2"
             >
-              <HugeiconsIcon icon={RotateRight01Icon} size={18} />
-              {t.retrySection}
-            </button>
-            <button
-              onClick={onExit}
-              className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-100 px-5 py-3 text-xs sm:text-sm font-bold text-slate-700 transition hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
-            >
-              <HugeiconsIcon icon={Home01Icon} size={18} />
-              {t.backHome}
-            </button>
+              <button
+                onClick={handleRestart}
+                className={`flex cursor-pointer items-center justify-center gap-2 rounded-2xl px-5 py-3 text-xs sm:text-sm font-bold transition-all active:scale-[0.99] ${nextSection && onNextSection
+                  ? "border border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200 dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                  : "bg-[#5368a4] text-white shadow-md shadow-[#5368a4]/20 hover:bg-[#475b94]"
+                  }`}
+              >
+                <HugeiconsIcon icon={RotateRight01Icon} size={18} />
+                <span>{t.retrySection}</span>
+              </button>
+              <button
+                onClick={onExit}
+                className="flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-slate-100 px-5 py-3 text-xs sm:text-sm font-bold text-slate-700 transition-all hover:bg-slate-200 active:scale-[0.99] dark:border-transparent dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+              >
+                <HugeiconsIcon icon={Home01Icon} size={18} />
+                <span>{t.backHome}</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
