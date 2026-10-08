@@ -85,7 +85,7 @@ export function ChapterSectionsView({
     if (onSwitchChapter) {
       onSwitchChapter(targetChapterId)
     } else {
-      router.push(`/chapter/${targetChapterId}`)
+      router.push(`/${language}/chapter/${targetChapterId}`)
     }
   }
 

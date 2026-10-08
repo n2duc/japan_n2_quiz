@@ -287,15 +287,32 @@ const LanguageContext = createContext<LanguageContextType | null>(null)
 
 const STORAGE_KEY = "n2_quiz_lang"
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("vi")
+interface LanguageProviderProps {
+  children: React.ReactNode
+  initialLanguage?: Language
+}
+
+export function LanguageProvider({
+  children,
+  initialLanguage,
+}: LanguageProviderProps) {
+  const [language, setLanguageState] = useState<Language>(
+    initialLanguage && (initialLanguage === "vi" || initialLanguage === "ja")
+      ? initialLanguage
+      : "vi"
+  )
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY) as Language
-    if (saved === "vi" || saved === "ja") {
-      setLanguageState(saved)
+    if (initialLanguage && (initialLanguage === "vi" || initialLanguage === "ja")) {
+      setLanguageState(initialLanguage)
+      localStorage.setItem(STORAGE_KEY, initialLanguage)
+    } else {
+      const saved = localStorage.getItem(STORAGE_KEY) as Language
+      if (saved === "vi" || saved === "ja") {
+        setLanguageState(saved)
+      }
     }
-  }, [])
+  }, [initialLanguage])
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang)

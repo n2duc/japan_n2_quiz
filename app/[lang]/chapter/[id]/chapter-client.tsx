@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import {
   getSectionQuestions,
@@ -18,7 +18,7 @@ interface ChapterClientPageProps {
 
 export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
   const router = useRouter()
-  const { t, formatString } = useLanguage()
+  const { t, formatString, language } = useLanguage()
   const chapterId = chapter.chapter_id
 
   const [activeQuizQuestions, setActiveQuizQuestions] = useState<
@@ -110,10 +110,10 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
       <ChapterSectionsView
         chapter={chapter}
         progress={progress}
-        onBack={() => router.push("/")}
+        onBack={() => router.push(`/${language}`)}
         onSelectSection={handleSelectSection}
         onSelectChapterAll={handleSelectChapterAll}
-        onSwitchChapter={(newId) => router.push(`/chapter/${newId}`)}
+        onSwitchChapter={(newId) => router.push(`/${language}/chapter/${newId}`)}
       />
     </main>
   )
