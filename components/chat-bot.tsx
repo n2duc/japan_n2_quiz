@@ -564,7 +564,7 @@ export function ChatBot() {
                 placeholder={
                   isJa
                     ? "質問を入力... (Shift+Enterで改行)"
-                    : "Hỏi ngữ pháp hoặc câu hỏi N2... (Shift+Enter để xuống dòng)"
+                    : "Hỏi ngữ pháp hoặc câu hỏi N2..."
                 }
                 className={cn(
                   "min-h-[36px] flex-1 resize-none bg-transparent px-2 py-1.5 text-sm text-slate-800 outline-none placeholder:text-slate-400 dark:text-zinc-100 dark:placeholder:text-zinc-500",
