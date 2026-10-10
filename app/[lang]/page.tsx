@@ -760,15 +760,15 @@ export default function HomePage() {
                   <div
                     key={exam.chapter_id}
                     onClick={() => handleSelectChapter(exam)}
-                    className="group flex cursor-pointer flex-col justify-between gap-3.5 rounded-2xl bg-white p-4 sm:px-5 sm:py-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:bg-[#181926]"
+                    className="group flex cursor-pointer flex-col justify-between gap-3.5 rounded-2xl bg-white p-4 sm:px-5 sm:py-4 transition-all duration-200 hover:bg-[#5368a4] hover:text-white hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] dark:border-white/5 dark:bg-[#181926] dark:hover:bg-[#5368a4]"
                   >
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center justify-between gap-2">
-                        <h4 className="text-base font-bold text-slate-700 transition group-hover:text-[#5368a4] sm:text-lg dark:text-white dark:group-hover:text-[#8ea2db]">
+                        <h4 className="text-base font-bold text-slate-700 transition group-hover:text-white sm:text-lg dark:text-white dark:group-hover:text-white">
                           {exam.chapter_name}
                         </h4>
                         {isExamCompleted && (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 p-1 text-xs font-semibold text-emerald-500">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 p-1 text-xs font-semibold text-emerald-500 transition group-hover:bg-white/20 group-hover:text-white">
                             <HugeiconsIcon
                               icon={CheckmarkBadge01Icon}
                               size={14}
@@ -776,12 +776,12 @@ export default function HomePage() {
                           </span>
                         )}
                       </div>
-                      <p className="mt-2 flex flex-wrap items-center gap-2 text-xs lg:text-sm text-slate-400 dark:text-slate-400">
-                        <span className="font-medium text-slate-600 dark:text-slate-300">
+                      <p className="mt-2 flex flex-wrap items-center gap-2 text-xs lg:text-sm text-slate-400 transition group-hover:text-white/80 dark:text-slate-400 dark:group-hover:text-white/80">
+                        <span className="font-medium text-slate-600 transition group-hover:text-white dark:text-slate-300 dark:group-hover:text-white">
                           {examQCount} {t.questionsUnit}
                         </span>
-                        <span>•</span>
-                        <span>
+                        <span className="transition group-hover:text-white/60">•</span>
+                        <span className="transition group-hover:text-white/90">
                           {exam.sections.length}{" "}
                           {language === "ja" ? "大問" : "phần thi"}
                         </span>
