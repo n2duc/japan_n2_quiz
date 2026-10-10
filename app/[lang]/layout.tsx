@@ -1,4 +1,5 @@
 import { LanguageProvider, Language } from "@/lib/i18n"
+import { ChatBot } from "@/components/chat-bot"
 
 export function generateStaticParams() {
   return [{ lang: "vi" }, { lang: "ja" }]
@@ -19,6 +20,7 @@ export default async function LangLayout({
   return (
     <LanguageProvider initialLanguage={validLang}>
       {children}
+      <ChatBot />
     </LanguageProvider>
   )
 }

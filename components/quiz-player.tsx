@@ -10,6 +10,7 @@ import {
   VolumeMute01Icon,
   RotateRight01Icon,
   StarIcon,
+  SparklesIcon,
   CheckmarkCircle01Icon,
   CancelCircleIcon,
   CheckmarkBadge01Icon,
@@ -46,7 +47,7 @@ export function QuizPlayer({
   sectionIndex,
   onNextSection,
 }: QuizPlayerProps) {
-  const { t, formatString } = useLanguage()
+  const { t, formatString, language } = useLanguage()
   const activeTitle = title || t.allQuestionsTitle
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedAnswers, setSelectedAnswers] = useState<
@@ -112,6 +113,25 @@ export function QuizPlayer({
       ...prev,
       [currentQ.id]: isNowBookmarked,
     }))
+  }
+
+  const handleAskAI = () => {
+    if (!currentQ) return
+    const optionsText = Object.entries(currentQ.options || {})
+      .map(([k, v]) => `${k}. ${v}`)
+      .join("\n")
+    const prompt =
+      language === "ja"
+        ? `この問題について詳しく解説してください：\n【問題】\n${currentQ.questionText}\n\n【選択肢】\n${optionsText}\n\n【正解】: 選択肢 ${currentQ.answer}\nなぜこの選択肢が正解で、他の選択肢が不適切なのか、文法や意味を分かりやすく説明してください。`
+        : `Hãy giải thích chi tiết câu hỏi này giúp tôi:\n【Câu hỏi】:\n${currentQ.questionText}\n\n【Các lựa chọn】:\n${optionsText}\n\n【Đáp án đúng】: Lựa chọn ${currentQ.answer}\nGiải thích tại sao đáp án này đúng và các đáp án khác sai, phân tích cấu trúc ngữ pháp và từ vựng liên quan.`
+    window.dispatchEvent(
+      new CustomEvent("open-n2-ai-chat", {
+        detail: {
+          prompt,
+          autoSend: true,
+        },
+      })
+    )
   }
 
   const handleSpeak = (text: string) => {
@@ -421,6 +441,14 @@ export function QuizPlayer({
     <div className="relative flex min-h-32 sm:min-h-44 flex-col justify-between rounded-3xl bg-white p-4 sm:p-6 text-center lg:p-6 dark:bg-[#181920]">
       {/* Audio & Bookmark Actions */}
       <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5">
+        <button
+          onClick={handleAskAI}
+          title={language === "ja" ? "AIで解説" : "Hỏi AI về câu này"}
+          className="flex h-7.5 cursor-pointer items-center gap-1 rounded-full bg-[#5368a4]/10 px-2 text-[#5368a4] transition hover:bg-[#5368a4]/20 active:scale-95 dark:bg-[#5368a4]/25 dark:text-[#93a7e6] dark:hover:bg-[#5368a4]/35"
+        >
+          <HugeiconsIcon icon={SparklesIcon} size={14} />
+          <span className="text-[11px] font-bold">AI</span>
+        </button>
         <button
           onClick={() => handleSpeak(currentQ.questionText || "")}
           title={t.speakQuestion}
