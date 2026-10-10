@@ -12,6 +12,8 @@ import {
   Copy01Icon,
   CheckmarkCircle01Icon,
   BookOpen01Icon,
+  Maximize01Icon,
+  Minimize01Icon,
 } from "@hugeicons/core-free-icons"
 import {
   ChatMessage,
@@ -66,6 +68,7 @@ export function ChatBot() {
   const isJa = language === "ja"
 
   const [isOpen, setIsOpen] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState("")
   const [isStreaming, setIsStreaming] = useState(false)
@@ -75,6 +78,21 @@ export function ChatBot() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
+
+  // Escape key to minimize or close chat
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        if (isExpanded) {
+          setIsExpanded(false)
+        } else {
+          setIsOpen(false)
+        }
+      }
+    }
+    window.addEventListener("keydown", handleGlobalKeyDown)
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown)
+  }, [isOpen, isExpanded])
 
   // Quick suggestions
   const suggestions = isJa
@@ -270,18 +288,35 @@ export function ChatBot() {
         )}
       </div>
 
+      {/* Backdrop overlay when expanded */}
+      {isOpen && isExpanded && (
+        <div
+          onClick={() => setIsExpanded(false)}
+          className="fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-xs transition-opacity duration-300 dark:bg-black/60"
+        />
+      )}
+
       {/* Floating Chat Modal / Drawer */}
       {isOpen && (
         <div
           className={cn(
-            "fixed z-50 flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white/95 shadow-2xl backdrop-blur-xl transition-all duration-300",
+            "fixed z-50 flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white/95 shadow-2xl backdrop-blur-xl transition-all duration-300 ease-in-out",
             "dark:border-zinc-800/90 dark:bg-[#121420]/95",
-            // Responsive: bottom sheet on small screens, popup on md+
-            "bottom-3 right-3 left-3 top-20 md:bottom-5 md:right-5 md:left-auto md:top-auto md:h-[620px] md:w-[440px]"
+            isExpanded
+              ? "bottom-2 right-2 left-2 top-2 md:bottom-5 md:right-5 md:left-auto md:top-auto md:h-[min(880px,calc(100vh-40px))] md:w-[min(860px,calc(100vw-40px))]"
+              : "bottom-3 right-3 left-3 top-20 md:bottom-5 md:right-5 md:left-auto md:top-auto md:h-[620px] md:w-[440px]"
           )}
         >
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-100 bg-gradient-to-r from-slate-50 via-white to-slate-50 px-4 py-3.5 dark:border-zinc-800/80 dark:from-[#161928] dark:via-[#121420] dark:to-[#161928]">
+          <div
+            onDoubleClick={() => setIsExpanded((prev) => !prev)}
+            className="flex items-center justify-between border-b border-slate-100 bg-gradient-to-r from-slate-50 via-white to-slate-50 px-4 py-3.5 select-none dark:border-zinc-800/80 dark:from-[#161928] dark:via-[#121420] dark:to-[#161928]"
+            title={
+              isJa
+                ? "ダブルクリックで拡大/縮小"
+                : "Nhấn đúp chuột để phóng to/thu nhỏ"
+            }
+          >
             <div className="flex items-center gap-2.5">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-[#5368a4] to-[#7388c4] text-white shadow-md shadow-[#5368a4]/30">
                 <HugeiconsIcon icon={SparklesIcon} size={18} />
@@ -325,7 +360,23 @@ export function ChatBot() {
                 <HugeiconsIcon icon={RotateRight01Icon} size={16} />
               </button>
               <button
+                onClick={() => setIsExpanded((prev) => !prev)}
+                title={
+                  isExpanded
+                    ? (isJa ? "縮小 (元のサイズに戻す)" : "Thu nhỏ (kích thước mặc định)")
+                    : (isJa ? "拡大 (Mở rộng panel)" : "Mở rộng panel chat")
+                }
+                aria-label={isExpanded ? "Collapse chat panel" : "Expand chat panel"}
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-zinc-800 dark:hover:text-zinc-200"
+              >
+                <HugeiconsIcon
+                  icon={isExpanded ? Minimize01Icon : Maximize01Icon}
+                  size={16}
+                />
+              </button>
+              <button
                 onClick={() => setIsOpen(false)}
+                title={isJa ? "閉じる" : "Đóng"}
                 className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-zinc-800 dark:hover:text-zinc-200"
               >
                 <HugeiconsIcon icon={Cancel01Icon} size={18} />
@@ -362,7 +413,12 @@ export function ChatBot() {
                 </p>
 
                 {/* Suggestions */}
-                <div className="mt-4 flex w-full flex-col gap-2">
+                <div
+                  className={cn(
+                    "mt-4 flex w-full flex-col gap-2",
+                    isExpanded && "md:grid md:grid-cols-3 md:gap-3 md:max-w-3xl"
+                  )}
+                >
                   {suggestions.map((item, idx) => (
                     <button
                       key={idx}
@@ -378,7 +434,12 @@ export function ChatBot() {
               messages.map((msg) =>
                 msg.role === "user" ? (
                   <div key={msg.id} className="flex justify-end w-full">
-                    <div className="max-w-[85%] rounded-2xl bg-gradient-to-r from-[#5368a4] to-[#637ab8] px-4 py-2.5 text-sm text-white shadow-xs">
+                    <div
+                      className={cn(
+                        "rounded-2xl bg-gradient-to-r from-[#5368a4] to-[#637ab8] px-4 py-2.5 text-sm text-white shadow-xs",
+                        isExpanded ? "max-w-[75%]" : "max-w-[85%]"
+                      )}
+                    >
                       <p className="whitespace-pre-wrap">{msg.content}</p>
                     </div>
                   </div>
@@ -428,7 +489,12 @@ export function ChatBot() {
                                     className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-600 transition hover:bg-slate-200 dark:bg-zinc-800/70 dark:text-zinc-400 dark:hover:bg-zinc-800"
                                   >
                                     <span>📄</span>
-                                    <span className="max-w-[220px] truncate">
+                                    <span
+                                      className={cn(
+                                        "truncate",
+                                        isExpanded ? "max-w-[420px]" : "max-w-[220px]"
+                                      )}
+                                    >
                                       {source.file_name}
                                     </span>
                                     {source.page && (
@@ -498,9 +564,12 @@ export function ChatBot() {
                 placeholder={
                   isJa
                     ? "質問を入力... (Shift+Enterで改行)"
-                    : "Hỏi ngữ pháp hoặc câu hỏi N2..."
+                    : "Hỏi ngữ pháp hoặc câu hỏi N2... (Shift+Enter để xuống dòng)"
                 }
-                className="max-h-24 min-h-[36px] flex-1 resize-none bg-transparent px-2 py-1.5 text-sm text-slate-800 outline-none placeholder:text-slate-400 dark:text-zinc-100 dark:placeholder:text-zinc-500"
+                className={cn(
+                  "min-h-[36px] flex-1 resize-none bg-transparent px-2 py-1.5 text-sm text-slate-800 outline-none placeholder:text-slate-400 dark:text-zinc-100 dark:placeholder:text-zinc-500",
+                  isExpanded ? "max-h-36" : "max-h-24"
+                )}
               />
               <button
                 type="submit"
