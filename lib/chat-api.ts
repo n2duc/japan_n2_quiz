@@ -19,7 +19,7 @@ const API_BASE =
 
 export async function checkChatHealth(): Promise<boolean> {
   try {
-    const res = await fetch(`${API_BASE}/health`, {
+    const res = await fetch(`${API_BASE}/ping`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
