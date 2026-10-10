@@ -24,41 +24,86 @@ import {
 import { useLanguage } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+
 function FormattedContent({ text }: { text: string }) {
-  // Simple markdown renderer for bold, lists, and linebreaks
-  const lines = text.split("\n")
   return (
-    <div className="space-y-1.5 text-sm leading-relaxed">
-      {lines.map((line, idx) => {
-        if (!line.trim()) {
-          return <div key={idx} className="h-1.5" />
-        }
-
-        // Parse bold **text**
-        const parts = line.split(/(\*\*[^*]+\*\*)/g)
-        const renderedLine = parts.map((part, pIdx) => {
-          if (part.startsWith("**") && part.endsWith("**")) {
+    <div className="text-sm leading-relaxed text-slate-800 dark:text-zinc-200">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          h1: ({ children }) => (
+            <h1 className="mt-3.5 mb-1.5 text-base font-bold text-slate-900 dark:text-white first:mt-0">
+              {children}
+            </h1>
+          ),
+          h2: ({ children }) => (
+            <h2 className="mt-3 mb-1.5 text-sm font-bold text-slate-900 dark:text-white first:mt-0">
+              {children}
+            </h2>
+          ),
+          h3: ({ children }) => (
+            <h3 className="mt-2.5 mb-1 text-sm font-semibold text-[#5368a4] dark:text-[#9bb0f0] first:mt-0">
+              {children}
+            </h3>
+          ),
+          h4: ({ children }) => (
+            <h4 className="mt-2 mb-1 text-xs font-semibold text-slate-800 dark:text-zinc-200 first:mt-0">
+              {children}
+            </h4>
+          ),
+          p: ({ children }) => (
+            <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>
+          ),
+          strong: ({ children }) => (
+            <strong className="font-semibold text-slate-900 dark:text-white">
+              {children}
+            </strong>
+          ),
+          em: ({ children }) => (
+            <em className="italic text-slate-700 dark:text-zinc-300">
+              {children}
+            </em>
+          ),
+          ul: ({ children }) => (
+            <ul className="mb-2.5 list-disc pl-4 space-y-1 last:mb-0">{children}</ul>
+          ),
+          ol: ({ children }) => (
+            <ol className="mb-2.5 list-decimal pl-4 space-y-1 last:mb-0">{children}</ol>
+          ),
+          li: ({ children }) => (
+            <li className="leading-relaxed marker:text-[#5368a4] dark:marker:text-[#889be0]">
+              {children}
+            </li>
+          ),
+          hr: () => (
+            <hr className="my-3 border-t border-slate-200 dark:border-zinc-800" />
+          ),
+          blockquote: ({ children }) => (
+            <blockquote className="my-2 border-l-2 border-[#5368a4] pl-3 italic text-slate-600 dark:text-zinc-400">
+              {children}
+            </blockquote>
+          ),
+          code: ({ children, className }) => {
+            const isInline = !className
+            if (isInline) {
+              return (
+                <code className="rounded bg-slate-100 px-1 py-0.5 font-mono text-xs text-[#5368a4] dark:bg-zinc-800 dark:text-[#9bb0f0]">
+                  {children}
+                </code>
+              )
+            }
             return (
-              <strong key={pIdx} className="font-semibold text-slate-900 dark:text-white">
-                {part.slice(2, -2)}
-              </strong>
+              <code className="block overflow-x-auto rounded-lg bg-slate-100 p-2.5 font-mono text-xs text-slate-800 dark:bg-zinc-900 dark:text-zinc-200">
+                {children}
+              </code>
             )
-          }
-          return <span key={pIdx}>{part}</span>
-        })
-
-        // Check if list item
-        if (line.trim().startsWith("- ") || line.trim().startsWith("• ")) {
-          return (
-            <div key={idx} className="flex items-start gap-1.5 pl-2">
-              <span className="text-[#5368a4] dark:text-[#889be0]">•</span>
-              <span>{renderedLine}</span>
-            </div>
-          )
-        }
-
-        return <p key={idx}>{renderedLine}</p>
-      })}
+          },
+        }}
+      >
+        {text}
+      </ReactMarkdown>
     </div>
   )
 }
