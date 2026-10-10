@@ -490,9 +490,6 @@ export function ChatBot() {
                   </div>
                 ) : (
                   <div key={msg.id} className="flex items-start gap-3 w-full py-1.5">
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#5368a4]/15 text-[#5368a4] dark:bg-[#5368a4]/25 dark:text-[#9bb0f0] mt-0.5">
-                      <HugeiconsIcon icon={SparklesIcon} size={13} />
-                    </div>
                     <div className="flex-1 min-w-0 text-sm text-slate-800 dark:text-zinc-200">
                       {msg.content ? (
                         <FormattedContent text={msg.content} />
@@ -624,11 +621,6 @@ export function ChatBot() {
                 <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
               </button>
             </form>
-            <p className="mt-1.5 text-center text-[10px] text-slate-400 dark:text-zinc-500">
-              {isJa
-                ? "AIは公式教材に基づいて回答します。重要な情報は元資料を確認してください。"
-                : "AI trả lời đối chiếu theo tài liệu & đề thi chính thức N2."}
-            </p>
           </div>
         </div>
       )}
