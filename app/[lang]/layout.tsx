@@ -20,7 +20,7 @@ export default async function LangLayout({
   return (
     <LanguageProvider initialLanguage={validLang}>
       {children}
-      <ChatBot />
+      {/* <ChatBot /> */}
     </LanguageProvider>
   )
 }
