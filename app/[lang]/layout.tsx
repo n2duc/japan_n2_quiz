@@ -1,4 +1,5 @@
 import { LanguageProvider, Language } from "@/lib/i18n"
+import { QuizProvider } from "@/lib/quiz-context"
 import { ChatBot } from "@/components/chat-bot"
 
 export function generateStaticParams() {
@@ -19,8 +20,10 @@ export default async function LangLayout({
 
   return (
     <LanguageProvider initialLanguage={validLang}>
-      {children}
-      {/* <ChatBot /> */}
+      <QuizProvider>
+        {children}
+        <ChatBot />
+      </QuizProvider>
     </LanguageProvider>
   )
 }

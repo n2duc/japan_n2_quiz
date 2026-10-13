@@ -4,6 +4,7 @@ import React, { useState, useEffect, useMemo, useCallback } from "react"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Home01Icon,
+  AiChat01Icon,
   ArrowLeft01Icon,
   ArrowRight01Icon,
   VolumeHighIcon,
@@ -20,6 +21,7 @@ import {
 import { QuizQuestionItem } from "@/lib/types"
 import { sounds } from "@/lib/sound"
 import { useLanguage } from "@/lib/i18n"
+import { useQuiz } from "@/lib/quiz-context"
 import { getChapterById } from "@/lib/chapters-data"
 import {
   getStoredProgress,
@@ -48,6 +50,16 @@ export function QuizPlayer({
   onNextSection,
 }: QuizPlayerProps) {
   const { t, formatString, language } = useLanguage()
+  const { setIsQuizActive } = useQuiz()
+
+  // Track quiz active status for ChatBot and global layout
+  useEffect(() => {
+    setIsQuizActive(true)
+    return () => {
+      setIsQuizActive(false)
+    }
+  }, [setIsQuizActive])
+
   const activeTitle = title || t.allQuestionsTitle
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedAnswers, setSelectedAnswers] = useState<
@@ -438,48 +450,51 @@ export function QuizPlayer({
 
   // Reusable Question Card Component
   const renderQuestionCard = () => (
-    <div className="relative flex min-h-32 sm:min-h-44 flex-col justify-between rounded-3xl bg-white p-4 sm:p-6 text-center lg:p-6 dark:bg-[#181920]">
-      {/* Audio & Bookmark Actions */}
-      <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5">
-        <button
-          onClick={handleAskAI}
-          title={language === "ja" ? "AIで解説" : "Hỏi AI về câu này"}
-          className="flex h-7.5 cursor-pointer items-center gap-1 rounded-full bg-[#5368a4]/10 px-2 text-[#5368a4] transition hover:bg-[#5368a4]/20 active:scale-95 dark:bg-[#5368a4]/25 dark:text-[#93a7e6] dark:hover:bg-[#5368a4]/35"
-        >
-          <HugeiconsIcon icon={SparklesIcon} size={14} />
-          <span className="text-[11px] font-bold">AI</span>
-        </button>
-        <button
-          onClick={() => handleSpeak(currentQ.questionText || "")}
-          title={t.speakQuestion}
-          className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200 active:scale-95 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
-        >
-          <HugeiconsIcon icon={VolumeHighIcon} size={15} />
-        </button>
-        <button
-          onClick={handleToggleBookmark}
-          title={t.bookmark}
-          className={`flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full transition active:scale-95 ${bookmarked[currentQ.id]
-            ? "border border-amber-400/40 bg-amber-500/20 text-amber-500 dark:text-amber-400"
-            : "bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
-            }`}
-        >
-          <HugeiconsIcon icon={StarIcon} size={15} />
-        </button>
-      </div>
+    <div className="flex min-h-32 sm:min-h-44 flex-col justify-between rounded-3xl bg-white p-4 sm:p-6 text-center lg:p-6 dark:bg-[#181920]">
+      {/* Card Top: Instruction & Action Buttons */}
+      <div className="flex items-start justify-between gap-3 text-left">
+        {/* Instruction */}
+        <div className="min-w-0 flex-1">
+          <p className="text-xs font-medium leading-relaxed tracking-wide text-slate-400 dark:text-zinc-400">
+            {currentQ.sectionInstruction ||
+              (currentQ.sectionIndex === 1
+                ? t.section2Instruction
+                : currentQ.sectionIndex === 2
+                  ? formatString(t.section3Instruction, {
+                    num: currentQ.questionNumber,
+                  })
+                  : t.section1Instruction)}
+          </p>
+        </div>
 
-      {/* Card Top Instruction */}
-      <div className="mb-2 pr-16 text-left sm:text-center">
-        <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-zinc-400">
-          {currentQ.sectionInstruction ||
-            (currentQ.sectionIndex === 1
-              ? t.section2Instruction
-              : currentQ.sectionIndex === 2
-                ? formatString(t.section3Instruction, {
-                  num: currentQ.questionNumber,
-                })
-                : t.section1Instruction)}
-        </p>
+        {/* Audio & Bookmark Actions */}
+        <div className="flex shrink-0 items-center gap-1.5">
+          <button
+            onClick={handleAskAI}
+            title={language === "ja" ? "AIで解説" : "Hỏi AI về câu này"}
+            className="flex h-7.5 cursor-pointer items-center gap-1 rounded-full bg-[#5368a4]/10 px-2 text-[#5368a4] transition hover:bg-[#5368a4]/20 active:scale-95 dark:bg-[#5368a4]/25 dark:text-[#93a7e6] dark:hover:bg-[#5368a4]/35"
+          >
+            <HugeiconsIcon icon={SparklesIcon} size={14} />
+            <span className="text-[11px] font-bold">AI</span>
+          </button>
+          <button
+            onClick={() => handleSpeak(currentQ.questionText || "")}
+            title={t.speakQuestion}
+            className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200 active:scale-95 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
+          >
+            <HugeiconsIcon icon={VolumeHighIcon} size={15} />
+          </button>
+          <button
+            onClick={handleToggleBookmark}
+            title={t.bookmark}
+            className={`flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full transition active:scale-95 ${bookmarked[currentQ.id]
+              ? "border border-amber-400/40 bg-amber-500/20 text-amber-500 dark:text-amber-400"
+              : "bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
+              }`}
+          >
+            <HugeiconsIcon icon={StarIcon} size={15} />
+          </button>
+        </div>
       </div>
 
       {/* Central Prominent Japanese Question Text */}
@@ -686,16 +701,38 @@ export function QuizPlayer({
       <header className="px-2 lg:px-3 pt-3 pb-2">
         <div className="flex items-center justify-between">
           {/* Home Button */}
-          <button
-            onClick={onExit}
-            aria-label={t.backHome}
-            className="flex h-9 w-9 sm:h-10 sm:w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 active:scale-95 dark:border-white/5 dark:bg-[#1e2026] dark:text-zinc-200 dark:hover:bg-zinc-700"
-          >
-            <HugeiconsIcon icon={Home01Icon} size={18} />
-          </button>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <button
+              onClick={onExit}
+              aria-label={t.backHome}
+              className="flex h-9 w-9 sm:h-10 sm:w-10 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 active:scale-95 dark:border-white/5 dark:bg-[#1e2026] dark:text-zinc-200 dark:hover:bg-zinc-700"
+            >
+              <HugeiconsIcon icon={Home01Icon} size={18} />
+            </button>
+
+            {/* Score Counter */}
+            <div className="flex h-9 sm:h-10 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 sm:px-4 py-1 dark:border-white/5 dark:bg-[#1e2026]">
+              <span className="text-[11px] font-medium text-slate-400 dark:text-zinc-400">
+                {t.score}
+              </span>
+              <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-white">
+                {score}
+              </span>
+              {streak >= 2 && (
+                <span className="ml-0.5 sm:ml-1 flex items-center gap-0.5 text-[11px] font-bold text-amber-500 dark:text-amber-400">
+                  <HugeiconsIcon
+                    icon={FireIcon}
+                    size={13}
+                    className="text-amber-500 dark:text-amber-400"
+                  />
+                  {streak}
+                </span>
+              )}
+            </div>
+          </div>
 
           {/* Center Title and Progress */}
-          <div className="mx-3 flex-1 text-center">
+          <div className="mx-3 text-center flex-1">
             <h1 className="line-clamp-1 text-sm sm:text-base font-bold text-slate-900 dark:text-white">
               {displayTitle}
             </h1>
@@ -704,24 +741,23 @@ export function QuizPlayer({
             </p>
           </div>
 
-          {/* Score Counter */}
-          <div className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-white/5 dark:bg-[#1e2026]">
-            <span className="text-[11px] font-medium text-slate-400 dark:text-zinc-400">
-              {t.score}
-            </span>
-            <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-white">
-              {score}
-            </span>
-            {streak >= 2 && (
-              <span className="ml-1 flex items-center gap-0.5 text-[11px] font-bold text-amber-500 dark:text-amber-400">
-                <HugeiconsIcon
-                  icon={FireIcon}
-                  size={13}
-                  className="text-amber-500 dark:text-amber-400"
-                />
-                {streak}
+          {/* Right Header Actions */}
+          <div className="flex items-center justify-end gap-1.5 sm:gap-2">
+            {/* AI Assistant Button */}
+            <button
+              onClick={() =>
+                window.dispatchEvent(
+                  new CustomEvent("open-n2-ai-chat")
+                )
+              }
+              title={language === "ja" ? "AI アシスタント" : "AI Trợ Giảng"}
+              className="flex h-9 sm:h-10 cursor-pointer items-center gap-1.5 rounded-full border border-[#5368a4]/30 bg-white px-2.5 sm:px-3 text-[#5368a4] shadow-xs transition hover:bg-[#5368a4]/10 active:scale-95 dark:border-white/10 dark:bg-[#1e2026] dark:text-[#93a7e6] dark:hover:bg-zinc-800"
+            >
+              <HugeiconsIcon icon={AiChat01Icon} size={15} />
+              <span className="hidden sm:inline text-xs font-semibold">
+                {language === "ja" ? "AI" : "AI Trợ Giảng"}
               </span>
-            )}
+            </button>
           </div>
         </div>
 

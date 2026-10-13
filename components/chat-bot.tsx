@@ -22,6 +22,7 @@ import {
   sendChatMessageStream,
 } from "@/lib/chat-api"
 import { useLanguage } from "@/lib/i18n"
+import { useQuiz } from "@/lib/quiz-context"
 import { cn } from "@/lib/utils"
 
 import ReactMarkdown from "react-markdown"
@@ -110,6 +111,7 @@ function FormattedContent({ text }: { text: string }) {
 
 export function ChatBot() {
   const { language } = useLanguage()
+  const { isQuizActive } = useQuiz()
   const isJa = language === "ja"
 
   const [isOpen, setIsOpen] = useState(false)
@@ -311,8 +313,8 @@ export function ChatBot() {
   return (
     <>
       {/* Floating Action Button */}
-      <div className="fixed bottom-5 right-5 z-50 flex items-center gap-2">
-        {!isOpen && (
+      {!isQuizActive && !isOpen && (
+        <div className="fixed bottom-5 right-5 z-50 flex items-center gap-2">
           <button
             onClick={() => setIsOpen(true)}
             className="group relative flex items-center gap-2.5 rounded-full border border-[#5368a4]/30 bg-gradient-to-r from-[#5368a4] to-[#687db8] px-4 py-3 text-white shadow-xl shadow-[#5368a4]/30 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-[#5368a4]/50 active:scale-95"
@@ -330,8 +332,8 @@ export function ChatBot() {
               {isJa ? "AI アシスタント" : "AI Trợ Giảng"}
             </span>
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Backdrop overlay when expanded */}
       {isOpen && isExpanded && (
