@@ -327,7 +327,7 @@ export function QuizPlayer({
     const percentage = Math.round((correctCount / totalQuestions) * 100)
 
     return (
-      <div className="mx-auto w-full max-w-md sm:max-w-xl lg:max-w-2xl animate-in px-4 py-8 duration-300 zoom-in-95 fade-in">
+      <div className="m-auto mx-auto my-auto w-full max-w-md sm:max-w-xl lg:max-w-2xl animate-in px-4 py-8 duration-300 zoom-in-95 fade-in">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 text-center shadow-xl shadow-slate-200/40 dark:border-zinc-800 dark:bg-[#181920] dark:shadow-none">
           {/* Badge Icon */}
           <div className="mx-auto mb-4 flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border-2 border-emerald-500/20 bg-emerald-500/10 shadow-sm">
