@@ -408,7 +408,7 @@
       "questions": [
         {
           "question_number": 23,
-          "question_text": "できるだけ早く仕事を済ますようにします。",
+          "question_text": "できるだけ早く仕事を<u>済ます</u>ようにします。",
           "options": {
             "1": "覚える",
             "2": "終える",
@@ -417,7 +417,7 @@
           },
           "options_vi": {
             "1": "Nhớ",
-            "2": "Kết thúc / Hoàn thành",
+            "2": "Kết thúc / Hoàn thành (済ます = 終える)",
             "3": "Bắt đầu",
             "4": "Dạy"
           },
@@ -425,7 +425,7 @@
         },
         {
           "question_number": 24,
-          "question_text": "昨日のあの人の態度はあいまいだった。",
+          "question_text": "昨日のあの人の態度は<u>あいまいだった</u>。",
           "options": {
             "1": "ていねいだった",
             "2": "はっきりしなかった",
@@ -434,7 +434,7 @@
           },
           "options_vi": {
             "1": "Lịch sự",
-            "2": "Không rõ ràng",
+            "2": "Không rõ ràng, mập mờ (あいまい = はっきりしない)",
             "3": "Tuyệt vời",
             "4": "Đáng thương"
           },
@@ -442,7 +442,7 @@
         },
         {
           "question_number": 25,
-          "question_text": "昨日、学校で思いがけない出来事があった。",
+          "question_text": "昨日、学校で<u>思いがけない</u>出来事があった。",
           "options": {
             "1": "おもしろい",
             "2": "悲しい",
@@ -452,14 +452,14 @@
           "options_vi": {
             "1": "Thú vị",
             "2": "Buồn",
-            "3": "Bất ngờ / Ngoài dự tính",
+            "3": "Bất ngờ / Ngoài dự tính (思いがけない = 意外な)",
             "4": "Kỳ lạ"
           },
           "answer": 3
         },
         {
           "question_number": 26,
-          "question_text": "彼は大学を卒業した後、みずから会社を立ち上げる。",
+          "question_text": "彼は大学を卒業した後、<u>みずから</u>会社を立ち上げる。",
           "options": {
             "1": "自分で",
             "2": "すぐに",
@@ -467,7 +467,7 @@
             "4": "しばらくして"
           },
           "options_vi": {
-            "1": "Tự mình",
+            "1": "Tự mình (自ら = 自分で)",
             "2": "Ngay lập tức",
             "3": "Cùng bạn bè",
             "4": "Sau một thời gian"
@@ -476,7 +476,7 @@
         },
         {
           "question_number": 27,
-          "question_text": "もう全員そろいましたか。",
+          "question_text": "もう全員<u>そろいましたか</u>。",
           "options": {
             "1": "集まりました",
             "2": "訪ねました",
@@ -484,7 +484,7 @@
             "4": "案内しました"
           },
           "options_vi": {
-            "1": "Tập trung đầy đủ",
+            "1": "Tập trung đầy đủ (そろう = 集まる)",
             "2": "Ghé thăm",
             "3": "Xuất phát",
             "4": "Hướng dẫn"
@@ -501,16 +501,16 @@
           "question_number": 28,
           "word": "掲示",
           "options": {
-            "1": "山田氏は科学者で研究論文を...",
-            "2": "テレビでよく掲示されている洗剤...",
-            "3": "名刺に自分の写真を掲示している...",
-            "4": "マンションの入り口に水道工事が..."
+            "1": "山田氏は有名な科学者で、いくつもの本に研究論文を<u>掲示している</u>。",
+            "2": "テレビでよく<u>掲示されている</u>洗剤が安くなっていたので、試しに買ってみた。",
+            "3": "最近は名刺に自分の写真を<u>掲示している</u>ビジネスマンも多い。",
+            "4": "マンションの入り口に、水道工事のお知らせが<u>掲示されていた</u>。"
           },
           "options_vi": {
-            "1": "Niêm yết (Dùng sai cho bài luận)",
-            "2": "Niêm yết (Dùng sai cho xà phòng)",
-            "3": "Niêm yết (Dùng sai cho danh thiếp)",
-            "4": "Thông báo công khai ở cửa chung cư"
+            "1": "dùng sai (đăng bài luận -> 発表している/載せている)",
+            "2": "dùng sai (quảng cáo trên tivi -> 宣伝されている)",
+            "3": "dùng sai (in ảnh trên danh thiếp -> 入れている/印刷している)",
+            "4": "Thông báo thi công đường nước đã được dán thông báo, niêm yết (掲示されていた) ở lối vào chung cư."
           },
           "answer": 4
         },
@@ -518,16 +518,16 @@
           "question_number": 29,
           "word": "快い",
           "options": {
-            "1": "要らないパソコンでしたら快く...",
-            "2": "遠慮しないで快く遊びに...",
-            "3": "急な仕事だったが彼が快く...",
-            "4": "どんな悩みも快く打ち明けられる。"
+            "1": "要らないパソコンでしたら、<u>快く</u>もらっていきます。",
+            "2": "遠慮しないでいつでも<u>快く</u>遊びに来てください。",
+            "3": "急な仕事だったが、彼が<u>快く</u>引き受けてくれて助かった。",
+            "4": "親友の森さんには、どんな悩みも<u>快く</u>打ち明けられる。"
           },
           "options_vi": {
-            "1": "Vui vẻ nhận máy tính",
-            "2": "Vui vẻ rủ đi chơi",
-            "3": "Vui vẻ/Sẵn lòng nhận việc gấp",
-            "4": "Thoải mái tâm sự"
+            "1": "dùng sai (vui vẻ nhận máy tính -> 喜んで)",
+            "2": "dùng sai (thoải mái đến chơi -> 気軽に)",
+            "3": "Công việc gấp nhưng anh ấy đã vui vẻ, sẵn lòng (快く引き受けてくれて) nhận lời giúp đỡ.",
+            "4": "dùng sai (thoải mái tâm sự -> 気兼ねなく/率直に)"
           },
           "answer": 3
         },
@@ -535,16 +535,16 @@
           "question_number": 30,
           "word": "分野",
           "options": {
-            "1": "保証の分野を超えた修理...",
-            "2": "山に近い分野では雪になる...",
-            "3": "心理学や言語学の分野から多数の...",
-            "4": "小説のこの分野には筆者の..."
+            "1": "保証の<u>分野</u>を超えた修理に関しては、費用がかかります。",
+            "2": "明日は朝から冷え込んで、山に近い<u>分野</u>では雪になるそうだ。",
+            "3": "セミナーには心理学や言語学の<u>分野</u>から多数の専門家が参加した。",
+            "4": "小説のこの<u>分野</u>には筆者の実際の体験が書かれている。"
           },
           "options_vi": {
-            "1": "Lĩnh vực bảo hành (Sai)",
-            "2": "Lĩnh vực gần núi (Sai)",
-            "3": "Lĩnh vực tâm lý học, ngôn ngữ học",
-            "4": "Lĩnh vực tiểu thuyết (Dùng sai)"
+            "1": "dùng sai (phạm vi bảo hành -> 範囲)",
+            "2": "dùng sai (khu vực gần núi -> 地域)",
+            "3": "Đã có đông đảo chuyên gia từ các lĩnh vực (分野) tâm lý học và ngôn ngữ học tham gia buổi hội thảo.",
+            "4": "dùng sai (phần này của tiểu thuyết -> 部分/章)"
           },
           "answer": 3
         },
@@ -552,16 +552,16 @@
           "question_number": 31,
           "word": "生き生き",
           "options": {
-            "1": "体が生き生きしているうちに...",
-            "2": "薬を飲ませたら生き生きしてきた。",
-            "3": "サッカーをしているときが一番...",
-            "4": "記憶が生き生きしているので..."
+            "1": "私は体が<u>生き生き</u>しているうちに、あちこち旅行をしたいと思う。",
+            "2": "子供が熱を出したが、薬を飲ませたらだんだん<u>生き生き</u>してきた。",
+            "3": "彼は、好きなサッカーをしているときが一番<u>生き生き</u>している。",
+            "4": "記憶が<u>生き生き</u>しているので、今なら間違えずに答えることができる。"
           },
           "options_vi": {
-            "1": "Sống động (Dùng sai cho cơ thể)",
-            "2": "Sống động (Dùng sai cho uống thuốc)",
-            "3": "Tràn đầy sức sống khi đá bóng",
-            "4": "Sống động (Dùng sai cho trí nhớ)"
+            "1": "dùng sai (khi cơ thể còn khỏe -> 元気な)",
+            "2": "dùng sai (hồi phục sức khỏe -> 元気になってきた)",
+            "3": "Anh ấy tràn đầy sức sống, phấn chấn (生き生きしている) nhất khi được chơi môn bóng đá yêu thích.",
+            "4": "dùng sai (ký ức rõ ràng -> 鮮明)"
           },
           "answer": 3
         },
@@ -569,16 +569,16 @@
           "question_number": 32,
           "word": "隔てる",
           "options": {
-            "1": "二つの問題は隔てて考える...",
-            "2": "大きな川が二つの市を隔てている。",
-            "3": "5分ほど休憩を隔てて...",
-            "4": "隣の人と隔てて座ってください。"
+            "1": "この二つの問題は<u>隔てて</u>考えるべきだ。",
+            "2": "大きな川が二つの市を<u>隔てている</u>。",
+            "3": "5 分ほど休憩を<u>隔てて</u>、11 時から再開します。",
+            "4": "試験のときは、隣の人と<u>隔てて</u>座ってください。"
           },
           "options_vi": {
-            "1": "Ngăn cách vấn đề (Sai)",
-            "2": "Con sông lớn ngăn cách hai thành phố",
-            "3": "Ngăn cách giờ nghỉ (Sai)",
-            "4": "Ngăn cách chỗ ngồi (Sai)"
+            "1": "dùng sai (tách biệt suy nghĩ -> 分けて/区別して)",
+            "2": "Một con sông lớn ngăn cách (隔てている) hai thành phố.",
+            "3": "dùng sai (nghỉ giải lao -> 挟んで/取って)",
+            "4": "dùng sai (ngồi cách nhau -> 間隔をあけて/離れて)"
           },
           "answer": 2
         }

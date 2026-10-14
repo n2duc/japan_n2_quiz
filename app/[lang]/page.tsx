@@ -177,10 +177,13 @@ export default function HomePage() {
             sec.section_name.toLowerCase().includes(q) ||
             sec.questions.some(
               (item) =>
-                item.question_text?.toLowerCase().includes(q) ||
+                item.question_text
+                  ?.replace(/<\/?u>/g, "")
+                  .toLowerCase()
+                  .includes(q) ||
                 (item.word && item.word.toLowerCase().includes(q)) ||
                 Object.values(item.options).some((opt) =>
-                  opt.toLowerCase().includes(q)
+                  opt.replace(/<\/?u>/g, "").toLowerCase().includes(q)
                 )
             )
         )

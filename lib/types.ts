@@ -34,6 +34,7 @@ export interface QuizQuestionItem {
   context?: string
   questionNumber: number
   questionText: string
+  word?: string
   options: Record<string, string>
   optionsVi?: Record<string, string>
   answer: number

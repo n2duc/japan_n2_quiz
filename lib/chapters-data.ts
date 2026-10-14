@@ -45,9 +45,12 @@ export function getSectionQuestions(
     questionNumber: q.question_number,
     questionText:
       q.question_text ||
-      (sec.context
-        ? `（ ${q.question_number} ）に入る最もよいものを選びなさい。`
-        : `第${q.question_number}問`),
+      (q.word
+        ? q.word
+        : sec.context
+          ? `（ ${q.question_number} ）に入る最もよいものを選びなさい。`
+          : `第${q.question_number}問`),
+    word: q.word,
     options: q.options,
     optionsVi: q.options_vi,
     answer: q.answer,

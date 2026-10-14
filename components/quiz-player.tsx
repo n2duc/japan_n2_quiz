@@ -133,9 +133,13 @@ export function QuizPlayer({
       .map(([k, v]) => `${k}. ${v}`)
       .join("\n")
     const prompt =
-      language === "ja"
-        ? `この問題について詳しく解説してください：\n【問題】\n${currentQ.questionText}\n\n【選択肢】\n${optionsText}\n\n【正解】: 選択肢 ${currentQ.answer}\nなぜこの選択肢が正解で、他の選択肢が不適切なのか、文法や意味を分かりやすく説明してください。`
-        : `Hãy giải thích chi tiết câu hỏi này giúp tôi:\n【Câu hỏi】:\n${currentQ.questionText}\n\n【Các lựa chọn】:\n${optionsText}\n\n【Đáp án đúng】: Lựa chọn ${currentQ.answer}\nGiải thích tại sao đáp án này đúng và các đáp án khác sai, phân tích cấu trúc ngữ pháp và từ vựng liên quan.`
+      currentQ.word
+        ? language === "ja"
+          ? `言葉「${currentQ.word}」の使い方（用法問題）について詳しく解説してください：\n【対象の言葉】\n${currentQ.word}\n\n【選択肢】\n${optionsText}\n\n【正解】: 選択肢 ${currentQ.answer}\nなぜこの選択肢が適切で、他の選択肢での使い方が不自然・誤りなのか、コロケーションや文脈を含めて分かりやすく解説してください。`
+          : `Hãy giải thích chi tiết cách dùng từ「${currentQ.word}」trong câu hỏi này giúp tôi:\n【Từ vựng】:\n${currentQ.word}\n\n【Các câu lựa chọn】:\n${optionsText}\n\n【Đáp án đúng】: Lựa chọn ${currentQ.answer}\nGiải thích tại sao cách dùng ở đáp án này là tự nhiên/chính xác, và tại sao các câu còn lại dùng sai từ này (chỉ ra từ nên thay thế nếu có), phân tích sắc thái ngữ nghĩa.`
+        : language === "ja"
+          ? `この問題について詳しく解説してください：\n【問題】\n${currentQ.questionText}\n\n【選択肢】\n${optionsText}\n\n【正解】: 選択肢 ${currentQ.answer}\nなぜこの選択肢が正解で、他の選択肢が不適切なのか、文法や意味を分かりやすく説明してください。`
+          : `Hãy giải thích chi tiết câu hỏi này giúp tôi:\n【Câu hỏi】:\n${currentQ.questionText}\n\n【Các lựa chọn】:\n${optionsText}\n\n【Đáp án đúng】: Lựa chọn ${currentQ.answer}\nGiải thích tại sao đáp án này đúng và các đáp án khác sai, phân tích cấu trúc ngữ pháp và từ vựng liên quan.`
     window.dispatchEvent(
       new CustomEvent("open-n2-ai-chat", {
         detail: {
@@ -327,7 +331,7 @@ export function QuizPlayer({
     const percentage = Math.round((correctCount / totalQuestions) * 100)
 
     return (
-      <div className="m-auto mx-auto my-auto w-full max-w-md sm:max-w-xl lg:max-w-2xl animate-in px-4 py-8 duration-300 zoom-in-95 fade-in">
+      <div className="m-auto mx-auto my-auto w-full max-w-md sm:max-w-xl lg:max-w-2xl px-4 py-8">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 text-center shadow-xl shadow-slate-200/40 dark:border-zinc-800 dark:bg-[#181920] dark:shadow-none">
           {/* Badge Icon */}
           <div className="mx-auto mb-4 flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border-2 border-emerald-500/20 bg-emerald-500/10 shadow-sm">
@@ -448,6 +452,32 @@ export function QuizPlayer({
   const displaySubtitle = `${currentIndex + 1} / ${totalQuestions}`
   const hasPassage = Boolean(currentQ.context)
 
+  // Helper to render question text with <u> tags (underline highlight)
+  const renderFormattedQuestionText = (text: string) => {
+    if (!text) return ""
+    if (!text.includes("<u>")) return text
+
+    const parts = text.split(/(<u>.*?<\/u>)/g)
+    return (
+      <>
+        {parts.map((part, idx) => {
+          if (part.startsWith("<u>") && part.endsWith("</u>")) {
+            const content = part.slice(3, -4)
+            return (
+              <span
+                key={idx}
+                className="font-black underline decoration-2 sm:decoration-[2.5px] underline-offset-4 sm:underline-offset-6 decoration-[#5368a4] dark:decoration-indigo-400 text-[#435790] dark:text-[#a5b4fc]"
+              >
+                {content}
+              </span>
+            )
+          }
+          return <React.Fragment key={idx}>{part}</React.Fragment>
+        })}
+      </>
+    )
+  }
+
   // Reusable Question Card Component
   const renderQuestionCard = () => (
     <div className="flex min-h-32 sm:min-h-44 flex-col justify-between rounded-3xl bg-white p-4 sm:p-6 text-center lg:p-6 dark:bg-[#181920]">
@@ -478,7 +508,11 @@ export function QuizPlayer({
             <span className="text-[11px] font-bold">AI</span>
           </button>
           <button
-            onClick={() => handleSpeak(currentQ.questionText || "")}
+            onClick={() =>
+              handleSpeak(
+                (currentQ.word || currentQ.questionText || "").replace(/<\/?u>/g, "")
+              )
+            }
             title={t.speakQuestion}
             className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200 active:scale-95 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
@@ -498,12 +532,35 @@ export function QuizPlayer({
       </div>
 
       {/* Central Prominent Japanese Question Text */}
-      <div className="my-auto py-1.5">
-        {currentQ.questionText?.includes("★") ? (
+      <div className="my-auto py-2">
+        {currentQ.word ? (
+          <div className="flex flex-col items-center justify-center gap-2.5">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-[#5368a4]/20 bg-[#5368a4]/10 px-3 py-1 text-xs font-semibold text-[#5368a4] dark:border-[#5368a4]/30 dark:bg-[#5368a4]/25 dark:text-[#a5b4fc]">
+              <HugeiconsIcon icon={BookOpen01Icon} size={14} />
+              <span>
+                {language === "ja"
+                  ? "言葉の使い方（用法）"
+                  : "Cách dùng từ vựng (用法)"}
+              </span>
+            </div>
+            <div className="group inline-flex items-center justify-center gap-3 rounded-2xl border border-slate-200/90 bg-linear-to-b from-slate-50 to-white px-6 sm:px-8 py-3 transition-all hover:border-[#5368a4]/40 hover:shadow-md dark:border-zinc-800 dark:from-zinc-900/90 dark:to-zinc-900/50">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-wider text-slate-900 dark:text-white">
+                {currentQ.word}
+              </h2>
+              <button
+                onClick={() => handleSpeak(currentQ.word!)}
+                title={t.speakQuestion}
+                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-slate-200/60 text-slate-600 transition hover:bg-[#5368a4]/20 hover:text-[#5368a4] active:scale-95 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-[#5368a4]/30 dark:hover:text-[#93a7e6]"
+              >
+                <HugeiconsIcon icon={VolumeHighIcon} size={17} />
+              </button>
+            </div>
+          </div>
+        ) : currentQ.questionText?.includes("★") ? (
           <div className="text-lg leading-relaxed font-bold tracking-wide text-slate-900 sm:text-xl lg:text-2xl dark:text-white">
             {currentQ.questionText.split("★").map((chunk, cIdx, arr) => (
               <React.Fragment key={cIdx}>
-                <span>{chunk}</span>
+                <span>{renderFormattedQuestionText(chunk)}</span>
                 {cIdx < arr.length - 1 && (
                   <span className="mx-1 inline-flex items-center justify-center rounded-md border border-amber-400/50 bg-amber-400/20 px-1.5 py-0.5 text-xs font-black text-amber-500 dark:text-amber-300">
                     ★
@@ -514,7 +571,7 @@ export function QuizPlayer({
           </div>
         ) : (
           <h2 className="text-lg leading-relaxed font-bold tracking-wide text-slate-900 sm:text-xl lg:text-2xl dark:text-white">
-            {currentQ.questionText}
+            {renderFormattedQuestionText(currentQ.questionText)}
           </h2>
         )}
       </div>
@@ -527,6 +584,55 @@ export function QuizPlayer({
       </div>
     </div>
   )
+
+  // Helper to render option text with <u> tag or fallback to word highlighting
+  const renderFormattedOptionText = (text: string, targetWord?: string) => {
+    if (!text) return ""
+
+    // 1. If text contains explicit <u>...</u> tags
+    if (text.includes("<u>")) {
+      const parts = text.split(/(<u>.*?<\/u>)/g)
+      return (
+        <>
+          {parts.map((part, idx) => {
+            if (part.startsWith("<u>") && part.endsWith("</u>")) {
+              const underlined = part.slice(3, -4)
+              return (
+                <span
+                  key={idx}
+                  className="font-extrabold underline decoration-2 underline-offset-4 decoration-amber-300 dark:decoration-amber-400"
+                >
+                  {underlined}
+                </span>
+              )
+            }
+            return <React.Fragment key={idx}>{part}</React.Fragment>
+          })}
+        </>
+      )
+    }
+
+    // 2. Fallback: If no <u> tag, highlight targetWord if present
+    if (targetWord && text.includes(targetWord)) {
+      const parts = text.split(targetWord)
+      return (
+        <>
+          {parts.map((chunk, cIdx, arr) => (
+            <React.Fragment key={cIdx}>
+              <span>{chunk}</span>
+              {cIdx < arr.length - 1 && (
+                <span className="font-extrabold underline decoration-2 underline-offset-4 decoration-amber-300 dark:decoration-amber-400">
+                  {targetWord}
+                </span>
+              )}
+            </React.Fragment>
+          ))}
+        </>
+      )
+    }
+
+    return text
+  }
 
   // Reusable Options Component (supports 1 column or 2 columns)
   const renderOptions = (isTwoColumn: boolean) => (
@@ -576,7 +682,7 @@ export function QuizPlayer({
             {/* Center text & Vietnamese translation */}
             <div className="flex flex-1 flex-col items-center justify-center px-2">
               <span className="text-sm sm:text-base leading-snug font-semibold">
-                {valText}
+                {renderFormattedOptionText(valText, currentQ.word)}
               </span>
               {currentAnswered && viMeaning && (
                 <span className="mt-0.5 text-xs leading-tight font-normal opacity-85">
@@ -639,7 +745,9 @@ export function QuizPlayer({
                   ? currentQ.fullSentence.replace(/\[|\]|\*/g, "")
                   : starSentence
                     ? `${starSentence.before}${starSentence.parts.map((p) => p.text).join("")}${starSentence.after}`
-                    : currentQ.questionText || ""
+                    : currentQ.word
+                      ? (currentQ.options[currentQ.answer] || "").replace(/<\/?u>/g, "")
+                      : (currentQ.questionText || "").replace(/<\/?u>/g, "")
               )
             }
             className="flex cursor-pointer items-center gap-1 rounded-lg bg-[#5368a4]/10 px-2 py-1 text-xs font-medium text-[#5368a4] hover:bg-[#5368a4]/15 hover:text-[#45578a] dark:bg-indigo-500/10 dark:text-indigo-400 dark:hover:bg-indigo-500/20"
@@ -684,6 +792,25 @@ export function QuizPlayer({
               ))}
               {starSentence.after}
             </p>
+          </div>
+        ) : currentQ.word ? (
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5 sm:p-3 dark:border-zinc-800 dark:bg-zinc-900/90">
+            <span className="mb-0.5 block text-[11px] font-semibold text-slate-500 dark:text-zinc-400">
+              {language === "ja"
+                ? `「${currentQ.word}」の適切な使い方：`
+                : `Cách dùng đúng của từ「${currentQ.word}」:`}
+            </span>
+            <p className="text-xs sm:text-sm leading-relaxed font-bold text-slate-900 dark:text-zinc-100">
+              {renderFormattedOptionText(
+                currentQ.options[currentQ.answer],
+                currentQ.word
+              )}
+            </p>
+            {currentQ.optionsVi?.[currentQ.answer] && (
+              <p className="mt-1 text-xs text-slate-600 dark:text-zinc-400 leading-normal">
+                {currentQ.optionsVi[currentQ.answer]}
+              </p>
+            )}
           </div>
         ) : null}
       </div>
