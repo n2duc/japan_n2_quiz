@@ -452,12 +452,28 @@ export function QuizPlayer({
   const displaySubtitle = `${currentIndex + 1} / ${totalQuestions}`
   const hasPassage = Boolean(currentQ.context)
 
-  // Helper to render question text with <u> tags (underline highlight)
+  // Helper to render question text with <u> tags and prominent （ ） blanks
   const renderFormattedQuestionText = (text: string) => {
     if (!text) return ""
-    if (!text.includes("<u>")) return text
 
-    const parts = text.split(/(<u>.*?<\/u>)/g)
+    const hasFormatting =
+      text.includes("<u>") || /[（\(][\s\u3000]*[）\)]/.test(text)
+    if (!hasFormatting) return text
+
+    const TOKEN_REGEX = /(<u>.*?<\/u>|[（\(][\s\u3000]*[）\)])/g
+    const PAREN_BLANK_REGEX = /^[（\(][\s\u3000]*[）\)]$/
+
+    const parts = text.split(TOKEN_REGEX)
+
+    const correctText = currentQ
+      ? (currentQ.options[String(currentQ.answer)] || "").replace(/<\/?u>/g, "")
+      : ""
+    const pickedText =
+      currentQ && currentSelected
+        ? (currentQ.options[String(currentSelected)] || "").replace(/<\/?u>/g, "")
+        : ""
+    const isCorrect = currentSelected === currentQ?.answer
+
     return (
       <>
         {parts.map((part, idx) => {
@@ -469,6 +485,97 @@ export function QuizPlayer({
                 className="font-black underline decoration-2 sm:decoration-[2.5px] underline-offset-4 sm:underline-offset-6 decoration-[#5368a4] dark:decoration-indigo-400 text-[#435790] dark:text-[#a5b4fc]"
               >
                 {content}
+              </span>
+            )
+          }
+
+          if (PAREN_BLANK_REGEX.test(part)) {
+            // State 1: Answered -> reveal the answer filled into the slot
+            if (currentAnswered && correctText) {
+              if (isCorrect) {
+                return (
+                  <span
+                    key={idx}
+                    className="mx-1.5 inline-flex items-center gap-1.5 rounded-xl border-2 border-emerald-500 bg-emerald-500/15 px-3 py-0.5 align-middle text-base sm:text-lg font-black text-emerald-600 shadow-xs transition-all dark:border-emerald-400 dark:bg-emerald-500/20 dark:text-emerald-300 animate-in zoom-in-95 duration-200"
+                    title={language === "ja" ? "正解" : "Chính xác"}
+                  >
+                    <span className="font-mono text-xs opacity-60">（</span>
+                    <HugeiconsIcon
+                      icon={CheckmarkCircle01Icon}
+                      size={16}
+                      className="shrink-0 text-emerald-600 dark:text-emerald-400"
+                    />
+                    <span>{correctText}</span>
+                    <span className="font-mono text-xs opacity-60">）</span>
+                  </span>
+                )
+              }
+
+              // Answered incorrectly
+              return (
+                <span
+                  key={idx}
+                  className="mx-1.5 inline-flex flex-wrap items-center gap-1.5 rounded-xl border-2 border-rose-400/80 bg-rose-500/10 px-2.5 py-0.5 align-middle text-base sm:text-lg font-bold shadow-xs transition-all dark:border-rose-400/60 dark:bg-rose-500/20 animate-in zoom-in-95 duration-200"
+                  title={
+                    language === "ja"
+                      ? `不正解（正解: ${correctText}）`
+                      : `Chưa đúng (Đáp án: ${correctText})`
+                  }
+                >
+                  <span className="font-mono text-xs opacity-50 text-slate-500 dark:text-zinc-400">（</span>
+                  {pickedText && (
+                    <span className="line-through text-rose-500 dark:text-rose-400 font-semibold text-xs sm:text-sm opacity-85">
+                      {pickedText}
+                    </span>
+                  )}
+                  <span className="text-emerald-600 dark:text-emerald-400 font-black">
+                    {correctText}
+                  </span>
+                  <span className="font-mono text-xs opacity-50 text-slate-500 dark:text-zinc-400">）</span>
+                </span>
+              )
+            }
+
+            // State 2: Unanswered -> prominent, clearly visible blank slot
+            return (
+              <span
+                key={idx}
+                className="group mx-1.5 inline-flex min-w-15 sm:min-w-19 h-[1.7em] items-center justify-center rounded-xl border-2 border-dashed border-[#5368a4] bg-[#5368a4]/10 px-2.5 py-0.5 align-middle text-sm sm:text-base font-black text-[#5368a4] shadow-xs select-none transition-all hover:bg-[#5368a4]/15 hover:border-[#5368a4]/80 dark:border-indigo-400 dark:bg-indigo-500/15 dark:text-indigo-300 dark:hover:bg-indigo-500/25"
+                title={language === "ja" ? "（ ）に入る選択肢を選んでください" : "Chỗ trống cần điền （ ）"}
+              >
+                <span className="font-mono text-xs sm:text-sm opacity-60">（</span>
+                <span className="mx-1.5 inline-block h-0.5 w-4 sm:w-6 rounded-full bg-[#5368a4]/50 group-hover:bg-[#5368a4] transition-colors dark:bg-indigo-400/50 dark:group-hover:bg-indigo-300"></span>
+                <span className="font-mono text-xs sm:text-sm opacity-60">）</span>
+              </span>
+            )
+          }
+
+          return <React.Fragment key={idx}>{part}</React.Fragment>
+        })}
+      </>
+    )
+  }
+
+  // Helper to render completed sentence with filled answer for feedback
+  const renderSentenceWithFilledAnswer = (text: string, answerText: string) => {
+    if (!text) return ""
+    const cleanText = text.replace(/<\/?u>/g, "")
+    const TOKEN_REGEX = /([（\(][\s\u3000]*[）\)])/g
+    const PAREN_BLANK_REGEX = /^[（\(][\s\u3000]*[）\)]$/
+
+    if (!TOKEN_REGEX.test(cleanText)) return cleanText
+
+    const parts = cleanText.split(TOKEN_REGEX)
+    return (
+      <>
+        {parts.map((part, idx) => {
+          if (PAREN_BLANK_REGEX.test(part)) {
+            return (
+              <span
+                key={idx}
+                className="mx-1 inline-flex items-center rounded-md border border-emerald-500/40 bg-emerald-500/15 px-1.5 py-0.5 text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-300"
+              >
+                {answerText}
               </span>
             )
           }
@@ -508,11 +615,24 @@ export function QuizPlayer({
             <span className="text-[11px] font-bold">AI</span>
           </button>
           <button
-            onClick={() =>
-              handleSpeak(
-                (currentQ.word || currentQ.questionText || "").replace(/<\/?u>/g, "")
-              )
-            }
+            onClick={() => {
+              if (currentQ.word) {
+                handleSpeak(currentQ.word)
+                return
+              }
+              const raw = currentQ.questionText || ""
+              const clean = raw.replace(/<\/?u>/g, "")
+              if (currentAnswered && currentQ.options[String(currentQ.answer)]) {
+                handleSpeak(
+                  clean.replace(
+                    /[（\(][\s\u3000]*[）\)]/g,
+                    currentQ.options[String(currentQ.answer)].replace(/<\/?u>/g, "")
+                  )
+                )
+              } else {
+                handleSpeak(clean.replace(/[（\(][\s\u3000]*[）\)]/g, " ... "))
+              }
+            }}
             title={t.speakQuestion}
             className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-slate-200 active:scale-95 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
           >
@@ -557,7 +677,10 @@ export function QuizPlayer({
             </div>
           </div>
         ) : currentQ.questionText?.includes("★") ? (
-          <div className="text-lg leading-relaxed font-bold tracking-wide text-slate-900 sm:text-xl lg:text-2xl dark:text-white">
+          <div
+            className={`text-lg leading-relaxed font-bold tracking-wide text-slate-900 sm:text-xl lg:text-2xl dark:text-white whitespace-pre-line ${currentQ.questionText?.includes("\n") ? "inline-block text-left max-w-full" : ""
+              }`}
+          >
             {currentQ.questionText.split("★").map((chunk, cIdx, arr) => (
               <React.Fragment key={cIdx}>
                 <span>{renderFormattedQuestionText(chunk)}</span>
@@ -570,7 +693,10 @@ export function QuizPlayer({
             ))}
           </div>
         ) : (
-          <h2 className="text-lg leading-relaxed font-bold tracking-wide text-slate-900 sm:text-xl lg:text-2xl dark:text-white">
+          <h2
+            className={`text-lg leading-relaxed font-bold tracking-wide text-slate-900 sm:text-xl lg:text-2xl dark:text-white whitespace-pre-line ${currentQ.questionText?.includes("\n") ? "inline-block text-left max-w-full" : ""
+              }`}
+          >
             {renderFormattedQuestionText(currentQ.questionText)}
           </h2>
         )}
@@ -747,7 +873,12 @@ export function QuizPlayer({
                     ? `${starSentence.before}${starSentence.parts.map((p) => p.text).join("")}${starSentence.after}`
                     : currentQ.word
                       ? (currentQ.options[currentQ.answer] || "").replace(/<\/?u>/g, "")
-                      : (currentQ.questionText || "").replace(/<\/?u>/g, "")
+                      : (currentQ.questionText || "")
+                        .replace(/<\/?u>/g, "")
+                        .replace(
+                          /[（\(][\s\u3000]*[）\)]/g,
+                          (currentQ.options[String(currentQ.answer)] || "").replace(/<\/?u>/g, "")
+                        )
               )
             }
             className="flex cursor-pointer items-center gap-1 rounded-lg bg-[#5368a4]/10 px-2 py-1 text-xs font-medium text-[#5368a4] hover:bg-[#5368a4]/15 hover:text-[#45578a] dark:bg-indigo-500/10 dark:text-indigo-400 dark:hover:bg-indigo-500/20"
@@ -809,6 +940,31 @@ export function QuizPlayer({
             {currentQ.optionsVi?.[currentQ.answer] && (
               <p className="mt-1 text-xs text-slate-600 dark:text-zinc-400 leading-normal">
                 {currentQ.optionsVi[currentQ.answer]}
+              </p>
+            )}
+          </div>
+        ) : /[（\(][\s\u3000]*[）\)]/.test(currentQ.questionText || "") ? (
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-2.5 sm:p-3 dark:border-zinc-800 dark:bg-zinc-900/90">
+            <span className="mb-0.5 block text-[11px] font-semibold text-slate-500 dark:text-zinc-400">
+              {formatString(t.completeSentence, {
+                order:
+                  language === "ja"
+                    ? `選択肢 ${currentQ.answer}`
+                    : `Đáp án ${currentQ.answer}`,
+              })}
+            </span>
+            <p className="text-xs sm:text-sm leading-relaxed font-medium text-slate-800 dark:text-zinc-200 whitespace-pre-line">
+              {renderSentenceWithFilledAnswer(
+                currentQ.questionText || "",
+                (currentQ.options[String(currentQ.answer)] || "").replace(/<\/?u>/g, "")
+              )}
+            </p>
+            {currentQ.optionsVi?.[String(currentQ.answer)] && (
+              <p className="mt-1 text-xs text-slate-600 dark:text-zinc-400 leading-normal">
+                <span className="font-semibold text-[#5368a4] dark:text-[#a5b4fc]">
+                  {(currentQ.options[String(currentQ.answer)] || "").replace(/<\/?u>/g, "")}:
+                </span>{" "}
+                {currentQ.optionsVi[String(currentQ.answer)]}
               </p>
             )}
           </div>

@@ -408,7 +408,7 @@
       "questions": [
         {
           "question_number": 23,
-          "question_text": "とりあえず社長に電話で話しておいた。",
+          "question_text": "<u>とりあえず</u>社長に電話で話しておいた。",
           "options": {
             "1": "さっき",
             "2": "すぐに",
@@ -425,7 +425,7 @@
         },
         {
           "question_number": 24,
-          "question_text": "友人がバイクを安くゆずってくれた。",
+          "question_text": "友人がバイクを安く<u>ゆずって</u>くれた。",
           "options": {
             "1": "売って",
             "2": "貸して",
@@ -442,7 +442,7 @@
         },
         {
           "question_number": 25,
-          "question_text": "雑談をしているときにいいアイディアが浮かんだ。",
+          "question_text": "<u>雑談</u>をしているときにいいアイディアが浮かんだ。",
           "options": {
             "1": "あいさつ",
             "2": "おしゃべり",
@@ -459,7 +459,7 @@
         },
         {
           "question_number": 26,
-          "question_text": "うちの犬はとてもかしこい。",
+          "question_text": "うちの犬はとても<u>かしこい</u>。",
           "options": {
             "1": "頭がいい",
             "2": "足が速い",
@@ -476,7 +476,7 @@
         },
         {
           "question_number": 27,
-          "question_text": "彼の話はいつも大げさだ。",
+          "question_text": "彼の話はいつも<u>大げさだ</u>。",
           "options": {
             "1": "エネルギーがある",
             "2": "ユーモアがある",
@@ -501,10 +501,10 @@
           "question_number": 28,
           "word": "取材",
           "options": {
-            "1": "学期末試験の範囲を友達に取材しました。",
-            "2": "デパートに買い物に行く前に、営業時間を取材しておこう。",
-            "3": "インターネットは、簡単に地図を取材できるので便利です。",
-            "4": "あの選手の練習の様子を取材したときは、とても緊張しました。"
+            "1": "学期末試験の範囲を友達に<u>取材しました</u>。",
+            "2": "デパートに買い物に行く前に、営業時間を<u>取材しておこう</u>。",
+            "3": "インターネットは、簡単に地図を<u>取材できる</u>ので便利です。",
+            "4": "あの選手の練習の様子を<u>取材した</u>ときは、とても緊張しました。"
           },
           "answer": 4,
           "options_vi": {
@@ -518,10 +518,10 @@
           "question_number": 29,
           "word": "きっかけ",
           "options": {
-            "1": "季節のきっかけは風邪をひきやすい。",
-            "2": "友人に写真をほめられたのがきっかけで、本格的に勉強を始めた。",
-            "3": "その意見に反対するきっかけは、主観的すぎるからだ。",
-            "4": "今回は時間がないので、次のきっかけに訪れようと思う。"
+            "1": "季節の<u>きっかけ</u>は風邪をひきやすい。",
+            "2": "友人に写真をほめられたのが<u>きっかけ</u>で、本格的に勉強を始めた。",
+            "3": "その意見に反対する<u>きっかけ</u>は、主観的すぎるからだ。",
+            "4": "今回は時間がないので、次の<u>きっかけ</u>に訪れようと思う。"
           },
           "answer": 2,
           "options_vi": {
@@ -535,50 +535,50 @@
           "question_number": 30,
           "word": "深刻",
           "options": {
-            "1": "彼は動物に対して深刻な愛情を持っている。",
-            "2": "家族との時間を深刻に考えて、仕事をセーブした。",
-            "3": "彼は深刻な悩みをかかえているようだ。",
-            "4": "テストが近いので、勉強を深刻に進めている。"
+            "1": "彼は動物に対して<u>深刻な</u>愛情を持っている。",
+            "2": "家族との時間を<u>深刻に</u>過ごしている。",
+            "3": "彼は<u>深刻な</u>悩みをかかえているようだ。",
+            "4": "テストが近いので、<u>深刻に</u>勉強した。"
           },
           "answer": 3,
           "options_vi": {
             "1": "Anh ấy có tình yêu sâu sắc với động vật. (dùng sai, tình cảm sâu sắc dùng 深い愛情)",
-            "2": "Xem trọng thời gian bên gia đình. (dùng sai, coi trọng dùng 大切に/真剣に)",
+            "2": "Dành thời gian bên gia đình một cách nghiêm trọng. (dùng sai)",
             "3": "Có vẻ như anh ấy đang mang một nỗi trăn trở/phiền muộn nghiêm trọng. (深刻: nghiêm trọng, trầm trọng)",
-            "4": "Kỳ thi sắp đến nên đẩy mạnh việc học. (dùng sai, nghiêm túc học tập dùng 真剣に/一生懸命)"
+            "4": "Kỳ thi sắp đến nên đã học một cách nghiêm trọng. (dùng sai, nghiêm túc học tập dùng 真剣に/一生懸命)"
           }
         },
         {
           "question_number": 31,
           "word": "続出",
           "options": {
-            "1": "満員電車から乗客が続出した。",
-            "2": "暑さのせいで気分が悪くなる人が続出した。",
-            "3": "最近は、天気の変化が続出している。",
-            "4": "薬で治ったと思っていた病気が続出した。"
+            "1": "満員電車から乗客が<u>続出して</u>きた。",
+            "2": "暑さのせいで気分が悪くなる人が<u>続出した</u>。",
+            "3": "最近は、天気の悪い日が<u>続出している</u>。",
+            "4": "薬で治ったと思っていた風邪が<u>続出した</u>。"
           },
           "answer": 2,
           "options_vi": {
             "1": "Hành khách bước xuống từ tàu đông đúc. (dùng sai, nối đuôi nhau xuống dùng 次々と降りた)",
             "2": "Do nắng nóng gay gắt, nhiều người liên tục bị mệt/khó chịu trong người. (続出: liên tiếp xảy ra, xuất hiện dồn dập)",
-            "3": "Thời tiết thay đổi liên tục. (dùng sai, thay đổi thất thường dùng 変わりやすい)",
-            "4": "Bệnh tưởng khỏi lại tái phát. (dùng sai, tái phát dùng 再発した)"
+            "3": "Gần đây những ngày thời tiết xấu liên tiếp xảy ra. (dùng sai)",
+            "4": "Bệnh cảm tưởng đã khỏi lại liên tiếp xảy ra. (dùng sai)"
           }
         },
         {
           "question_number": 32,
           "word": "外見",
           "options": {
-            "1": "人を外見で判断するのはよくないことだ。",
-            "2": "窓の外見を見ると、雨が降っていた。",
-            "3": "月の外見はとても明るくてきれいだ。",
-            "4": "母は怒っている外見をしていた。"
+            "1": "人を<u>外見</u>で判断するのはよくないことだ。",
+            "2": "窓の<u>外見</u>をペンキで白く塗った。",
+            "3": "月の<u>外見</u>はでこぼこしている。",
+            "4": "母は怒っている<u>外見</u>だった。"
           },
           "answer": 1,
           "options_vi": {
             "1": "Đánh giá con người qua vẻ bề ngoài là điều không nên. (外見: vẻ bề ngoài, diện mạo)",
-            "2": "Nhìn ra bên ngoài cửa sổ. (dùng sai, nhìn ra ngoài dùng 外を見る)",
-            "3": "Hình dáng mặt trăng. (dùng sai, hình dáng dùng 姿/形)",
+            "2": "Sơn trắng bề ngoài của cửa sổ. (dùng sai)",
+            "3": "Bề mặt của mặt trăng gồ ghề. (dùng sai, nên dùng 表面)",
             "4": "Mẹ có vẻ ngoài giận dữ. (dùng sai, nét mặt/biểu cảm dùng 表情/様子)"
           }
         }
