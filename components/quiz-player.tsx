@@ -496,7 +496,7 @@ export function QuizPlayer({
                 return (
                   <span
                     key={idx}
-                    className="mx-1.5 inline-flex items-center gap-1.5 rounded-xl border-2 border-emerald-500 bg-emerald-500/15 px-3 py-0.5 align-middle text-base sm:text-lg font-black text-emerald-600 shadow-xs transition-all dark:border-emerald-400 dark:bg-emerald-500/20 dark:text-emerald-300 animate-in zoom-in-95 duration-200"
+                    className="mx-1.5 inline-flex items-center gap-1.5 rounded-xl bg-emerald-500/15 px-3 py-0.5 align-middle text-base sm:text-lg font-black text-emerald-600 shadow-xs transition-all dark:bg-emerald-500/20 dark:text-emerald-300 animate-in zoom-in-95 duration-200"
                     title={language === "ja" ? "正解" : "Chính xác"}
                   >
                     <span className="font-mono text-xs opacity-60">（</span>
@@ -515,7 +515,7 @@ export function QuizPlayer({
               return (
                 <span
                   key={idx}
-                  className="mx-1.5 inline-flex flex-wrap items-center gap-1.5 rounded-xl border-2 border-rose-400/80 bg-rose-500/10 px-2.5 py-0.5 align-middle text-base sm:text-lg font-bold shadow-xs transition-all dark:border-rose-400/60 dark:bg-rose-500/20 animate-in zoom-in-95 duration-200"
+                  className="mx-1.5 inline-flex flex-wrap items-center gap-1.5 rounded-xl bg-rose-500/10 px-2.5 py-0.5 align-middle text-base sm:text-lg font-bold shadow-xs transition-all dark:bg-rose-500/20 animate-in zoom-in-95 duration-200"
                   title={
                     language === "ja"
                       ? `不正解（正解: ${correctText}）`
@@ -540,12 +540,12 @@ export function QuizPlayer({
             return (
               <span
                 key={idx}
-                className="group mx-1.5 inline-flex min-w-15 sm:min-w-19 h-[1.7em] items-center justify-center rounded-xl border-2 border-dashed border-[#5368a4] bg-[#5368a4]/10 px-2.5 py-0.5 align-middle text-sm sm:text-base font-black text-[#5368a4] shadow-xs select-none transition-all hover:bg-[#5368a4]/15 hover:border-[#5368a4]/80 dark:border-indigo-400 dark:bg-indigo-500/15 dark:text-indigo-300 dark:hover:bg-indigo-500/25"
+                className="group mx-1.5 inline-flex min-w-15 sm:min-w-19 h-8 items-center justify-center rounded-xl border-[#5368a4] bg-[#5368a4]/20 px-2.5 py-0.5 align-middle text-sm sm:text-base font-black text-[#5368a4] shadow-xs select-none transition-color hover:bg-[#5368a4]/15 hover:border-[#5368a4]/80 dark:border-indigo-400 dark:bg-indigo-500/15 dark:text-indigo-300 dark:hover:bg-indigo-500/25"
                 title={language === "ja" ? "（ ）に入る選択肢を選んでください" : "Chỗ trống cần điền （ ）"}
               >
-                <span className="font-mono text-xs sm:text-sm opacity-60">（</span>
+                <span className="font-mono text-xs sm:text-sm opacity-80">（</span>
                 <span className="mx-1.5 inline-block h-0.5 w-4 sm:w-6 rounded-full bg-[#5368a4]/50 group-hover:bg-[#5368a4] transition-colors dark:bg-indigo-400/50 dark:group-hover:bg-indigo-300"></span>
-                <span className="font-mono text-xs sm:text-sm opacity-60">）</span>
+                <span className="font-mono text-xs sm:text-sm opacity-80">）</span>
               </span>
             )
           }
@@ -646,7 +646,11 @@ export function QuizPlayer({
               : "bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-zinc-800/80 dark:text-zinc-400 dark:hover:bg-zinc-700"
               }`}
           >
-            <HugeiconsIcon icon={StarIcon} size={15} />
+            <HugeiconsIcon
+              icon={StarIcon}
+              size={15}
+              className={bookmarked[currentQ.id] ? "fill-amber-500" : ""}
+            />
           </button>
         </div>
       </div>
@@ -685,8 +689,8 @@ export function QuizPlayer({
               <React.Fragment key={cIdx}>
                 <span>{renderFormattedQuestionText(chunk)}</span>
                 {cIdx < arr.length - 1 && (
-                  <span className="mx-1 inline-flex items-center justify-center rounded-md border border-amber-400/50 bg-amber-400/20 px-1.5 py-0.5 text-xs font-black text-amber-500 dark:text-amber-300">
-                    ★
+                  <span className="mx-1 inline-flex items-center justify-center rounded-md bg-amber-500/20 px-2 py-1 text-xs font-black text-amber-500 dark:text-amber-300">
+                    <HugeiconsIcon icon={StarIcon} fill="currentColor" size={20} />
                   </span>
                 )}
               </React.Fragment>

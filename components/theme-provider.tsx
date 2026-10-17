@@ -10,15 +10,13 @@ function ThemeColorMeta() {
     const isDark = resolvedTheme === "dark"
     const color = isDark ? "#0f111a" : "#f6f8fc"
 
-    // Remove all existing theme-color meta tags to prevent media-query or duplicate conflicts
-    const existingMetas = document.querySelectorAll('meta[name="theme-color"]')
-    existingMetas.forEach((el) => el.remove())
-
-    // Create a single unconditional meta tag matching current theme
-    const meta = document.createElement("meta")
-    meta.setAttribute("name", "theme-color")
-    meta.setAttribute("content", color)
-    document.head.appendChild(meta)
+    // Update existing theme-color meta tag content without removing DOM nodes
+    const metas = document.querySelectorAll('meta[name="theme-color"]')
+    if (metas.length > 0) {
+      metas.forEach((meta) => {
+        meta.setAttribute("content", color)
+      })
+    }
 
     // Synchronize documentElement colorScheme
     document.documentElement.style.colorScheme = isDark ? "dark" : "light"

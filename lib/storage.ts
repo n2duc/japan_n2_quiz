@@ -19,7 +19,7 @@ export interface ProgressState {
 
 const STORAGE_KEY = "n2_quiz_progress_v1"
 
-const defaultProgress: ProgressState = {
+export const defaultProgress: ProgressState = {
   answeredCount: 0,
   correctCount: 0,
   totalScore: 0,
@@ -45,6 +45,9 @@ export function saveProgress(progress: ProgressState) {
   if (typeof window === "undefined") return
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress))
+    window.dispatchEvent(
+      new CustomEvent("n2-progress-updated", { detail: progress })
+    )
   } catch {
     // Ignore storage quota error
   }
@@ -126,7 +129,32 @@ export function toggleBookmarkQuestion(questionId: string): boolean {
   return !exists
 }
 
+export function removeBookmarkQuestion(questionId: string): ProgressState {
+  const current = getStoredProgress()
+  const next: ProgressState = {
+    ...current,
+    bookmarkedQuestionIds: current.bookmarkedQuestionIds.filter(
+      (id) => id !== questionId
+    ),
+  }
+  saveProgress(next)
+  return next
+}
+
+export function clearAllBookmarks(): ProgressState {
+  const current = getStoredProgress()
+  const next: ProgressState = {
+    ...current,
+    bookmarkedQuestionIds: [],
+  }
+  saveProgress(next)
+  return next
+}
+
 export function resetAllProgress() {
   if (typeof window === "undefined") return
   localStorage.removeItem(STORAGE_KEY)
+  window.dispatchEvent(
+    new CustomEvent("n2-progress-updated", { detail: defaultProgress })
+  )
 }

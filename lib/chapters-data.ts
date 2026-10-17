@@ -38,6 +38,9 @@ export function getSectionQuestions(
     id: `ch${chapter.chapter_id}-s${sectionIndex}-q${q.question_number}`,
     chapterId: chapter.chapter_id,
     chapterName: chapter.chapter_name,
+    category:
+      chapter.category ||
+      (typeof chapter.chapter_id === "number" ? "grammar" : "exam"),
     sectionIndex,
     sectionName: sec.section_name,
     sectionInstruction: sec.instruction,
@@ -87,10 +90,32 @@ export function getExamQuestions(): QuizQuestionItem[] {
   return list
 }
 
+let cachedAllQuestions: QuizQuestionItem[] | null = null
+let cachedQuestionsMap: Map<string, QuizQuestionItem> | null = null
+
 export function getAllQuestions(): QuizQuestionItem[] {
+  if (cachedAllQuestions) return cachedAllQuestions
   const list: QuizQuestionItem[] = []
   chapters.forEach((c) => {
     list.push(...getChapterAllQuestions(c.chapter_id))
   })
+  cachedAllQuestions = list
   return list
+}
+
+export function getAllQuestionsMap(): Map<string, QuizQuestionItem> {
+  if (cachedQuestionsMap) return cachedQuestionsMap
+  const map = new Map<string, QuizQuestionItem>()
+  getAllQuestions().forEach((q) => {
+    map.set(q.id, q)
+  })
+  cachedQuestionsMap = map
+  return map
+}
+
+export function getQuestionsByIds(ids: string[]): QuizQuestionItem[] {
+  const map = getAllQuestionsMap()
+  return ids
+    .map((id) => map.get(id))
+    .filter((q): q is QuizQuestionItem => Boolean(q))
 }

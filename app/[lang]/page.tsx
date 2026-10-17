@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect, useMemo, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
@@ -13,6 +13,7 @@ import {
   HelpCircleIcon,
   VolumeHighIcon,
   VolumeMute01Icon,
+  StarIcon,
 } from "@hugeicons/core-free-icons"
 import {
   getAllChapters,
@@ -22,12 +23,15 @@ import {
   getChapterAllQuestions,
   getGrammarQuestions,
   getExamQuestions,
+  getAllQuestionsMap,
 } from "@/lib/chapters-data"
 import { QuizQuestionItem, Chapter } from "@/lib/types"
 import {
   getStoredProgress,
   ProgressState,
   resetAllProgress,
+  toggleBookmarkQuestion,
+  clearAllBookmarks,
 } from "@/lib/storage"
 import { sounds } from "@/lib/sound"
 import { useLanguage } from "@/lib/i18n"
@@ -35,6 +39,7 @@ import { LanguageToggle } from "@/components/language-toggle"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { QuizPlayer } from "@/components/quiz-player"
 import { ChapterSectionsView } from "@/components/chapter-sections-view"
+import { FavoritesView } from "@/components/favorites-view"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -49,7 +54,8 @@ import {
 
 export default function HomePage() {
   const { t, formatString, language } = useLanguage()
-  const [mainTab, setMainTab] = useState<"grammar" | "jlpt">("grammar")
+  const [mainTab, setMainTab] =
+    useState<"grammar" | "jlpt" | "favorites">("grammar")
   const [activeQuizQuestions, setActiveQuizQuestions] = useState<
     QuizQuestionItem[] | null
   >(null)
@@ -71,6 +77,14 @@ export default function HomePage() {
     "all" | "1-10" | "11-20" | "21-30" | "incomplete"
   >("all")
 
+  const handleTabChange = useCallback(
+    (tab: "grammar" | "jlpt" | "favorites") => {
+      setMainTab(tab)
+      setSearchQuery("")
+    },
+    []
+  )
+
   const [progress, setProgress] = useState<ProgressState>({
     answeredCount: 0,
     correctCount: 0,
@@ -90,6 +104,14 @@ export default function HomePage() {
 
   useEffect(() => {
     refreshProgress()
+
+    const handleProgressUpdated = () => {
+      refreshProgress()
+    }
+    window.addEventListener("n2-progress-updated", handleProgressUpdated)
+    return () => {
+      window.removeEventListener("n2-progress-updated", handleProgressUpdated)
+    }
   }, [])
 
   const allChapters = useMemo(() => getAllChapters(), [])
@@ -97,12 +119,29 @@ export default function HomePage() {
   const examChapters = useMemo(() => getExamChapters(), [])
   const grammarQuestions = useMemo(() => getGrammarQuestions(), [])
   const examQuestions = useMemo(() => getExamQuestions(), [])
+  const allQuestionsMap = useMemo(() => getAllQuestionsMap(), [])
+
+  // All bookmarked questions
+  const bookmarkedQuestions = useMemo(() => {
+    return progress.bookmarkedQuestionIds
+      .map((id) => allQuestionsMap.get(id))
+      .filter((q): q is QuizQuestionItem => Boolean(q))
+  }, [progress.bookmarkedQuestionIds, allQuestionsMap])
+
+  const grammarBookmarkedQuestions = useMemo(() => {
+    return bookmarkedQuestions.filter((q) => q.category !== "exam")
+  }, [bookmarkedQuestions])
+
+  const examBookmarkedQuestions = useMemo(() => {
+    return bookmarkedQuestions.filter((q) => q.category === "exam")
+  }, [bookmarkedQuestions])
 
   // Active tab questions and chapters
-  const currentTabQuestions = useMemo(
-    () => (mainTab === "grammar" ? grammarQuestions : examQuestions),
-    [mainTab, grammarQuestions, examQuestions]
-  )
+  const currentTabQuestions = useMemo(() => {
+    if (mainTab === "grammar") return grammarQuestions
+    if (mainTab === "jlpt") return examQuestions
+    return bookmarkedQuestions
+  }, [mainTab, grammarQuestions, examQuestions, bookmarkedQuestions])
 
   const currentTabChapters = useMemo(
     () => (mainTab === "grammar" ? grammarChapters : examChapters),
@@ -328,6 +367,50 @@ export default function HomePage() {
     setActiveQuizQuestions(currentTabMistakes)
   }
 
+  const handlePlayAllFavorites = (questionsList?: QuizQuestionItem[]) => {
+    const list = questionsList || bookmarkedQuestions
+    if (list.length === 0) return
+    setQuizTitle(t.favoriteReviewTitle)
+    setQuizSubtitle(
+      formatString(t.favoriteReviewSubtitle, { count: list.length })
+    )
+    setActiveChapterId(undefined)
+    setActiveSectionIndex(undefined)
+    setActiveQuizQuestions(list)
+  }
+
+  const handlePlayRandomFavorites = (questionsList?: QuizQuestionItem[]) => {
+    const list = questionsList || bookmarkedQuestions
+    if (list.length === 0) return
+    const shuffled = [...list].sort(() => 0.5 - Math.random())
+    const subset = shuffled.slice(0, Math.min(20, list.length))
+    setQuizTitle(t.favoriteReviewTitle)
+    setQuizSubtitle(t.quickQuizSubtitle)
+    setActiveChapterId(undefined)
+    setActiveSectionIndex(undefined)
+    setActiveQuizQuestions(subset)
+  }
+
+  const handlePlaySingleQuestion = (q: QuizQuestionItem) => {
+    setQuizTitle(
+      `${q.chapterName} • ${language === "ja" ? `第${q.questionNumber}問` : `Câu ${q.questionNumber}`}`
+    )
+    setQuizSubtitle(q.sectionName)
+    setActiveChapterId(q.chapterId)
+    setActiveSectionIndex(q.sectionIndex)
+    setActiveQuizQuestions([q])
+  }
+
+  const handleToggleBookmark = (questionId: string) => {
+    toggleBookmarkQuestion(questionId)
+    refreshProgress()
+  }
+
+  const handleClearAllBookmarks = () => {
+    clearAllBookmarks()
+    refreshProgress()
+  }
+
   const handleExitQuiz = () => {
     setActiveQuizQuestions(null)
     refreshProgress()
@@ -466,50 +549,101 @@ export default function HomePage() {
           </h2>
         </div>
 
-        {/* Main 2 Tabs Switcher: Grammar vs JLPT */}
-        <div className="mb-4 lg:mb-5 grid grid-cols-2 rounded-2xl bg-slate-200/60 p-1 lg:max-w-md dark:bg-[#181926]">
+        {/* Main 3 Tabs Switcher: Grammar vs JLPT vs Favorites */}
+        <div className="mb-4 lg:mb-5 grid grid-cols-3 rounded-2xl bg-slate-200/60 p-1 lg:max-w-xl dark:bg-[#181926]">
           <button
-            onClick={() => {
-              setMainTab("grammar")
-              setSearchQuery("")
-            }}
-            className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-xs sm:text-sm font-bold transition-all duration-200 ${mainTab === "grammar"
-              ? "bg-white text-slate-900 dark:bg-[#5368a4] dark:text-white"
-              : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-              }`}
+            onClick={() => handleTabChange("grammar")}
+            className={`flex flex-col sm:flex-row cursor-pointer items-center justify-center gap-1 sm:gap-2 rounded-xl px-1 sm:px-3 py-2 sm:py-2.5 font-bold transition-all duration-200 ${
+              mainTab === "grammar"
+                ? "bg-white text-slate-900 shadow-xs dark:bg-[#5368a4] dark:text-white"
+                : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+            }`}
           >
-            <HugeiconsIcon icon={BookOpen01Icon} size={16} />
-            <span>{t.tabGrammar}</span>
-            <span
-              className={`rounded-full px-2 py-0.5 text-[11px] font-semibold transition ${mainTab === "grammar"
-                ? "bg-slate-100 text-[#5368a4] dark:bg-white/20 dark:text-white"
-                : "bg-slate-300/60 text-slate-600 dark:bg-white/10 dark:text-slate-400"
+            <HugeiconsIcon
+              icon={BookOpen01Icon}
+              size={18}
+              className="shrink-0 sm:w-4 sm:h-4"
+            />
+            <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+              <span className="text-[11px] sm:text-sm font-bold whitespace-nowrap">
+                {t.tabGrammar}
+              </span>
+              <span
+                className={`rounded-full px-1.5 sm:px-2 py-0.2 sm:py-0.5 text-[10px] sm:text-[11px] font-semibold transition shrink-0 ${
+                  mainTab === "grammar"
+                    ? "bg-slate-100 text-[#5368a4] dark:bg-white/20 dark:text-white"
+                    : "bg-slate-300/60 text-slate-600 dark:bg-white/10 dark:text-slate-400"
                 }`}
-            >
-              {grammarChapters.length}
-            </span>
+              >
+                {grammarChapters.length}
+              </span>
+            </div>
           </button>
 
           <button
-            onClick={() => {
-              setMainTab("jlpt")
-              setSearchQuery("")
-            }}
-            className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-xs sm:text-sm font-bold transition-all duration-200 ${mainTab === "jlpt"
-              ? "bg-white text-slate-900 dark:bg-[#5368a4] dark:text-white"
-              : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
-              }`}
+            onClick={() => handleTabChange("jlpt")}
+            className={`flex flex-col sm:flex-row cursor-pointer items-center justify-center gap-1 sm:gap-2 rounded-xl px-1 sm:px-3 py-2 sm:py-2.5 font-bold transition-all duration-200 ${
+              mainTab === "jlpt"
+                ? "bg-white text-slate-900 shadow-xs dark:bg-[#5368a4] dark:text-white"
+                : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+            }`}
           >
-            <HugeiconsIcon icon={CheckmarkBadge01Icon} size={16} />
-            <span>{t.tabJlpt}</span>
-            <span
-              className={`rounded-full px-2 py-0.5 text-[11px] font-semibold transition ${mainTab === "jlpt"
-                ? "bg-indigo-100 text-indigo-600 dark:bg-white/20 dark:text-white"
-                : "bg-slate-300/60 text-slate-600 dark:bg-white/10 dark:text-slate-400"
+            <HugeiconsIcon
+              icon={CheckmarkBadge01Icon}
+              size={18}
+              className="shrink-0 sm:w-4 sm:h-4"
+            />
+            <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+              <span className="text-[11px] sm:text-sm font-bold whitespace-nowrap">
+                {t.tabJlpt}
+              </span>
+              <span
+                className={`rounded-full px-1.5 sm:px-2 py-0.2 sm:py-0.5 text-[10px] sm:text-[11px] font-semibold transition shrink-0 ${
+                  mainTab === "jlpt"
+                    ? "bg-indigo-100 text-indigo-600 dark:bg-white/20 dark:text-white"
+                    : "bg-slate-300/60 text-slate-600 dark:bg-white/10 dark:text-slate-400"
                 }`}
-            >
-              {examChapters.length}
-            </span>
+              >
+                {examChapters.length}
+              </span>
+            </div>
+          </button>
+
+          <button
+            onClick={() => handleTabChange("favorites")}
+            className={`flex flex-col sm:flex-row cursor-pointer items-center justify-center gap-1 sm:gap-2 rounded-xl px-1 sm:px-3 py-2 sm:py-2.5 font-bold transition-all duration-200 ${
+              mainTab === "favorites"
+                ? "bg-white text-slate-900 shadow-xs dark:bg-amber-500 dark:text-white"
+                : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+            }`}
+          >
+            <HugeiconsIcon
+              icon={StarIcon}
+              size={18}
+              className={`shrink-0 sm:w-4 sm:h-4 ${
+                mainTab === "favorites"
+                  ? "text-amber-500 fill-amber-500 dark:text-white dark:fill-white"
+                  : bookmarkedQuestions.length > 0
+                    ? "text-amber-500 fill-amber-500"
+                    : "text-slate-400"
+              }`}
+            />
+            <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+              <span className="text-[11px] sm:text-sm font-bold whitespace-nowrap">
+                {t.tabFavorites}
+              </span>
+              <span
+                className={`rounded-full px-1.5 sm:px-2 py-0.2 sm:py-0.5 text-[10px] sm:text-[11px] font-semibold transition shrink-0 ${
+                  mainTab === "favorites"
+                    ? "bg-amber-100 text-amber-700 dark:bg-white/20 dark:text-white"
+                    : bookmarkedQuestions.length > 0
+                      ? "bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 font-bold"
+                      : "bg-slate-300/60 text-slate-600 dark:bg-white/10 dark:text-slate-400"
+                }`}
+              >
+                {bookmarkedQuestions.length}
+              </span>
+            </div>
           </button>
         </div>
 
@@ -517,76 +651,124 @@ export default function HomePage() {
         <div className="mb-4 lg:mb-5 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-3.5">
           <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926]">
             <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
-              {currentTabQuestions.length}
+              {mainTab === "favorites"
+                ? bookmarkedQuestions.length
+                : currentTabQuestions.length}
             </span>
             <span className="mt-1 block text-xs font-medium text-slate-400 dark:text-slate-400">
-              {t.totalQuestions}
+              {mainTab === "favorites"
+                ? t.totalFavorites
+                : t.totalQuestions}
             </span>
           </div>
 
           <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926]">
             <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
-              {currentTabChapters.length}
+              {mainTab === "favorites"
+                ? grammarBookmarkedQuestions.length
+                : currentTabChapters.length}
             </span>
             <span className="mt-1 block text-xs font-medium text-slate-400 dark:text-slate-400">
-              {mainTab === "grammar"
-                ? t.totalChapters
-                : language === "ja"
-                  ? "回分"
-                  : "Bộ đề"}
-            </span>
-          </div>
-
-          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926]">
-            <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
-              {currentTabPracticedCount > 0
-                ? currentTabPracticedCount
+              {mainTab === "favorites"
+                ? t.grammarFavorites
                 : mainTab === "grammar"
-                  ? "10"
-                  : examQuestions.length}
+                  ? t.totalChapters
+                  : language === "ja"
+                    ? "回分"
+                    : "Bộ đề"}
+            </span>
+          </div>
+
+          <div className="rounded-2xl bg-white p-3.5 sm:p-4 text-center transition dark:bg-[#181926]">
+            <span className="block text-xl leading-none font-bold text-[#38529a] sm:text-2xl dark:text-[#8ea2db]">
+              {mainTab === "favorites"
+                ? examBookmarkedQuestions.length
+                : currentTabPracticedCount > 0
+                  ? currentTabPracticedCount
+                  : mainTab === "grammar"
+                    ? "10"
+                    : examQuestions.length}
             </span>
             <span className="mt-1 block text-xs font-medium text-slate-400 dark:text-slate-400">
-              {currentTabPracticedCount > 0
-                ? t.questionsPracticed
-                : t.questionsPerSession}
+              {mainTab === "favorites"
+                ? t.examFavorites
+                : currentTabPracticedCount > 0
+                  ? t.questionsPracticed
+                  : t.questionsPerSession}
             </span>
           </div>
         </div>
 
         {/* Quick Launch Action reflecting current tab */}
         <div className="mb-5 lg:mb-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
-          <button
-            onClick={handlePlayAll}
-            className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-5 py-3 text-xs sm:text-sm font-bold text-white transition hover:bg-[#475b94] hover:-translate-y-0.5 hover:shadow-md active:scale-[0.99]"
-          >
-            <HugeiconsIcon icon={PlayIcon} size={17} />
-            {mainTab === "grammar"
-              ? `${t.practiceAll} (${currentTabQuestions.length} ${t.questionsUnit})`
-              : formatString(t.practiceEntireExam, {
-                count: currentTabQuestions.length,
-              })}
-          </button>
+          {mainTab === "favorites" ? (
+            <>
+              {bookmarkedQuestions.length > 0 && (
+                <>
+                  <button
+                    onClick={() => handlePlayAllFavorites()}
+                    className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-5 py-3 text-xs sm:text-sm font-bold text-white transition hover:bg-[#475b94] hover:-translate-y-0.5 hover:shadow-md active:scale-[0.99]"
+                  >
+                    <HugeiconsIcon icon={PlayIcon} size={17} />
+                    <span>
+                      {formatString(t.practiceAllFavorites, {
+                        count: bookmarkedQuestions.length,
+                      })}
+                    </span>
+                  </button>
 
-          <button
-            onClick={handlePlayRandom}
-            className="flex sm:w-auto cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 hover:-translate-y-0.5 hover:shadow-xs active:scale-[0.99] dark:border-white/10 dark:bg-[#181926] dark:text-slate-200 dark:hover:bg-[#202234]"
-          >
-            <HugeiconsIcon
-              icon={SparklesIcon}
-              size={15}
-              className="text-[#5368a4]"
-            />
-            {t.practiceRandom}
-          </button>
+                  {bookmarkedQuestions.length >= 10 && (
+                    <button
+                      onClick={() => handlePlayRandomFavorites()}
+                      className="flex sm:w-auto cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 hover:-translate-y-0.5 hover:shadow-xs active:scale-[0.99] dark:border-white/10 dark:bg-[#181926] dark:text-slate-200 dark:hover:bg-[#202234]"
+                    >
+                      <HugeiconsIcon
+                        icon={SparklesIcon}
+                        size={15}
+                        className="text-[#5368a4]"
+                      />
+                      <span>{t.practiceRandomFavorites}</span>
+                    </button>
+                  )}
+                </>
+              )}
+            </>
+          ) : (
+            <>
+              <button
+                onClick={handlePlayAll}
+                className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#5368a4] px-5 py-3 text-xs sm:text-sm font-bold text-white transition hover:bg-[#475b94] hover:-translate-y-0.5 hover:shadow-md active:scale-[0.99]"
+              >
+                <HugeiconsIcon icon={PlayIcon} size={17} />
+                {mainTab === "grammar"
+                  ? `${t.practiceAll} (${currentTabQuestions.length} ${t.questionsUnit})`
+                  : formatString(t.practiceEntireExam, {
+                    count: currentTabQuestions.length,
+                  })}
+              </button>
 
-          {mistakesCount > 0 && (
-            <button
-              onClick={handlePlayMistakes}
-              className="flex sm:w-auto cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold text-rose-700 transition hover:bg-rose-100 hover:-translate-y-0.5 hover:shadow-xs active:scale-[0.99] dark:border-rose-900/50 dark:bg-rose-950/30 dark:text-rose-300 dark:hover:bg-rose-900/40"
-            >
-              <HugeiconsIcon icon={RotateRight01Icon} size={15} />
-              {formatString(t.reviewMistakes, { count: mistakesCount })}
-            </button>
+              <button
+                onClick={handlePlayRandom}
+                className="flex sm:w-auto cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 hover:-translate-y-0.5 hover:shadow-xs active:scale-[0.99] dark:border-white/10 dark:bg-[#181926] dark:text-slate-200 dark:hover:bg-[#202234]"
+              >
+                <HugeiconsIcon
+                  icon={SparklesIcon}
+                  size={15}
+                  className="text-[#5368a4]"
+                />
+                {t.practiceRandom}
+              </button>
+
+              {mistakesCount > 0 && (
+                <button
+                  onClick={handlePlayMistakes}
+                  className="flex sm:w-auto cursor-pointer items-center justify-center gap-1.5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold text-rose-700 transition hover:bg-rose-100 hover:-translate-y-0.5 hover:shadow-xs active:scale-[0.99] dark:border-rose-900/50 dark:bg-rose-950/30 dark:text-rose-300 dark:hover:bg-rose-900/40"
+                >
+                  <HugeiconsIcon icon={RotateRight01Icon} size={15} />
+                  {formatString(t.reviewMistakes, { count: mistakesCount })}
+                </button>
+              )}
+            </>
           )}
         </div>
 
@@ -794,6 +976,21 @@ export default function HomePage() {
                 )
               })}
             </div>
+          </div>
+        )}
+
+        {/* Tab 3 Content: FAVORITES */}
+        {mainTab === "favorites" && (
+          <div className="animate-in duration-200 fade-in">
+            <FavoritesView
+              questions={bookmarkedQuestions}
+              onPracticeAll={handlePlayAllFavorites}
+              onPracticeSingle={handlePlaySingleQuestion}
+              onToggleBookmark={handleToggleBookmark}
+              onClearAll={handleClearAllBookmarks}
+              onExploreGrammar={() => handleTabChange("grammar")}
+              onExploreExams={() => handleTabChange("jlpt")}
+            />
           </div>
         )}
 

@@ -49,8 +49,8 @@ export function LanguageToggle() {
         onClick={() => handleSelectLanguage("vi")}
         title="Tiếng Việt"
         className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-full text-xs font-bold transition-colors duration-200 ${language === "vi"
-            ? "text-white"
-            : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+          ? "text-white"
+          : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
           }`}
       >
         VI
@@ -60,8 +60,8 @@ export function LanguageToggle() {
         onClick={() => handleSelectLanguage("ja")}
         title="日本語 (Japanese)"
         className={`relative z-10 flex h-full w-full cursor-pointer items-center justify-center rounded-full text-xs font-bold transition-colors duration-200 ${language === "ja"
-            ? "text-white"
-            : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+          ? "text-white"
+          : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
           }`}
       >
         JA

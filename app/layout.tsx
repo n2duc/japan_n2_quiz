@@ -40,6 +40,10 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f8fc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f111a" },
+  ],
 }
 
 export default function RootLayout({
@@ -59,24 +63,6 @@ export default function RootLayout({
         inter.variable
       )}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  var isDark = theme === 'dark' || ((!theme || theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                  var meta = document.createElement('meta');
-                  meta.name = 'theme-color';
-                  meta.content = isDark ? '#0f111a' : '#f6f8fc';
-                  document.head.appendChild(meta);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
       <body className="min-h-dvh bg-[#f6f8fc] text-slate-800 transition-colors duration-150 selection:bg-[#5368a4] selection:text-white dark:bg-[#0f111a] dark:text-slate-100">
         <LanguageProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

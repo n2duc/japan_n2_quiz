@@ -89,6 +89,31 @@ export interface Translations {
   grammarSectionTitle: string
   tabGrammar: string
   tabJlpt: string
+  tabFavorites: string
+  totalFavorites: string
+  grammarFavorites: string
+  examFavorites: string
+  practiceAllFavorites: string
+  practiceRandomFavorites: string
+  favoriteReviewTitle: string
+  favoriteReviewSubtitle: string
+  noFavoritesTitle: string
+  noFavoritesDesc: string
+  filterAllFavorites: string
+  filterGrammarFavorites: string
+  filterExamFavorites: string
+  searchFavoritesPlaceholder: string
+  clearAllFavorites: string
+  clearAllFavoritesConfirmTitle: string
+  clearAllFavoritesConfirmDesc: string
+  practiceThisQuestion: string
+  showOptions: string
+  hideOptions: string
+  correctAnswerLabel: string
+  askAiAboutQuestion: string
+  exploreGrammarBtn: string
+  exploreExamsBtn: string
+  practiceGroupFavorites: string
 }
 
 const translations: Record<Language, Translations> = {
@@ -181,6 +206,33 @@ const translations: Record<Language, Translations> = {
     grammarSectionTitle: "Luyện ngữ pháp theo Chapter",
     tabGrammar: "Ngữ pháp",
     tabJlpt: "Đề thi JLPT",
+    tabFavorites: "Yêu thích",
+    totalFavorites: "Đã lưu",
+    grammarFavorites: "Ngữ pháp",
+    examFavorites: "Đề thi",
+    practiceAllFavorites: "Luyện {count} câu đã lưu",
+    practiceRandomFavorites: "Luyện ngẫu nhiên câu đã lưu",
+    favoriteReviewTitle: "Ôn tập câu hỏi yêu thích",
+    favoriteReviewSubtitle: "{count} câu hỏi đã đánh dấu",
+    noFavoritesTitle: "Chưa có câu hỏi yêu thích nào",
+    noFavoritesDesc:
+      "Khi làm bài luyện tập, bấm vào biểu tượng ngôi sao để lưu lại các câu hỏi quan trọng cần ôn lại sau.",
+    filterAllFavorites: "Tất cả",
+    filterGrammarFavorites: "Ngữ pháp",
+    filterExamFavorites: "Đề thi JLPT",
+    searchFavoritesPlaceholder: "Tìm câu hỏi, từ vựng, đáp án đã lưu...",
+    clearAllFavorites: "Bỏ lưu tất cả",
+    clearAllFavoritesConfirmTitle: "Bỏ lưu toàn bộ câu hỏi?",
+    clearAllFavoritesConfirmDesc:
+      "Hành động này sẽ xóa tất cả câu hỏi khỏi danh sách yêu thích của bạn.",
+    practiceThisQuestion: "Luyện câu này",
+    showOptions: "Xem đáp án & giải thích",
+    hideOptions: "Thu gọn",
+    correctAnswerLabel: "Đáp án đúng",
+    askAiAboutQuestion: "Hỏi AI về câu này",
+    exploreGrammarBtn: "Luyện Ngữ pháp",
+    exploreExamsBtn: "Luyện Đề thi",
+    practiceGroupFavorites: "Luyện đề này ({count})",
   },
   ja: {
     appName: "文法復習",
@@ -270,6 +322,33 @@ const translations: Record<Language, Translations> = {
     grammarSectionTitle: "章別文法演習",
     tabGrammar: "文法",
     tabJlpt: "JLPT 過去問",
+    tabFavorites: "お気に入り",
+    totalFavorites: "保存済み",
+    grammarFavorites: "文法",
+    examFavorites: "過去問",
+    practiceAllFavorites: "保存した{count}問を練習",
+    practiceRandomFavorites: "保存した問題をランダム練習",
+    favoriteReviewTitle: "お気に入りの復習",
+    favoriteReviewSubtitle: "{count}問の保存済み問題",
+    noFavoritesTitle: "お気に入りがまだありません",
+    noFavoritesDesc:
+      "問題を解く際に、星マークを押して後で復習したい問題を保存できます。",
+    filterAllFavorites: "すべて",
+    filterGrammarFavorites: "文法",
+    filterExamFavorites: "過去問",
+    searchFavoritesPlaceholder: "保存した問題、語彙、選択肢を検索...",
+    clearAllFavorites: "すべて解除",
+    clearAllFavoritesConfirmTitle: "すべてのお気に入りを解除しますか？",
+    clearAllFavoritesConfirmDesc:
+      "この操作により、すべてのお気に入り問題がリストから削除されます。",
+    practiceThisQuestion: "この問題を解く",
+    showOptions: "選択肢・解説を表示",
+    hideOptions: "閉じる",
+    correctAnswerLabel: "正解",
+    askAiAboutQuestion: "AIに質問する",
+    exploreGrammarBtn: "文法を練習",
+    exploreExamsBtn: "過去問を練習",
+    practiceGroupFavorites: "この試験を練習 ({count})",
   },
 }
 

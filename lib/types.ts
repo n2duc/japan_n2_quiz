@@ -28,6 +28,7 @@ export interface QuizQuestionItem {
   id: string
   chapterId: number | string
   chapterName: string
+  category?: "grammar" | "exam"
   sectionIndex: number
   sectionName: string
   sectionInstruction?: string

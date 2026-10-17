@@ -6,183 +6,183 @@
   "sections": [
     {
       "section_name": "問題 1",
-      "instruction": "____の読み方として最もよいものを１・２・３・４から一つ選びなさい。",
+      "instruction": "_____の言葉の読み方として最もよいものを、1・2・3・4から一つ選びなさい。",
       "questions": [
         {
           "question_number": 1,
-          "question_text": "その当時の記憶があまりない。",
+          "question_text": "その当時の<u>記憶</u>があまりない。",
           "options": {
             "1": "きりょく",
             "2": "きよく",
             "3": "きろく",
             "4": "きおく"
           },
-          "answer": 4,
           "options_vi": {
-            "1": "khí lực",
-            "2": "không phải cách đọc đúng",
-            "3": "khi lục / ghi chép",
-            "4": "ký ức (記憶)"
-          }
+            "1": "khí lực, năng lượng (気力)",
+            "2": "thanh sạch (清く)",
+            "3": "kỷ lục, ghi chép (記録)",
+            "4": "ký ức, trí nhớ (記憶)"
+          },
+          "answer": 4
         },
         {
           "question_number": 2,
-          "question_text": "前田さんがそんなに偉い人だとは知りませんでした。",
+          "question_text": "前田さんがそんなに<u>偉い</u>人だとは知りませんでした。",
           "options": {
             "1": "かしこい",
             "2": "えらい",
             "3": "すごい",
             "4": "するどい"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "thông minh",
-            "2": "vĩ đại, tài giỏi, đáng kính (偉い)",
-            "3": "siêu, giỏi",
-            "4": "sắc bén"
-          }
+            "1": "thông minh (賢い)",
+            "2": "vĩ đại, xuất chúng, có địa vị cao (偉い)",
+            "3": "tuyệt vời, ghê gớm (凄い)",
+            "4": "sắc bén (鋭い)"
+          },
+          "answer": 2
         },
         {
           "question_number": 3,
-          "question_text": "私が仕事の話を始めたら、途端に西田さんの機嫌が悪くなった。",
+          "question_text": "私が仕事の話を始めたら、<u>途端に</u>西田さんの機嫌が悪くなった。",
           "options": {
             "1": "とたんに",
             "2": "とうたんに",
             "3": "たんとに",
             "4": "たんとうに"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "ngay lập tức, vừa lúc (途端に)",
+            "1": "vừa mới... thì ngay lập tức (途端に)",
             "2": "không phải cách đọc đúng",
             "3": "không phải cách đọc đúng",
-            "4": "không phải cách đọc đúng"
-          }
+            "4": "phụ trách (担当)"
+          },
+          "answer": 1
         },
         {
           "question_number": 4,
-          "question_text": "スピーチ大会の司会を務める。",
+          "question_text": "スピーチ大会の司会を<u>務める</u>。",
           "options": {
             "1": "まとめる",
             "2": "やめる",
             "3": "さだめる",
             "4": "つとめる"
           },
-          "answer": 4,
           "options_vi": {
-            "1": "tổng hợp, thu thập",
-            "2": "dừng",
-            "3": "quy định",
-            "4": "đảm nhiệm, phục vụ (務める)"
-          }
+            "1": "tập hợp, tóm tắt (まとめる)",
+            "2": "dừng, bỏ (辞める/やめる)",
+            "3": "xác định, quy định (定める)",
+            "4": "đảm nhiệm vai trò (務める)"
+          },
+          "answer": 4
         },
         {
           "question_number": 5,
-          "question_text": "これは特別な素材で作られているそうだ。",
+          "question_text": "これは特別な<u>素材</u>で作られているそうだ。",
           "options": {
             "1": "そうざい",
             "2": "しょうざい",
             "3": "そざい",
             "4": "しょざい"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "thức ăn sẵn / món ăn phụ",
+            "1": "thức ăn chế biến sẵn (惣菜)",
             "2": "không phải cách đọc đúng",
             "3": "nguyên liệu, chất liệu (素材)",
-            "4": "sở tại"
-          }
+            "4": "vị trí, nơi ở (所在)"
+          },
+          "answer": 3
         }
       ]
     },
     {
       "section_name": "問題 2",
-      "instruction": "____の言葉で漢字を書くとき、最もよいものを１・２・３・４から一つ選びなさい。",
+      "instruction": "_____の言葉を漢字で書くとき、最もよいものを1・2・3・4から一つ選びなさい。",
       "questions": [
         {
           "question_number": 6,
-          "question_text": "いつの間にか太陽がのぼっていた。",
+          "question_text": "いつのまにか太陽が<u>のぼって</u>いた。",
           "options": {
             "1": "去って",
             "2": "至って",
             "3": "昇って",
             "4": "照って"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "rời đi",
-            "2": "đến mức",
-            "3": "mọc lên (mặt trời) (昇る)",
-            "4": "chiếu sáng"
-          }
+            "1": "rời đi (去る)",
+            "2": "đạt đến (至る)",
+            "3": "mọc lên, dâng lên (mặt trời mọc) (昇る)",
+            "4": "chiếu sáng (照る)"
+          },
+          "answer": 3
         },
         {
           "question_number": 7,
-          "question_text": "すいちょくに栓を引く。",
+          "question_text": "<u>すいちょく</u>に栓を引く。",
           "options": {
             "1": "乗頂",
             "2": "乗直",
             "3": "垂頂",
             "4": "垂直"
           },
-          "answer": 4,
           "options_vi": {
             "1": "chữ Hán sai",
             "2": "chữ Hán sai",
             "3": "chữ Hán sai",
             "4": "thẳng đứng, vuông góc (垂直)"
-          }
+          },
+          "answer": 4
         },
         {
           "question_number": 8,
-          "question_text": "研修生を受け入れるために、じゅうきょを確保する必要がある。",
+          "question_text": "研修生を受け入れるために、<u>じゅうきょ</u>を確保する必要がある。",
           "options": {
             "1": "住宅",
             "2": "住居",
             "3": "住家",
             "4": "住屋"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "nhà ở (kiểu chung cư/nhà tập thể)",
-            "2": "chỗ ở, nhà cửa, cư trú (住居)",
-            "3": "chữ Hán sai",
+            "1": "nhà ở (じゅうたく)",
+            "2": "chỗ ở, nơi cư trú (住居 - じゅうきょ)",
+            "3": "nhà ở (じゅうか)",
             "4": "chữ Hán sai"
-          }
+          },
+          "answer": 2
         },
         {
           "question_number": 9,
-          "question_text": "災害にそなえることはとても大切だ。",
+          "question_text": "災害に<u>そなえる</u>ことはとても大切だ。",
           "options": {
             "1": "備える",
             "2": "準える",
             "3": "整える",
             "4": "控える"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "chuẩn bị, phòng bị (備える)",
-            "2": "so sánh, phỏng theo",
-            "3": "chuẩn bị/sắp xếp gọn gàng",
-            "4": "chế ngự / ghi lại /chờ"
-          }
+            "1": "chuẩn bị phòng bị (備える)",
+            "2": "chữ Hán sai",
+            "3": "chỉnh đốn, chuẩn bị sẵn (整える)",
+            "4": "kiềm chế, ghi chép dự phòng (控える)"
+          },
+          "answer": 1
         },
         {
           "question_number": 10,
-          "question_text": "てんけいてきな例を挙げて説明した。",
+          "question_text": "<u>てんけいてき</u>な例を挙げて説明した。",
           "options": {
             "1": "点型的",
             "2": "典形的",
             "3": "点形的",
             "4": "典型的"
           },
-          "answer": 4,
           "options_vi": {
             "1": "chữ Hán sai",
             "2": "chữ Hán sai",
             "3": "chữ Hán sai",
-            "4": "điển hình (典型的)"
-          }
+            "4": "mang tính điển hình, tiêu biểu (典型的)"
+          },
+          "answer": 4
         }
       ]
     },
@@ -192,54 +192,54 @@
       "questions": [
         {
           "question_number": 11,
-          "question_text": "( )分野の人と話すのはいい刺激になる。",
+          "question_text": "（ ）分野の人と話すのはいい刺激になる。",
           "options": {
             "1": "逆",
             "2": "異",
             "3": "副",
             "4": "裏"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "ngược",
-            "2": "khác (異分野: lĩnh vực khác)",
-            "3": "phụ",
-            "4": "mặt trái"
-          }
+            "1": "ngược lại (逆)",
+            "2": "khác nhau (異分野: lĩnh vực khác)",
+            "3": "phụ (副)",
+            "4": "mặt sau (裏)"
+          },
+          "answer": 2
         },
         {
           "question_number": 12,
-          "question_text": "その店は、よい品物を ( ) 価格で売っている。",
+          "question_text": "その店は、よい品物を（ ）価格で売っている。",
           "options": {
             "1": "半",
             "2": "安",
             "3": "小",
             "4": "低"
           },
-          "answer": 4,
           "options_vi": {
-            "1": "bán",
-            "2": "an",
-            "3": "tiểu",
-            "4": "thấp (低価格: giá thấp)"
-          }
+            "1": "nửa (半)",
+            "2": "rẻ (安)",
+            "3": "nhỏ (小)",
+            "4": "thấp (低価格: mức giá rẻ/thấp)"
+          },
+          "answer": 4
         },
         {
           "question_number": 13,
-          "question_text": "運転免許証など、顔写真 ( )の身分証明書を見せてください。",
+          "question_text": "運転免許証など、顔写真（ ）の身分証明書を見せてください。",
           "options": {
             "1": "足し",
             "2": "載せ",
             "3": "付き",
             "4": "含み"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "thêm vào",
-            "2": "đăng lên",
-            "3": "có kèm theo (顔写真付きの身分証明書: giấy tờ tùy thân có kèm ảnh)",
-            "4": "bao gồm"
-          }
+            "1": "thêm vào (足し)",
+            "2": "đăng tải (載せ)",
+            "3": "kèm theo, có gắn (顔写真付き: có kèm ảnh thẻ chân dung)",
+            "4": "bao gồm (含み)"
+          },
+          "answer": 3
         }
       ]
     },
@@ -249,20 +249,20 @@
       "questions": [
         {
           "question_number": 14,
-          "question_text": "職場環境の問題については、会社との( )の結果、改善してもらえることになった。",
+          "question_text": "職場環境の問題については、会社との（ ）の結果、改善してもらえることになった。",
           "options": {
             "1": "交渉",
             "2": "授受",
             "3": "通話",
             "4": "出願"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "đàm phán, thương lượng (会社との交渉)",
-            "2": "cho và nhận",
-            "3": "đàm thoại",
-            "4": "nộp đơn"
-          }
+            "1": "đàm phán, thương lượng (交渉)",
+            "2": "giao nhận (授受)",
+            "3": "gọi điện thoại (通話)",
+            "4": "nộp đơn đăng ký (出願)"
+          },
+          "answer": 1
         },
         {
           "question_number": 15,
@@ -273,580 +273,616 @@
             "3": "カット",
             "4": "ブラッシュ"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "hủy",
-            "2": "vượt qua, clear (課題をクリアする)",
-            "3": "cắt giảm",
-            "4": "đánh bóng (brush up)"
-          }
+            "1": "hủy bỏ (cancel)",
+            "2": "vượt qua, hoàn thành mục tiêu (clear / 課題をクリアする)",
+            "3": "cắt giảm (cut)",
+            "4": "trau chuốt (brush up)"
+          },
+          "answer": 2
         },
         {
           "question_number": 16,
-          "question_text": "このカメラは小型だが、通常のモデルに比べて性能が ( )いるわけではない。",
+          "question_text": "このカメラは小型だが、通常のモデルに比べて性能が（ ）いるわけではない。",
           "options": {
             "1": "縮んで",
             "2": "荒れて",
             "3": "沈んで",
             "4": "劣って"
           },
-          "answer": 4,
           "options_vi": {
-            "1": "co lại",
-            "2": "động động/xấu đi",
-            "3": "chìm",
-            "4": "kém hơn (性能が劣っているわけではない)"
-          }
+            "1": "co lại, thu nhỏ (縮む)",
+            "2": "nứt nẻ, hỗn loạn (荒れる)",
+            "3": "chìm đắm (沈む)",
+            "4": "thua kém, kém cỏi (劣る / 性能が劣る)"
+          },
+          "answer": 4
         },
         {
           "question_number": 17,
-          "question_text": "父は手術後、医者も驚くほど( )回復した。",
+          "question_text": "父は手術後、医者も驚くほど（ ）回復した。",
           "options": {
             "1": "劇的に",
             "2": "格別に",
             "3": "真剣に",
             "4": "強大に"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "một cách kịch tính, nhanh chóng và rõ rệt (劇的に回復した)",
-            "2": "đặc biệt",
-            "3": "nghiêm túc",
-            "4": "hùng mạnh"
-          }
+            "1": "ngoạn mục, thần kỳ như phim kịch (劇的に回復する)",
+            "2": "đặc biệt, ngoại lệ (格別に)",
+            "3": "nghiêm túc (真剣に)",
+            "4": "hùng mạnh (強大に)"
+          },
+          "answer": 1
         },
         {
           "question_number": 18,
-          "question_text": "このシステムを利用するには、インターネットに( )しているパソコンが必要です。",
+          "question_text": "このシステムを利用するには、インターネットに（ ）しているパソコンが必要です。",
           "options": {
             "1": "到達",
             "2": "付属",
             "3": "接続",
             "4": "密着"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "đạt đến",
-            "2": "đính kèm",
-            "3": "kết nối (インターネットに接続している)",
-            "4": "dính chặt"
-          }
+            "1": "đến nơi (到達)",
+            "2": "phụ kiện đính kèm (付属)",
+            "3": "kết nối mạng (インターネットに接続する)",
+            "4": "bám sát, dính chặt (密着)"
+          },
+          "answer": 3
         },
         {
           "question_number": 19,
-          "question_text": "アルバイトの募集は 3 月末で( )ので、もう応募はできません。",
+          "question_text": "アルバイトの募集は 3 月末で（ ）ので、もう応募はできません。",
           "options": {
             "1": "取り払った",
             "2": "打ち消した",
             "3": "締め切った",
             "4": "引き離した"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "dọn bỏ",
-            "2": "phủ nhận",
-            "3": "đóng hạn, kết thúc nhận hồ sơ (締め切った)",
-            "4": "kéo dãn ra"
-          }
+            "1": "dẹp bỏ, gỡ bỏ (取り払う)",
+            "2": "phủ nhận (打ち消す)",
+            "3": "đóng hạn chót, kết thúc nhận đơn (締め切る)",
+            "4": "chia cắt, tách rời (引き離す)"
+          },
+          "answer": 3
         },
         {
           "question_number": 20,
-          "question_text": "ガイドの後ろをツアー客たちが、( ) ついて歩いている。",
+          "question_text": "ガイドの後ろをツアー客たちが、（ ）ついて歩いている。",
           "options": {
             "1": "ごくごく",
             "2": "ぞろぞろ",
             "3": "ぎしぎし",
             "4": "じめじめ"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "ửng ực (uống)",
-            "2": "lũ lượt, đông đúc kéo theo sau (ぞろぞろついて歩く)",
-            "3": "cót kẹt",
-            "4": "ẩm ướt"
-          }
+            "1": "uống ừng ực (ごくごく)",
+            "2": "nối đuôi nhau rồng rắn, đông đảo (ぞろぞろついて歩く)",
+            "3": "kẽo kẹt (ぎしぎし)",
+            "4": "ẩm ướt khó chịu (じめじめ)"
+          },
+          "answer": 2
         }
       ]
     },
     {
       "section_name": "問題 5",
-      "instruction": "____の言葉に意味が最も近いものを、１・２・３・４から一つ選びなさい。",
+      "instruction": "_____の言葉に意味が最も近いものを、1・2・3・4から一つ選びなさい。",
       "questions": [
         {
           "question_number": 21,
-          "question_text": "衝突しそうになってしまった",
+          "question_text": "<u>衝突しそうに</u>なってしまった。",
           "options": {
             "1": "ぶつかりそう",
             "2": "落ちそう",
             "3": "壊しそう",
             "4": "破りそう"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "suýt va chạm (衝突しそう = ぶつかりそう)",
-            "2": "suýt ngã",
-            "3": "suýt hỏng",
-            "4": "suýt rách"
-          }
+            "1": "suýt đâm va vào nhau (ぶつかる = 衝突する)",
+            "2": "suýt rơi (落ちる)",
+            "3": "suýt làm hỏng (壊す)",
+            "4": "suýt làm rách (破る)"
+          },
+          "answer": 1
         },
         {
           "question_number": 22,
-          "question_text": "彼には再三お願いしているのですが。",
+          "question_text": "彼には<u>再三</u>お願いしているのですが。",
           "options": {
             "1": "たまに",
             "2": "何度か",
             "3": "何度も",
             "4": "いつも"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "thỉnh thoảng",
-            "2": "mấy lần",
-            "3": "nhiều lần, liên tục (再三 = 何度も)",
-            "4": "luôn luôn"
-          }
+            "1": "thỉnh thoảng (たまに)",
+            "2": "vài lần (何度か)",
+            "3": "nhiều lần, lặp đi lặp lại (何度も = 再三)",
+            "4": "luôn luôn (いつも)"
+          },
+          "answer": 3
         },
         {
           "question_number": 23,
-          "question_text": "彼が言っていることはでたらめだ。",
+          "question_text": "彼が言っていることは<u>でたらめだ</u>。",
           "options": {
             "1": "悪口",
             "2": "わがまま",
             "3": "うそ",
             "4": "自慢"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "nói xấu",
-            "2": "ích kỷ",
-            "3": "nói dối, bị đặt, nhảm nhí (でたらめ = うそ)",
-            "4": "tự hào"
-          }
+            "1": "nói xấu (悪口)",
+            "2": "ích kỷ (わがまま)",
+            "3": "nói dối, bốc phét bịa đặt (うそ = でたらめ)",
+            "4": "khoe khoang (自慢)"
+          },
+          "answer": 3
         },
         {
           "question_number": 24,
-          "question_text": "すみません、お勘定をお願いします。",
+          "question_text": "すみません、<u>お勘定</u>をお願いします。",
           "options": {
             "1": "注文",
             "2": "会計",
             "3": "予約",
             "4": "配達"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "gọi món",
-            "2": "tính tiền, thanh toán (勘定 = 会計)",
-            "3": "đặt chỗ",
-            "4": "giao hàng"
-          }
+            "1": "gọi món (注文)",
+            "2": "thanh toán tiền (会計 = お勘定)",
+            "3": "đặt chỗ (予約)",
+            "4": "giao hàng (配達)"
+          },
+          "answer": 2
         },
         {
           "question_number": 25,
-          "question_text": "今日は、犬がいつもよりさわがしい。",
+          "question_text": "今日は、犬がいつもより<u>さわがしい</u>。",
           "options": {
             "1": "悲しい",
             "2": "静かに",
             "3": "楽しい",
             "4": "うるさい"
           },
-          "answer": 4,
           "options_vi": {
-            "1": "buồn",
-            "2": "yên tĩnh",
-            "3": "vui",
-            "4": "ồn ào, náo động (さわがしい = うるさい)"
-          }
+            "1": "buồn bã (悲しい)",
+            "2": "yên tĩnh (静か)",
+            "3": "vui vẻ (楽しい)",
+            "4": "ồn ào, làm om sòm (うるさい = さわがしい)"
+          },
+          "answer": 4
         }
       ]
     },
     {
       "section_name": "問題 6",
-      "instruction": "次の言葉の使い方として最もよいものを、１・２・３・４から一つ選びなさい。",
+      "instruction": "次の言葉の使い方として最もよいものを、1・2・3・4から一つ選びなさい。",
       "questions": [
         {
           "question_number": 26,
           "word": "温厚",
           "options": {
-            "1": "温厚な伯父は、みんなから愛されている。",
-            "2": "旅行中は、どこに行っても温厚な歓迎を受けてうれしかった。",
-            "3": "日は気温が下がるようなので、温厚なコートが必要だ。",
-            "4": "雪の日には温厚なスープが飲みたくなる。"
+            "1": "<u>温厚</u>な伯父は、みんなから愛されている。",
+            "2": "旅行中は、どこに行っても<u>温厚</u>な歓迎を受けてうれしかった。",
+            "3": "今日は気温が下がるようなので、<u>温厚</u>なコートが必要だ。",
+            "4": "雪の日には<u>温厚</u>なスープが飲みたくなる。"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "Người bác ôn hòa, hiền hậu (温厚な伯父) rất được mọi người yêu mến.",
-            "2": "dùng sai (nồng hậu -> 盛大/温かい)",
-            "3": "dùng sai (ấm áp dùng cho thời tiết/đồ vật -> 温かい)",
-            "4": "dùng sai (súp ấm -> 温かい)"
-          }
+            "1": "Người bác tính tình hiền lành, nhân hậu (温厚な伯父) được mọi người hết mực yêu quý.",
+            "2": "dùng sai (nồng nhiệt đón tiếp nên dùng 手厚い hoặc 温かい)",
+            "3": "dùng sai (áo khoác ấm áp nên dùng 暖かい)",
+            "4": "dùng sai (súp nóng hổi nên dùng 温かい)"
+          },
+          "answer": 1
         },
         {
           "question_number": 27,
           "word": "濁る",
           "options": {
-            "1": "外と室内の温度の差で窓が濁っている。",
-            "2": "日は空が雲で暗く濁っている。",
-            "3": "しばらく洗っていないので、車が濁っている。",
-            "4": "大雨で川の水が茶色く濁っている。"
+            "1": "外と室内の温度の差で窓が<u>濁って</u>いる。",
+            "2": "今日は空が雲で暗く<u>濁って</u>いる。",
+            "3": "しばらく洗っていないので、車が<u>濁って</u>いる。",
+            "4": "大雨で川の水が茶色く<u>濁って</u>いる。"
           },
-          "answer": 4,
           "options_vi": {
-            "1": "dùng sai (mờ hơi nước -> 曇る)",
-            "2": "dùng sai",
-            "3": "dùng sai (bẩn -> 汚れる)",
-            "4": "Do mưa lớn nên nước sông bị đục ngầu màu trà (濁っている)."
-          }
+            "1": "dùng sai (cửa kính mờ sương nên dùng 曇っている)",
+            "2": "dùng sai (bầu trời âm u nên dùng どんよりしている)",
+            "3": "dùng sai (xe bị bẩn nên dùng 汚れている)",
+            "4": "Do mưa to, nước sông bị đục ngầu (茶色く濁っている) chuyển sang màu nâu."
+          },
+          "answer": 4
         },
         {
           "question_number": 28,
           "word": "世代",
           "options": {
-            "1": "野口さんはまだ 20 代なので、世代を取っているとはいえない。",
-            "2": "先日のパーティーでは私と同じ世代の人がたくさんいて、話が盛り上がった。",
-            "3": "青山さんは今は日本語の先生をしているが、実は英語の先生の世代の方が長い。",
-            "4": "仕事を頑張るだけでなく、趣味も楽しんで、充実した世代を送りたい。"
+            "1": "野口さんはまだ 20 代なので、<u>世代</u>を取っているとはいえない。",
+            "2": "先日のパーティーでは私と同じ<u>世代</u>の人がたくさんいて、話が盛り上がった。",
+            "3": "青山さんは今は日本語の先生をしているが、実は英語の先生の<u>世代</u>の方が長い。",
+            "4": "仕事を頑張るだけでなく、趣味も楽しんで、充実した<u>世代</u>を送りたい。"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "dùng sai",
-            "2": "Ở bữa tiệc hôm trước có rất nhiều người cùng thế hệ (同じ世代) với tôi nên câu chuyện rất rôm rả.",
-            "3": "dùng sai (thâm niên -> 期間/キャリア)",
-            "4": "dùng sai (cuộc đời/thời kỳ -> 人生/時代)"
-          }
+            "1": "dùng sai (có tuổi nên dùng 年を取っている)",
+            "2": "Ở bữa tiệc hôm trước có nhiều người cùng thế hệ / cùng trang lứa (同じ世代) nên cuộc nói chuyện diễn ra rất sôi nổi.",
+            "3": "dùng sai (thời gian làm giáo viên nên dùng 年月/期間)",
+            "4": "dùng sai (trải qua năm tháng cuộc sống nên dùng 人生/日々)"
+          },
+          "answer": 2
         },
         {
           "question_number": 29,
           "word": "普及",
           "options": {
-            "1": "よくないうわさが普及しているので、気をつけてください。",
-            "2": "全員に飲み物が普及したようなので、森さんから乾杯のあいさつをお願いします。",
-            "3": "最近は携帯電話が普及しているので、家に電話を置かない家庭もある。",
-            "4": "先週からインフルエンザが普及していて、小学校が休みになっている。"
+            "1": "よくないうわさが<u>普及</u>しているので、気をつけてください。",
+            "2": "全員に飲み物が<u>普及</u>したようなので、森さんから乾杯のあいさつをお願いします。",
+            "3": "最近は携帯電話が<u>普及</u>しているので、家に電話を置かない家庭もある。",
+            "4": "先週からインフルエンザが<u>普及</u>していて、小学校が休みになっている。"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "dùng sai (tin đồn lan rộng -> 広がる)",
-            "2": "dùng sai",
-            "3": "Gần đây điện thoại di động rất phổ biến (普及している) nên có gia đình không lắp điện thoại cố định ở nhà.",
-            "4": "dùng sai (dịch cúm lan rộng -> 流行する)"
-          }
+            "1": "dùng sai (tin đồn lan rộng nên dùng 広まっている)",
+            "2": "dùng sai (chia đều đồ uống nên dùng 行き渡った)",
+            "3": "Gần đây điện thoại di động đã phổ cập rộng rãi (普及している) nên có những gia đình không lắp điện thoại bàn.",
+            "4": "dùng sai (dịch bệnh lây lan nên dùng 流行している)"
+          },
+          "answer": 3
         },
         {
           "question_number": 30,
           "word": "生じる",
           "options": {
-            "1": "メールシステムに問題が生じて、メールが送れなくなった。",
-            "2": "バターやチーズは牛乳から生じる。",
-            "3": "昨日、姉に 2 番目の子どもが生じた。",
-            "4": "いくら考えても、いいアイデアが生じない。"
+            "1": "メールシステムに問題が<u>生じて</u>、メールが送れなくなった。",
+            "2": "バターやチーズは牛乳から<u>生じる</u>。",
+            "3": "昨日、姉に 2 番目の子どもが<u>生じた</u>。",
+            "4": "いくら考えても、いいアイデアが<u>生じない</u>。"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "Hệ thống email phát sinh sự cố (問題が生じる) nên không gửi được email.",
-            "2": "dùng sai (làm từ / tạo thành -> 作られる)",
-            "3": "dùng sai (sinh ra con -> 生まれる)",
-            "4": "dùng sai (nảy ra ý tưởng -> 浮かぶ/湧く)"
-          }
+            "1": "Hệ thống email phát sinh sự cố (問題が生じて) khiến cho thư không thể gửi đi được.",
+            "2": "dùng sai (làm từ sữa nên dùng 作られる)",
+            "3": "dùng sai (sinh con nên dùng 生まれた)",
+            "4": "dùng sai (nảy ra ý tưởng nên dùng 浮かばない)"
+          },
+          "answer": 1
         }
       ]
     },
     {
       "section_name": "問題 7",
-      "instruction": "次の文の（ ）に入れるのに最もよいものを、１・２・３・４から一つ選びなさい。",
+      "instruction": "次の文の（ ）に入れるのに最もよいものを、1・2・3・4から一つ選びなさい。",
       "questions": [
         {
           "question_number": 31,
-          "question_text": "このカレーは 15 分 ( )あればできるので、 よく作る。",
+          "question_text": "このカレーは 15 分（ ）あればできるので、よく作る。",
           "options": {
             "1": "を",
             "2": "も",
             "3": "に",
             "4": "が"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "を",
-            "2": "nhấn mạnh khoảng thời gian dài/đủ (15分もあれば)",
-            "3": "に",
-            "4": "が"
-          }
+            "1": "không kết hợp với あれば",
+            "2": "chỉ cần chừng khoảng (~もあれば: chỉ cần chừng 15 phút là xong)",
+            "3": "không dùng trợ từ に",
+            "4": "không dùng trợ từ が"
+          },
+          "answer": 2
         },
         {
           "question_number": 32,
-          "question_text": "A: 「新しい携帯電話、 ちょっと使いづらいだよね。」\n B:「使っていれば ( )、慣れるよ。」",
+          "question_text": "A：「新しい携帯電話、ちょっと使いづらいだよね。」\nB：「使っていれば（ ）、慣れるよ。」",
           "options": {
             "1": "いまにも",
             "2": "ようやく",
             "3": "そのうち",
             "4": "いつのまに"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "ngay bây giờ",
-            "2": "cuối cùng thì",
-            "3": "chẳng mấy chốc, sớm muộn gì cũng (そのうち慣れるよ)",
-            "4": "tự lúc nào"
-          }
+            "1": "sắp sửa đến nơi (いまにも)",
+            "2": "cuối cùng thì (ようやく)",
+            "3": "chẳng mấy chốc, rồi thì (そのうち慣れるよ)",
+            "4": "tự lúc nào (いつのまに)"
+          },
+          "answer": 3
         },
         {
           "question_number": 33,
-          "question_text": "今朝は寝坊してしまい、食事をする時間( )顔を洗う時間もなかった。",
+          "question_text": "今朝は寝坊してしまい、食事をする時間（ ）顔を洗う時間もなかった。",
           "options": {
             "1": "すら",
             "2": "しか",
             "3": "とはいえ",
             "4": "どころか"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "đến cả... còn không có (食事をする時間すら)",
-            "2": "chỉ",
-            "3": "tuy rằng",
-            "4": "đừng nói là"
-          }
+            "1": "ngay cả (すら)",
+            "2": "chỉ (しか)",
+            "3": "mặc dù nói là (とはいえ)",
+            "4": "nói chi đến / đừng nói là ăn cơm, ngay cả rửa mặt cũng không có giờ (~どころか)"
+          },
+          "answer": 4
         },
         {
           "question_number": 34,
-          "question_text": "A: 「ねぇ、経済学のレポート書けた?」\n B:「うん、難しかったけど、( )書いたよ。」",
+          "question_text": "A：「ねぇ、経済学のレポート書けた?」\nB：「うん、難しかったけど、（ ）書いたよ。」",
           "options": {
             "1": "書けば",
             "2": "書いてでも",
             "3": "書くだけは",
             "4": "書いたわりに"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "nếu viết",
-            "2": "cho dù phải viết",
-            "3": "ít nhất thì cũng đã viết (cố gắng hoàn thành phần tối thiểu) (書くだけは書いたよ)",
-            "4": "dù đã viết nhưng"
-          }
+            "1": "nếu viết (書けば)",
+            "2": "dù phải viết (書いてでも)",
+            "3": "viết thì cũng đã viết rồi (chưa chắc điểm cao nhưng xong phần viết) (~だけは)",
+            "4": "dù đã viết (書いたわりに)"
+          },
+          "answer": 3
         },
         {
           "question_number": 35,
-          "question_text": "情報技術の発展( )、コミュニケーションの手段は多様化している。",
+          "question_text": "情報技術の発展（ ）、コミュニケーションの手段は多様化している。",
           "options": {
             "1": "において",
             "2": "にこたえて",
             "3": "にあたって",
             "4": "にともなって"
           },
-          "answer": 4,
           "options_vi": {
-            "1": "tại, ở",
-            "2": "đáp ứng",
-            "3": "khi, nhân dịp",
-            "4": "cùng với sự phát triển (情報技術の発展にともなって)"
-          }
+            "1": "ở, tại (において)",
+            "2": "đáp ứng (にこたえて)",
+            "3": "nhân dịp (にあたって)",
+            "4": "cùng với sự phát triển kéo theo (~にともなって)"
+          },
+          "answer": 4
         },
         {
           "question_number": 36,
-          "question_text": "（歯医者のホームページで）\n虫歯が小さい( )、簡単な治療で済みます。虫歯かもしれないと思ったら、早めに受診するようにしましょう。",
+          "question_text": "（歯医者のホームページで）\n虫歯が小さい（ ）、簡単な治療で済みます。虫歯かもしれないと思ったら、早めに受診するようにしましょう。",
           "options": {
             "1": "うちなら",
             "2": "うちでも",
             "3": "だけなら",
             "4": "だけでも"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "nếu còn trong điều kiện (sâu răng còn nhỏ) (うちなら)",
-            "2": "ngay cả trong lúc...",
-            "3": "chỉ nếu",
-            "4": "chỉ cần..."
-          }
+            "1": "khi còn / trong lúc sâu răng còn nhỏ (~うちなら: trong khi tình trạng còn nhẹ)",
+            "2": "ngay cả trong khi",
+            "3": "chỉ là",
+            "4": "ngay cả chỉ"
+          },
+          "answer": 1
         },
         {
           "question_number": 37,
-          "question_text": "A 水族館では、二か月前にイルカの赤ちゃんが生まれてから来場者が増え、非常に混雑する( )、開館時間を早めることを検討している。",
+          "question_text": "A 水族館では、二か月前にイルカの赤ちゃんが生まれてから来場者が増え、非常に混雑する（ ）、開館時間を早めることを検討している。",
           "options": {
             "1": "ようにしたとしても",
             "2": "ようにしたことから",
             "3": "ようになったとしても",
             "4": "ようになったことから"
           },
-          "answer": 4,
           "options_vi": {
-            "1": "cho dù làm thành...",
-            "2": "từ việc đã làm thành...",
-            "3": "cho dù trở nên...",
-            "4": "từ việc trở nên (trở nên đông đúc) nên (混雑するようになったことから)"
-          }
+            "1": "dẫu cho làm sao cho",
+            "2": "do đã chủ động làm sao cho",
+            "3": "cho dù đã trở nên",
+            "4": "xuất phát từ việc tình hình đã trở nên vô cùng đông đúc (~ようになったことから)"
+          },
+          "answer": 4
         },
         {
           "question_number": 38,
-          "question_text": "（ホテルで）\n客「これから西森町に行くんですが、どこかおいしい和食のお店はありませんか。」\nフロント「西森町に( )、「さくら」はいかがでしょうか。大変人気のあるお店です。」",
+          "question_text": "（ホテルで）\n客「これから西森町に行くんですが、どこかおいしい和食のお店はありませんか。」\nフロント「西森町に（ ）、「さくら」はいかがでしょうか。大変人気のあるお店です。」",
           "options": {
             "1": "伺うんでしたら",
             "2": "伺いますと",
             "3": "いらっしゃるんでしたら",
             "4": "いらっしゃいますと"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "nếu quý khách ghé thăm/đến (khiêm nhường ngữ khi nói về việc khách đến nơi nào đó) (西森町に伺うんでしたら)",
-            "2": "nếu ghé (dùng sai hướng hành động)",
-            "3": "nếu ngài đến (tôn kính ngữ, nhưng thường dùng 伺う cho hành động đi đến địa điểm của người khác)",
-            "4": "sai cấu trúc"
-          }
+            "1": "khiêm nhường ngữ (sai vì đang nói về hành động của khách)",
+            "2": "khiêm nhường ngữ",
+            "3": "tôn kính ngữ của 行く: nếu quý khách đến thị trấn Nishimori (~いらっしゃるんでしたら)",
+            "4": "hễ đến (không tự nhiên bằng thể điều kiện たら)"
+          },
+          "answer": 3
         },
         {
           "question_number": 39,
-          "question_text": "田中さんは仕事が忙しいらしく、最近テニスクラブの練習を ( )だ。",
+          "question_text": "田中さんは仕事が忙しいらしく、最近テニスクラブの練習を（ ）だ。",
           "options": {
             "1": "休みかねない",
             "2": "休みがち",
             "3": "とのことだ",
             "4": "休むに違いない"
           },
-          "answer": 2,
           "options_vi": {
-            "1": "có nguy cơ nghỉ",
-            "2": "hay có khuynh hướng nghỉ, hay nghỉ (休みがち)",
+            "1": "có nguy cơ nghỉ (chưa xảy ra)",
+            "2": "thường hay có xu hướng nghỉ tập (~がちだ)",
             "3": "nghe nói là",
-            "4": "chắc chắn là nghỉ"
-          }
+            "4": "chắc chắn sẽ nghỉ"
+          },
+          "answer": 2
         },
         {
           "question_number": 40,
-          "question_text": "飼っている犬が最近よくしゃっくりをする。心配になって病院で聞いてみたら、一時間以上続く場合は検査したほうがいいが、すぐに止まるなら( )と言われた。",
+          "question_text": "飼っている犬が最近よくしゃっくりをする。心配になって病院で聞いてみたら、一時間以上続く場合は検査したほうがいいが、すぐに止まるなら（ ）と言われた。",
           "options": {
             "1": "心配しなければならない",
             "2": "心配しないでもない",
             "3": "心配するわけではない",
             "4": "心配することはない"
           },
-          "answer": 4,
           "options_vi": {
             "1": "phải lo lắng",
-            "2": "không phải là không lo",
-            "3": "không có nghĩa là lo",
-            "4": "không có gì phải lo lắng cả (心配することはないと言われた)"
-          }
+            "2": "không hẳn là không lo",
+            "3": "không phải là lo",
+            "4": "không cần thiết phải lo lắng đâu (~ことはない)"
+          },
+          "answer": 4
         },
         {
           "question_number": 41,
-          "question_text": "私が教えている経営学の講義では、去年から、毎回学生に講義の感想や質問を書いて（ ）。そこから気づかされることもも多いからだ。",
+          "question_text": "私が教えている経営学の講義では、去年から、毎回学生に講義の感想や質問を書いて（ ）。そこから気づかされることも多いからだ。",
           "options": {
-            "1": "してもらうことにしている",
-            "2": "してもらうことがある",
-            "3": "してあげることにしている",
-            "4": "してあげることがある"
+            "1": "出してもらうことにしている",
+            "2": "出してもらうことがある",
+            "3": "出してあげることにしている",
+            "4": "出してあげることがある"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "tôi đưa ra quy định/thói quen là bắt sinh viên viết nộp (reibun: 毎回書いてもらうことにしている)",
-            "2": "thỉnh thoảng bắt viết",
-            "3": "tôi làm hộ",
-            "4": "thỉnh thoảng tôi làm hộ"
-          }
+            "1": "chủ động tạo quy định yêu cầu sinh viên nộp cho mình (~てもらうことにしている)",
+            "2": "thỉnh thoảng có được nộp",
+            "3": "nộp hộ cho sinh viên",
+            "4": "thỉnh thoảng nộp cho sinh viên"
+          },
+          "answer": 1
         },
         {
           "question_number": 42,
-          "question_text": "A: 「ねぇ、大変。これから行くお寺、見学するには( )だよ、ガイドブックのここに書いてある」\nB:「本当だ。今から予約できるか電話して聞いてみようか」",
+          "question_text": "A：「ねぇ、大変。これから行くお寺、見学するには（ ）だよ、ガイドブックのここに書いてある」\nB：「本当だ。今から予約できるか電話して聞いてみようか」",
           "options": {
             "1": "予約しないといけないみたい",
             "2": "予約しないといけないはず",
             "3": "予約したくなるみたい",
             "4": "予約したくなるはず"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "hình như là phải đặt trước (thông tin mới đọc được từ sách) (予約しないといけないみたい)",
-            "2": "chắc là phải đặt (phỏng đoán chắc chắn)",
-            "3": "hình như muốn đặt",
+            "1": "có vẻ như bắt buộc phải đặt chỗ trước đấy (予約しないといけないみたい)",
+            "2": "chắc chắn phải đặt (không hợp ngữ cảnh phát hiện thông tin mới đọc được)",
+            "3": "có vẻ muốn đặt",
             "4": "chắc là muốn đặt"
-          }
+          },
+          "answer": 1
         }
       ]
     },
     {
       "section_name": "問題 8",
-      "instruction": "次の文の ★ に入る最もよいものを、１・２・３・４から一つ選びなさい。",
+      "instruction": "次の文の ★ に入る最もよいものを、1・2・3・4から一つ選びなさい。",
       "questions": [
         {
           "question_number": 43,
-          "question_text": "この歌を聞く ★ ことだ。彼はカラオケに行くと必ずこの歌を歌っていた。",
+          "question_text": "この歌を聞く _____ _____ ★ _____ ことだ。彼はカラオケに行くと必ずこの歌を歌っていた。",
           "options": {
             "1": "のは",
             "2": "思い出す",
             "3": "たびに",
             "4": "高校時代の友人の"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "đó là",
-            "2": "nhớ lại",
-            "3": "mỗi khi (この歌を聞くたびに思い出すのは高校時代の友人の)",
-            "4": "người bạn thời cấp 3"
-          }
+            "1": "là (のは)",
+            "2": "nhớ lại (思い出す)",
+            "3": "mỗi lần (たびに)",
+            "4": "về người bạn thời cấp ba (高校時代の友人の)"
+          },
+          "ordered_sequence": [
+            3,
+            2,
+            1,
+            4
+          ],
+          "answer": 1,
+          "full_sentence": "この歌を聞くたびに思い出すのは高校時代の友人のことだ。彼はカラオケに行くと必ずこの歌を歌っていた。"
         },
         {
           "question_number": 44,
-          "question_text": "昨日、アルバイトに遅刻しそうだったので ★ 、結局遅刻してしまった。",
+          "question_text": "昨日、アルバイトに遅刻しそうだったので _____ _____ ★ _____ 、結局遅刻してしまった。",
           "options": {
             "1": "タクシーに乗ったら",
             "2": "かえって時間がかかり",
             "3": "急ごうと思って",
             "4": "道が渋滞していたせいで"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "nếu lên taxi",
-            "2": "ngược lại tốn thời gian hơn",
-            "3": "vì nghĩ là phải khẩn trương (急ごうと思ってタクシーに乗ったら、道が渋滞していたせいで)",
-            "4": "tại vì đường tắc"
-          }
+            "1": "khi bắt taxi (タクシーに乗ったら)",
+            "2": "trái lại càng tốn thời gian hơn (かえって時間がかかり)",
+            "3": "định đi gấp (急ごうと思って)",
+            "4": "vì đường bị tắc nghẽn (道が渋滞していたせいで)"
+          },
+          "ordered_sequence": [
+            3,
+            1,
+            4,
+            2
+          ],
+          "answer": 4,
+          "full_sentence": "昨日、アルバイトに遅刻しそうだったので急ごうと思ってタクシーに乗ったら道が渋滞していたせいでかえって時間がかかり、結局遅刻してしまった。"
         },
         {
           "question_number": 45,
-          "question_text": "来月結婚する友人に結婚式のスピーチを頼まれた。大勢の前で話すのは ★ 引き受けることにした。",
+          "question_text": "来月結婚する友人に結婚式のスピーチを頼まれた。大勢の前で話すのは _____ _____ ★ _____ 引き受けることにした。",
           "options": {
             "1": "悩んだのだが",
             "2": "と言われて",
             "3": "どうしても",
             "4": "苦手なので"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "dù đã đắn đo suy nghĩ (大勢の前で話すのは苦手なので悩んだのだが、引き受けることにした)",
-            "2": "bị nói là",
-            "3": "dù thế nào",
-            "4": "vì kém, vì không giỏi"
-          }
+            "1": "đã rất băn khoăn (悩んだのだが)",
+            "2": "được tha thiết yêu cầu rằng (と言われて)",
+            "3": "bằng mọi giá, khẩn thiết (どうしても)",
+            "4": "vì vốn rất kém (苦手なので)"
+          },
+          "ordered_sequence": [
+            4,
+            1,
+            3,
+            2
+          ],
+          "answer": 3,
+          "full_sentence": "来月結婚する友人に結婚式のスピーチを頼まれた。大勢の前で話すのは苦手なので悩んだのだがどうしてもと言われて引き受けることにした。"
         },
         {
           "question_number": 46,
-          "question_text": "先日の政治家 A 氏の発言はあまりに無責任だ。 ★ 、と思う。",
+          "question_text": "先日の政治家 A 氏の発言はあまりに無責任だ。 _____ _____ ★ _____ と思う。",
           "options": {
             "1": "政治家としての",
             "2": "うえで",
             "3": "発言しなければならなかった",
             "4": "自分の立場をよく考えた"
           },
-          "answer": 1,
           "options_vi": {
-            "1": "với tư cách là chính trị gia (政治家としての自分の立場をよく考えたうえで発言しなければならなかった)",
-            "2": "sau khi",
-            "3": "phải phát biểu",
-            "4": "suy nghĩ kỹ về lập trường của bản thân"
-          }
+            "1": "với tư cách chính trị gia (政治家としての)",
+            "2": "sau khi / trên cơ sở (~うえで)",
+            "3": "đáng lẽ phải phát ngôn cẩn trọng (発言しなければならなかった)",
+            "4": "suy nghĩ thấu đáo về lập trường bản thân (自分の立場をよく考えた)"
+          },
+          "ordered_sequence": [
+            1,
+            4,
+            2,
+            3
+          ],
+          "answer": 2,
+          "full_sentence": "先日の政治家 A 氏の発言はあまりに無責任だ。政治家としての自分の立場をよく考えたうえで発言しなければならなかったと思う。"
         },
         {
           "question_number": 47,
-          "question_text": "食事や睡眠などの生活習慣は一度乱れてしまうと ★ 大切だ。",
+          "question_text": "食事や睡眠などの生活習慣は一度乱れてしまうと _____ _____ ★ _____ 大切だ。",
           "options": {
             "1": "規則正しい生活を",
             "2": "戻そうとしても",
             "3": "普段から意識することが",
-            "4": "なかなか戻せいないので"
+            "4": "なかなか戻せないので"
           },
-          "answer": 3,
           "options_vi": {
-            "1": "cuộc sống điều độ",
-            "2": "cho dù cố gắng khôi phục",
-            "3": "việc ý thức ngay từ bình thường là rất quan trọng (食事や睡眠などの生活習慣は一度乱れてしまうと戻そうとしてもなかなか戻せないので、普段から意識することが大切だ)"
-          }
+            "1": "lối sống điều độ quy củ (規則正しい生活を)",
+            "2": "dù có cố gắng quay trở lại (戻そうとしても)",
+            "3": "việc hàng ngày phải luôn ý thức (普段から意識することが)",
+            "4": "rất khó để khôi phục lại nên (なかなか戻せないので)"
+          },
+          "ordered_sequence": [
+            2,
+            4,
+            1,
+            3
+          ],
+          "answer": 1,
+          "full_sentence": "食事や睡眠などの生活習慣は一度乱れてしまうと戻そうとしてもなかなか戻せないので規則正しい生活を普段から意識することが大切だ。"
         }
       ]
     }
