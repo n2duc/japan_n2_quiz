@@ -436,8 +436,8 @@ export function ChatBot() {
             <div className="bg-amber-500/10 px-3 py-1.5 text-center text-xs text-amber-600 dark:text-amber-400">
               ⚠️{" "}
               {isJa
-                ? "APIサーバー (localhost:8000) に接続できません。`python server.py` を実行してください。"
-                : "Chưa kết nối được RAG API. Bạn hãy chạy `python server.py` tại rag_jp nhé!"}
+                ? "チャットボットに接続できませんでした！後でもう一度お試しください。"
+                : "Chưa kết nối được Chatbot! Hãy quay trở lại sau nhé."}
             </div>
           )}
 
