@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useMemo, useCallback } from "react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
@@ -35,6 +36,7 @@ import {
 } from "@/lib/storage"
 import { sounds } from "@/lib/sound"
 import { useLanguage } from "@/lib/i18n"
+import { customExamText } from "@/lib/custom-exams/text"
 import { LanguageToggle } from "@/components/language-toggle"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { QuizPlayer } from "@/components/quiz-player"
@@ -548,6 +550,13 @@ export default function HomePage() {
             {t.heroHeading}
           </h2>
         </div>
+
+        <Link
+          href={`/${language}/my-exams/`}
+          className="mb-4 inline-flex items-center gap-1.5 rounded-xl border border-dashed border-[#5368a4]/50 px-3 py-2 text-xs font-bold text-[#5368a4] transition hover:bg-[#5368a4]/10 dark:text-[#8ea2db]"
+        >
+          + {customExamText(language).homeLink}
+        </Link>
 
         {/* Main 3 Tabs Switcher: Grammar vs JLPT vs Favorites */}
         <div className="mb-4 lg:mb-5 grid grid-cols-3 rounded-2xl bg-slate-200/60 p-1 lg:max-w-xl dark:bg-[#181926]">

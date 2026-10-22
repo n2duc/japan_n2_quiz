@@ -163,3 +163,36 @@
 ::view-transition-new(root) {
   z-index: 9999;
 }
+
+/* ============================================================================
+   PDF import loading animation (components/pdf-loading-cat.tsx)
+   ============================================================================ */
+@keyframes cat-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+@keyframes cat-tail {
+  0%, 100% { transform: rotate(-14deg); }
+  50% { transform: rotate(16deg); }
+}
+@keyframes cat-scan {
+  0% { transform: translateY(0); opacity: 0; }
+  10%, 90% { opacity: 1; }
+  100% { transform: translateY(38px); opacity: 0; }
+}
+@keyframes cat-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+@keyframes cat-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cat-blink { transform-box: fill-box; transform-origin: center; animation: cat-blink 4s infinite; }
+.cat-tail { transform-box: fill-box; transform-origin: 0% 100%; animation: cat-tail 1.4s ease-in-out infinite; }
+.cat-scan { animation: cat-scan 2.2s ease-in-out infinite; }
+.cat-bob { animation: cat-bob 2.4s ease-in-out infinite; }
+.cat-msg { animation: cat-fade 0.4s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .cat-blink, .cat-tail, .cat-scan, .cat-bob, .cat-msg { animation: none; }
+}

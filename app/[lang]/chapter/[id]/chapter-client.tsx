@@ -14,9 +14,13 @@ import { useLanguage } from "@/lib/i18n"
 
 interface ChapterClientPageProps {
   chapter: Chapter
+  backHref?: string
 }
 
-export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
+export function ChapterClientPage({
+  chapter,
+  backHref,
+}: ChapterClientPageProps) {
   const router = useRouter()
   const { t, formatString, language } = useLanguage()
   const chapterId = chapter.chapter_id
@@ -110,7 +114,7 @@ export function ChapterClientPage({ chapter }: ChapterClientPageProps) {
       <ChapterSectionsView
         chapter={chapter}
         progress={progress}
-        onBack={() => router.push(`/${language}`)}
+        onBack={() => router.push(backHref ?? `/${language}`)}
         onSelectSection={handleSelectSection}
         onSelectChapterAll={handleSelectChapterAll}
         onSwitchChapter={(newId) => router.push(`/${language}/chapter/${newId}`)}
