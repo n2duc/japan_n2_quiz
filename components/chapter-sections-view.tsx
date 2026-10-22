@@ -250,32 +250,32 @@ export function ChapterSectionsView({
   return (
     <div className="mx-auto w-full max-w-2xl animate-in px-4 py-6 text-slate-800 duration-200 fade-in lg:max-w-6xl xl:max-w-7xl lg:px-8 lg:py-10 dark:text-slate-100">
       {/* Top Header Bar with navigation hierarchy & Chapter Switch Sheet */}
-      <header className="mb-6 lg:mb-8 flex items-center justify-between">
+      <header className="mb-6 lg:mb-8 flex items-center justify-between gap-1">
         <div className="flex items-center gap-3.5">
           <button
             onClick={onBack}
             aria-label={t.back}
             title={t.back}
-            className="flex h-10 w-10 lg:h-11 lg:w-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-[#5368a4] focus-visible:outline-none active:scale-95 dark:border-white/10 dark:bg-[#1a1c26] dark:text-slate-300 dark:hover:bg-[#202234] dark:hover:text-white"
+            className="flex h-10 w-10 lg:h-11 lg:w-11 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-[#5368a4] focus-visible:outline-none active:scale-95 dark:border-white/10 dark:bg-[#1a1c26] dark:text-slate-300 dark:hover:bg-[#202234] dark:hover:text-white shrink-0"
           >
             <HugeiconsIcon icon={ArrowLeft01Icon} size={20} />
           </button>
           <div>
-            <span className="block text-[11px] font-bold tracking-wider text-[#5368a4] uppercase dark:text-[#8ea2db]">
+            <span className="text-[11px] font-bold tracking-wider text-[#5368a4] uppercase dark:text-[#8ea2db] line-clamp-1">
               {isExam
                 ? language === "ja"
                   ? "公式過去問"
                   : "Đề thi chính thức JLPT N2"
                 : `Chapter ${chapterId}`}
             </span>
-            <h1 className="text-lg leading-snug font-bold tracking-tight text-slate-900 sm:text-xl lg:text-2xl dark:text-white">
+            <h1 className="text-lg leading-snug font-bold tracking-tight text-slate-900 sm:text-xl lg:text-2xl dark:text-white line-clamp-1">
               {chapter.chapter_name}
             </h1>
           </div>
         </div>
 
         {/* Change Chapter Button (Sheet Trigger) */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger
               render={
@@ -490,7 +490,7 @@ export function ChapterSectionsView({
         {/* Right Column on Laptop / Main Content: Section Cards */}
         <div className="lg:col-span-7 xl:col-span-8 space-y-3.5">
           {/* Section List Header */}
-          <div className="flex items-center justify-between mb-1.5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-1.5">
             <h3 className="text-sm sm:text-base font-bold tracking-tight text-slate-800 dark:text-slate-100">
               {formatString(t.sectionsInChapter, { chapter: chapter.chapter_name })}
             </h3>
