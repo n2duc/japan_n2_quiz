@@ -18,7 +18,21 @@ export function getExamChapters(): Chapter[] {
   return examChapters
 }
 
+// Đề do người dùng tự upload (IndexedDB). Cố ý tách khỏi `chapters` để không lẫn vào
+// thống kê, tab Ngữ pháp/JLPT và cache câu hỏi dựng sẵn khi build.
+let customChapters: Chapter[] = []
+
+export function setCustomChapters(list: Chapter[]) {
+  customChapters = list
+}
+
+export function getCustomChapters(): Chapter[] {
+  return customChapters
+}
+
 export function getChapterById(id: number | string): Chapter | undefined {
+  const custom = customChapters.find((c) => String(c.chapter_id) === String(id))
+  if (custom) return custom
   return chapters.find(
     (c) =>
       c.chapter_id === id ||

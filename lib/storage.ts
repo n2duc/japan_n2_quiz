@@ -158,3 +158,26 @@ export function resetAllProgress() {
     new CustomEvent("n2-progress-updated", { detail: defaultProgress })
   )
 }
+
+/** Xóa tiến độ, bookmark và câu sai thuộc một chapter (dùng khi xóa đề tự tạo). */
+export function removeChapterProgress(chapterId: number | string): ProgressState {
+  const current = getStoredProgress()
+  const qPrefix = `ch${chapterId}-s`
+  const sectionProgress = Object.fromEntries(
+    Object.entries(current.sectionProgress).filter(
+      ([key]) => !key.startsWith(qPrefix)
+    )
+  )
+  const next: ProgressState = {
+    ...current,
+    sectionProgress,
+    wrongQuestionIds: current.wrongQuestionIds.filter(
+      (id) => !id.startsWith(qPrefix)
+    ),
+    bookmarkedQuestionIds: current.bookmarkedQuestionIds.filter(
+      (id) => !id.startsWith(qPrefix)
+    ),
+  }
+  saveProgress(next)
+  return next
+}

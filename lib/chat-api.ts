@@ -14,7 +14,7 @@ export interface ChatMessage {
   createdAt: number
 }
 
-const API_BASE =
+export const API_BASE =
   process.env.NEXT_PUBLIC_CHAT_API_URL || "http://localhost:8000"
 
 export async function checkChatHealth(): Promise<boolean> {
